@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "form": true,
+          "title": "Use a custom hostname",
+          "description": "Enable the ingress resource that exposes the application to the world."
+        },
+        "hostname": {
+          "type": "string",
+          "form": true,
+          "title": "Hostname",
+          "hidden": {
+            "condition": false,
+            "value": "ingress.enabled"
+          }
+        },
+        "tls": {
+          "type": "boolean",
+          "form": true,
+          "title": "Use TLS",
+          "default": true,
+          "hidden": {
+            "condition": false,
+            "value": "ingress.enabled"
+          }
+        }
+      }
+    },
+    "vscode": {
+      "type": "object",
+      "form": true,
+      "title": "VsCode configuration",
+      "properties": {
+        "password": {
+          "type": "string",
+          "form": true,
+          "title": "Access password",
+          "default": "changeme",
+          "description": "Enable the ingress resource that exposes the application to the world."
+        }
+      }
+    },
+    "git": {
+      "description": "Git user configuration",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "form": true,
+          "title": "Configure git",
+          "description": "Enable the git's configuration"
+        },
+        "name": {
+          "type": "string",
+          "description": "user name for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.name}}",
+            "readonly": true
+          }
+        },
+        "email": {
+          "type": "string",
+          "description": "user email for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.email}}",
+            "readonly": true
+          }
+        },
+        "cache": {
+          "type": "string",
+          "description": "duration in seconds of the credentials cache duration",
+          "default": "",
+          "x-form": {
+            "value": "{{git.credentials_cache_duration}}",
+            "readonly": false
+          }
+        }
+      }
+    }
+  }
+}
