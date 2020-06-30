@@ -25,9 +25,7 @@ spec:
     spec:
       volumes:
         - name: {{$volumeName}}
-          hostPath:
-            path: /mnt/data/
-            type: DirectoryOrCreate
+          emptyDir: {}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
