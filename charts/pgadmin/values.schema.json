@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "form": true,
+          "title": "Use a custom hostname",
+          "description": "Enable the ingress resource that exposes the application to the world."
+        },
+        "hostname": {
+          "type": "string",
+          "form": true,
+          "title": "Hostname",
+          "hidden": {
+            "condition": false,
+            "value": "ingress.enabled"
+          }
+        },
+        "tls": {
+          "type": "boolean",
+          "form": true,
+          "title": "Use TLS",
+          "default": true,
+          "hidden": {
+            "condition": false,
+            "value": "ingress.enabled"
+          }
+        }
+      }
+    }
+  }
+}
