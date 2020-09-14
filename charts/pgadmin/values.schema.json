@@ -7,29 +7,37 @@
       "form": true,
       "title": "Ingress Details",
       "properties": {
-        "enabled": {
-          "type": "boolean",
-          "form": true,
-          "title": "Use a custom hostname",
-          "description": "Enable the ingress resource that exposes the application to the world."
-        },
         "hostname": {
           "type": "string",
           "form": true,
           "title": "Hostname",
-          "hidden": {
-            "condition": false,
-            "value": "ingress.enabled"
+          "x-form": {
+            "value": "{{ingress.hosts.host}}",
+            "readonly": false
           }
         },
-        "tls": {
-          "type": "boolean",
-          "form": true,
-          "title": "Use TLS",
-          "default": true,
-          "hidden": {
-            "condition": false,
-            "value": "ingress.enabled"
+        "pgadmin": {
+          "type": "object",
+          "form": "true",
+          "properties": {
+            "mail": {
+              "type": "string",
+              "form": true,
+              "title": "Nom dutilisateur",
+              "x-form": {
+                "value": "{{env.mail}}",
+                "readonly": false
+              }
+            },
+            "password": {
+              "type": "string",
+              "form": true,
+              "title": "Mot de passe",
+              "x-form": {
+                "value": "{{env.password}}",
+                "readonly": false
+              }
+            }
           }
         }
       }
