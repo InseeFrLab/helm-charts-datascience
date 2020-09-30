@@ -4,9 +4,9 @@
 
 replicaCount: 1
 
-env:
-  mail: example@toto.com
-  password: toto
+pgadmin:
+  mail: example@example.com
+  password: password
 
 image:
   repository: dpage/pgadmin4
