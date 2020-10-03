@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "rstudio.fullname" . }}
+  labels:
+    {{- include "rstudio.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.rstudio.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "rstudio.selectorLabels" . | nindent 4 }}
