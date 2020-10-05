@@ -14,6 +14,16 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-10-05T14:28:56.694544053Z"
+    description: Outil d'administration de bases de données PostgreSQL
+    digest: 6366caa89d6790d98503980c137daddbb8f6454a98337246417240022e79b242
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.7/pgadmin-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-09-30T13:39:51.099469178Z"
     description: Outil d'administration de bases de données PostgreSQL
     digest: 3256e745d6275941de3d3aa1a78b51cecef6650457a1d1f08db1b4db89608807
@@ -83,6 +93,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
   rstudio:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-05T14:28:56.792555639Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 558ca43ad49975e662d78807abbc836ae190ec163becf238acd4f4865fb25349
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.2/rstudio-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-05T13:00:57.600640089Z"
