@@ -158,6 +158,11 @@
                     "title": "Hostname",
                     "x-form": {
                         "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "rstudio",
+                        "name": "ihm"
                     }
                 }
             }
