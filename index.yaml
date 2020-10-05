@@ -82,6 +82,18 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
+  rstudio:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-05T12:41:57.004067686Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 687099844573c0802d3ed139f6fa7d41ec132aa6f33b2f093099c116dcb9bd1b
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.0/rstudio-0.1.0.tgz
+    version: 0.1.0
   vs-code:
   - apiVersion: v2
     appVersion: latest
