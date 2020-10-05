@@ -39,10 +39,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with .Values.rstudio.env }}
-          env:
-            {{- toYaml . | nindent 14 }}
-          {{- end}}
+          env: 
+           {{- range $key, $val := .Values.rstudio.env }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end}}
           ports:
             - name: http
               containerPort: 8787
