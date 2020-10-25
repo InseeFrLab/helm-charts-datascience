@@ -47,15 +47,15 @@ spec:
           envFrom: 
             {{- if .Values.environment.s3 }}
             - configMapRef:
-              name: {{ include "rstudio.configMapNameS3" . }}
+                name: {{ include "rstudio.configMapNameS3" . }}
             {{- end }}
             {{- if .Values.environment.vault }}
             - configMapRef:
-              name: {{ include "rstudio.configMapNameVault" . }}
+                name: {{ include "rstudio.configMapNameVault" . }}
             {{- end }}
             {{- if .Values.environment.git }}
             - configMapRef:
-              name: {{ include "rstudio.configMapNameGit" . }}
+                name: {{ include "rstudio.configMapNameGit" . }}
             {{- end }}
           ports:
             - name: http
