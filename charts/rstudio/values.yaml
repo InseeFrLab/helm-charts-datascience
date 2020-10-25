@@ -2,7 +2,7 @@
 
 rstudio:
   password: "changeme"
-  root: "TRUE"
+  
 
 fetch:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
@@ -12,6 +12,7 @@ environment:
   s3: true
   vault: true
   git: true
+  root: true
 
 s3:
   # Specifies whether a config map should be created

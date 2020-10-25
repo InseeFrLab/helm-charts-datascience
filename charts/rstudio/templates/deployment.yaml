@@ -40,10 +40,12 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-           {{- range $key, $val := .Values.rstudio }}
-            - name: {{ $key }}
-              value: {{ $val | quote }}
-            {{- end}}
+            - name: PASSWORD
+              value: {{ .Values.rstudio.password }}
+            {{- if .Values.environment.root }}
+            - name: ROOT
+              value: "TRUE"
+            {{- end }}          
           envFrom: 
             {{- if .Values.environment.s3 }}
             - configMapRef:
