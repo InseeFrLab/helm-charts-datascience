@@ -1,3 +1,4 @@
+{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -68,7 +69,7 @@ Create the name of the config map S3 to use
 */}}
 {{- define "rstudio.configMapNameS3" -}}
 {{- if .Values.s3.create }}
-{{- $name:= (printf "%s-configMapS3" (include "rstudio.fullname" .) )  }}
+{{- $name:= (printf "%s-configmaps3" (include "rstudio.fullname" .) )  }}
 {{- default $name .Values.s3.configMapName }}
 {{- else }}
 {{- default "default" .Values.s3.configMapName }}
@@ -80,7 +81,7 @@ Create the name of the config map Vault to use
 */}}
 {{- define "rstudio.configMapNameVault" -}}
 {{- if .Values.vault.create }}
-{{- $name:= (printf "%s-configMapVault" (include "rstudio.fullname" .) )  }}
+{{- $name:= (printf "%s-configmapvault" (include "rstudio.fullname" .) )  }}
 {{- default $name .Values.vault.configMapName }}
 {{- else }}
 {{- default "default" .Values.vault.configMapName }}
@@ -92,7 +93,7 @@ Create the name of the config map Git to use
 */}}
 {{- define "rstudio.configMapNameGit" -}}
 {{- if .Values.vault.create }}
-{{- $name:= (printf "%s-configMapGit" (include "rstudio.fullname" .) )  }}
+{{- $name:= (printf "%s-configmapgit" (include "rstudio.fullname" .) )  }}
 {{- default $name .Values.git.configMapName }}
 {{- else }}
 {{- default "default" .Values.git.configMapName }}

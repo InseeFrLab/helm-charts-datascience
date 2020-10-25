@@ -75,7 +75,7 @@ spec:
             - mountPath: /data
               name: {{$volumeName}}
       initContainers:
-        - name: standard_init
+        - name: standard-init
           image: "ubuntu:xenial"
           command: ["/bin/sh","-c"]
           args: ["apt update", "apt install -y wget", "cd /data", "wget {{ .Values.fetch.standardInit}}"]
