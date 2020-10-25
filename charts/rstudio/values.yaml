@@ -6,6 +6,7 @@ rstudio:
 
 fetch:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
+  filename: "onyxia-init.sh"
   personalInit: "null"
 
 environment:
