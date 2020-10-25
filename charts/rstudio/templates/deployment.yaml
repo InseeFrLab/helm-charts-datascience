@@ -39,11 +39,24 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: 
-           {{- range $key, $val := .Values.rstudio.env }}
+          env:
+           {{- range $key, $val := .Values.rstudio }}
             - name: {{ $key }}
               value: {{ $val | quote }}
             {{- end}}
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+              name: {{ include "rstudio.configMapNameS3" . }}
+            {{- end }}
+            {{- if .Values.environment.vault }}
+            - configMapRef:
+              name: {{ include "rstudio.configMapNameVault" . }}
+            {{- end }}
+            {{- if .Values.environment.git }}
+            - configMapRef:
+              name: {{ include "rstudio.configMapNameGit" . }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8787
@@ -65,7 +78,7 @@ spec:
         - name: standard_init
           image: "ubuntu:xenial"
           command: ["/bin/sh","-c"]
-          args: ["apt update", "apt install -y wget", "cd /data", "wget {{ .Values.rstudio.fetch.standardInit}}"]
+          args: ["apt update", "apt install -y wget", "cd /data", "wget {{ .Values.fetch.standardInit}}"]
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          

@@ -16,6 +16,27 @@
                 }
             }
         },
+        "environment": {
+            "description": "configuration of your environment variables",
+            "type": "object",
+            "properties": {
+                "s3": {
+                    "type": "boolean",
+                    "description": "Add S3 temporary identity inside your environment",
+                    "default": true
+                },
+                "vault": {
+                    "type": "boolean",
+                    "description": "Add vault temporary identity inside your environment",
+                    "default": true
+                },
+                "git": {
+                    "type": "boolean",
+                    "description": "Add git config inside your environment",
+                    "default": true
+                }
+            }
+        },
         "script": {
             "type": "object",
             "description": "scripts",
@@ -107,42 +128,40 @@
                     "description": "AWS Access Key",
                     "type": "string",
                     "x-form": {
-                        "value": "{{s3.AWS_ACCESS_KEY_ID}}"
+                        "value": "{{s3.AWS_ACCESS_KEY_ID}}",
+                        "hidden": true
                     }
                 },
                 "endpoint": {
                     "description": "AWS S3 Endpoint",
                     "type": "string",
                     "x-form": {
-                        "value": "{{s3.AWS_S3_ENDPOINT}}"
+                        "value": "{{s3.AWS_S3_ENDPOINT}}",
+                        "hidden": true
                     }
                 },
                 "defaultRegion": {
                     "description": "AWS S3 default region",
                     "type": "string",
                     "x-form": {
-                        "value": "{{s3.AWS_DEFAULT_REGION}}"
+                        "value": "{{s3.AWS_DEFAULT_REGION}}",
+                        "hidden": true
                     }
                 },
                 "secretAccessKey": {
                     "description": "AWS S3 secret access key",
                     "type": "string",
                     "x-form": {
-                        "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+                        "value": "{{s3.AWS_SECRET_ACCESS_KEY}}",
+                        "hidden": true
                     }
                 },
                 "sessionToken": {
                     "description": "AWS S3 session Token",
                     "type": "string",
                     "x-form": {
-                        "value": "{{s3.AWS_SESSION_TOKEN}}"
-                    }
-                },
-                "expiration": {
-                    "description": "Temporary identity expiration date",
-                    "type": "string",
-                    "x-form": {
-                        "value": "{{s3.AWS_EXPIRATION}}"
+                        "value": "{{s3.AWS_SESSION_TOKEN}}",
+                        "hidden": true
                     }
                 }
             }

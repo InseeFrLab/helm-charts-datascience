@@ -1,0 +1,15 @@
+{{- if .Values.environment.vault -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "rstudio.configMapNameVault" . }}
+  labels:
+    {{- include "rstudio.labels" . | nindent 4 }}
+data:
+  VAULT_ADDR: "{{ .Values.vault.url }}"
+  VAULT_TOKEN: "{{ .Values.vault.token }}"
+  VAULT_RELATIVE_PATH: "{{ .Values.vault.secret }}"
+  VAULT_TOP_DIR: "{{ .Values.vault.directory }}"
+  VAULT_MOUNT: "{{ .Values.vault.mount }}"
+
+{{- end }}

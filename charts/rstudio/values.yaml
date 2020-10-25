@@ -1,26 +1,52 @@
 # Default values for rstudio.
 
 rstudio:
-  env:
-    AWS_ACCESS_KEY_ID : "null"
-    AWS_S3_ENDPOINT : "null"
-    AWS_DEFAULT_REGION" : "null"
-    AWS_SECRET_ACCESS_KEY" : "null"
-    AWS_SESSION_TOKEN" : "null"
-    AWS_EXPIRATION" : "null"
-    GIT_USER_NAME": "null"
-    GIT_USER_MAIL": "null"
-    GIT_CREDENTIALS_CACHE_DURATION": "null"
-    VAULT_ADDR": "null"
-    VAULT_TOKEN": "null"
-    VAULT_RELATIVE_PATH: "null"    
-    VAULT_TOP_DIR: "null"
-    VAULT_MOUNT: "null"
-    ROOT: "TRUE"
-    PASSWORD: "changeme"
-  fetch:
-    standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
-    personalInit: "null"
+  password: "changeme"
+  root: "TRUE"
+
+fetch:
+  standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
+  personalInit: "null"
+
+environment:
+  s3: true
+  vault: true
+  git: true
+
+s3:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: ""
+  defaultRegion: ""
+  secretAccessKey: ""
+  sessionToken: ""
+
+
+vault:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  token: ""
+  url: ""
+  mount: ""
+  secret: ""
+  directory: ""  
+
+git:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  name: ""
+  email: ""
+  cache: ""
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

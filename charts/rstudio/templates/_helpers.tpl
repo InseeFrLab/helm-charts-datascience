@@ -60,3 +60,41 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+
+{{/*
+Create the name of the config map S3 to use
+*/}}
+{{- define "rstudio.configMapNameS3" -}}
+{{- if .Values.s3.create }}
+{{- $name:= (printf "%s-configMapS3" (include "rstudio.fullname" .) )  }}
+{{- default $name .Values.s3.configMapName }}
+{{- else }}
+{{- default "default" .Values.s3.configMapName }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the config map Vault to use
+*/}}
+{{- define "rstudio.configMapNameVault" -}}
+{{- if .Values.vault.create }}
+{{- $name:= (printf "%s-configMapVault" (include "rstudio.fullname" .) )  }}
+{{- default $name .Values.vault.configMapName }}
+{{- else }}
+{{- default "default" .Values.vault.configMapName }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the config map Git to use
+*/}}
+{{- define "rstudio.configMapNameGit" -}}
+{{- if .Values.vault.create }}
+{{- $name:= (printf "%s-configMapGit" (include "rstudio.fullname" .) )  }}
+{{- default $name .Values.git.configMapName }}
+{{- else }}
+{{- default "default" .Values.git.configMapName }}
+{{- end }}
+{{- end }}
