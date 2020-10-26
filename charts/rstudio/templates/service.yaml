@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "rstudio.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.networking.type }}
   ports:
-    - port: {{ .Values.service.rstudio.port }}
+    - port: {{ .Values.networking.rstudio.port }}
       targetPort: http
       protocol: TCP
       name: http

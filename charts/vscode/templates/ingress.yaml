@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "rstudio.fullname" . -}}
-{{- $svcPort := .Values.networking.rstudio.port -}}
+{{- $fullName := include "vscode.fullname" . -}}
+{{- $svcPort := .Values.networking.vscode.port -}}
 {{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1beta1
 {{- else -}}
@@ -10,7 +10,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "rstudio.labels" . | nindent 4 }}
+    {{- include "vscode.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
