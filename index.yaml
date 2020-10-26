@@ -95,6 +95,17 @@ entries:
   rstudio:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-10-26T15:23:28.661826745Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 562658309272730050e28bf79e46fef67f0f9c7880da08c9e8b13b7eb630e6f3
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.9/rstudio-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-10-25T15:46:57.362440934Z"
     description: RStudio is the reference IDE for RLang programming.
     digest: adfa596a5844c45e8cd9adea0f89166e08e6e961d432aeceba8186bb7035ce06
@@ -193,4 +204,16 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vs-code-1.0.0/vs-code-1.0.0.tgz
     version: 1.0.0
+  vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-26T15:23:28.754178109Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 2918a492acadcf25114235fc54255a91f0aa533b9001acf6cc25e7aa7a2d6b16
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: vscode
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.2/vscode-0.1.2.tgz
+    version: 0.1.2
 generated: "2020-05-06T13:56:43.58613877Z"
