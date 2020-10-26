@@ -39,7 +39,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["./data/{{ .Values.fetch.filename}} /init"]
+          args: ["./data/{{ .Values.init.filename}} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
@@ -82,7 +82,7 @@ spec:
         - name: standard-init
           image: "busybox"
           command: ["/bin/sh","-c"]
-          args: ["wget -O /data/{{ .Values.fetch.filename}} {{ .Values.fetch.standardInit}} && chmod +x /data/{{ .Values.fetch.filename}}"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          

@@ -37,17 +37,6 @@
                 }
             }
         },
-        "script": {
-            "type": "object",
-            "description": "scripts",
-            "properties": {
-                "uri": {
-                    "type": "string",
-                    "description": "uri of a .sh file that will be executed at runtime",
-                    "default": ""
-                }
-            }
-        },
         "git": {
             "description": "Git user configuration",
             "type": "object",
@@ -190,7 +179,7 @@
             "description": "Init parameters",
             "type": "object",
             "properties": {
-                "global": {
+                "standardInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": "",
@@ -199,8 +188,13 @@
                     },
                     "x-generated": {
                         "type": "initScript",
-                        "scope": "vscode"
+                        "scope": "rstudio"
                     }
+                },
+                "personnalInit": {
+                    "type": "string",
+                    "description": "initialization script",
+                    "default": ""
                 }
             }
         }
