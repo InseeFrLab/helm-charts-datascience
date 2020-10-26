@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "service": {
-            "description": "RStudio specific configuration",
+            "description": "service specific configuration",
             "type": "object",
             "properties": {
                 "password": {
@@ -12,6 +12,18 @@
                     "default": "changeme",
                     "x-form": {
                         "value": "{{user.password}}"
+                    }
+                },
+                "image": {
+                    "description": "service image specific configuration",
+                    "type": "object",
+                    "properties": {
+                        "repository":{
+                            "type": "string",
+                            "description": "Version of vscode to use",
+                            "default": "inseefrlab/vscode-python",
+                            "enum": ["inseefrlab/vscode-python", "codercom/code-server:3.0.1"]
+                        }
                     }
                 }
             }
@@ -188,7 +200,7 @@
                     },
                     "x-generated": {
                         "type": "initScript",
-                        "scope": "rstudio"
+                        "scope": "vscode"
                     }
                 },
                 "personnalInit": {

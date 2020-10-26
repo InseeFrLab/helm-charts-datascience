@@ -1,19 +1,19 @@
-{{- $fullName := include "rstudio.fullname" . -}}
+{{- $fullName := include "vscode.fullname" . -}}
 {{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "rstudio.fullname" . }}
+  name: {{ include "vscode.fullname" . }}
   labels:
-    {{- include "rstudio.labels" . | nindent 4 }}
+    {{- include "vscode.labels" . | nindent 4 }}
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
   selector:
     matchLabels:
-      {{- include "rstudio.selectorLabels" . | nindent 6 }}
+      {{- include "vscode.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -21,7 +21,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "rstudio.selectorLabels" . | nindent 8 }}
+        {{- include "vscode.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
         - name: {{$volumeName}}
@@ -30,7 +30,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "rstudio.serviceAccountName" . }}
+      serviceAccountName: {{ include "vscode.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -43,27 +43,23 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
-              value: {{ .Values.service.password }}
-            {{- if .Values.environment.root }}
-            - name: ROOT
-              value: "TRUE"
-            {{- end }}          
+              value: {{ .Values.service.password }}         
           envFrom: 
             {{- if .Values.environment.s3 }}
             - configMapRef:
-                name: {{ include "rstudio.configMapNameS3" . }}
+                name: {{ include "vscode.configMapNameS3" . }}
             {{- end }}
             {{- if .Values.environment.vault }}
             - configMapRef:
-                name: {{ include "rstudio.configMapNameVault" . }}
+                name: {{ include "vscode.configMapNameVault" . }}
             {{- end }}
             {{- if .Values.environment.git }}
             - configMapRef:
-                name: {{ include "rstudio.configMapNameGit" . }}
+                name: {{ include "vscode.configMapNameGit" . }}
             {{- end }}
           ports:
             - name: http
-              containerPort: 8787
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:

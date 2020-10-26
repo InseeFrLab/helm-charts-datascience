@@ -3,7 +3,7 @@
 service:
   password: "changeme"
   image:
-    repository: "inseefrlab/rstudio"
+    repository: "inseefrlab/vscode-python"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
@@ -12,13 +12,12 @@ service:
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
   filename: "onyxia-init.sh"
-  personalInit: "null"
+  personalInit: ""
 
 environment:
   s3: true
   vault: true
   git: true
-  root: true
 
 s3:
   # Specifies whether a config map should be created
@@ -88,7 +87,7 @@ securityContext: {}
 
 networking:
   type: ClusterIP
-  rstudio:
+  vscode:
     port: 80
 
 ingress:
