@@ -1,7 +1,7 @@
 # Helm charts Datascience
 
 This collection of Helm Charts is tailored for datascientists.  
-It is primarly designed to work with Onyxia (https://github.com/inseefrlab/onyxia) but it also works as a standalone Helm repository.  
+It is primarly designed to work with Onyxia (https://github.com/inseefrlab/onyxia) but also works as a standalone Helm repository.  
 See the other repository (Helm charts) for infrastructure focused charts.  
 
 To use the repo on helm (version 3+) :
