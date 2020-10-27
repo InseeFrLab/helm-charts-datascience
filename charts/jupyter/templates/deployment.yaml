@@ -1,19 +1,19 @@
-{{- $fullName := include "vs-code.fullname" . -}}
+{{- $fullName := include "jupyter.fullname" . -}}
 {{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "vs-code.fullname" . }}
+  name: {{ include "jupyter.fullname" . }}
   labels:
-    {{- include "vs-code.labels" . | nindent 4 }}
+    {{- include "jupyter.labels" . | nindent 4 }}
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
   selector:
     matchLabels:
-      {{- include "vs-code.selectorLabels" . | nindent 6 }}
+      {{- include "jupyter.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -21,7 +21,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "vs-code.selectorLabels" . | nindent 8 }}
+        {{- include "jupyter.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
         - name: {{$volumeName}}
@@ -30,25 +30,41 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "vs-code.serviceAccountName" . }}
+      serviceAccountName: {{ include "jupyter.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: 
-            - name: "PASSWORD"
-              value: "{{ .Values.vscode.password }}"
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh","-c"]
+          args: ["/data/{{ .Values.init.filename}} start.sh jupyter-lab --NotebookApp.token='$PASSWORD'"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: PASSWORD
+              value: {{ .Values.service.password }}
+            {{- if .Values.environment.root }}
+            - name: GRANT_SUDO
+              value: "yes"
+            {{- end }}          
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "jupyter.configMapNameS3" . }}
+            {{- end }}
+            {{- if .Values.environment.vault }}
+            - configMapRef:
+                name: {{ include "jupyter.configMapNameVault" . }}
+            {{- end }}
+            {{- if .Values.environment.git }}
+            - configMapRef:
+                name: {{ include "jupyter.configMapNameGit" . }}
+            {{- end }}
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 8888
               protocol: TCP
-          volumeMounts:
-            - mountPath: /data
-              name: {{$volumeName}}
           livenessProbe:
             httpGet:
               path: /
@@ -59,16 +75,17 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if .Values.vscode.git.enabled }}
+          volumeMounts:
+            - mountPath: /data
+              name: {{$volumeName}}
       initContainers:
-        - name: toto
-          image: "ubuntu:xenial"
+        - name: standard-init
+          image: "busybox"
           command: ["/bin/sh","-c"]
-          args: ["apt update", "apt install -y wget", "cd /data", "wget https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          
-      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -81,4 +98,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-

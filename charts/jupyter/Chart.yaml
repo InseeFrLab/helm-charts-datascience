@@ -1,8 +1,7 @@
 apiVersion: v2
-name: vs-code
-description: A Helm chart for Kubernetes
-icon: https://fr.wikipedia.org/wiki/Visual_Studio_Code#/media/Fichier:Visual_Studio_Code_1.35_icon.svg
-
+name: jupyter
+description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -16,7 +15,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.1
+version: 0.1.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
