@@ -217,29 +217,6 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.0/rstudio-0.1.0.tgz
     version: 0.1.0
-  vs-code:
-  - apiVersion: v2
-    appVersion: latest
-    created: "2020-07-01T09:28:57.09722041Z"
-    description: A Helm chart for Kubernetes
-    digest: a308dee35c9419040465576e732f773e61c4f0d891dab10260aa66e28319f167
-    icon: https://fr.wikipedia.org/wiki/Visual_Studio_Code#/media/Fichier:Visual_Studio_Code_1.35_icon.svg
-    name: vs-code
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vs-code-1.0.1/vs-code-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
-    appVersion: latest
-    created: "2020-05-23T13:00:09.791165591Z"
-    description: A Helm chart for Kubernetes
-    digest: 0d8338112abe588212def3b08d0a52a1d9a55d2684d89e9d4495ae707130cab7
-    icon: https://fr.wikipedia.org/wiki/Visual_Studio_Code#/media/Fichier:Visual_Studio_Code_1.35_icon.svg
-    name: vs-code
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vs-code-1.0.0/vs-code-1.0.0.tgz
-    version: 1.0.0
   vscode:
   - apiVersion: v2
     appVersion: latest
