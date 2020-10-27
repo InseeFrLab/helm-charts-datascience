@@ -11,6 +11,19 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.2/cloudshell-1.2.tgz
     version: "1.2"
+  jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-27T19:08:22.909557379Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows
+      you to run multiple interpreters.
+    digest: c06f139e739db3092c05040c76dfb21a6ac42d1fa7647aad2d533f54043bf42a
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.0/jupyter-0.1.0.tgz
+    version: 0.1.0
   pgadmin:
   - apiVersion: v2
     appVersion: latest
@@ -216,6 +229,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vs-code-1.0.0/vs-code-1.0.0.tgz
     version: 1.0.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-27T19:08:23.220812968Z"
+    description: Visual studio code, from the browser !
+    digest: 2b250b772c176728218a05091fc6d9ee529141cbe473e438edec88bb19b89eb5
+    icon: https://code.visualstudio.com/favicon.ico
+    name: vscode
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.4/vscode-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-26T16:16:48.958765587Z"
