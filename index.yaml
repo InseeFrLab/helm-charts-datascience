@@ -243,6 +243,18 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.0/rstudio-0.1.0.tgz
     version: 0.1.0
+  ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-29T15:30:14.301424739Z"
+    description: VNC remote desktop.
+    digest: 8e6b7333fcad11ee6632f23a20657baa0ca38e6458c3ab99de085342df716303
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
+    version: 0.1.0
   vscode:
   - apiVersion: v2
     appVersion: latest
