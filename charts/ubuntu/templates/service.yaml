@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ubuntu.fullname" . }}
+  labels:
+    {{- include "ubuntu.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.networking.type }}
+  ports:
+    - port: {{ .Values.networking.ubuntu.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "ubuntu.selectorLabels" . | nindent 4 }}
