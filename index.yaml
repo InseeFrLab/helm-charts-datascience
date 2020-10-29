@@ -1,5 +1,17 @@
 apiVersion: v1
 entries:
+  Ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-29T15:16:36.088091675Z"
+    description: VNC remote desktop.
+    digest: 3384661321ea36ed2be968741b827ac26285b6184d6c59b8e9addf16419e4712
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: Ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/Ubuntu-0.1.0/Ubuntu-0.1.0.tgz
+    version: 0.1.0
   cloudshell:
   - apiVersion: v2
     appVersion: latest
