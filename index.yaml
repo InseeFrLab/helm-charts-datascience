@@ -36,6 +36,20 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.0/jupyter-0.1.0.tgz
     version: 0.1.0
+  openrefine:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-29T13:22:16.918918368Z"
+    description: OpenRefine (previously Google Refine) is a powerful tool for working
+      with messy data, cleaning it; transforming it from one format into another;
+      and extending it with web services and external data.
+    digest: c34a9e5cdc8e60d060ef5706cee129b3847cad7cea828514189356b0a543e5cb
+    icon: https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg
+    name: openrefine
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
+    version: 0.1.0
   pgadmin:
   - apiVersion: v2
     appVersion: latest
