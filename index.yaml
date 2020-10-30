@@ -51,6 +51,19 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-10-30T17:54:21.817767749Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc.
+      Described by its developers as an ACID-compliant transactional database with
+      native graph storage and processing.
+    digest: 7479f21ad039871e6a713c2f6ae26c75826733dc841673bbae0633ec71b36649
+    icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.1.4/neo4j-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-10-30T11:50:21.073251323Z"
     description: Neo4j is a graph database management system developed by Neo4j, Inc.
       Described by its developers as an ACID-compliant transactional database with
