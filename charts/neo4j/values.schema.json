@@ -21,7 +21,7 @@
             "form": true,
             "title": "Ingress Details",
             "properties": {
-                "hostname": {
+                "hostnameUI": {
                     "type": "string",
                     "form": true,
                     "title": "Hostname",
@@ -32,6 +32,19 @@
                         "type": "externalDNS",
                         "scope": "neo4j",
                         "name": "ihm"
+                    }
+                },
+                "hostnameBolt": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "ui",
+                        "name": "bolt"
                     }
                 }
             }
