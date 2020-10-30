@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "service": {
+            "description": "neo4j specific configuration",
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "default": "changeme",
+                    "x-form": {
+                        "value": "{{user.password}}"
+                    }
+                }
+            }
+        },
+        "ingress": {
+            "type": "object",
+            "form": true,
+            "title": "Ingress Details",
+            "properties": {
+                "hostname": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "neo4j",
+                        "name": "ihm"
+                    }
+                }
+            }
+        }
+    }
+}
