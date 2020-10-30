@@ -41,7 +41,7 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: NEO4J_AUTH
-              value: {{ .Values.service.password }}
+              value: neo4j/{{ .Values.service.password }}
             - name: NEO4J_dbms_connector_bolt_advertised__address
               value: {{ .Values.ingress.hostnameBolt }}:443  
           ports:
