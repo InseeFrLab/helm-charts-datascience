@@ -48,6 +48,20 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.0/jupyter-0.1.0.tgz
     version: 0.1.0
+  neo4j:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-10-30T10:40:08.98126749Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc.
+      Described by its developers as an ACID-compliant transactional database with
+      native graph storage and processing.
+    digest: 7ee3198e7d3aa7537ac294d8216b9a091f519460850025d4921b9bd0b04b2a0c
+    icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.1.0/neo4j-0.1.0.tgz
+    version: 0.1.0
   openrefine:
   - apiVersion: v2
     appVersion: latest
