@@ -43,7 +43,7 @@
                     },
                     "x-generated": {
                         "type": "externalDNS",
-                        "scope": "ui",
+                        "scope": "neo4j",
                         "name": "bolt"
                     }
                 }
