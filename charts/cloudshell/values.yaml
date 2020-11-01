@@ -1,14 +1,78 @@
-# Default values for httpbin.
+# Default values for cloudshell.
+
+service:
+  image:
+    repository: "inseefrlab/shelly"
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "cloudshell"
+  
+
+init:
+  standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
+  filename: "onyxia-init.sh"
+  personalInit: "null"
+
+environment:
+  s3: true
+  vault: true
+  git: true
+  root: true
+
+s3:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: ""
+  defaultRegion: ""
+  secretAccessKey: ""
+  sessionToken: ""
+
+
+vault:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  token: ""
+  url: ""
+  mount: ""
+  secret: ""
+  directory: ""  
+
+git:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  name: ""
+  email: ""
+  cache: ""
+
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-image:
-  name: inseefrlab/shelly
-  tag: cloudshell
-  pullPolicy: Always
+replicaCount: 1
+
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -21,16 +85,21 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
+networking:
   type: ClusterIP
-  port: 2222
+  cloudshell:
+    port: 80
 
 ingress:
   enabled: true
   tls: true
-  hostname: example.com
   annotations:
     kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: chart-example.local
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -43,6 +112,13 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
