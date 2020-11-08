@@ -6,7 +6,7 @@ service:
     repository: "inseefrlab/jupyter-datascience"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "master"
   
 
 init:
