@@ -36,6 +36,18 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-11-08T13:36:56.054066247Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows
+      you to run multiple interpreters.
+    digest: 902c0efd3cd8e625dd329c6932bfade04401cf87bcc317f2af5dabc43096e6e2
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.2/jupyter-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-10-27T21:30:27.04069231Z"
     description: Jupyter is a notebook accessible through a web browser. It allows
       you to run multiple interpreters.
@@ -59,6 +71,19 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.0/jupyter-0.1.0.tgz
     version: 0.1.0
   neo4j:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-11-08T13:36:56.147972974Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc.
+      Described by its developers as an ACID-compliant transactional database with
+      native graph storage and processing.
+    digest: cf3c9224a6b32f1e958a1a43c91fdeaf30b7cfdc5947ee2f08a93ceb2ff763aa
+    icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.1.5/neo4j-0.1.5.tgz
+    version: 0.1.5
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T17:54:21.817767749Z"
