@@ -88,6 +88,7 @@ securityContext: {}
 
 networking:
   type: ClusterIP
+  clusterIP: None
   jupyter:
     port: 80
 
