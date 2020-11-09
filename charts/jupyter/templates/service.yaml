@@ -6,6 +6,9 @@ metadata:
     {{- include "jupyter.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.networking.type }}
+  {{- if .Values.networking.clusterIP }}
+  clusterIP: {{ .Values.networking.clusterIP }}
+  {{- end }}
   ports:
     - port: {{ .Values.networking.jupyter.port }}
       targetPort: http
