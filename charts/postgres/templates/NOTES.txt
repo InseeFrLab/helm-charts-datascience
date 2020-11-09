@@ -1,0 +1,37 @@
+** Please be patient while the chart is being deployed **
+
+PostgreSQL can be accessed via port 5432 on the following DNS name from within your cluster:
+
+    {{ template "postgres.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local - Read/Write connection
+
+To connect to your database run the following command:
+
+    kubectl run {{ template "postgres.fullname" . }}-client --rm --tty -i --restart=Never --namespace {{ .Release.Namespace }} --image {{ .Values.image.repository }}:{{ .Values.image.tag }} --env="PGPASSWORD=$POSTGRES_PASSWORD" {{- if and (.Values.networkPolicy.enabled) (not .Values.networkPolicy.allowExternal) }}
+   --labels="{{ template "postgres.fullname" . }}-client=true" {{- end }} --command -- psql --host {{ template "postgres.fullname" . }} -U {{ .Values.postgres.postgresUser }} -d {{- if .Values.postgres.postgresqlDatabase }} {{ .Values.postgres.postgresqlDatabase }}{{- else }} postgres{{- end }} -p 5432
+
+{{ if and (.Values.networkPolicy.enabled)  }}
+Note: Since NetworkPolicy is enabled, only pods with label {{ template "postgres.fullname" . }}-client=true" will be able to connect to this PostgreSQL cluster.
+{{- end }}
+
+To connect to your database from outside the cluster execute the following commands:
+
+{{- if contains "NodePort" .Values.service.type }}
+
+    export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+    export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "postgres.fullname" . }})
+    {{ if (include "postgres.password" . )  }}PGPASSWORD="$POSTGRES_PASSWORD" {{ end }}psql --host $NODE_IP --port $NODE_PORT -U {{ .Values.postgresqlUsername }} -d {{- if .Values.postgresqlDatabase }} {{ .Values.postgresqlDatabase }}{{- else }} postgres{{- end }}
+
+{{- else if contains "LoadBalancer" .Values.service.type }}
+
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace {{ .Release.Namespace }} -w {{ template "postgresql.fullname" . }}'
+
+    export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "postgres.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
+    {{ if (.Values.postgres.postgresPassword) }}PGPASSWORD="$POSTGRES_PASSWORD" {{ end }}psql --host $SERVICE_IP --port 5432 -U {{ .Values.postgresqlUsername }} -d {{- if .Values.postgres.postgresDatabase }} {{ .Values.postgresDatabase }}{{- else }} postgres{{- end }}
+
+{{- else if contains "ClusterIP" .Values.service.type }}
+
+    kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ template "postgres.fullname" . }} 5432:5432 &
+    {{ if (.Values.postgres.postgresPassword) }}PGPASSWORD="$POSTGRES_PASSWORD" {{ end }}psql --host 127.0.0.1 -U {{ .Values.postgresqlUsername }} -d {{- if .Values.postgresqlDatabase }} {{ .Values.postgresqlDatabase }}{{- else }} postgres{{- end }} -p 5432
+
+{{- end }}
