@@ -383,6 +383,17 @@ entries:
   vscode:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-12-24T17:10:43.859540181Z"
+    description: Visual studio code, from the browser !
+    digest: f0fc46d4805ea754ad91ce562c00c5c88a2ee60d412e6e8db6c50a74a057749e
+    icon: https://code.visualstudio.com/favicon.ico
+    name: vscode
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.9/vscode-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-12-24T17:01:41.034657791Z"
     description: Visual studio code, from the browser !
     digest: 3b65295271ac5777397547ea88218d3a9540627d550d316fa7b6862ce9af8d4b
