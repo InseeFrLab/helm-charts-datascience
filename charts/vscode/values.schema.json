@@ -21,7 +21,7 @@
             "repository": {
               "type": "string",
               "description": "Version of vscode to use",
-              "default": "inseefrlab/vscode-python",
+              "default": "inseefrlab/vscode-python:3.7.4",
               "enum": [
                 "inseefrlab/vscode-python:3.7.4",
                 "codercom/code-server:3.7.4"
