@@ -8,11 +8,11 @@ metadata:
     {{- include "vscode.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: {{ include "vscode.roleRead" . }}
+  kind: CLusterRole
+  name: admin
 subjects:
 - kind: ServiceAccount
-  name: admin
+  name: {{ include "vscode.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 {{- end }}
 {{- end }}
