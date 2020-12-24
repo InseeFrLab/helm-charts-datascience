@@ -1,0 +1,18 @@
+{{- if .Values.serviceAccount.create -}}
+{{- if .Values.kubernetes.write -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "vscode.serviceAccountName" . }}-read
+  labels:
+    {{- include "vscode.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "vscode.roleRead" . }}
+subjects:
+- kind: ServiceAccount
+  name: admin
+  namespace: {{ .Release.Namespace }}
+{{- end }}
+{{- end }}

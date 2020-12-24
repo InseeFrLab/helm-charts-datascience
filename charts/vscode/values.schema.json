@@ -31,6 +31,22 @@
         }
       }
     },
+    "kubernetes": {
+      "description": "configuration of your kubernetes access",
+      "type": "object",
+      "properties": {
+        "read": {
+          "type": "boolean",
+          "description": "allow your service to read your namespace ressources",
+          "default": true
+        },
+        "write": {
+          "type": "boolean",
+          "description": "allow your service to read your namespace ressources",
+          "default": false
+        }
+      }
+    },
     "environment": {
       "description": "configuration of your environment variables",
       "type": "object",
