@@ -37,7 +37,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.service.image.repository }}"
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --host 0.0.0.0 ."]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
