@@ -3,7 +3,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ include "vscode.serviceAccountName" . }}-read
+  name: {{ include "vscode.serviceAccountName" . }}-admin
   labels:
     {{- include "vscode.labels" . | nindent 4 }}
 roleRef:
