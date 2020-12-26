@@ -15,6 +15,16 @@ entries:
   cloudshell:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-12-26T18:24:22.293708531Z"
+    description: A cloudshell (ubuntu with webssh)
+    digest: d08530e1de8d1b1439fe6da11f0b8d10fdf5583c79166bba8f5544441f25cb0f
+    name: cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.3.1/cloudshell-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-11-01T23:25:04.550296829Z"
     description: A cloudshell (ubuntu with webssh)
     digest: 7a936cf91217b6b87554ddc9f4315f5527303b69525150b513734ea3522767ab
@@ -34,6 +44,18 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.2/cloudshell-1.2.tgz
     version: "1.2"
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-12-26T18:24:22.543447052Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows
+      you to run multiple interpreters.
+    digest: 622dffeacf4c0a8fc459fa1af477c0c89b4b151052c3227c421c8042bf69a2a4
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.1.5/jupyter-0.1.5.tgz
+    version: 0.1.5
   - apiVersion: v2
     appVersion: latest
     created: "2020-11-09T23:49:44.197663111Z"
@@ -271,6 +293,17 @@ entries:
   rstudio:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-12-26T18:24:22.788930475Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: bb05359358d63dd3292c130b3867108476aa6f0f9ef530c276f4e5146ebef80e
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.12/rstudio-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-10-26T16:16:48.862462626Z"
     description: RStudio is the reference IDE for RLang programming.
     digest: 32b801ce6c7fb7b598b6ebc124475e6190944715dbfd27f29ca182727f117b59
@@ -369,6 +402,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.0/rstudio-0.1.0.tgz
     version: 0.1.0
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-12-26T18:24:23.047611694Z"
+    description: VNC remote desktop.
+    digest: a67d56514b6d9843aa703cf33007f573464bd7c203d94466262d6debc8c78d97
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.1/ubuntu-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-29T15:30:14.301424739Z"
