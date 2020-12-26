@@ -73,6 +73,10 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+kubernetes:
+  enable: true
+  role: "view"
+
 podAnnotations: {}
 
 podSecurityContext: {}

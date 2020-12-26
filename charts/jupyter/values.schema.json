@@ -37,6 +37,27 @@
                 }
             }
         },
+        "kubernetes": {
+          "description": "configuration of your kubernetes access",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "description": "allow your service to access your namespace ressources",
+              "default": true
+            },
+            "role": {
+              "type": "string",
+              "description": "bind your service account to this kubernetes default role",
+              "default": "view",
+              "enum": [
+                "view",
+                "edit",
+                "admin"
+              ]
+            }
+          }
+        },
         "git": {
             "description": "Git user configuration",
             "type": "object",
