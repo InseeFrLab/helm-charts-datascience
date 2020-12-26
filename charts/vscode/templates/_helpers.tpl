@@ -62,12 +62,6 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{/*
-Create the name of the read role */}}
-{{- define "vscode.roleRead" -}}
-{{- $role:= (printf "%s-read" (include "vscode.fullname" .) )  }}
-{{- default $role }}
-{{- end }}
 
 {{/*
 Create the name of the config map S3 to use

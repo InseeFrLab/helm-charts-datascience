@@ -35,15 +35,20 @@
       "description": "configuration of your kubernetes access",
       "type": "object",
       "properties": {
-        "read": {
+        "enable": {
           "type": "boolean",
-          "description": "allow your service to read your namespace ressources",
+          "description": "allow your service to access your namespace ressources",
           "default": true
         },
-        "write": {
-          "type": "boolean",
-          "description": "allow your service to read your namespace ressources",
-          "default": false
+        "role": {
+          "type": "string",
+          "description": "bind your service account to this kubernetes default role",
+          "default": "view",
+          "enum": [
+            "view",
+            "edit",
+            "admin"
+          ]
         }
       }
     },

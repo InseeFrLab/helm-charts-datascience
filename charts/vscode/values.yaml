@@ -72,8 +72,8 @@ serviceAccount:
   name: ""
 
 kubernetes:
-  read: true
-  write: false
+  enable: true
+  role: "view"
 
 podAnnotations: {}
 
