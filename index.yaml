@@ -45,8 +45,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-12-26T18:24:22.543447052Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: 622dffeacf4c0a8fc459fa1af477c0c89b4b151052c3227c421c8042bf69a2a4
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -57,8 +56,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-11-09T23:49:44.197663111Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: 72f1d34038ff5fb0647f3062e1d654dfdfdb1e018d5c0fb50dd44a20aba4deaa
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -69,8 +67,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-11-09T23:19:40.11222033Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: e68a94bb3acdbebed71f0094ca2783772be9428b3f567de4c7fa60c06b00b64c
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -81,8 +78,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-11-08T13:36:56.054066247Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: 902c0efd3cd8e625dd329c6932bfade04401cf87bcc317f2af5dabc43096e6e2
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -93,8 +89,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-27T21:30:27.04069231Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: a09a2d15a0b4f58275a9a10cf36af78ab0478b3d13ef1902007d52b8fa975acc
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -105,8 +100,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-27T19:08:22.909557379Z"
-    description: Jupyter is a notebook accessible through a web browser. It allows
-      you to run multiple interpreters.
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: c06f139e739db3092c05040c76dfb21a6ac42d1fa7647aad2d533f54043bf42a
     icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
     name: jupyter
@@ -118,9 +112,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-11-08T13:36:56.147972974Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: cf3c9224a6b32f1e958a1a43c91fdeaf30b7cfdc5947ee2f08a93ceb2ff763aa
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -131,9 +123,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T17:54:21.817767749Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 7479f21ad039871e6a713c2f6ae26c75826733dc841673bbae0633ec71b36649
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -144,9 +134,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T11:50:21.073251323Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: e8ce134d06de00652d8c0f0e1c9cf27c91f250524430f2f404b20eab98ffbcae
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -157,9 +145,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T11:22:58.856132131Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 83ffbad8a272d32a10498fb7a84be6b268e65a4cbf8b6250debd4e00ad0dee6a
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -170,9 +156,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T11:12:31.018827158Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 0300856413aee12742c22f55d6fe351c8e65d255eb7297ca49cdc88110874533
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -183,9 +167,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-30T10:40:08.98126749Z"
-    description: Neo4j is a graph database management system developed by Neo4j, Inc.
-      Described by its developers as an ACID-compliant transactional database with
-      native graph storage and processing.
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 7ee3198e7d3aa7537ac294d8216b9a091f519460850025d4921b9bd0b04b2a0c
     icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
     name: neo4j
@@ -197,9 +179,7 @@ entries:
   - apiVersion: v2
     appVersion: latest
     created: "2020-10-29T13:22:16.918918368Z"
-    description: OpenRefine (previously Google Refine) is a powerful tool for working
-      with messy data, cleaning it; transforming it from one format into another;
-      and extending it with web services and external data.
+    description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
     digest: c34a9e5cdc8e60d060ef5706cee129b3847cad7cea828514189356b0a543e5cb
     icon: https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg
     name: openrefine
@@ -289,6 +269,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
   rstudio:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2020-12-29T14:43:59.760607642Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 77418a9605a4362ef3713ac105dd0158dc295ffc5363c40712b7140e7751a054
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.1.13/rstudio-0.1.13.tgz
+    version: 0.1.13
   - apiVersion: v2
     appVersion: latest
     created: "2020-12-26T18:24:22.788930475Z"
