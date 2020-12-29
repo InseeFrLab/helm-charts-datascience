@@ -43,7 +43,7 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
-              value: {{ .Values.service.password }}
+              value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
             - name: ROOT
               value: "TRUE"
