@@ -4,10 +4,13 @@
 
 replicaCount: 1
 
-pgadmin:
+security:
   mail: example@example.com
   password: password
-
+  whitelist:
+    enable: true
+    ip: "0.0.0.0/0"
+    
 image:
   repository: dpage/pgadmin4
   pullPolicy: IfNotPresent

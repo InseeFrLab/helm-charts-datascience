@@ -47,9 +47,9 @@ spec:
               port: http
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: {{ .Values.pgadmin.mail }}
+              value: {{ .Values.security.mail }}
             - name: PGADMIN_DEFAULT_PASSWORD
-              value: {{ .Values.pgadmin.password }}
+              value: {{ .Values.security.password }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

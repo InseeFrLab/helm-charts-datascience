@@ -61,3 +61,15 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+ingress annotations 
+*/}}
+{{- define "pgadmin.ingress.annotations" -}}
+{{- with .Values.ingress.annotations }}
+    {{- toYaml . }}
+{{- end }}
+{{- if .Values.security.whitelist.enable }}
+nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelist.ip }}
+{{- end }}
+{{- end }}
