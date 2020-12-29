@@ -3,6 +3,16 @@ entries:
   cloudshell:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-12-29T15:11:46.172851869Z"
+    description: A cloudshell (ubuntu with webssh)
+    digest: c6a8d45af946029fb0327a5617fca6101e85d84e9f549ea51ed4379cab38b83e
+    name: cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.6/cloudshell-1.6.tgz
+    version: "1.6"
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-12-29T15:05:42.468397812Z"
     description: A cloudshell (ubuntu with webssh)
     digest: c85d591470478477d066ab86040da01cbf9da58c991e3a86797aa830336cacdb
