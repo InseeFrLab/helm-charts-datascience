@@ -7,6 +7,10 @@ service:
     # Overrides the image tag whose default is the chart appVersion.
     tag: "cloudshell"
   
+security:
+  whitelist:
+    enable: true
+    ip: "0.0.0.0/0"
 
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"

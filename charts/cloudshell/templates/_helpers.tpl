@@ -99,3 +99,15 @@ Create the name of the config map Git to use
 {{- default "default" .Values.git.configMapName }}
 {{- end }}
 {{- end }}
+
+{{/*
+ingress annotations 
+*/}}
+{{- define "cloudshell.ingress.annotations" -}}
+{{- with .Values.ingress.annotations }}
+    {{- toYaml . }}
+{{- end }}
+{{- if .Values.security.whitelist.enable }}
+nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelist.ip }}
+{{- end }}
+{{- end }}
