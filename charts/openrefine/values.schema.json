@@ -2,6 +2,32 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "security": {
+            "description": "security specific configuration",
+            "type": "object",
+            "properties": {
+                "whitelist": {
+                    "type": "object",
+                    "description": "IP protection",
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "title": "Enable IP protection",
+                        "description": "Only the configured set of IPs will be able to reach the service",
+                        "default": true
+                      },
+                      "ip": {
+                        "type": "string",
+                        "description": "the white list of IP is whitespace",
+                        "title": "Whitelist of IP",
+                        "x-form": {
+                          "value": "{{user.ip}}"
+                        }
+                      }
+                    }
+                }
+            }
+        },
         "ingress": {
             "type": "object",
             "form": true,
