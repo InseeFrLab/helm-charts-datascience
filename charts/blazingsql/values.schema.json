@@ -6,7 +6,7 @@
             "description": "resources for the blazingsql service",
             "type": "object",
             "properties": {
-                "limit": {
+                "limits": {
                     "description": "limit for the blazingsql service",
                     "type": "object",
                     "properties": {
