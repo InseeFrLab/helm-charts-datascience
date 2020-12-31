@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "rapidsai.fullname" . }}
+  labels:
+    {{- include "rapidsai.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.networking.type }}
+  {{- if .Values.networking.clusterIP }}
+  clusterIP: {{ .Values.networking.clusterIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.networking.rapidsai.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "rapidsai.selectorLabels" . | nindent 4 }}
