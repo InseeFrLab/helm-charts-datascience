@@ -54,6 +54,18 @@
                   }
                 }
               }
+          },
+          "networkPolicy": {
+              "type": "object",
+              "description": "Define access policy to the service",
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "title": "Enable network policy",
+                  "description": "Only pod from the same namespace will be allowed",
+                  "default": true
+                }
+              }
           }
       }
   },

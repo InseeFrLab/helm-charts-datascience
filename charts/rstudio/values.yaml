@@ -9,6 +9,8 @@ service:
 
 security:
   password: "changeme"
+  networkPolicy: 
+    enable: true
   whitelist:
     enable: true
     ip: "0.0.0.0/0"  

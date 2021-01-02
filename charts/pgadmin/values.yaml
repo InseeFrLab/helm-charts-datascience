@@ -7,6 +7,8 @@ replicaCount: 1
 security:
   mail: example@example.com
   password: password
+  networkPolicy: 
+    enable: true
   whitelist:
     enable: true
     ip: "0.0.0.0/0"

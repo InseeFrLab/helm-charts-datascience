@@ -8,6 +8,8 @@ service:
     tag: "cloudshell"
   
 security:
+  networkPolicy: 
+    enable: true
   whitelist:
     enable: true
     ip: "0.0.0.0/0"
