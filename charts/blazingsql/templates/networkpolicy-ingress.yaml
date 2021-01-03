@@ -1,0 +1,21 @@
+{{- if .Values.security.networkPolicy.enable -}}
+{{- if .Values.ingress.enabled -}}
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "blazingsql.fullname" . }}-2
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "blazingsql.selectorLabels" . | nindent 6 }}
+  ingress:
+  - from:
+    - podSelector: {}
+    {{- with .Values.security.networkPolicy.namespaceSelector }}
+    - namespaceSelector:
+    {{- toYaml . | nindent 8 }}
+    {{- end }}
+  policyTypes:
+  - Ingress
+{{- end }}
+{{- end }} 
