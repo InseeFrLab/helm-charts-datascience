@@ -9,7 +9,12 @@ service:
   
 security:
   networkPolicy: 
-    enable: true
+    enable: false
+    from: 
+    - ipBlock:
+        cidr: 10.233.103.0/32
+    - ipBlock:
+        cidr: 10.233.111.0/32
   whitelist:
     enable: true
     ip: "0.0.0.0/0"
