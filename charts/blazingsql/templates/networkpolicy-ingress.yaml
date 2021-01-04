@@ -10,11 +10,7 @@ spec:
       {{- include "blazingsql.selectorLabels" . | nindent 6 }}
   ingress:
   - from:
-    - podSelector: {}
-    {{- with .Values.security.networkPolicy.namespaceSelector }}
-    - namespaceSelector:
-    {{- toYaml . | nindent 8 }}
-    {{- end }}
+    {{- toYaml .Values.security.networkPolicy.from | nindent 4 }}
   policyTypes:
   - Ingress
 {{- end }}
