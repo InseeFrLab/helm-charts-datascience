@@ -87,7 +87,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
-            - mountPath: /home/jupyter
+            - mountPath: /home/jovyan
               name: home
       initContainers:
         - name: standard-init
