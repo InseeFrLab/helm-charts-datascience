@@ -78,6 +78,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /home/rstudio
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"
@@ -98,3 +100,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "rstudio.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end -}}
