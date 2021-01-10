@@ -30,7 +30,7 @@ spec:
             claimName: {{ .Values.persistence.existingClaim | default (include "rstudio.fullname" .) }}
         {{- else }}
           emptyDir: {}
-        {{- end -}}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
