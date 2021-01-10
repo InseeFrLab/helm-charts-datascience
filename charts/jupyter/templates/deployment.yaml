@@ -53,7 +53,6 @@ spec:
           env:
             - name: NB_USER
               value: {{ .Values.service.user }}
-            {{- if .Values.environment.root }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
