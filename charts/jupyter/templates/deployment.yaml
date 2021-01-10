@@ -51,6 +51,9 @@ spec:
           args: ["/data/{{ .Values.init.filename}} start.sh jupyter-lab --notebook=/home/$(NB_USER)/work --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: NB_USER
+              value: {{ .Values.service.user }}
+            {{- if .Values.environment.root }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
