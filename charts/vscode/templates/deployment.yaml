@@ -46,7 +46,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --user-data-dir=/home/coder/work --host 0.0.0.0 ."]
+          args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --host 0.0.0.0 /home/coder/work"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
