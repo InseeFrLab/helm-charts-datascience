@@ -24,6 +24,13 @@ spec:
         {{- include "vscode.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "vscode.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -39,7 +46,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --host 0.0.0.0 ."]
+          args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --user-data-dir=/home/coder/work --host 0.0.0.0 ."]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
@@ -74,6 +81,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /home/coder/work
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"

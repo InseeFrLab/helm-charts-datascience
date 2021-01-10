@@ -89,7 +89,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
-            - mountPath: /home/jovyan/work
+            - mountPath: /home/{{ .Values.service.user}}/work
               name: home
       initContainers:
         - name: standard-init
