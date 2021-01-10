@@ -24,6 +24,13 @@ spec:
         {{- include "jupyter.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "jupyter.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -80,6 +87,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /home/jupyter
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"
