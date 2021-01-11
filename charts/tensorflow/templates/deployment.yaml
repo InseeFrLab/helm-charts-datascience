@@ -24,6 +24,13 @@ spec:
         {{- include "tensorflow.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "tensorflow.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -41,7 +48,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["ln -s /tf/tensorflow-tutorials /tf/work/tensorflow-tutorials && source /etc/bash.bashrc && /data/{{ .Values.init.filename}} jupyter-lab --notebook=/tf/work --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
@@ -80,6 +87,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /tf/work
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"
