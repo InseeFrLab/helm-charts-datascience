@@ -51,6 +51,8 @@ spec:
           args: ["ln -s /tf/tensorflow-tutorials /tf/work/tensorflow-tutorials && source /etc/bash.bashrc && /data/{{ .Values.init.filename}} jupyter-lab --notebook=/tf/work --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: SHELL
+              value: /bin/bash
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
