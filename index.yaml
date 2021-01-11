@@ -772,6 +772,17 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-11T00:28:45.098880976Z"
+    description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
+    digest: fc97ec343336622ed8d16e02db8c50597d522d1283fc7b8d0b4943ff92f340d9
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.2.1/tensorflow-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-11T00:21:26.559177197Z"
     description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
     digest: 153365904d7d8cb5d6980404ffe6d7f411b04e5253c0c1a980d8459e09eb6fe4
