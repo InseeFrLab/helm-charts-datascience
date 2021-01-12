@@ -872,6 +872,17 @@ entries:
   ubuntu:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-12T13:21:32.789887205Z"
+    description: VNC remote desktop.
+    digest: 5c52078dc0fa830dffb3c1a6d088d148c5f82eea7137ccab8c2c2c6c1f9dac41
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.7/ubuntu-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-04T10:30:51.590361656Z"
     description: VNC remote desktop.
     digest: 5811e0fb600e66cf36cf7e6be253900986c310b1855d506ec25beba70d1fd195
