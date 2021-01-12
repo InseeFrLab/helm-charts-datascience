@@ -24,6 +24,9 @@ spec:
         {{- include "ubuntu.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: dshm
+          emptyDir:
+            medium: Memory
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -74,6 +77,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /dev/shm
+              name: dshm
       initContainers:
         - name: standard-init
           image: "busybox"
