@@ -2,6 +2,40 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "resources": {
+            "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+            "type": "object",
+            "properties": {
+                "limits": {
+                    "description": "No limit for cpu and memory",
+                    "type": "object",
+                    "properties": {
+                      "nvidia.com/gpu": {
+                        "description": "GPU to allocate to this instance. This is also requested",
+                        "type": "number",
+                        "default": 0,
+                        "minimum": 0
+                      }
+                    }
+                },
+                "requests": {
+                    "description": "Guaranteed resources",
+                    "type": "object",
+                    "properties": {
+                      "cpu": {
+                        "description": "The amount of cpu guaranteed",
+                        "type": "string",
+                        "default": "0.1"
+                      },
+                      "mem": {
+                        "description": "The amount of cpu guaranteed",
+                        "type": "string",
+                        "default": "512Mi"
+                      }
+                    }
+                }
+            }
+        },
         "security": {
             "description": "RStudio specific configuration",
             "type": "object",
