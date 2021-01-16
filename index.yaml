@@ -3,6 +3,17 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:17.535181805Z"
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: 8c68fa2a6041f9a10eeaec8cc5e7182907a6d69755c4ddf81e8f060b10cc78d1
+    icon: https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png
+    name: blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.9/blazingsql-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:58.83005285Z"
     description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
     digest: 413e2c7311ff678506a6b6e0e869e23a873c15cf55aebaa23a934add9b5b9e5f
@@ -90,6 +101,16 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.0/blazingsql-0.1.0.tgz
     version: 0.1.0
   cloudshell:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-01-16T10:00:17.634070827Z"
+    description: A cloudshell (ubuntu with webssh)
+    digest: 6d1deab2e3b41581b2cdffc321a8afdcb7693fcdd6d6f47051f9e0b07bf94064
+    name: cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.14/cloudshell-1.14.tgz
+    version: "1.14"
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T09:36:58.93179379Z"
@@ -191,6 +212,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.1/cloudshell-1.1.tgz
     version: "1.1"
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-01-16T10:00:17.859736093Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: f932f22a32232df9dfadf0cdd2ad2b027d0376dd90dd6d73407566e223338a7d
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.2.7/jupyter-0.2.7.tgz
+    version: 0.2.7
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T09:36:59.034363229Z"
@@ -370,6 +402,17 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:17.975793567Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
+    digest: a67d01a459017262b7f40d8b5f7544a01ff46097271e24673e7ebd18963060b0
+    icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.1.7/neo4j-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:59.136364748Z"
     description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 550309791ece64b2be718c7fda5952fa86caabea35c475f8528b8eeba8aac596
@@ -448,6 +491,17 @@ entries:
   openrefine:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:18.13545584Z"
+    description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
+    digest: 338ace150ea7e8b157d8b370e9dbbd3edd843df39a2bee82ca446d9680a5ce6a
+    icon: https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg
+    name: openrefine
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.6/openrefine-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:59.234266555Z"
     description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
     digest: 1c40f7e49559f2de799b2b79ff2f120e55b17120c41c7303ca2a8cc3261c60f6
@@ -502,6 +556,16 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
     version: 0.1.0
   pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-01-16T10:00:18.243955254Z"
+    description: Outil d'administration de bases de données PostgreSQL
+    digest: 887d54d3ae524e0922736dae260b62b7f3c511321ef6db7dc67261201cae6880
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.13/pgadmin-0.1.13.tgz
+    version: 0.1.13
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T09:36:59.342227593Z"
@@ -625,6 +689,17 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:18.369737523Z"
+    description: The RAPIDS suite of open source software libraries and APIs gives you the ability to execute end-to-end data science and analytics pipelines entirely on GPUs. Licensed under Apache 2.0, RAPIDS is incubated by NVIDIA based on extensive hardware and data science science experience. RAPIDS utilizes NVIDIA CUDA primitives for low-level compute optimization, and exposes GPU parallelism and high-bandwidth memory speed through user-friendly Python interfaces. RAPIDS also focuses on common data preparation tasks for analytics and data science. This includes a familiar dataframe API that integrates with a variety of machine learning algorithms for end-to-end pipeline accelerations without paying typical serialization costs. RAPIDS also includes support for multi-node, multi-GPU deployments, enabling vastly accelerated processing and training on much larger dataset sizes.
+    digest: 17d088a7b86cc9a14ebfeccedff0f604f1917d43b247130f090e415a9eaccc67
+    icon: https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png
+    name: rapidsai
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-0.1.6/rapidsai-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:59.439622497Z"
     description: The RAPIDS suite of open source software libraries and APIs gives you the ability to execute end-to-end data science and analytics pipelines entirely on GPUs. Licensed under Apache 2.0, RAPIDS is incubated by NVIDIA based on extensive hardware and data science science experience. RAPIDS utilizes NVIDIA CUDA primitives for low-level compute optimization, and exposes GPU parallelism and high-bandwidth memory speed through user-friendly Python interfaces. RAPIDS also focuses on common data preparation tasks for analytics and data science. This includes a familiar dataframe API that integrates with a variety of machine learning algorithms for end-to-end pipeline accelerations without paying typical serialization costs. RAPIDS also includes support for multi-node, multi-GPU deployments, enabling vastly accelerated processing and training on much larger dataset sizes.
     digest: 302cc156fb82c216922f890e5ddafe864c941ca4fa0c69166cefb9ffb81b93cb
@@ -668,6 +743,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-0.1.0/rapidsai-0.1.0.tgz
     version: 0.1.0
   rstudio:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-01-16T10:00:18.498902183Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 697f2c21f5c584c32ae5c477ff8cf30cdc2235889805c509364179c49e36fa32
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.2.5/rstudio-0.2.5.tgz
+    version: 0.2.5
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T09:36:59.559139571Z"
@@ -858,6 +944,17 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:18.631718333Z"
+    description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
+    digest: 3da668a3ccb8fa288dc9e9d8b214b5f4f4b23f33a2cc90db6988a88e1eb128d6
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.2.5/tensorflow-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:59.65785288Z"
     description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
     digest: 3f46e01770d5cba7f84a8a47ddf8b297269f7c323d693a0487505db353dd5826
@@ -969,6 +1066,17 @@ entries:
   ubuntu:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-16T10:00:18.733203866Z"
+    description: VNC remote desktop.
+    digest: c9b797a810e98e6c8ccdbf5cc9402a9d222d203aebcc2524d3684cfc78ac7886
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.9/ubuntu-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T09:36:59.766208919Z"
     description: VNC remote desktop.
     digest: 88dd445a03a6def8499bf28b974232039319e41adc732162621357b15bf378b3
@@ -1067,6 +1175,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-01-16T10:00:18.835121597Z"
+    description: Visual studio code, from the browser !
+    digest: cf127833e7e5c8e558f97ec868440044c1501f6431b9eaac059a54b27270ea2f
+    icon: https://code.visualstudio.com/favicon.ico
+    name: vscode
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.3.3/vscode-0.3.3.tgz
+    version: 0.3.3
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T09:36:59.860757115Z"
