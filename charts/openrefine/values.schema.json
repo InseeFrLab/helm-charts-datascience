@@ -15,7 +15,7 @@
                     "type": "string",
                     "default": "0.1"
                   },
-                  "mem": {
+                  "memory": {
                     "description": "The amount of cpu guaranteed",
                     "type": "string",
                     "default": "2Gi"
