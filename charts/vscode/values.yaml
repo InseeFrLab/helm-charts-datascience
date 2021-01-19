@@ -2,7 +2,7 @@
 
 service:
   image:
-    repository: "inseefrlab/vscode-python:3.7.4"
+    repository: "inseefrlab/vscode-python:3.8.0"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
   

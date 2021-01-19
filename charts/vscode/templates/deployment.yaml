@@ -49,6 +49,8 @@ spec:
           args: ["/data/{{ .Values.init.filename}} fixuid -q /usr/bin/code-server --host 0.0.0.0 /home/coder/work"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: SHELL
+              value: /bin/bash
             - name: PASSWORD
               value: {{ .Values.security.password }}         
           envFrom: 
