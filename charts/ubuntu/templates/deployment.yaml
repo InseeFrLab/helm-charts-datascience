@@ -24,6 +24,13 @@ spec:
         {{- include "ubuntu.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "ubuntu.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: dshm
           emptyDir:
             medium: Memory
@@ -79,6 +86,8 @@ spec:
               name: {{$volumeName}}
             - mountPath: /dev/shm
               name: dshm
+            - mountPath: /home/headless/work
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"
