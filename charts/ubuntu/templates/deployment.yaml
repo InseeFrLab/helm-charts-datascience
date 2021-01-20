@@ -42,7 +42,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} /dockerstartup/vnc_startup.sh --wait"]
+          args: ["/data/{{ .Values.init.filename}} /usr/bin/tini -- /dockerstartup/startup.sh"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: VNC_PW
