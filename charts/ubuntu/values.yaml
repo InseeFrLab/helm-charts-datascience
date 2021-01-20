@@ -2,10 +2,10 @@
 
 service:
   image:
-    repository: "inseefrlab/ubuntu-vnc:new-base"
+    repository: "inseefrlab/ubuntu-vnc"
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "latest"
 
 security:
   password: "changeme"
