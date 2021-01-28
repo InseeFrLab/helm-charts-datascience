@@ -50,7 +50,7 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}        
           env:
             - name: SPARK_HISTORY_OPTS
-              value: "-Dspark.history.fs.logDirectory= {{ .Values.service.directory }}"
+              value: "-Dspark.history.fs.logDirectory={{ .Values.service.directory }}"
           envFrom: 
             {{- if .Values.environment.s3 }}
             - configMapRef:
