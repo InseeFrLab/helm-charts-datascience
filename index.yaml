@@ -944,6 +944,17 @@ entries:
   spark-history:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-01-28T09:39:26.965921189Z"
+    description: Spark history help you to review logs of your spark applications.
+    digest: 9932373f08bafaeadc311a5ddce1dfa2ff52915ef01af6e6b220a572f532f8f1
+    icon: https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png
+    name: spark-history
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-0.0.2/spark-history-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-28T09:22:20.948040962Z"
     description: Spark history help you to review logs of your spark applications.
     digest: f7fa993130e60602d645bb6e4e26b8ed9a4e187285f11531311141f36d575c05
