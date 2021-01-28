@@ -2,7 +2,7 @@
 
 service:
   user: jovyan
-  sparkui: false
+  sparkui: true
   image:
     repository: "inseefrlab/jupyter-datascience"
     pullPolicy: IfNotPresent
