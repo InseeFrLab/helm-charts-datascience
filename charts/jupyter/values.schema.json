@@ -9,7 +9,7 @@
                 "sparkui": {
                     "description": "enable",
                     "type": "boolean",
-                    "default": true
+                    "default": false
                   }
             }
         },
