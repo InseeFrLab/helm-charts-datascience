@@ -1,6 +1,7 @@
 # Default values for spark-history.
 
 service:
+  directory: "file://tmp/spark-logs/"
   image:
     repository: "inseefrlab/jupyter-datascience"
     pullPolicy: IfNotPresent

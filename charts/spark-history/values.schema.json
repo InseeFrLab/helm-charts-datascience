@@ -2,6 +2,20 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "service": {
+            "description": "spark-history specific configuration",
+            "type": "object",
+            "properties": {
+                "directory": {
+                    "description": "directory of access logs",
+                    "type": "string",
+                    "default": "file://tmp/spark-logs/",
+                    "x-form": {
+                      "value": "s3a://{{user.idep}}/spark-history"
+                    }
+                  }
+            }
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
