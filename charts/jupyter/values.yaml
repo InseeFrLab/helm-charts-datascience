@@ -2,6 +2,7 @@
 
 service:
   user: jovyan
+  sparkui: false
   image:
     repository: "inseefrlab/jupyter-datascience"
     pullPolicy: IfNotPresent
@@ -107,6 +108,8 @@ networking:
   clusterIP: None
   jupyter:
     port: 80
+  sparkui:
+    port: 4040
 
 ingress:
   enabled: true

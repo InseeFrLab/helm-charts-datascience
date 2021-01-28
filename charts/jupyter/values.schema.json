@@ -2,6 +2,17 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "service": {
+            "description": "spark-history specific configuration",
+            "type": "object",
+            "properties": {
+                "sparkui": {
+                    "description": "enable",
+                    "type": "boolean",
+                    "default": false
+                  }
+            }
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
@@ -262,6 +273,19 @@
                         "type": "externalDNS",
                         "scope": "jupyter",
                         "name": "ihm"
+                    }
+                },
+                "sparkHostname": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "jupyter",
+                        "name": "sparkui"
                     }
                 }
             }
