@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "postgres.fullname" . }}-test-connection"
+  labels:
+    {{- include "postgres.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: select
+      image:  {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      env:
+        - name: PGPASSWORD
+          value: {{ .Values.postgres.postgresPassword | quote }}
+      command: ["psql", "-h", {{ include "postgres.fullname" . | quote }}, "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+  restartPolicy: Never

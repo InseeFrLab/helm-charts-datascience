@@ -1,0 +1,20 @@
+{{- if .Values.networkPolicy.enabled -}}
+kind: NetworkPolicy
+apiVersion: {{ template "postgresql.networkPolicy.apiVersion" . }}
+metadata:
+  name: {{ include "postgres.fullname" . }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "postgres.selectorLabels" . | nindent 6 }}
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+           {{ template "postgres.fullname" . }}-client: "true"
+    ports:
+    - protocol: TCP
+      port: 5432
+  policyTypes:
+  - Ingress
+{{- end }}

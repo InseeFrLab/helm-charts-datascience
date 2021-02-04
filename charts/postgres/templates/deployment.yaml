@@ -1,0 +1,104 @@
+{{- $fullName := include "postgres.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "postgres.fullname" . }}
+  labels:
+    {{- include "postgres.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "postgres.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "postgres.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: {{$volumeName}}
+          emptyDir: {}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "postgres.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env :
+            - name : POSTGRES_USER
+              value : {{ .Values.postgres.postgresUser}}
+            - name : POSTGRES_PASSWORD
+              value : {{ .Values.postgres.postgresPassword}}
+            - name : POSTGRES_DB
+              value : {{ .Values.postgres.postgresDatabase}}           
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: postgres
+              containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /docker-entrypoint-initdb.d
+              name: {{$volumeName}}
+          {{- if .Values.liveness.enabled }}
+          livenessProbe:
+            exec:
+              command: ["psql", "-w", "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+          {{- end }}
+          {{- if .Values.readiness.enabled }}
+          readinessProbe:
+            exec:
+              command: ["psql", "-w", "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.init.enabled }}
+      initContainers:
+        - name: init
+          image: {{ .Values.init.image | quote }}
+          command: {{- range .Values.init.command }}
+          - {{ . | quote }}
+          {{- end }}
+          args: {{- range .Values.init.args }} 
+          - {{ . | quote }}
+          {{- end }}
+          {{- if .Values.init.env }}
+          env: 
+            {{- range $key, $val := .Values.init.env }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end}}
+          {{- end }}
+          volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}          
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
