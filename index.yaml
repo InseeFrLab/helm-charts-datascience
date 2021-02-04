@@ -752,6 +752,17 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: "9.6"
+    created: "2021-02-04T13:19:46.790187737Z"
+    description: A Helm chart for Kubernetes
+    digest: 68bff3cd21222572c8bdbafef05613d3f00c6f4becf3de640b7ed18f4b9e7d02
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgres-0.1.1/postgres-0.1.1.tgz
+    version: 0.1.1
   rapidsai:
   - apiVersion: v2
     appVersion: latest
