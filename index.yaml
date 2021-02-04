@@ -225,6 +225,17 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-04T13:15:07.544941955Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: 35d95f72c418d37fdab9dbbf9b8435468f163a2a0048f08b1f44b08ec3e1fdf7
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.2.12/jupyter-0.2.12.tgz
+    version: 0.2.12
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-02-04T12:59:13.851697734Z"
     description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: 1b3d9e9466bc2ec640bda550ca4250a7d05f217430afc2aaae40f47a14134648
@@ -800,6 +811,17 @@ entries:
   rstudio:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-04T13:15:07.930432794Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: ad43d45673ffe2adbbf0a0bc92d4c077d7a93b05113d51fcec9660bf70853038
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.2.6/rstudio-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T10:00:18.498902183Z"
     description: RStudio is the reference IDE for RLang programming.
     digest: 697f2c21f5c584c32ae5c477ff8cf30cdc2235889805c509364179c49e36fa32
@@ -1044,6 +1066,17 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-04T13:15:08.196585751Z"
+    description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
+    digest: 4d4a114341f8888239ba2ee0fd1d9e9f8450349880e83e64ecf46f58bdad4e5c
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.2.7/tensorflow-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-02-04T12:59:13.943787102Z"
     description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
     digest: 400b0991c82b3194e3107aef29bb4d89725bb689bdd8d50af0b1b1cede4a7397
@@ -1175,6 +1208,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-04T13:15:08.46954041Z"
+    description: VNC remote desktop.
+    digest: 6d71cfadfe511fbae2188b58440b75d63686c203d84c728deaad2a0c42a68d62
+    icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+    name: ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.14/ubuntu-0.1.14.tgz
+    version: 0.1.14
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-20T14:39:26.989307085Z"
@@ -1330,6 +1374,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-04T13:15:08.751788774Z"
+    description: Visual studio code, from the browser !
+    digest: a43725b1a40233b4bfd8079e96c6638930a673dc32cda57a4df7a2b15cbc9d17
+    icon: https://code.visualstudio.com/favicon.ico
+    name: vscode
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.3.5/vscode-0.3.5.tgz
+    version: 0.3.5
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-19T15:46:38.927209494Z"
