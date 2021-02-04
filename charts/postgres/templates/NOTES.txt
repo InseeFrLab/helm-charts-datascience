@@ -7,7 +7,7 @@ PostgreSQL can be accessed via port 5432 on the following DNS name from within y
 To connect to your database run the following command:
 
     kubectl run {{ template "postgres.fullname" . }}-client --rm --tty -i --restart=Never --namespace {{ .Release.Namespace }} --image {{ .Values.image.repository }}:{{ .Values.image.tag }} --env="PGPASSWORD=$POSTGRES_PASSWORD" {{- if and (.Values.networkPolicy.enabled) (not .Values.networkPolicy.allowExternal) }}
-   --labels="{{ template "postgres.fullname" . }}-client=true" {{- end }} --command -- psql --host {{ template "postgres.fullname" . }} -U {{ .Values.postgres.postgresUser }} -d {{- if .Values.postgres.postgresqlDatabase }} {{ .Values.postgres.postgresqlDatabase }}{{- else }} postgres{{- end }} -p 5432
+   --labels="{{ template "postgres.fullname" . }}-client=true" {{- end }} --command -- psql --host {{ template "postgres.fullname" . }} -U {{ .Values.postgresql.username }} -d {{- if .Values.postgresql.dbname }} {{ .Values.postgresql.dbname }}{{- else }} postgres{{- end }} -p 5432
 
 {{ if and (.Values.networkPolicy.enabled)  }}
 Note: Since NetworkPolicy is enabled, only pods with label {{ template "postgres.fullname" . }}-client=true" will be able to connect to this PostgreSQL cluster.
@@ -32,6 +32,6 @@ To connect to your database from outside the cluster execute the following comma
 {{- else if contains "ClusterIP" .Values.service.type }}
 
     kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ template "postgres.fullname" . }} 5432:5432 &
-    {{ if (.Values.postgres.postgresPassword) }}PGPASSWORD="$POSTGRES_PASSWORD" {{ end }}psql --host 127.0.0.1 -U {{ .Values.postgresqlUsername }} -d {{- if .Values.postgresqlDatabase }} {{ .Values.postgresqlDatabase }}{{- else }} postgres{{- end }} -p 5432
+    {{ if (.Values.postgresql.password) }}PGPASSWORD="$POSTGRES_PASSWORD" {{ end }}psql --host 127.0.0.1 -U {{ .Values.postgresql.username }} -d {{- if .Values.postgresql.username }} {{ .Values.postgresql.dbname }}{{- else }} postgres{{- end }} -p 5432
 
 {{- end }}

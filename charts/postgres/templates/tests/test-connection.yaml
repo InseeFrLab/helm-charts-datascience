@@ -9,9 +9,9 @@ metadata:
 spec:
   containers:
     - name: select
-      image:  {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      image:  {{ .Values.image.repository }}:{{ .Values.postgresql.version }}
       env:
         - name: PGPASSWORD
-          value: {{ .Values.postgres.postgresPassword | quote }}
-      command: ["psql", "-h", {{ include "postgres.fullname" . | quote }}, "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+          value: {{ .Values.postgresql.password | quote }}
+      command: ["psql", "-h", {{ include "postgres.fullname" . | quote }}, "-U", {{ .Values.postgresql.username | quote }}, "-d", {{ .Values.postgresql.dbname | quote }}, "-c", "SELECT 1"]
   restartPolicy: Never

@@ -24,6 +24,13 @@ spec:
         {{- include "postgres.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "postgres.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -37,14 +44,14 @@ spec:
         - name: {{ .Chart.Name }}
           env :
             - name : POSTGRES_USER
-              value : {{ .Values.postgres.postgresUser}}
+              value : {{ .Values.postgresql.username}}
             - name : POSTGRES_PASSWORD
-              value : {{ .Values.postgres.postgresPassword}}
+              value : {{ .Values.postgresql.password}}
             - name : POSTGRES_DB
-              value : {{ .Values.postgres.postgresDatabase}}           
+              value : {{ .Values.postgresql.dbname}}           
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.postgresql.version | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: postgres
@@ -53,17 +60,19 @@ spec:
           volumeMounts:
             - mountPath: /docker-entrypoint-initdb.d
               name: {{$volumeName}}
+            - mountPath: /var/lib/postgresql/data
+              name: data
           {{- if .Values.liveness.enabled }}
           livenessProbe:
             exec:
-              command: ["psql", "-w", "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+              command: ["psql", "-w", "-U", {{ .Values.postgresql.username | quote }}, "-d", {{ .Values.postgresql.dbname | quote }}, "-c", "SELECT 1"]
             initialDelaySeconds: 60
             timeoutSeconds: 5
           {{- end }}
           {{- if .Values.readiness.enabled }}
           readinessProbe:
             exec:
-              command: ["psql", "-w", "-U", {{ .Values.postgres.postgresUser | quote }}, "-d", {{ .Values.postgres.postgresDatabase | quote }}, "-c", "SELECT 1"]
+              command: ["psql", "-w", "-U", {{ .Values.postgresql.username | quote }}, "-d", {{ .Values.postgresql.dbname | quote }}, "-c", "SELECT 1"]
             initialDelaySeconds: 60
             timeoutSeconds: 5
           {{- end }}

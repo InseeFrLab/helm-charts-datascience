@@ -8,18 +8,25 @@ image:
   repository: postgres
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "9.6"
 
 liveness:
   enabled : "true"
 
+security:
+  password: "changeme"
+  networkPolicy: 
+    enable: true
+
+postgresql:
+  version: "12"
+  username: postgres
+  dbname: defaultdb
+  password: changeme
+
+
 readiness:
   enabled: "true"
 
-postgres:
-  postgresUser: postgres
-  postgresPassword: postgres
-  postgresDatabase: postgres
 
 init:
   enabled: false
@@ -71,6 +78,20 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+persistence:
+  enabled: true
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  # existingClaim: ""
 
 autoscaling:
   enabled: false
