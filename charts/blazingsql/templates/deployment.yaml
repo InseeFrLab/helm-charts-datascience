@@ -41,9 +41,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook=/blazingsql/ --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook-dir=/blazingsql/ --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: SHELL
+              value: /bin/bash          
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
