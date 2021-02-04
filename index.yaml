@@ -3,6 +3,17 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-04T12:59:13.777658775Z"
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: e28a40c0c473cbde53e6c29b1eaad5d24664d1b9d1ea963cf0b1b723131813ec
+    icon: https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png
+    name: blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.10/blazingsql-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T10:00:17.535181805Z"
     description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
     digest: 8c68fa2a6041f9a10eeaec8cc5e7182907a6d69755c4ddf81e8f060b10cc78d1
@@ -212,6 +223,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.1/cloudshell-1.1.tgz
     version: "1.1"
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-04T12:59:13.851697734Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: 1b3d9e9466bc2ec640bda550ca4250a7d05f217430afc2aaae40f47a14134648
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.2.11/jupyter-0.2.11.tgz
+    version: 0.2.11
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-28T12:02:52.794079869Z"
@@ -1020,6 +1042,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-0.0.1/spark-history-0.0.1.tgz
     version: 0.0.1
   tensorflow:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-04T12:59:13.943787102Z"
+    description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
+    digest: 400b0991c82b3194e3107aef29bb4d89725bb689bdd8d50af0b1b1cede4a7397
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.2.6/tensorflow-0.2.6.tgz
+    version: 0.2.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-01-16T10:00:18.631718333Z"
