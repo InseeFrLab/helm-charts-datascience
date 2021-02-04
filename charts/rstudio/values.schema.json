@@ -36,7 +36,7 @@
                 "size": {
                     "type": "string",
                     "description": "Size of the persistent volume",
-                    "default": "1Gi"
+                    "default": "10Gi"
                 }
             }
         },

@@ -140,7 +140,7 @@ persistence:
   ##
   # storageClass: "-"
   accessMode: ReadWriteOnce
-  size: 1Gi
+  size: 10Gi
   # existingClaim: ""
 autoscaling:
   enabled: false
