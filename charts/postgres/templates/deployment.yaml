@@ -43,6 +43,8 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env :
+            - name: PGDATA
+              value: '/var/lib/postgresql/data/pgdata'
             - name : POSTGRES_USER
               value : {{ .Values.postgresql.username}}
             - name : POSTGRES_PASSWORD
