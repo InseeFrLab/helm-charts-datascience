@@ -754,6 +754,17 @@ entries:
     version: 0.1.0
   postgres:
   - apiVersion: v2
+    appVersion: "12"
+    created: "2021-02-04T14:19:22.137332068Z"
+    description: An object-relational database management system, a database server
+    digest: e4e71e7d3dbf5735642ee83e027baf8b6e6b54b67aef52a5bdcaa2412b87e7c4
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgres-0.1.3/postgres-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
     appVersion: "9.6"
     created: "2021-02-04T13:19:46.790187737Z"
     description: A Helm chart for Kubernetes
