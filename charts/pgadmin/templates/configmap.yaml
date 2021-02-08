@@ -8,3 +8,4 @@ metadata:
 data:
   servers.json: |-
     {{- include "pgadmin.configmap" . | nindent 4 }}
+{{- end }}
