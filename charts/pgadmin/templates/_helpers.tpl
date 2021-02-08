@@ -73,3 +73,24 @@ ingress annotations
 nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelist.ip }}
 {{- end }}
 {{- end }}
+
+{{- define "pgadmin.configmap" -}}
+{{ printf "{" }}
+{{ printf "\"Servers\": {" | indent 2 }}       
+{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if hasPrefix "postgres" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{ printf "\"%d\" :{" $index | indent 4}}
+{{ printf "\"Name\": \"%s\"," $service.metadata.name | indent 6}}
+{{ printf "\"Group\": \"Autodiscovery\"," | indent 6}}
+{{ printf "\"Port\": %d," (index $service.spec.ports 0).port | indent 6}}
+{{ printf "\"Host\": \"%s\"," $service.metadata.name | indent 6}}
+{{ printf "\"Username\": \"%s\"," (trimPrefix "user-" $service.metadata.namespace) | indent 6}}
+{{ printf "\"SSLMode\": \"prefer\"," | indent 6 }}
+{{ printf "\"MaintenanceDB\": \"postgres\"" | indent 6}}
+{{ printf "}" | indent 4}}
+{{- end }}
+
+{{- end }}
+{{ printf "}" | indent 2}}
+{{ printf "}" }}
+{{- end }}

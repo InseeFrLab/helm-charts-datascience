@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+discovery:
+  postgres: true
+  
 security:
   mail: example@example.com
   password: password

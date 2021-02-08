@@ -24,6 +24,18 @@
           }
       }
   },
+  "discovery": {
+    "description": "configure your service to autodetect some ressources.",
+    "type": "object",
+    "properties": {
+      "postgres": {
+        "type": "boolean",
+        "title": "Enable postgres discovery",
+        "description": "discover your postgres service",
+        "default": true
+      }
+    }
+  },
     "security": {
       "description": "security specific configuration",
       "type": "object",
