@@ -468,6 +468,17 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-08T11:59:58.457179826Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
+    digest: d056b8e70a8b863a3d55966ebc86a2b3571479f4b79a9f0d00c0c4ce447efeb2
+    icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.2.1/neo4j-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T10:00:17.975793567Z"
     description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: a67d01a459017262b7f40d8b5f7544a01ff46097271e24673e7ebd18963060b0
@@ -622,6 +633,16 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
     version: 0.1.0
   pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-08T11:59:58.699180605Z"
+    description: Outil d'administration de bases de données PostgreSQL
+    digest: bf1472c51822847fce36aa39493e46e70b5477aacf7628c5e70658fe0989c50b
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.2.3/pgadmin-0.2.3.tgz
+    version: 0.2.3
   - apiVersion: v2
     appVersion: latest
     created: "2021-02-08T11:14:57.619226368Z"
