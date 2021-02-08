@@ -1,5 +1,4 @@
 {{- $fullName := include "neo4j.fullname" . -}}
-{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
 kind: Deployment
@@ -24,8 +23,13 @@ spec:
         {{- include "neo4j.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
-        - name: {{$volumeName}}
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "neo4j.fullname" .) }}
+        {{- else }}
           emptyDir: {}
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -41,7 +45,7 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: NEO4J_AUTH
-              value: neo4j/{{ .Values.service.password }}
+              value: neo4j/{{ .Values.security.password }}
             - name: NEO4J_dbms_connector_bolt_advertised__address
               value: {{ .Values.ingress.hostnameBolt }}:443  
           ports:
@@ -63,7 +67,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /data
-              name: {{$volumeName}}       
+              name: data      
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

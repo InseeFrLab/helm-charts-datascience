@@ -1,7 +1,19 @@
 # Default values for neo4j.
 
+security:
+  password: password
+  networkPolicy: 
+    enable: false
+    from: 
+    - ipBlock:
+        cidr: 10.233.103.0/32
+    - ipBlock:
+        cidr: 10.233.111.0/32
+  whitelist:
+    enable: true
+    ip: "0.0.0.0/0"
+
 service:
-  password: "changeme"
   image:
     repository: "neo4j"
     pullPolicy: IfNotPresent
@@ -39,6 +51,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+
 networking:
   type: ClusterIP
   neo4jUI:
@@ -56,6 +69,20 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+persistence:
+  enabled: true
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  # existingClaim: ""
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -1,3 +1,4 @@
+{{- if .Values.discovery.postgres -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:

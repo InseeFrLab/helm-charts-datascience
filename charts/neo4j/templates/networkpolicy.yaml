@@ -2,11 +2,11 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: {{ include "ubuntu.fullname" . }}
+  name: {{ include "neo4j.fullname" . }}
 spec:
   podSelector:
     matchLabels:
-      {{- include "ubuntu.selectorLabels" . | nindent 6 }}
+      {{- include "neo4j.selectorLabels" . | nindent 6 }}
   ingress:
   - from:
     - podSelector: {}
