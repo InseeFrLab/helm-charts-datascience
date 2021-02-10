@@ -55,6 +55,10 @@ spec:
               value: {{ .Values.service.user }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
+            {{- if .Values.init.personnalInit }}
+            - name: PERSONNAL_INIT_SCRIPT
+              value: {{ .Values.init.personnalInit }}
+            {{- end }}   
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
               value: "yes"
