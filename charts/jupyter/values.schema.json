@@ -272,7 +272,7 @@
                     "x-generated": {
                         "type": "externalDNS",
                         "scope": "jupyter",
-                        "name": "uijupyter"
+                        "name": "ihm"
                     }
                 },
                 "sparkHostname": {
