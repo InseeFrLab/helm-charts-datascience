@@ -54,6 +54,10 @@ spec:
             {{- if .Values.environment.root }}
             - name: ROOT
               value: "TRUE"
+            {{- end }}   
+            {{- if .Values.init.personnalInit }}
+            - name: PERSONNAL_INIT_SCRIPT
+              value: {{ .Values.init.personnalInit }}
             {{- end }}          
           envFrom: 
             {{- if .Values.environment.s3 }}
