@@ -35,10 +35,10 @@
             "repository": {
               "type": "string",
               "description": "Version of vscode to use",
-              "default": "inseefrlab/vscode-python:3.8.1",
+              "default": "inseefrlab/vscode-python:3.9.0",
               "enum": [
-                "inseefrlab/vscode-python:3.8.1",
-                "codercom/code-server:3.8.1"
+                "inseefrlab/vscode-python:3.9.0",
+                "codercom/code-server:3.9.0"
               ]
             }
           }
