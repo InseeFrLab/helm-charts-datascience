@@ -7,6 +7,7 @@ replicaCount: 1
 image:
   repository: postgres
   pullPolicy: IfNotPresent
+  postgis: postgis/postgis
   # Overrides the image tag whose default is the chart appVersion.
 
 liveness:
@@ -23,6 +24,9 @@ postgresql:
   dbname: defaultdb
   password: changeme
 
+postgis:
+  enabled: false
+  version: "3.1"
 
 readiness:
   enabled: "true"
