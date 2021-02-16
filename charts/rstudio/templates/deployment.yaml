@@ -44,7 +44,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.service.image.repository }}:{{ .Values.r.version }}"
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}

@@ -2,6 +2,18 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "r": {
+            "description": "postgres specific configuration",
+            "type": "object",
+            "properties": {
+              "version": {
+                "description": "r version",
+                "type": "string",
+                "enum": ["3.6.3", "4.0.3"],
+                "default": "3.6.3"
+              }
+           }
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
