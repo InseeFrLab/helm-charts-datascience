@@ -54,7 +54,7 @@ spec:
             mountPath: /opt/hive/conf
       initContainers:
         - name: wait-for-postgresql
-          image: "{{ .Values.init.image.repository }}:{{ .Values.init.image.tag }}"
+          image: "alpine"
           imagePullPolicy: {{ .Values.init.image.pullPolicy }}
           command:
             - sh
