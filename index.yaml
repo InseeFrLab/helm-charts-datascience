@@ -222,6 +222,23 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.1/cloudshell-1.1.tgz
     version: "1.1"
+  hive-metastore:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-03-08T18:15:40.668873987Z"
+    dependencies:
+    - enabled: true
+      name: postgres
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 0.1.5
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: 1cd892bc3ff5dad78d65d7264db1a76027ec7884a4d9a5695cd57305684c666a
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/1200px-Apache_Hive_logo.svg.png
+    name: hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.2/hive-metastore-0.0.2.tgz
+    version: 0.0.2
   jupyter:
   - apiVersion: v2
     appVersion: latest
