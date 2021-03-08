@@ -19,11 +19,12 @@ security:
   networkPolicy: 
     enable: true
 
-postgresql:
-  version: "12"
-  username: postgres
-  dbname: metastore
-  password: changeme
+postgres:
+  postgresql:
+    version: "12"
+    username: postgres
+    dbname: metastore
+    password: changeme
 
 readiness:
   enabled: "true"
