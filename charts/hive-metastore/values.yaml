@@ -22,22 +22,12 @@ security:
 postgresql:
   version: "12"
   username: postgres
-  dbname: defaultdb
+  dbname: metastore
   password: changeme
-
-postgis:
-  enabled: false
-  version: "3.1"
 
 readiness:
   enabled: "true"
 
-
-init:
-  enabled: false
-  image: curimages/curl
-  command: ["curl"]
-  args: ["https://example.com/example.sql", "-o", "/data/dump.sql"]
 
 imagePullSecrets: []
 nameOverride: ""
@@ -75,19 +65,6 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-persistence:
-  enabled: true
-  ## database data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
-  accessMode: ReadWriteOnce
-  size: 10Gi
-  # existingClaim: ""
 
 autoscaling:
   enabled: false
