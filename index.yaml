@@ -225,6 +225,22 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-03-08T19:52:51.580106222Z"
+    dependencies:
+    - enabled: true
+      name: postgres
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 0.1.5
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: e2e244acc8c4fa69d8f32b48d4afdd2911111d1c9d6243f7e95e2ff759995ddd
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/1200px-Apache_Hive_logo.svg.png
+    name: hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.5/hive-metastore-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-03-08T18:49:02.03878186Z"
     dependencies:
     - enabled: true
