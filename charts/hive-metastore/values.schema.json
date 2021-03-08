@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "postgres": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "properties": {
+        "postgresql": {
+          "description": "postgres specific configuration",
+          "type": "object",
+          "properties": {
+            "username": {
+              "description": "Postgres user name.",
+              "type": "string",
+              "default": "admin",
+              "x-form": {
+                "value": "{{user.idep}}"
+              }
+            },
+            "password": {
+              "description": "Postgres password.",
+              "type": "string",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }  
+
+}
