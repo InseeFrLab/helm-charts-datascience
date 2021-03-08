@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "r": {
-            "description": "postgres specific configuration",
+            "description": "rstudio specific configuration",
             "type": "object",
             "properties": {
               "version": {
