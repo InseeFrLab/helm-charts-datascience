@@ -119,7 +119,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{ printf "<configuration>"}}
 {{- $virgule := 0 }}      
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
-{{- if hasPrefix "hive-mestastore" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if $virgule }}
 {{- end }}
 {{ printf "<property>"}}
