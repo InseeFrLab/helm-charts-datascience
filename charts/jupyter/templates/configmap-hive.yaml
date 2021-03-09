@@ -1,0 +1,11 @@
+{{- if contains "thrift" (include "hiveMestastore.configmap" .)  }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+#  name: {{- printf "%s-configmaphive" (include "jupyter.fullname" .) }}
+  labels:
+    {{- include "jupyter.labels" . | nindent 4 }}
+data:
+  hive-site.xml: |
+    {{- include "hiveMestastore.configmap" . | nindent 4 }}
+{{- end }}
