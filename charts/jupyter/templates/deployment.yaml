@@ -95,7 +95,7 @@ spec:
               name: {{$volumeName}}
             - mountPath: /home/{{ .Values.service.user}}/work
               name: home
-            {{- if .Values.discovery.hive -}}
+            {{- if .Values.discovery.hive }}
             - name: hive-config
               mountPath: /opt/hive/conf
             {{- end }}
@@ -107,7 +107,7 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          
-      {{- if .Values.discovery.hive -}}
+      {{- if .Values.discovery.hive }}
       volumes:
       - name: hive-config
         configMap:
