@@ -222,6 +222,23 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.1/cloudshell-1.1.tgz
     version: "1.1"
+  elastic:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-03-10T15:10:02.198777512Z"
+    dependencies:
+    - enabled: true
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.10.2
+    description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
+    digest: bc9d6fb5a594e5af55de644b661375037a3381d43b92dfa8e15b64b06780af9a
+    icon: https://downloads.mesosphere.com/universe/assets/elasticsearch-small.png
+    name: elastic
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-0.0.1/elastic-0.0.1.tgz
+    version: 0.0.1
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
