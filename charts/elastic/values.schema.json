@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "elasticsearch": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image docker",
+          "type": "string",
+          "enum": ["docker.elastic.co/elasticsearch/elasticsearch", "docker.elastic.co/elasticsearch/elasticsearch-oss"],
+          "default": "docker.elastic.co/elasticsearch/elasticsearch"
+        }
+      }
+    }
+  }  
+
+}
