@@ -33,6 +33,11 @@ spec:
         {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
+        {{- if .Values.discovery.hive }}
+        - name: hive-config
+          configMap:
+            name: {{ include "jupyter.configMapNameHive" . }}
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -107,12 +112,6 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          
-      {{- if .Values.discovery.hive }}
-      volumes:
-      - name: hive-config
-        configMap:
-          name: {{ include "jupyter.configMapNameHive" . }}
-      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
