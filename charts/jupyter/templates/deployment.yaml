@@ -95,6 +95,10 @@ spec:
               name: {{$volumeName}}
             - mountPath: /home/{{ .Values.service.user}}/work
               name: home
+            {{- if .Values.discovery.hive -}}
+            - name: hive-config
+              mountPath: /opt/hive/conf
+            {{- end }}
       initContainers:
         - name: standard-init
           image: "busybox"
@@ -103,6 +107,12 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: {{$volumeName}}          
+      {{- if .Values.discovery.hive -}}
+      volumes:
+      - name: hive-config
+        configMap:
+          name: {{ include "jupyter.configMapNameHive" . }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
