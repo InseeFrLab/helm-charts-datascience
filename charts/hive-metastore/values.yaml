@@ -10,6 +10,8 @@ service:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: "master"
+  warehouseDir: s3a://bucket/hive-warehouse
+
 
 liveness:
   enabled : "true"

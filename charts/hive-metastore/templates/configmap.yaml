@@ -22,7 +22,14 @@ data:
           <value>{{ .Values.postgres.postgresql.username }}</value>
         </property>
         <property>
-          <name> javax.jdo.option.ConnectionPassword</name>
+          <name>javax.jdo.option.ConnectionPassword</name>
           <value>{{ .Values.postgres.postgresql.password }}</value>
         </property>
+        <property>
+          <name> hive.metastore.warehouse.dir</name>
+          <value>{{ .Values.service.warehouseDir}}</value>
+        </property>
+       
+
+
     </configuration>
