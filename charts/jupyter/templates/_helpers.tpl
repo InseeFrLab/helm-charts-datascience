@@ -111,3 +111,35 @@ ingress annotations
 nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelist.ip }}
 {{- end }}
 {{- end }}
+
+
+{{- define "hiveMetastore.configmap" -}}
+{{ printf "<?xml version=\"1.0\"?>" }}
+{{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" }} 
+{{ printf "<configuration>"}}
+{{- $virgule := 0 }}      
+{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if $virgule }}
+{{- end }}
+{{ printf "<property>"}}
+{{ printf "<name>metastore.thrift.uris</name>"  | indent 4}}
+{{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
+{{ printf "</property>"}}
+{{- $virgule = 1}}
+{{- end }}
+{{- end }}
+{{ printf "</configuration>"}}
+{{- end }}
+
+{{/*
+Create the name of the config map hive to use
+*/}}
+{{- define "jupyter.configMapNameHive" -}}
+{{- if .Values.discovery.hive }}
+{{- $name:= (printf "%s-configmaphive" (include "jupyter.fullname" .) )  }}
+{{- default $name .Values.hive.configMapName }}
+{{- else }}
+{{- default "default" .Values.hive.configMapName }}
+{{- end }}
+{{- end }}

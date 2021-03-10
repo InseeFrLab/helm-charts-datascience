@@ -1,0 +1,11 @@
+{{- if .Values.discovery.hive -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "jupyter.configMapNameHive" . }}
+  labels:
+    {{- include "jupyter.labels" . | nindent 4 }}
+data:
+  hive-site.xml: |
+    {{- include "hiveMetastore.configmap" . | nindent 4 }}
+{{- end }}
