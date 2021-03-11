@@ -12,6 +12,21 @@ service:
     tag: "master"
   warehouseDir: s3a://bucket/hive-warehouse
 
+environment:
+  s3: true
+
+
+s3:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: ""
+  defaultRegion: ""
+  secretAccessKey: ""
+  sessionToken: ""
 
 liveness:
   enabled : "true"

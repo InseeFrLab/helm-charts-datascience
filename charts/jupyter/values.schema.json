@@ -10,7 +10,20 @@
                     "description": "enable",
                     "type": "boolean",
                     "default": false
-                  }
+                },
+                "image" : {
+                    "description": "image docker",
+                    "type": "object",  
+                    "properties": {
+                      "tag": {
+                          "description": "tag",
+                          "type": "string",
+                          "default": "master",
+                          "enum": ["master", "hive-2.3.7"]
+                          
+                      }
+                    }        
+                }
             }
         },
         "discovery": {
