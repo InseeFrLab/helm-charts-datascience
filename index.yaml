@@ -225,6 +225,26 @@ entries:
   elastic:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-03-11T07:37:15.970157091Z"
+    dependencies:
+    - enabled: true
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.10.2
+    - enabled: true
+      name: kibana
+      repository: https://helm.elastic.co
+      version: 7.10.2
+    description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
+    digest: 60a2c1432f096052449d06646a9c37dbeb5144f13414e4c73d153350d9ed4f7e
+    icon: https://downloads.mesosphere.com/universe/assets/elasticsearch-small.png
+    name: elastic
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-0.0.3/elastic-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-03-10T23:04:44.910066986Z"
     dependencies:
     - enabled: true
