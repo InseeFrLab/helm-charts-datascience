@@ -14,32 +14,28 @@
         }
       }
     },
-    "kibana": {
-      "description": "postgres specific configuration",
+    "ingress": {
       "type": "object",
+      "form": true,
+      "title": "Ingress Details",
       "properties": {
-        "ingress": {
-          "type": "object",
-          "form": true,
-          "title": "Ingress Details",
-          "properties": {
-            "hostname": {
-                "type": "string",
-                "form": true,
-                "title": "Hostname",
-                "x-form": {
-                    "hidden": true
-                },
-                "x-generated": {
-                    "type": "externalDNS",
-                    "scope": "jupyter",
-                    "name": "ihm"
-                }
+        "hostname": {
+            "type": "string",
+            "form": true,
+            "title": "Hostname",
+            "x-form": {
+                "hidden": true
+            },
+            "x-generated": {
+                "type": "externalDNS",
+                "scope": "jupyter",
+                "name": "ihm"
             }
-          }
         }
       }
     }
+      
+    
   }  
 
 }
