@@ -123,7 +123,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{- if $virgule }}
 {{- end }}
 {{ printf "<property>"}}
-{{ printf "<name>metastore.thrift.uris</name>"  | indent 4}}
+{{ printf "<name>hive.metastore.uris</name>"  | indent 4}}
 {{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
 {{ printf "</property>"}}
 {{- $virgule = 1}}
