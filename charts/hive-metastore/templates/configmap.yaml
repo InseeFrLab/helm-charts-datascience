@@ -29,7 +29,7 @@ data:
           <name> hive.metastore.warehouse.dir</name>
           <value>{{ .Values.service.warehouseDir}}</value>
         </property>
-        {{- if .Values.security.networkPolicy.enable }}       
+        {{- if .Values.environment.s3 }}       
         <property>
           <name>fs.s3a.connection.ssl.enabled</name>
           <value>true</value>
