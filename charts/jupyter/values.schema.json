@@ -19,7 +19,7 @@
                           "description": "tag",
                           "type": "string",
                           "default": "master",
-                          "enum": ["master", "hive-2.3.7"]
+                          "enum": ["master", "hive-2.3.7","custom-spark-hadoop","custom-spark-no-hadoop"]
                           
                       }
                     }        
