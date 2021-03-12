@@ -282,6 +282,22 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-03-12T08:20:04.750466611Z"
+    dependencies:
+    - enabled: true
+      name: postgres
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 0.1.5
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: c37a20b8efdc1230841423677917c96491eb6adf1c3798856aa7501fa6d880bf
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/1200px-Apache_Hive_logo.svg.png
+    name: hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.10/hive-metastore-0.0.10.tgz
+    version: 0.0.10
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-03-11T12:51:29.553586806Z"
     dependencies:
     - enabled: true
@@ -409,6 +425,17 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.2/hive-metastore-0.0.2.tgz
     version: 0.0.2
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-03-12T08:20:04.850441985Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: e100b87e39c872b689a7f907e67013df05e4f35caac14aa89422ec79c1aaebd7
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.3.6/jupyter-0.3.6.tgz
+    version: 0.3.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-03-11T13:37:25.48778751Z"
