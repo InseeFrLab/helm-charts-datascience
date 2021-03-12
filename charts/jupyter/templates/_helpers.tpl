@@ -119,6 +119,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{ printf "<configuration>"}}
 {{- $virgule := 0 }}      
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if $virgule }}
 {{- end }}
@@ -127,6 +128,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
 {{ printf "</property>"}}
 {{- $virgule = 1}}
+{{- end }}
 {{- end }}
 {{- end }}
 {{ printf "</configuration>"}}
