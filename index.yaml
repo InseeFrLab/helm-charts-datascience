@@ -427,6 +427,17 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-03-12T16:21:42.548362609Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: 6f43bad390b5feffccfff23b5e92f75d7760582e985e460558e6f0819dd9a76a
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.3.7/jupyter-0.3.7.tgz
+    version: 0.3.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-12T08:20:04.850441985Z"
     description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: e100b87e39c872b689a7f907e67013df05e4f35caac14aa89422ec79c1aaebd7
@@ -978,6 +989,16 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
     version: 0.1.0
   pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-03-12T16:21:42.62758563Z"
+    description: Outil d'administration de bases de données PostgreSQL
+    digest: 03c6e3bc5d4ee79d8d8c0dd4112362d3a1b9f8146714a14b580449aa30844627
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.2.5/pgadmin-0.2.5.tgz
+    version: 0.2.5
   - apiVersion: v2
     appVersion: latest
     created: "2021-02-08T17:09:01.96102706Z"
