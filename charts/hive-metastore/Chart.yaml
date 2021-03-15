@@ -23,7 +23,7 @@ version: 0.0.10
 appVersion: 1
 dependencies:
   - name: postgres
-    version: 0.1.5
+    version: 0.1.6
     repository:  https://inseefrlab.github.io/helm-charts-datascience
     enabled: true
 
