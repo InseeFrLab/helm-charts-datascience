@@ -1613,6 +1613,18 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-0.0.1/spark-history-0.0.1.tgz
     version: 0.0.1
+  spark-thrift-server:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-03-15T13:13:33.043489927Z"
+    description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive. You can test the JDBC server with the beeline script that comes with either Spark or compatible Hive.
+    digest: 517136312b7529fc561b12810c53b8d038da41b1e273157cdd3839a751b81ef3
+    icon: https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png
+    name: spark-thrift-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.1/spark-thrift-server-0.0.1.tgz
+    version: 0.0.1
   tensorflow:
   - apiVersion: v2
     appVersion: latest
