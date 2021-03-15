@@ -1,0 +1,70 @@
+{{- $fullName := include "spark-thrift-server.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "spark-thrift-server.fullname" . }}
+  labels:
+    {{- include "spark-thrift-server.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "spark-thrift-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "spark-thrift-server.selectorLabels" . | nindent 8 }}
+    spec:
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh","-c"]
+          args: ["$SPARK_HOME/sbin/start-thriftserver.sh "]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          ports:
+            - name: thrift
+              containerPort: 10000
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 10000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 10000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}         
+          volumeMounts:
+          - name: hive-config
+            mountPath: /opt/hive/conf
+      volumes:
+      - name: hive-config
+        configMap:
+          name: {{ include "spark-thrift-server.fullname" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
