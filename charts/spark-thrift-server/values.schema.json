@@ -70,6 +70,26 @@
           }
       }
     },
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+          "hostname": {
+              "type": "string",
+              "form": true,
+              "title": "Hostname",
+              "x-form": {
+                  "hidden": true
+              },
+              "x-generated": {
+                  "type": "externalDNS",
+                  "scope": "jupyter",
+                  "name": "ihm"
+              }
+          }
+      }
+  },
     "discovery": {
       "description": "configure your service to autodetect some ressources.",
       "type": "object",
