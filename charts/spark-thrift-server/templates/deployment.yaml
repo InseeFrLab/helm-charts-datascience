@@ -33,6 +33,9 @@ spec:
           command: ["/bin/sh","-c"]
           args: ["$SPARK_HOME/sbin/start-thriftserver.sh "]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: SPARK_NO_DAEMONIZE
+              value: "true"
           ports:
             - name: thrift
               containerPort: 10000
