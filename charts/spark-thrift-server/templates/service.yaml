@@ -14,5 +14,9 @@ spec:
       targetPort: thrift
       protocol: TCP
       name: thrift
+    - port: {{ .Values.networking.sparkui.port }}
+      targetPort: sparkui
+      protocol: TCP
+      name: sparkui
   selector:
     {{- include "spark-thrift-server.selectorLabels" . | nindent 4 }}

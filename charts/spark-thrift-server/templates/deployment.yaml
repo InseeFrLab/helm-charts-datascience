@@ -40,6 +40,9 @@ spec:
             - name: thrift
               containerPort: 10000
               protocol: TCP
+            - name: sparkui
+              containerPort: 4040
+              protocol: TCP
           readinessProbe:
             tcpSocket:
               port: 10000
