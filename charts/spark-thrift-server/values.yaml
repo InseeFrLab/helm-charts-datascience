@@ -11,6 +11,11 @@ service:
     # Overrides the image tag whose default is the chart appVersion.
     tag: "master"
 
+init:
+  standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
+  filename: "onyxia-init.sh"
+  personalInit: "null"
+
 discovery:
   hive: true
 

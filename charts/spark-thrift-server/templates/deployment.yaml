@@ -31,7 +31,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["$SPARK_HOME/sbin/start-thriftserver.sh "]
+          args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: SPARK_NO_DAEMONIZE
@@ -56,9 +56,21 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}         
           volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}
           - name: hive-config
             mountPath: /opt/hive/conf
+      initContainers:
+        - name: standard-init
+          image: "busybox"
+          command: ["/bin/sh","-c"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
+          volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}   
       volumes:
+      - name: {{$volumeName}}
+        emptyDir: {}
       - name: hive-config
         configMap:
           name: {{ include "spark-thrift-server.fullname" . }}
