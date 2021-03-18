@@ -36,6 +36,11 @@ spec:
           env:
             - name: SPARK_NO_DAEMONIZE
               value: "true"
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "spark-thrift-server.configMapNameS3" . }}
+            {{- end }}
           ports:
             - name: thrift
               containerPort: 10000
