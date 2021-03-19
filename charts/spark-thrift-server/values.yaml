@@ -35,6 +35,10 @@ s3:
   secretAccessKey: ""
   sessionToken: ""
 
+spark:
+  master: k8s://https://kubernetes.default:443
+  instances: 5
+
 liveness:
   enabled : "true"
 
@@ -62,7 +66,7 @@ serviceAccount:
 
 kubernetes:
   enable: true
-  role: "admin"
+  role: "edit"
 
 readiness:
   enabled: "true"

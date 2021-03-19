@@ -34,7 +34,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh"]
+          args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh --master {{ .Values.spark.master}} --conf spark.executor.instances={{ .Values.spark.instances}} --conf spark.kubernetes.container.image={{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }} --conf spark.kubernetes.namespace={{ .Release.Namespace}} --conf spark.kubernetes.authenticate.driver.serviceAccountName={{ include "spark-thrift-server.serviceAccountName" . }}"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: SPARK_NO_DAEMONIZE
