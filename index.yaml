@@ -1616,6 +1616,17 @@ entries:
   spark-thrift-server:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-03-19T15:04:05.958315703Z"
+    description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive. You can test the JDBC server with the beeline script that comes with either Spark or compatible Hive.
+    digest: dbe97263060589c275c32973f194c446bbbc1b9634b17b64e1343df8f4e0577c
+    icon: https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png
+    name: spark-thrift-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.11/spark-thrift-server-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-03-19T14:15:51.421079586Z"
     description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive. You can test the JDBC server with the beeline script that comes with either Spark or compatible Hive.
     digest: 4ad5e203a16b5f1dac641297b3c6febc8af6a963414984fb55a9c73dc9263166
