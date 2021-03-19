@@ -51,6 +51,19 @@ security:
     enable: true
     ip: "0.0.0.0/0"
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+kubernetes:
+  enable: true
+  role: "edit"
+
 readiness:
   enabled: "true"
 
@@ -77,6 +90,7 @@ securityContext: {}
 
 networking:
   type: ClusterIP
+  clusterIP: None
   port: 10000
   sparkui:
     port: 4040

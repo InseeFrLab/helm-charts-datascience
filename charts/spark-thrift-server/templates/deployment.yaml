@@ -23,8 +23,11 @@ spec:
       labels:
         {{- include "spark-thrift-server.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: {{ include "spark-thrift-server.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      subdomain: {{ include "spark-thrift-server.fullname" . }}
+      hostname: thrift
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
