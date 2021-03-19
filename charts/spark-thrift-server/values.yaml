@@ -62,7 +62,7 @@ serviceAccount:
 
 kubernetes:
   enable: true
-  role: "edit"
+  role: "admin"
 
 readiness:
   enabled: "true"
