@@ -1309,6 +1309,16 @@ entries:
     version: 0.1.0
   rstudio:
   - apiVersion: v2
+    created: "2021-03-22T20:55:26.082105122Z"
+    description: RStudio is the reference IDE for RLang programming.
+    digest: 4f5e4d32facbf2d8a6e0b33308a8b91fba385e2e128673ecd61991b52374fccd
+    icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+    name: rstudio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-0.3.1/rstudio-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     created: "2021-03-08T18:05:08.394432681Z"
     description: RStudio is the reference IDE for RLang programming.
     digest: 91bd7d3cac29b10effb5f610e8d961b64da0a8e0e76d4de191e3e3ca18d31c6c
