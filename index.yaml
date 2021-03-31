@@ -1251,6 +1251,23 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgres-0.1.1/postgres-0.1.1.tgz
     version: 0.1.1
+  postgresql:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-03-31T22:42:08.035302389Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: An object-relational database management system, a database server
+    digest: 28ba8f453fbc5d7180825b6754bf2ed0f0f501fce29ace570c6660ce2838bfa9
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+    name: postgresql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgresql-0.0.1/postgresql-0.0.1.tgz
+    version: 0.0.1
   rapidsai:
   - apiVersion: v2
     appVersion: latest
