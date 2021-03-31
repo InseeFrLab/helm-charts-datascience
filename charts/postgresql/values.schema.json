@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "postgresql": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image specific configuration",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "description": "postgresql major version",
+              "type": "string",
+              "enum": ["9", "10", "11", "12","13"],
+              "default": "12"
+            }
+          }
+        },
+        "persistence": {
+          "description": "Configuration for persistence",
+          "type": "object",
+          "properties": {
+              "enabled": {
+                  "type": "boolean",
+                  "description": "Create a persistent volume",
+                  "default": true
+              },
+              "size": {
+                  "type": "string",
+                  "description": "Size of the persistent volume",
+                  "default": "10Gi"
+              }
+          }
+        }
+      }
+    },
+    "global": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
+        "postgresqlUsername": {
+          "type": "string",
+          "title": "Admin user",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "postgresqlPassword": {
+          "type": "string",
+          "title": "Password",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        },
+        "postgresqlDatabase": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "title": "Database",
+          "default": "defaultdb"
+        }
+      }
+    }
+  }
+}

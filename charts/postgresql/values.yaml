@@ -1,0 +1,4 @@
+postgresql:
+  image:
+    tag: "12"
+
