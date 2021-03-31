@@ -60,7 +60,7 @@ spec:
             - sh
             - -c
             - |
-              until printf "." && nc -z -w 2 {{ .Release.Name }}-postgres {{ .Values.postgres.service.port }}; do
+              until printf "." && nc -z -w 2 {{ .Values.postgresql.fullnameOverride }} 5432; do
                   sleep 2;
               done;
               echo 'PostgreSQL OK ✓'

@@ -86,31 +86,32 @@
           }
       }
     },
-    "postgres": {
+    "global": {
       "description": "postgres specific configuration",
       "type": "object",
+      "title": "Database",
       "properties": {
-        "postgresql": {
-          "description": "postgres specific configuration",
-          "type": "object",
-          "properties": {
-            "username": {
-              "description": "Postgres user name.",
-              "type": "string",
-              "default": "admin",
-              "x-form": {
-                "value": "{{user.idep}}"
-              }
-            },
-            "password": {
-              "description": "Postgres password.",
-              "type": "string",
-              "default": "changeme",
-              "x-form": {
-                "value": "{{user.password}}"
-              }
-            }
+        "postgresqlUsername": {
+          "type": "string",
+          "title": "Admin user",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
           }
+        },
+        "postgresqlPassword": {
+          "type": "string",
+          "title": "Password",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        },
+        "postgresqlDatabase": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "title": "Database",
+          "default": "metastore"
         }
       }
     }

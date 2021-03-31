@@ -11,7 +11,7 @@ data:
     <configuration>
         <property>
           <name>javax.jdo.option.ConnectionURL</name>
-          <value>jdbc:postgresql://{{ .Release.Name }}-postgres:5432/metastore</value>
+          <value>jdbc:postgresql://{{ .Values.postgresql.fullnameOverride }}:5432/{{ .Values.global.postgresqlDatabase}}</value>
         </property>
         <property>
           <name>javax.jdo.option.ConnectionDriverName</name>
@@ -19,11 +19,11 @@ data:
         </property>
         <property>
           <name>javax.jdo.option.ConnectionUserName</name>
-          <value>{{ .Values.postgres.postgresql.username }}</value>
+          <value>{{ .Values.global.postgresqlUsername }}</value>
         </property>
         <property>
           <name>javax.jdo.option.ConnectionPassword</name>
-          <value>{{ .Values.postgres.postgresql.password }}</value>
+          <value>{{ .Values.global.postgresqlPassword }}</value>
         </property>
         <property>
           <name> hive.metastore.warehouse.dir</name>
