@@ -1061,6 +1061,16 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-04-01T08:27:48.864375561Z"
+    description: Outil d'administration de bases de données PostgreSQL
+    digest: befd4c906a756084ef3411ed997a3d4d9b3bae215b7d875f25adae71b3d1d293
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.2.7/pgadmin-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-12T16:21:42.62758563Z"
     description: Outil d'administration de bases de données PostgreSQL
     digest: 03c6e3bc5d4ee79d8d8c0dd4112362d3a1b9f8146714a14b580449aa30844627
