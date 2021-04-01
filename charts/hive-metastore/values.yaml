@@ -2,9 +2,10 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global:
-  postgresqlDatabase: "metastore"
-  postgresqlUser: "admin"
-  postgresqlPassword: "changeme"
+  postregsql:
+    postgresqlDatabase: "metastore"
+    postgresqlUser: "admin"
+    postgresqlPassword: "changeme"
   
 replicaCount: 1
 
