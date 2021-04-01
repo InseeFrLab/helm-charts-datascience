@@ -282,6 +282,22 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-04-01T07:52:49.500355084Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: 08e555dd68e0b09af5a4fac7581c35e62c9cf11f76f3473a9d34217774c3980f
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/1200px-Apache_Hive_logo.svg.png
+    name: hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.13/hive-metastore-0.0.13.tgz
+    version: 0.0.13
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-03-31T23:27:15.912838612Z"
     dependencies:
     - enabled: true
