@@ -20,10 +20,12 @@ spec:
       labels:
         {{- include "pgadmin.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if .Values.discovery.postgres -}}
       volumes:
       - name: config
         configMap:
           name: {{ include "pgadmin.fullname" . }}
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -49,16 +51,20 @@ spec:
             httpGet:
               path: /
               port: http
+          {{- if .Values.discovery.postgres -}}
           volumeMounts:
           - name: config
             mountPath: "/data"
+          {{- end }}
           env:
             - name: PGADMIN_DEFAULT_EMAIL
               value: {{ .Values.security.mail }}
             - name: PGADMIN_DEFAULT_PASSWORD
               value: {{ .Values.security.password }}
+            {{- if .Values.discovery.postgres -}}
             - name: PGADMIN_SERVER_JSON_FILE
-              value: "/data/servers.json" 
+              value: "/data/servers.json"
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
