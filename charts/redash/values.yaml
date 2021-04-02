@@ -17,4 +17,3 @@ redash:
   postgresql:
     postgresqlPassword: changeme
     postgresqlUsername: admin
-    
