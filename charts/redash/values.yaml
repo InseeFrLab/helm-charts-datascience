@@ -4,13 +4,12 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: redash.lab.sspcloud.fr
+  hostname: redashe.lab.sspcloud.fr
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
 redash:
-  fullnameOverride: "redash"
   redash:
     cookieSecret: changeme
     secretKey: changeme
