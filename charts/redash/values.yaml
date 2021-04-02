@@ -1,0 +1,19 @@
+ingress:
+  enabled: true
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: redash.lab.sspcloud.fr
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+redash:
+  redash:
+    cookieSecret: changeme
+    secretKey: changeme
+  postgresql:
+    postgresqlPassword: changeme
+    postgresqlUsername: admin
+    fullnameOverride: "redash-db"
