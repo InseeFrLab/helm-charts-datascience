@@ -10,10 +10,11 @@ ingress:
   #      - chart-example.local
 
 redash:
+  fullnameOverride: "redash"
   redash:
     cookieSecret: changeme
     secretKey: changeme
   postgresql:
     postgresqlPassword: changeme
     postgresqlUsername: admin
-    fullnameOverride: "redash-db"
+    
