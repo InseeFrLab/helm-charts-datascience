@@ -1382,6 +1382,23 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-0.1.0/rapidsai-0.1.0.tgz
     version: 0.1.0
+  redash:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-04-02T21:45:24.780250203Z"
+    dependencies:
+    - enabled: true
+      name: redash
+      repository: https://getredash.github.io/contrib-helm-chart/
+      version: 2.3.0
+    description: Redash is an open source tool built for teams to query, visualize and collaborate.
+    digest: 94be9716e4612fe643cbc2bc2d82d1d50144df4424773e1a2e3cb7022bb97c7f
+    icon: https://redash.io/assets/images/elements/redash-logo.svg
+    name: redash
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-0.0.1/redash-0.0.1.tgz
+    version: 0.0.1
   rstudio:
   - apiVersion: v2
     created: "2021-03-22T20:55:26.082105122Z"
