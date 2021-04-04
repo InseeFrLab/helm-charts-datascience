@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "redash": {
+    "global": {
       "description": "postgres specific configuration",
       "type": "object",
       "title": "Database",
@@ -35,7 +35,14 @@
               "default": "redash"
             }
           }
-        },
+        }
+      }
+    },    
+    "redash": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
         "redash": {
           "description": "redash specific configuration",
           "type": "object",

@@ -1,3 +1,14 @@
+global:
+  postgresql:
+    postgresqlDatabase: "redash"
+    postgresqlUsername: "admin"
+    postgresqlPassword: "changeme"
+
+postgresql:
+  image:
+    tag: "12"
+  fullnameOverride: "redash-db"
+
 ingress:
   enabled: true
   tls: true
@@ -10,9 +21,12 @@ ingress:
   #      - chart-example.local
 
 redash:
+  externalPostgreSQLSecret:
+    name: redash-postgres
+    key: connectionString
   redash:
     cookieSecret: changeme
     secretKey: changeme
   postgresql:
-    postgresqlPassword: changeme
-    postgresqlUsername: admin
+    enabled: false
+    existingSecret: toto
