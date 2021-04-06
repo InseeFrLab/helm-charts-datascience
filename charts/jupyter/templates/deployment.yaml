@@ -56,6 +56,10 @@ spec:
           args: ["/data/{{ .Values.init.filename}} start.sh jupyter-lab --notebook-dir=/home/$(NB_USER)/work --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
             - name: NB_USER
               value: {{ .Values.service.user }}
             - name: PASSWORD
