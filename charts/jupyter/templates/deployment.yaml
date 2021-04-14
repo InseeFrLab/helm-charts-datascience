@@ -97,6 +97,11 @@ spec:
             httpGet:
               path: /
               port: http
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -106,7 +111,8 @@ spec:
               name: home
             {{- if .Values.discovery.hive }}
             - name: hive-config
-              mountPath: /opt/hive/conf
+              mountPath: /opt/hive/conf/hive-site.xml
+              subPath: hive-site.xml
             {{- end }}
       initContainers:
         - name: standard-init
