@@ -491,6 +491,17 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-04-14T22:12:40.894588616Z"
+    description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+    digest: 6b9ce4639f6b8e7637eeb6c440f0d496a2d4f498a6b6634d753787118cfb09f1
+    icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-0.3.11/jupyter-0.3.11.tgz
+    version: 0.3.11
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-04-06T20:58:51.64295234Z"
     description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
     digest: 36f2a19abedb9a0270dcd92bcf3e187a253d8657093bda04a4e4038348a12818
