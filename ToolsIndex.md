@@ -122,6 +122,14 @@ LINUX virtual machine to connect and control an operating system with a remote m
 https://docs.ubuntu.com/
 
 _____
+
+- ### **UtilitR**: 
+
+Un environnement RStudio entièrement configuré pour contribuer au projet utilitR sans se poser la question des dépendances.
+
+https://www.utilitr.org/
+_____
+
 - ### **Vault**: 
 
 Vault secures, stores, and controls access to tokens, passwords, certificates, API keys, and other secrets of modern computing. This is the datalab safe.
