@@ -117,6 +117,14 @@ Ubutntu est un machine virtuelle LINUX pour se connecter et contrôler un systè
 https://docs.ubuntu.com/
 
 _____
+
+- ### **UtilitR**: 
+
+Un environnement RStudio entièrement configuré pour contribuer au projet utilitR sans se poser la question des dépendances.
+
+https://www.utilitr.org/
+_____
+
 - ### **Vault**: 
 
 Vault sécurise, stocke et contrôle l'accès aux jetons, mots de passe, certificats, clés API et autres secrets de l'informatique moderne. C'est le coffre fort du datalab.
