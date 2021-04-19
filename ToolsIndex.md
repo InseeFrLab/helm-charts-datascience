@@ -125,7 +125,7 @@ _____
 
 - ### **UtilitR**: 
 
-Un environnement RStudio entièrement configuré pour contribuer au projet utilitR sans se poser la question des dépendances.
+A fully equipped RStudio service with the purpose to contributing to French-speaking project utilitR.
 
 https://www.utilitr.org/
 _____
