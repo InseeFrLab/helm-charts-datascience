@@ -2,13 +2,10 @@
 
 service:
   image:
-    repository: "inseefrlab/rstudio"
+    repository: "inseefrlab/utilitr"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
-
-r:
-  version: 4.0.4
 
 security:
   password: "changeme"
