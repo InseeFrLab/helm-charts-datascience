@@ -1,0 +1,118 @@
+{{- $fullName := include "utilitR.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "utilitR.fullname" . }}
+  labels:
+    {{- include "utilitR.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "utilitR.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "utilitR.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "utilitR.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: {{$volumeName}}
+          emptyDir: {}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "utilitR.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.r.version }}"
+          command: ["/bin/sh","-c"]
+          args: ["/data/{{ .Values.init.filename}} /init"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: PASSWORD
+              value: {{ .Values.security.password }}
+            {{- if .Values.environment.root }}
+            - name: ROOT
+              value: "TRUE"
+            {{- end }}   
+            {{- if .Values.init.personnalInit }}
+            - name: PERSONNAL_INIT_SCRIPT
+              value: {{ .Values.init.personnalInit }}
+            {{- end }}          
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "utilitR.configMapNameS3" . }}
+            {{- end }}
+            {{- if .Values.environment.vault }}
+            - configMapRef:
+                name: {{ include "utilitR.configMapNameVault" . }}
+            {{- end }}
+            {{- if .Values.environment.git }}
+            - configMapRef:
+                name: {{ include "utilitR.configMapNameGit" . }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 8787
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            {{- toYaml .Values.startupProbe | nindent 12 }}         
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /data
+              name: {{$volumeName}}
+            - mountPath: /home/rstudio
+              name: home
+      initContainers:
+        - name: standard-init
+          image: "busybox"
+          command: ["/bin/sh","-c"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
+          volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}          
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
