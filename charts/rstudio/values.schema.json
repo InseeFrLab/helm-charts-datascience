@@ -9,8 +9,8 @@
               "version": {
                 "description": "r version",
                 "type": "string",
-                "enum": ["3.6.3", "4.0.4"],
-                "default": "4.0.4"
+                "enum": ["inseefrlab/rstudio:3.6.3", "inseefrlab/rstudio:4.0.4", "inseefrlab/utilitr:latest"],
+                "default": "inseefrlab/rstudio:4.0.4"
               }
            }
         },
