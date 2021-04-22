@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "service": {
+      "description": "spark-history specific configuration",
+      "type": "object",
+      "properties": {
+          "directory": {
+              "description": "directory of access logs",
+              "type": "string",
+              "default": "/tmp/mlflow/artifacts/",
+              "x-form": {
+                "value": "s3a://{{user.idep}}/mlflow-artifacts"
+              }
+          }
+      }
+    },
+    "environment": {
+      "description": "configuration of your environment variables",
+      "type": "object",
+      "properties": {
+          "s3": {
+              "type": "boolean",
+              "description": "Add S3 temporary identity inside your environment",
+              "default": true
+          }
+      }
+    },
+    "s3": {
+      "description": "Configuration of temporary identity",
+      "type": "object",
+      "properties": {
+          "accessKeyId": {
+              "description": "AWS Access Key",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_ACCESS_KEY_ID}}",
+                  "hidden": true
+              }
+          },
+          "endpoint": {
+              "description": "AWS S3 Endpoint",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_S3_ENDPOINT}}",
+                  "hidden": true
+              }
+          },
+          "defaultRegion": {
+              "description": "AWS S3 default region",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_DEFAULT_REGION}}",
+                  "hidden": true
+              }
+          },
+          "secretAccessKey": {
+              "description": "AWS S3 secret access key",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_SECRET_ACCESS_KEY}}",
+                  "hidden": true
+              }
+          },
+          "sessionToken": {
+              "description": "AWS S3 session Token",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_SESSION_TOKEN}}",
+                  "hidden": true
+              }
+          }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+          "hostname": {
+              "type": "string",
+              "form": true,
+              "title": "Hostname",
+              "x-form": {
+                  "hidden": true
+              },
+              "x-generated": {
+                  "type": "externalDNS",
+                  "scope": "mlflow",
+                  "name": "ihm"
+              }
+          }
+      }
+    },
+    "global": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
+        "postgresql": {
+          "description": "postgres specific configuration",
+          "type": "object",
+          "title": "Database",
+          "properties": {
+            "postgresqlUsername": {
+              "type": "string",
+              "title": "Admin user",
+              "default": "admin",
+              "x-form": {
+                "value": "{{user.idep}}"
+              }
+            },
+            "postgresqlPassword": {
+              "type": "string",
+              "title": "Password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            },
+            "postgresqlDatabase": {
+              "description": "Name for the default database that is created when the image is first started.",
+              "type": "string",
+              "title": "Database",
+              "default": "mlflow"
+            }
+          }
+        }
+      }
+    }
+  }  
+
+}

@@ -1,0 +1,122 @@
+# Default values for postgres.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  postgresql:
+    postgresqlDatabase: "mlflow"
+    postgresqlUser: "admin"
+    postgresqlPassword: "changeme"
+  
+replicaCount: 1
+
+service:
+  image:
+    repository: "inseefrlab/mlflow"
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "master"
+  directory: /tmp/mlflow/artifacts/
+
+environment:
+  s3: true
+
+
+s3:
+  # Specifies whether a config map should be created
+  create: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: ""
+  defaultRegion: ""
+  secretAccessKey: ""
+  sessionToken: ""
+
+liveness:
+  enabled : "true"
+
+security:
+  networkPolicy: 
+    enable: false
+    from: 
+    - ipBlock:
+        cidr: 10.233.103.0/32
+    - ipBlock:
+        cidr: 10.233.111.0/32
+  whitelist:
+    enable: true
+    ip: "0.0.0.0/0"  
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+postgresql:
+  image:
+    tag: "12"
+  fullnameOverride: "mlflow-db"
+
+
+networking:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: chart-example.local
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+readiness:
+  enabled: "true"
+
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+networkPolicy:
+  enabled: false
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
