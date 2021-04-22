@@ -21,6 +21,9 @@ ingress:
   #      - chart-example.local
 
 redash:
+  image:
+    repository: inseefrlab/redash
+    tag: master
   externalPostgreSQLSecret:
     name: redash-postgres
     key: connectionString
