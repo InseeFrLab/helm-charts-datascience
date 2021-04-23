@@ -11,7 +11,7 @@
               "type": "string",
               "default": "/tmp/mlflow/artifacts/",
               "x-form": {
-                "value": "s3a://{{user.idep}}/mlflow-artifacts"
+                "value": "s3://{{user.idep}}/mlflow-artifacts"
               }
           }
       }
