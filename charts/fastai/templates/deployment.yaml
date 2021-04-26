@@ -1,0 +1,102 @@
+{{- $fullName := include "fastai.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "fastai.fullname" . }}
+  labels:
+    {{- include "fastai.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "fastai.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "fastai.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: {{$volumeName}}
+          emptyDir: {}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "fastai.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      subdomain: {{ include "fastai.fullname" . }}
+      hostname: fastai
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh","-c"]
+          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: PASSWORD
+              value: {{ .Values.security.password }}
+            {{- if .Values.environment.root }}
+            - name: GRANT_SUDO
+              value: "yes"
+            {{- end }}          
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "fastai.configMapNameS3" . }}
+            {{- end }}
+            {{- if .Values.environment.vault }}
+            - configMapRef:
+                name: {{ include "fastai.configMapNameVault" . }}
+            {{- end }}
+            {{- if .Values.environment.git }}
+            - configMapRef:
+                name: {{ include "fastai.configMapNameGit" . }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 8888
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /data
+              name: {{$volumeName}}
+      initContainers:
+        - name: standard-init
+          image: "busybox"
+          command: ["/bin/sh","-c"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
+          volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}          
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
