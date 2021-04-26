@@ -279,6 +279,18 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-0.0.1/elastic-0.0.1.tgz
     version: 0.0.1
+  fastai:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-04-26T23:18:44.39850125Z"
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: 8a9c5491209aa40977806f51e41e08c482a09e8f4d851deb16cc24279235c9ee
+    icon: https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png
+    name: fastai
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-0.0.1/fastai-0.0.1.tgz
+    version: 0.0.1
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
