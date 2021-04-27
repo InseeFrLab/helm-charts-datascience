@@ -282,6 +282,17 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-04-27T13:16:41.266751304Z"
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: 5beb4e560de6267d208cc40ae32c57d2ed8689ccc9f52520ea90fa1a330dca7a
+    icon: https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png
+    name: fastai
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-0.0.3/fastai-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-04-27T13:00:33.509468208Z"
     description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
     digest: 62ebed01ee60da71fd5c4bad0692972e22d480f4f5d240755ddfe1fe9319a5a4
