@@ -1110,6 +1110,26 @@ entries:
   mlflow:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-04-29T11:38:30.863697664Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: MLflow is an open source platform to manage the ML lifecycle, including experimentation, reproducibility, deployment, and a central model registry.
+    digest: 0979a6629b7fda20a431c228b8c747b286d695b8afa5ea5e850b4db95d2aa4a5
+    home: https://jupyter.org/
+    icon: https://mlflow.org/images/MLflow-logo-final-white-TM.png
+    name: mlflow
+    sources:
+    - https://github.com/InseeFrLab/mlflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mlflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mlflow-1.0.0/mlflow-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-04-23T16:02:12.35610727Z"
     dependencies:
     - enabled: true
