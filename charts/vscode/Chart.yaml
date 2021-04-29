@@ -1,6 +1,6 @@
 apiVersion: v2
 name: vscode
-description: Visual studio code, from the browser !
+description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
 icon: https://code.visualstudio.com/favicon.ico
 # A chart can be either an 'application' or a 'library' chart.
 #
