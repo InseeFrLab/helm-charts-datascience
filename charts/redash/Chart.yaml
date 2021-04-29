@@ -2,6 +2,14 @@ apiVersion: v2
 name: redash
 description: Redash is an open source tool built for teams to query, visualize and collaborate.
 icon: https://redash.io/assets/images/elements/redash-logo.svg
+keyworks:
+  - Tool
+  - Data
+home: https://redash.io/
+sources: 
+  - https://github.com/InseeFrLab/redash
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/redash
+  - https://github.com/getredash/redash
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -15,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.7
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
