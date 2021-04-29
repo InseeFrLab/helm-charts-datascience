@@ -2,6 +2,13 @@ apiVersion: v2
 name: openrefine
 description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
 icon: https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg
+keyworks:
+  - Tool
+  - Data
+home: https://openrefine.org/
+sources:
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/openrefine
+  - https://github.com/vimagick/dockerfiles/blob/master/openrefine/Dockerfile
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -15,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.6
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
