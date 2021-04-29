@@ -2,7 +2,17 @@ apiVersion: v2
 name: blazingsql
 description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
 icon: https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png
-
+keyworks:
+  - SQL
+  - Python
+  - Jupyter
+  - GPU
+home: https://blazingsql.com/
+sources: 
+  - https://github.com/InseeFrLab/blazingsql
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+  - https://github.com/BlazingDB/blazingsql
+  
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -16,7 +26,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.10
+version: 0.1.11
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
