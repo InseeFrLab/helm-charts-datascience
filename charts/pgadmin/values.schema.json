@@ -104,7 +104,7 @@
           },
           "x-generated": {
               "type": "externalDNS",
-              "scope": "rstudio",
+              "scope": "pgadmin",
               "name": "ihm"
           }
         }
