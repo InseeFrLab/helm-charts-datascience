@@ -2,6 +2,12 @@ apiVersion: v2
 name: mlflow
 description: MLflow is an open source platform to manage the ML lifecycle, including experimentation, reproducibility, deployment, and a central model registry.
 icon: https://mlflow.org/images/MLflow-logo-final-white-TM.png
+keyworks:
+  - ML
+home: https://jupyter.org/
+sources:
+  - https://github.com/InseeFrLab/mlflow
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mlflow
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -15,7 +21,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.6
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
