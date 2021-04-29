@@ -1337,6 +1337,21 @@ entries:
   openrefine:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-04-29T12:01:36.163994412Z"
+    description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
+    digest: c577ee801c969ad541137ff94fe2d0c9f4fc2539862839557ccb0cac76a68f32
+    home: https://openrefine.org/
+    icon: https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg
+    name: openrefine
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/openrefine
+    - https://github.com/vimagick/dockerfiles/blob/master/openrefine/Dockerfile
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-1.0.0/openrefine-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-01-16T10:00:18.13545584Z"
     description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
     digest: 338ace150ea7e8b157d8b370e9dbbd3edd843df39a2bee82ca446d9680a5ce6a
