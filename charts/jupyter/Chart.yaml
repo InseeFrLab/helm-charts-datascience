@@ -1,8 +1,16 @@
 apiVersion: v2
 name: jupyter
-description: Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.
+description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
 icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw
-
+keyworks:
+  - Hadoop
+  - Spark
+  - Python
+home: https://jupyter.org/
+sources:
+  - https://github.com/InseeFrLab/jupyter-datascience
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+  - https://github.com/jupyter/docker-stacks
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -16,7 +24,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.11
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
