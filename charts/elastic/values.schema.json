@@ -28,7 +28,7 @@
             },
             "x-generated": {
                 "type": "externalDNS",
-                "scope": "jupyter",
+                "scope": "kibana",
                 "name": "ihm"
             }
         }
