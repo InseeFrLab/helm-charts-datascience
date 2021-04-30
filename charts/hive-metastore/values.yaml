@@ -52,7 +52,7 @@ readiness:
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "hive-metastore"
 
 networkPolicy:
   enabled: false
