@@ -1,7 +1,7 @@
 apiVersion: v2
 name: rstudio
 description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
-icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
 keyworks:
   - R
   - IDE
@@ -23,5 +23,5 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.0
+version: 1.0.1
 

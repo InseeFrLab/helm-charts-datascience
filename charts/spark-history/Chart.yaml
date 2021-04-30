@@ -1,8 +1,14 @@
 apiVersion: v2
 name: spark-history
 description: Spark history help you to review logs of your spark applications.
-icon: https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png
-
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+keyworks:
+  - spark
+  - distributed
+home: https://spark.apache.org/
+sources: 
+  - https://github.com/InseeFrLab/jupyter-datascience
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-history
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -16,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.4
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

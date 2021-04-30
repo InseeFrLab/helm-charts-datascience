@@ -1,7 +1,7 @@
 apiVersion: v2
 name: elastic
 description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
-icon: https://cdn.iconscout.com/icon/free/png-256/elastic-283142.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/elk.png
 keyworks:
   - Search
   - Lucene
@@ -23,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.2
+version: 1.0.3
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

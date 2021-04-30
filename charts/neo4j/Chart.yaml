@@ -1,7 +1,7 @@
 apiVersion: v2
 name: neo4j
 description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
-icon: https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/neo4j.png
 keyworks:
   - Database
   - Graph
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.0
+version: 1.0.1
 
 
 # This is the version number of the application being deployed. This version number should be

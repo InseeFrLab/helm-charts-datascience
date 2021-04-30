@@ -1,7 +1,7 @@
 apiVersion: v2
 name: vscode
 description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
-icon: https://code.visualstudio.com/favicon.ico
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keyworks:
   - IDE
   - Python
@@ -23,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.0
+version: 1.0.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
