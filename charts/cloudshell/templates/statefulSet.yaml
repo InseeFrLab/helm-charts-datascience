@@ -2,7 +2,7 @@
 {{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "cloudshell.fullname" . }}
   labels:
@@ -14,6 +14,7 @@ spec:
   selector:
     matchLabels:
       {{- include "cloudshell.selectorLabels" . | nindent 6 }}
+  serviceName: "nginx"
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -71,6 +72,10 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            {{- if .Values.persistence.enabled }}
+            - name: data
+              mountPath: {{ .Values.persistence.mountPath }}
+            {{- end }}
       initContainers:
         - name: standard-init
           image: "busybox"
@@ -91,3 +96,20 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      {{- with .Values.persistence.annotations }}
+        annotations:
+        {{- range $key, $value := . }}
+          {{ $key }}: {{ $value }}
+        {{- end }}
+      {{- end }}
+      spec:
+        accessModes:
+        {{- range .Values.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}

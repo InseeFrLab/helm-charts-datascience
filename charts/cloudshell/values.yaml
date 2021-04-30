@@ -72,7 +72,7 @@ replicaCount: 1
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "cloudshell"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -127,6 +127,22 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+persistence:
+  enabled: true
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  mountPath: /root/work
+  # existingClaim: ""
 
 autoscaling:
   enabled: false
