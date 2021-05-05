@@ -9,7 +9,7 @@
               "version": {
                 "description": "r version",
                 "type": "string",
-                "enum": ["inseefrlab/rstudio:3.6.3", "inseefrlab/rstudio:4.0.4", "inseefrlab/utilitr:latest"],
+                "enum": ["inseefrlab/rstudio:3.6.3", "inseefrlab/rstudio:4.0.4", "inseefrlab/utilitr:0.7.0"],
                 "default": "inseefrlab/rstudio:4.0.4"
               }
            }
