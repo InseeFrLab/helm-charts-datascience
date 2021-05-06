@@ -1798,6 +1798,21 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
+  postgis:
+  - apiVersion: v2
+    appVersion: "12"
+    created: "2021-05-06T09:04:30.070043272Z"
+    description: An object-relational database management system, a database server
+    digest: 0b59543c7f73330fcf46e244fa86766140cca2aa83980d401c8645802edae69e
+    home: https://www.postgresql.org/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+    name: postgis
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgis
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgis-1.0.0/postgis-1.0.0.tgz
+    version: 1.0.0
   postgresql:
   - apiVersion: v2
     appVersion: "1"
