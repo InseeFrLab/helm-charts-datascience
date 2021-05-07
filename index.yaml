@@ -284,6 +284,28 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-1.1/cloudshell-1.1.tgz
     version: "1.1"
+  dask:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-05-07T09:56:53.985699403Z"
+    dependencies:
+    - enabled: true
+      name: dask
+      repository: https://helm.dask.org/
+      version: 2021.4.1
+    description: Dask natively scales Python
+    digest: 5a49b777de71b5c903f50be56ee34dfd331e70d6c98bdbae1e76347f74380553
+    home: https://dask.org/
+    icon: https://dask.org/_images/dask_icon_no_pad.svg
+    name: dask
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/dask
+    - https://github.com/dask/helm-chart
+    - https://github.com/dask/dask
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/dask-1.0.0/dask-1.0.0.tgz
+    version: 1.0.0
   elastic:
   - apiVersion: v2
     appVersion: "1"
