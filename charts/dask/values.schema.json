@@ -70,6 +70,32 @@
               }
           }
         }
+        },
+        "webUI": {
+          "description": "configuration of the dask dashboard",
+          "type": "object",
+          "properties": {
+            "ingress": {
+              "type": "object",
+              "form": true,
+              "title": "Ingress Details",
+              "properties": {
+                  "hostname": {
+                      "type": "string",
+                      "form": true,
+                      "title": "Hostname",
+                      "x-form": {
+                          "hidden": true
+                      },
+                      "x-generated": {
+                          "type": "externalDNS",
+                          "scope": "dask",
+                          "name": "ihm"
+                      }
+                  }
+              }
+          }
+        }
         }
       }
     }

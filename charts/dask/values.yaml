@@ -23,6 +23,9 @@ dask:
       requests:
         cpu: 1
         memory: 6G
+  webUI:
+    ingress:
+      enabled: true
   jupyter:
     enabled: false
 
