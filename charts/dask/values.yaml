@@ -18,10 +18,10 @@ dask:
     replicas: 3  # Number of workers.
     resources:
       limits:
-        cpu: 1.8
+        cpu: 1
         memory: 6G
       requests:
-        cpu: 1.8
+        cpu: 1
         memory: 6G
   jupyter:
     enabled: false
