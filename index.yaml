@@ -823,6 +823,21 @@ entries:
   jena:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-05-17T21:40:20.434571795Z"
+    description: Apache Jena Fuseki is a SPARQL server.
+    digest: 90268e246cfe95211619e7dc1506c953f6db82f642eacee3b6ac4b9aee89384f
+    home: https://jena.apache.org/jena
+    icon: https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png
+    name: jena
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jena
+    - https://github.com/stain/jena-docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-1.0.2/jena-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-05-17T20:42:35.216845508Z"
     description: Apache Jena is an open source Semantic Web framework for Java. It provides an API to extract data from and write to RDF graphs.
     digest: 5e0c76f466374e71bad8db785188f04c6c3a9dcda99d37864e23d34f186fb2ba
