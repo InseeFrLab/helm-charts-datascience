@@ -820,6 +820,22 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.2/hive-metastore-0.0.2.tgz
     version: 0.0.2
+  jena:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-05-17T20:13:29.746119905Z"
+    description: Apache Jena is an open source Semantic Web framework for Java. It provides an API to extract data from and write to RDF graphs.
+    digest: 2c72ecd7a154b6b77e16ea01ac7c2b25426327fa1f67da943c5b812c6e3b79a8
+    home: https://jena.apache.org/jena
+    icon: https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png
+    name: jena
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jena
+    - https://github.com/stain/jena-docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-1.0.0/jena-1.0.0.tgz
+    version: 1.0.0
   jupyter:
   - apiVersion: v2
     appVersion: latest
