@@ -1,5 +1,4 @@
 {{- $fullName := include "jena.fullname" . -}}
-{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
 kind: Deployment
@@ -24,8 +23,13 @@ spec:
         {{- include "jena.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
-        - name: {{$volumeName}}
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "jena.fullname" .) }}
+        {{- else }}
           emptyDir: {}
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -57,8 +61,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /data
-              name: {{$volumeName}}       
+            - mountPath: /fuseki
+              name: data       
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
