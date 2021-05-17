@@ -1,6 +1,6 @@
 apiVersion: v2
 name: jena
-description: Apache Jena is an open source Semantic Web framework for Java. It provides an API to extract data from and write to RDF graphs.
+description: Apache Jena Fuseki is a SPARQL server.
 icon: https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png
 keyworks:
   - RDF
@@ -23,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.1
+version: 1.0.2
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
