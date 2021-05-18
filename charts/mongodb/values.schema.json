@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "mongodb": {
+      "description": "mongodb specific configuration",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image specific configuration",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "description": "mongodb major version",
+              "type": "string",
+              "enum": ["4.0", "4.2"],
+              "default": "4.2"
+            }
+          }
+        },
+        "auth": {
+          "description": "auth specific configuration",
+          "type": "object",
+          "properties": {
+            "rootPassword": {
+              "description": "root password",
+              "type": "string",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            },
+            "database": {
+              "description": "default db",
+              "type": "string",
+              "default": "defaultdb"
+            },
+            "username": {
+              "description": "user name of the default database",
+              "type": "string",
+              "default": "user",
+              "x-form": {
+                "value": "{{user.idep}}"
+              }
+            },
+            "password": {
+              "description": "password of the user",
+              "type": "string",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            }
+          }
+        },
+        "persistence": {
+          "description": "Configuration for persistence",
+          "type": "object",
+          "properties": {
+              "enabled": {
+                  "type": "boolean",
+                  "description": "Create a persistent volume",
+                  "default": true
+              },
+              "size": {
+                  "type": "string",
+                  "description": "Size of the persistent volume",
+                  "default": "10Gi"
+              }
+          }
+        }
+      }
+    }
+  }
+}
