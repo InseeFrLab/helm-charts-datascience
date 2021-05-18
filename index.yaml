@@ -1465,6 +1465,28 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mlflow-0.0.2/mlflow-0.0.2.tgz
     version: 0.0.2
+  mongodb:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-05-18T08:49:04.478399405Z"
+    dependencies:
+    - enabled: true
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.15.2
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: cefb7c72dda93d57523e98210f1282fba6306e67ad89dc22dbde48b81f70190c
+    home: https://www.mongodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/postgresql.png
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.0.0/mongodb-1.0.0.tgz
+    version: 1.0.0
   neo4j:
   - apiVersion: v2
     appVersion: latest
