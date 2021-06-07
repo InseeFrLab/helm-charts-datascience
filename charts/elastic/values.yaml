@@ -1,5 +1,11 @@
 elasticsearch:
   image: docker.elastic.co/elasticsearch/elasticsearch
+  esJavaOpts: -Xmx8g -Xms8g
+  resources:
+    limits:
+      memory: 10Gi
+    requests:
+      memory: 10Gi
   sysctlInitContainer:
     enabled: false
 
