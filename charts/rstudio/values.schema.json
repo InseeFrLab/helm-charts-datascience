@@ -2,6 +2,24 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "service": {
+            "description": "spark-history specific configuration",
+            "type": "object",
+            "properties": {
+                "image" : {
+                    "description": "image docker",
+                    "type": "object",  
+                    "properties": {
+                      "pullPolicy": {
+                        "type": "string",
+                        "description": "option when pulling the docker image",
+                        "default": "IfNotPresent",
+                        "enum": ["IfNotPresent","Always","Never"]
+                      }
+                    }        
+                }
+            }
+        },
         "r": {
             "description": "rstudio specific configuration",
             "type": "object",
