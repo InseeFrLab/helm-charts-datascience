@@ -107,8 +107,8 @@ ingress annotations
 {{- with .Values.ingress.annotations }}
     {{- toYaml . }}
 {{- end }}
-{{- if .Values.security.whitelist.enable }}
-nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelist.ip }}
+{{- if .Values.security.allowlist.enabled }}
+nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.allowlist.ip }}
 {{- end }}
 {{- end }}
 
@@ -119,15 +119,14 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{ printf "<configuration>"}}
 {{- $virgule := 0 }}      
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
-{{- if $virgule }}
-{{- end }}
 {{ printf "<property>"}}
 {{ printf "<name>hive.metastore.uris</name>"  | indent 4}}
 {{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
 {{ printf "</property>"}}
-{{- $virgule = 1}}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
