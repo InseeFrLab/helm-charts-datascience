@@ -44,7 +44,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- if .Values.r.custom.enabled }}
+          image: "{{ .Values.r.custom.version }}"
+          {{- else }}
           image: "{{ .Values.r.version }}"
+          {{- end }}
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}

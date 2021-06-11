@@ -8,18 +8,21 @@ service:
 
 r:
   version: "inseefrlab/rstudio:4.0.4"
+  custom:
+    enabled: false
+    version: ""
 
 security:
   password: "changeme"
   networkPolicy: 
-    enable: false
+    enabled: false
     from: 
     - ipBlock:
         cidr: 10.233.103.0/32
     - ipBlock:
         cidr: 10.233.111.0/32
-  whitelist:
-    enable: true
+  allowlist:
+    enabled: true
     ip: "0.0.0.0/0"  
 
 init:
