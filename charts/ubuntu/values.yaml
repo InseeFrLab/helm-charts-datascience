@@ -2,22 +2,24 @@
 
 service:
   image:
-    repository: "inseefrlab/ubuntu-vnc"
-    pullPolicy: Always
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    version: "inseefrlab/ubuntu-vnc:latest"
+    pullPolicy: IfNotPresent
+    custom:
+      enabled: false
+      version: ""
+
 
 security:
   password: "changeme"
   networkPolicy:
-    enable: false
+    enabled: false
     from:
       - ipBlock:
           cidr: 10.233.103.0/32
       - ipBlock:
           cidr: 10.233.111.0/32
-  whitelist:
-    enable: true
+  allowlist:
+    enabled: true
     ip: "0.0.0.0/0"
 
 init:
