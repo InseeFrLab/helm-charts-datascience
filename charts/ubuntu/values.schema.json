@@ -46,38 +46,6 @@
                 }
             }
         },
-        "r": {
-            "description": "rstudio specific configuration",
-            "type": "object",
-            "properties": {
-              "version": {
-                "description": "r supported version",
-                "type": "string",
-                "enum": ["inseefrlab/rstudio:3.6.3", "inseefrlab/rstudio:4.0.4", "inseefrlab/utilitr:0.7.0"],
-                "default": "inseefrlab/rstudio:4.0.4"
-              },
-              "custom" : {
-                "description": "use a custom R docker image",
-                "type": "object",  
-                "properties": {
-                  "enabled": {
-                    "type": "boolean",
-                    "description": "use a custom R docker images",
-                    "default": false
-                  },
-                  "version": {
-                    "description": "r unsupported version",
-                    "type": "string",
-                    "default": "",
-                    "hidden": {
-                        "value": false,
-                        "path": "r/custom/enabled"
-                    }
-                  }
-                }        
-            }
-           }
-        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
