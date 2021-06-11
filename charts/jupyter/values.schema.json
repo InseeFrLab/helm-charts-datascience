@@ -163,9 +163,6 @@
                         "type": "boolean",
                         "title": "Enable IP protection",
                         "description": "Only the configured set of IPs will be able to reach the service",
-                        "x-form": {
-                            "value": "{{user.allowlist.enabled}}"
-                        },
                         "default": true
                       },
                       "ip": {
