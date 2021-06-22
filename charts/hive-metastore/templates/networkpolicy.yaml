@@ -1,0 +1,15 @@
+{{- if .Values.security.networkPolicy.enable -}}
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "hive-metastore.fullname" . }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "hive-metastore.selectorLabels" . | nindent 6 }}
+  ingress:
+  - from:
+    - podSelector: {}
+  policyTypes:
+  - Ingress
+{{- end }} 

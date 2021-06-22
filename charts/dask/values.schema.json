@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "dask": {
+      "description": "dask specific configuration",
+      "type": "object",
+      "properties": {
+        "scheduler": {
+          "description": "scheduler specific configuration",
+          "type": "object",
+          "properties": {
+            "image": {
+              "description": "image of the dask scheduler",
+              "type": "object",
+              "properties": {
+                "repository": {
+                  "description": "image of the dask scheduler",
+                  "type": "string",
+                  "enum": ["inseefrlab/rapidsai","inseefrlab/blazingsql"],
+                  "default": "inseefrlab/rapidsai"   
+                }
+              }
+            }
+          }
+        },
+        "worker": {
+          "description": "worker specific configuration",
+          "type": "object",
+          "properties": {
+            "image": {
+              "description": "image of the dask scheder",
+              "type": "object",
+              "properties": {
+                "repository": {
+                  "description": "image of the dask worker",
+                  "type": "string",
+                  "enum": ["inseefrlab/rapidsai","inseefrlab/blazingsql"],
+                  "default": "inseefrlab/rapidsai"   
+                },
+                "dask_worker": {
+                  "description": "command of the dask worker",
+                  "type": "string",
+                  "enum": ["dask-worker","dask-cuda-worker"],
+                  "default": "dask-worker"   
+                }
+              }
+            },
+            "replicas": {
+              "description": "number of worker",
+              "type": "integer",
+              "default": 3   
+            },
+            "resources": {
+              "description": "Your worker will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+              "type": "object",
+              "properties": {
+                  "limits": {
+                      "description": "No limit for cpu and memory",
+                      "type": "object",
+                      "properties": {
+                        "nvidia.com/gpu": {
+                          "description": "GPU to allocate to this instance. This is also requested",
+                          "type": "number",
+                          "default": 0,
+                          "minimum": 0
+                        }
+                      }
+                  }
+              }
+          }
+        }
+        },
+        "webUI": {
+          "description": "configuration of the dask dashboard",
+          "type": "object",
+          "properties": {
+            "ingress": {
+              "type": "object",
+              "form": true,
+              "title": "Ingress Details",
+              "properties": {
+                  "hostname": {
+                      "type": "string",
+                      "form": true,
+                      "title": "Hostname",
+                      "x-form": {
+                          "hidden": true
+                      },
+                      "x-generated": {
+                          "type": "externalDNS",
+                          "scope": "dask",
+                          "name": "ihm"
+                      }
+                  }
+              }
+          }
+        }
+        }
+      }
+    }
+  }
+}

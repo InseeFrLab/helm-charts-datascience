@@ -1,7 +1,15 @@
 apiVersion: v2
 name: tensorflow
-description: TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser.
+description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
 icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+keyworks:
+  - Python
+  - Jupyter
+  - GPU
+home: https://www.tensorflow.org/
+sources: 
+  - https://github.com/InseeFrLab/tensorflow
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -16,7 +24,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.7
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

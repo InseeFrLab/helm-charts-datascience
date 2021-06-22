@@ -1,7 +1,15 @@
 apiVersion: v2
 name: rstudio
-description: RStudio is the reference IDE for RLang programming.
-icon: https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg
+description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+keyworks:
+  - R
+  - IDE
+home: https://www.rstudio.com/
+sources: 
+  - https://github.com/InseeFrLab/rstudio
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+  - https://github.com/rocker-org/rocker
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -15,9 +23,5 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.7
+version: 2.0.2
 
-# This is the version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application. Versions are not expected to
-# follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: latest

@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "global": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
+        "postgresql": {
+          "description": "postgres specific configuration",
+          "type": "object",
+          "title": "Database",
+          "properties": {
+            "postgresqlUsername": {
+              "type": "string",
+              "title": "Admin user",
+              "default": "admin",
+              "x-form": {
+                "value": "{{user.idep}}"
+              }
+            },
+            "postgresqlPassword": {
+              "type": "string",
+              "title": "Password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            },
+            "postgresqlDatabase": {
+              "description": "Name for the default database that is created when the image is first started.",
+              "type": "string",
+              "title": "Database",
+              "default": "redash"
+            }
+          }
+        }
+      }
+    },    
+    "redash": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
+        "redash": {
+          "description": "redash specific configuration",
+          "type": "object",
+          "title": "redash",
+          "properties": {
+            "cookieSecret": {
+              "type": "string",
+              "title": "Admin user",
+              "default": "admin",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            },
+            "secretKey": {
+              "type": "string",
+              "title": "Password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{user.password}}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "hostname": {
+            "type": "string",
+            "form": true,
+            "title": "Hostname",
+            "x-form": {
+                "hidden": true
+            },
+            "x-generated": {
+                "type": "externalDNS",
+                "scope": "redash",
+                "name": "ihm"
+            }
+        }
+      }
+    }
+  }  
+
+}

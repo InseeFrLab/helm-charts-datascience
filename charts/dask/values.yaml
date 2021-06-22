@@ -1,0 +1,31 @@
+dask:
+  scheduler:
+    image:
+      repository: "inseefrlab/rapidsai"
+      tag: "latest"
+    resources:
+      limits:
+        cpu: 1.8
+        memory: 6G
+      requests:
+        cpu: 1.8
+        memory: 6G
+  worker:
+    image:
+      repository: "inseefrlab/rapidsai"
+      tag: "latest"
+      dask_worker: "dask-worker"
+    replicas: 3  # Number of workers.
+    resources:
+      limits:
+        cpu: 1
+        memory: 6G
+      requests:
+        cpu: 1
+        memory: 6G
+  webUI:
+    ingress:
+      enabled: true
+  jupyter:
+    enabled: false
+

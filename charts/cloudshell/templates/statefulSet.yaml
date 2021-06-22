@@ -1,0 +1,115 @@
+{{- $fullName := include "cloudshell.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "cloudshell.fullname" . }}
+  labels:
+    {{- include "cloudshell.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "cloudshell.selectorLabels" . | nindent 6 }}
+  serviceName: "nginx"
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "cloudshell.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: {{$volumeName}}
+          emptyDir: {}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "cloudshell.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh","-c"]
+          args: ["/data/{{ .Values.init.filename}} && /usr/sbin/sshd ; /usr/bin/node /root/webssh2/app/index.js"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}      
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "cloudshell.configMapNameS3" . }}
+            {{- end }}
+            {{- if .Values.environment.vault }}
+            - configMapRef:
+                name: {{ include "cloudshell.configMapNameVault" . }}
+            {{- end }}
+            {{- if .Values.environment.git }}
+            - configMapRef:
+                name: {{ include "cloudshell.configMapNameGit" . }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 2222
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /data
+              name: {{$volumeName}}
+            {{- if .Values.persistence.enabled }}
+            - name: data
+              mountPath: {{ .Values.persistence.mountPath }}
+            {{- end }}
+      initContainers:
+        - name: standard-init
+          image: "busybox"
+          command: ["/bin/sh","-c"]
+          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
+          volumeMounts:
+          - mountPath: /data
+            name: {{$volumeName}}          
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      {{- with .Values.persistence.annotations }}
+        annotations:
+        {{- range $key, $value := . }}
+          {{ $key }}: {{ $value }}
+        {{- end }}
+      {{- end }}
+      spec:
+        accessModes:
+        {{- range .Values.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}

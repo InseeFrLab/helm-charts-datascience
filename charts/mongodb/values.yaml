@@ -1,0 +1,11 @@
+mongodb: 
+  fullnameOverride: mongodb
+  architecture: replicaset
+  image:
+    tag: "4.2"
+  auth:
+    rootPassword: changeme
+    username: username
+    password: changeme
+    database: defaultdb
+

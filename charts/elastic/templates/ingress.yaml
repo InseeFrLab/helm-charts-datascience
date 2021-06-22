@@ -1,0 +1,31 @@
+{{- if .Values.ingress.enabled -}}
+{{- $svcPort := .Values.kibana.service.port -}}
+{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1beta1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-kibana
+  labels:
+    {{- include "kibana.labels" . | nindent 4 }}
+{{- with .Values.kibana.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+{{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+        - {{ .Values.ingress.hostname | quote }}
+{{- end }}
+  rules:
+    - host: {{ .Values.ingress.hostname | quote }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Release.Name }}-kibana
+              servicePort: {{ $svcPort }}
+{{- end }}

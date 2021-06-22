@@ -33,6 +33,11 @@ spec:
         {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
+        {{- if .Values.discovery.hive }}
+        - name: hive-config
+          configMap:
+            name: {{ include "jupyter.configMapNameHive" . }}
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -51,6 +56,10 @@ spec:
           args: ["/data/{{ .Values.init.filename}} start.sh jupyter-lab --notebook-dir=/home/$(NB_USER)/work --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
             - name: NB_USER
               value: {{ .Values.service.user }}
             - name: PASSWORD
@@ -88,6 +97,11 @@ spec:
             httpGet:
               path: /
               port: http
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -95,6 +109,11 @@ spec:
               name: {{$volumeName}}
             - mountPath: /home/{{ .Values.service.user}}/work
               name: home
+            {{- if .Values.discovery.hive }}
+            - name: hive-config
+              mountPath: /opt/hive/conf/hive-site.xml
+              subPath: hive-site.xml
+            {{- end }}
       initContainers:
         - name: standard-init
           image: "busybox"

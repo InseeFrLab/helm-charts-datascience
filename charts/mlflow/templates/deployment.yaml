@@ -1,0 +1,84 @@
+{{- $fullName := include "mlflow.fullname" . -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mlflow.fullname" . }}
+  labels:
+    {{- include "mlflow.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "mlflow.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "mlflow.selectorLabels" . | nindent 8 }}
+    spec:
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          args:
+            - --host=0.0.0.0
+            - --port=8000
+            - --backend-store-uri=postgresql://{{ .Values.global.postgresql.postgresqlUsername }}:{{ .Values.global.postgresql.postgresqlPassword }}@{{ .Values.postgresql.fullnameOverride }}:5432/{{ .Values.global.postgresql.postgresqlDatabase}}
+            - --default-artifact-root={{ .Values.service.directory }}
+            - --workers=2
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          envFrom: 
+            {{- if .Values.environment.s3 }}
+            - configMapRef:
+                name: {{ include "mlflow.configMapNameS3" . }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}         
+
+      initContainers:
+        - name: wait-for-postgresql
+          image: "alpine"
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              until printf "." && nc -z -w 2 {{ .Values.postgresql.fullnameOverride }} 5432; do
+                  sleep 2;
+              done;
+              echo 'PostgreSQL OK ✓'
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

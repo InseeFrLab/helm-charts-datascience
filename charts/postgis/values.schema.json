@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "postgresql": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "postgresql major version",
+          "type": "string",
+          "enum": ["9", "10", "11", "12"],
+          "default": "12"
+        },
+        "username": {
+          "description": "Postgres user name.",
+          "type": "string",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "password": {
+          "description": "Postgres password.",
+          "type": "string",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        },
+        "dbname": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "default": "defaultdb"
+        }
+      }
+    },
+    "postgis": {
+      "description": "postgis specific configuration",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "postgresql major version",
+          "type": "string",
+          "enum": ["2.5", "3.1"],
+          "default": "3.1"
+        }
+      }
+    },
+    "persistence": {
+      "description": "Configuration for persistence",
+      "type": "object",
+      "properties": {
+          "enabled": {
+              "type": "boolean",
+              "description": "Create a persistent volume",
+              "default": true
+          },
+          "size": {
+              "type": "string",
+              "description": "Size of the persistent volume",
+              "default": "10Gi"
+          }
+      }
+    }
+  }
+}

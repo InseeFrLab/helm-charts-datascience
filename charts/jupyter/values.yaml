@@ -12,14 +12,14 @@ service:
 security:
   password: "changeme"
   networkPolicy: 
-    enable: false
+    enabled: false
     from: 
     - ipBlock:
         cidr: 10.233.103.0/32
     - ipBlock:
         cidr: 10.233.111.0/32
-  whitelist:
-    enable: true
+  allowlist:
+    enabled: true
     ip: "0.0.0.0/0"
 
 init:
@@ -67,7 +67,14 @@ git:
   name: ""
   email: ""
   cache: ""
+#active ou non la recherche d'un hiveMetastore dans le namespace
+# see configmap-hive.yaml et helpers template
+discovery:
+  hive: true
 
+hive:
+  configMapName: ""
+  
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
@@ -87,7 +94,7 @@ serviceAccount:
   name: ""
 
 kubernetes:
-  enable: true
+  enabled: true
   role: "view"
 
 podAnnotations: {}
@@ -160,3 +167,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+startupProbe:
+  failureThreshold: 60
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5

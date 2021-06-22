@@ -1,0 +1,38 @@
+apiVersion: v2
+name: mlflow
+description: MLflow is an open source platform to manage the ML lifecycle, including experimentation, reproducibility, deployment, and a central model registry.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mlflow.png
+keyworks:
+  - ML
+home: https://jupyter.org/
+sources:
+  - https://github.com/InseeFrLab/mlflow
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mlflow
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 1.0.1
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: 1
+dependencies:
+  - name: postgresql
+    version: 10.3.14
+    repository:  https://charts.bitnami.com/bitnami
+    enabled: true
+
+
+
+

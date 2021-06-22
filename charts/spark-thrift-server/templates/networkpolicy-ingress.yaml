@@ -1,0 +1,17 @@
+{{- if .Values.security.networkPolicy.enable -}}
+{{- if .Values.ingress.enabled -}}
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "spark-thrift-server.fullname" . }}-2
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "spark-thrift-server.selectorLabels" . | nindent 6 }}
+  ingress:
+  - from:
+    {{- toYaml .Values.security.networkPolicy.from | nindent 4 }}
+  policyTypes:
+  - Ingress
+{{- end }}
+{{- end }} 

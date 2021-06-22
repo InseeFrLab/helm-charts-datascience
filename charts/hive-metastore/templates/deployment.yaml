@@ -1,0 +1,82 @@
+{{- $fullName := include "hive-metastore.fullname" . -}}
+{{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hive-metastore.fullname" . }}
+  labels:
+    {{- include "hive-metastore.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "hive-metastore.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "hive-metastore.selectorLabels" . | nindent 8 }}
+    spec:
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh","-c"]
+          args: ["$HIVE_HOME/bin/schematool -dbType postgres -initSchema ; $HIVE_HOME/bin/hiveserver2 --service metastore"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          ports:
+            - name: thrift
+              containerPort: 9083
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 9083
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 9083
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}         
+          volumeMounts:
+          - name: hive-config
+            mountPath: /opt/hive/conf
+      initContainers:
+        - name: wait-for-postgresql
+          image: "alpine"
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              until printf "." && nc -z -w 2 {{ .Values.postgresql.fullnameOverride }} 5432; do
+                  sleep 2;
+              done;
+              echo 'PostgreSQL OK ✓'
+      volumes:
+      - name: hive-config
+        configMap:
+          name: {{ include "hive-metastore.fullname" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -79,6 +79,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{ printf "\"Servers\": {" | indent 2 }} 
 {{- $virgule := 0 }}      
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "postgres" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if $virgule }}
 {{ printf "," }}
@@ -94,7 +95,7 @@ nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.security.whitelis
 {{- $virgule = 1}}
 {{ printf "}" | indent 4}}
 {{- end }}
-
+{{- end }}
 {{- end }}
 {{ printf "}" | indent 2}}
 {{ printf "}" }}

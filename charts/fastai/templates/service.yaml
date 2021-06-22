@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "fastai.fullname" . }}
+  labels:
+    {{- include "fastai.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.networking.type }}
+  {{- if .Values.networking.clusterIP }}
+  clusterIP: {{ .Values.networking.clusterIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.networking.fastai.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "fastai.selectorLabels" . | nindent 4 }}

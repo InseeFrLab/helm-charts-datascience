@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "postgis.fullname" . }}-test-connection"
+  labels:
+    {{- include "postgis.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: select
+      image:  {{ .Values.image.repository }}:{{ .Values.postgresql.version }}
+      env:
+        - name: PGPASSWORD
+          value: {{ .Values.postgresql.password | quote }}
+      command: ["psql", "-h", {{ include "postgis.fullname" . | quote }}, "-U", {{ .Values.postgresql.username | quote }}, "-d", {{ .Values.postgresql.dbname | quote }}, "-c", "SELECT 1"]
+  restartPolicy: Never

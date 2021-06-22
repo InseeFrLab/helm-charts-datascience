@@ -1,7 +1,14 @@
 apiVersion: v2
 name: ubuntu
-description: VNC remote desktop.
-icon: https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png
+description: Ubuntu with a graphical user interface.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+keyworks:
+  - Linux
+  - Tool
+home: https://www.ubuntu-fr.org/
+sources: 
+  - https://github.com/InseeFrLab/ubuntu-vnc
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -15,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.14
+version: 2.0.2
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
