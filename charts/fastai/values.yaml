@@ -2,10 +2,11 @@
 
 service:
   image:
-    repository: "inseefrlab/fastai"
+    version: "inseefrlab/fastai:main"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "main"
+    custom:
+      enabled: false
+      version: ""
   
 security:
   password: "changeme"

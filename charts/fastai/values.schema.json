@@ -2,6 +2,44 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "image" : {
+            "description": "image docker",
+            "type": "object",  
+            "properties": {
+              "pullPolicy": {
+                "type": "string",
+                "description": "option when pulling the docker image",
+                "default": "IfNotPresent",
+                "enum": ["IfNotPresent","Always","Never"]
+              },
+              "version": {
+                "description": "fastai supported version",
+                "type": "string",
+                "enum": ["inseefrlab/fastai:main"],
+                "default": "inseefrlab/fastai:main"
+              },
+              "custom" : {
+                "description": "use a custom ubuntu docker image",
+                "type": "object",  
+                "properties": {
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "use a custom ubuntu docker images",
+                    "default": false
+                  },
+                  "version": {
+                    "description": "ubuntu unsupported version",
+                    "type": "string",
+                    "default": "",
+                    "hidden": {
+                        "value": false,
+                        "path": "service/image/custom/enabled"
+                    }
+                  }
+                }        
+              }
+            }        
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
