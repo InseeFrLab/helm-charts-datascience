@@ -4,10 +4,11 @@ service:
   user: jovyan
   sparkui: false
   image:
-    repository: "inseefrlab/jupyter-datascience"
+    version: "inseefrlab/jupyter-datascience:master"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "master"
+    custom:
+      enabled: false
+      version: ""
   
 security:
   password: "changeme"
