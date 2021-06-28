@@ -30,7 +30,17 @@
               "size": {
                   "type": "string",
                   "description": "Size of the persistent volume",
-                  "default": "10Gi"
+                  "default": "10Gi",
+                  "form": true,
+                  "render": "slider",
+                  "sliderMin": 1,
+                  "sliderMax": 100,
+                  "sliderStep": 1,
+                  "sliderUnit": "Gi",
+                  "hidden": {
+                    "value": false,
+                    "path": "postgresql/persistence/enabled"
+                  }                    
               }
           }
         }
