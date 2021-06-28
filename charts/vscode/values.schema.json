@@ -80,11 +80,6 @@
     "description": "spark-history specific configuration",
     "type": "object",
     "properties": {
-        "sparkui": {
-            "description": "enable",
-            "type": "boolean",
-            "default": false
-        },
         "image" : {
             "description": "image docker",
             "type": "object",  
