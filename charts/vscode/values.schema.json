@@ -377,7 +377,7 @@
           },
           "x-generated": {
             "type": "externalDNS",
-            "scope": "rstudio",
+            "scope": "vscode",
             "name": "ihm"
           }
         }
