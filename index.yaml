@@ -2153,6 +2153,27 @@ entries:
   postgresql:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-06-28T14:19:18.256069118Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: An object-relational database management system, a database server
+    digest: e96b9c9f2f48c18f1ba8f0c52d0a6e325647cabd88e3db357a6af00b9ee53926
+    home: https://www.postgresql.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/postgresql.png
+    name: postgresql
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgresql
+    - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    - https://github.com/bitnami/bitnami-docker-postgresql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgresql-2.0.1/postgresql-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-06-28T14:03:05.850682015Z"
     dependencies:
     - enabled: true
