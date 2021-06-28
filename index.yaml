@@ -3412,6 +3412,22 @@ entries:
   vscode:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-06-28T12:59:39.933413131Z"
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: be5ab61b5a56591cd0da14eabcb8778113d4e6bf7e76154769bf71329a35bbf4
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-2.0.2/vscode-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-06-28T12:50:38.758971766Z"
     description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
     digest: 1bd4f5355a58d4a5d954162900bb3f80c12c184c804374ae2482ca4778ff27ca
