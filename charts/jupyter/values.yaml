@@ -29,14 +29,11 @@ init:
   personalInit: "null"
 
 environment:
-  s3: true
-  vault: true
-  git: true
   root: true
 
 s3:
   # Specifies whether a config map should be created
-  create: true
+  enabled: false
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -49,7 +46,7 @@ s3:
 
 vault:
   # Specifies whether a config map should be created
-  create: true
+  enabled: false
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -61,7 +58,7 @@ vault:
 
 git:
   # Specifies whether a config map should be created
-  create: true
+  enabled: false
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -95,7 +92,7 @@ serviceAccount:
   name: ""
 
 kubernetes:
-  enabled: true
+  enabled: false
   role: "view"
 
 podAnnotations: {}
