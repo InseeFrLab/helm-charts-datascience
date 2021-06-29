@@ -22,22 +22,22 @@
                         "enum": ["IfNotPresent","Always","Never"]
                       },
                       "version": {
-                        "description": "fastai supported version",
+                        "description": "jupyter supported version",
                         "type": "string",
                         "enum": ["inseefrlab/jupyter-datascience:master"],
                         "default": "inseefrlab/jupyter-datascience:master"
                       },
                       "custom" : {
-                        "description": "use a custom fastai docker image",
+                        "description": "use a custom jupyter docker image",
                         "type": "object",  
                         "properties": {
                           "enabled": {
                             "type": "boolean",
-                            "description": "use a custom fastai docker images",
+                            "description": "use a custom jupyter docker images",
                             "default": false
                           },
                           "version": {
-                            "description": "fastai unsupported version",
+                            "description": "jupyter unsupported version",
                             "type": "string",
                             "default": "",
                             "hidden": {
@@ -213,27 +213,6 @@
                 }
             }
         },
-        "environment": {
-            "description": "configuration of your environment variables",
-            "type": "object",
-            "properties": {
-                "s3": {
-                    "type": "boolean",
-                    "description": "Add S3 temporary identity inside your environment",
-                    "default": true
-                },
-                "vault": {
-                    "type": "boolean",
-                    "description": "Add vault temporary identity inside your environment",
-                    "default": true
-                },
-                "git": {
-                    "type": "boolean",
-                    "description": "Add git config inside your environment",
-                    "default": true
-                }
-            }
-        },
         "kubernetes": {
           "description": "configuration of your kubernetes access",
           "type": "object",
@@ -262,17 +241,22 @@
         "git": {
             "description": "Git user configuration",
             "type": "object",
-            "hidden": {
-                "value": false,
-                "path": "environment/git"
-            },
             "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Add git config inside your environment",
+                    "default": true
+                },
                 "name": {
                     "type": "string",
                     "description": "user name for git",
                     "default": "",
                     "x-form": {
                         "value": "{{git.name}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
                     }
                 },
                 "email": {
@@ -281,6 +265,10 @@
                     "default": "",
                     "x-form": {
                         "value": "{{git.email}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
                     }
                 },
                 "cache": {
@@ -289,6 +277,10 @@
                     "default": "",
                     "x-form": {
                         "value": "{{git.credentials_cache_duration}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
                     }
                 }
             }
@@ -296,16 +288,21 @@
         "vault": {
             "description": "Configuration of vault client",
             "type": "object",
-            "hidden": {
-                "value": false,
-                "path": "environment/vault"
-            },
             "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Add vault temporary identity inside your environment",
+                    "default": true
+                },
                 "token": {
                     "description": "token vault",
                     "type": "string",
                     "x-form": {
                         "value": "{{vault.VAULT_TOKEN}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "vault/enabled"
                     }
                 },
                 "url": {
@@ -313,6 +310,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{vault.VAULT_ADDR}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "vault/enabled"
                     }
                 },
                 "mount": {
@@ -320,6 +321,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{vault.VAULT_MOUNT}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "vault/enabled"
                     }
                 },
                 "directory": {
@@ -327,28 +332,41 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{vault.VAULT_TOP_DIR}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "vault/enabled"
                     }
                 },
                 "secret": {
                     "description": "the path of the secret to convert into a list of environment variables",
                     "type": "string",
-                    "default": ""
+                    "default": "",
+                    "hidden": {
+                        "value": false,
+                        "path": "vault/enabled"
+                    }
                 }
             }
         },
         "s3": {
             "description": "Configuration of temporary identity",
             "type": "object",
-            "hidden": {
-                "value": false,
-                "path": "environment/s3"
-            },
             "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Add S3 temporary identity inside your environment",
+                    "default": true
+                },
                 "accessKeyId": {
                     "description": "AWS Access Key",
                     "type": "string",
                     "x-form": {
                         "value": "{{s3.AWS_ACCESS_KEY_ID}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "s3/enabled"
                     }
                 },
                 "endpoint": {
@@ -356,6 +374,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{s3.AWS_S3_ENDPOINT}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "s3/enabled"
                     }
                 },
                 "defaultRegion": {
@@ -363,6 +385,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{s3.AWS_DEFAULT_REGION}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "s3/enabled"
                     }
                 },
                 "secretAccessKey": {
@@ -370,6 +396,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "s3/enabled"
                     }
                 },
                 "sessionToken": {
@@ -377,6 +407,10 @@
                     "type": "string",
                     "x-form": {
                         "value": "{{s3.AWS_SESSION_TOKEN}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "s3/enabled"
                     }
                 }
             }

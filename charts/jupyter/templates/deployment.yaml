@@ -77,15 +77,15 @@ spec:
               value: "yes"
             {{- end }}          
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "jupyter.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "jupyter.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "jupyter.configMapNameGit" . }}
             {{- end }}
