@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "jupyter.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "jupyter.fullname" . }}:{{ .Values.networking.jupyter.port }}']
   restartPolicy: Never
