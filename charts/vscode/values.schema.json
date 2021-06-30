@@ -100,16 +100,16 @@
                 ]
               },
               "custom" : {
-                "description": "use a custom fastai docker image",
+                "description": "use a custom vscode docker image",
                 "type": "object",  
                 "properties": {
                   "enabled": {
                     "type": "boolean",
-                    "description": "use a custom fastai docker images",
+                    "description": "use a custom vscode docker images",
                     "default": false
                   },
                   "version": {
-                    "description": "fastai unsupported version",
+                    "description": "vscode unsupported version",
                     "type": "string",
                     "default": "",
                     "hidden": {
