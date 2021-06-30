@@ -112,7 +112,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   jupyter:
-    port: 80
+    port: 8888
   sparkui:
     port: 4040
 
