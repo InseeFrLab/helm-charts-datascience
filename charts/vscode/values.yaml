@@ -26,14 +26,9 @@ init:
   filename: "onyxia-init.sh"
   personalInit: ""
 
-environment:
-  s3: true
-  vault: true
-  git: true
-
 s3:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -45,7 +40,7 @@ s3:
 
 vault:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -57,7 +52,7 @@ vault:
 
 git:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
