@@ -957,6 +957,22 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-07-05T10:27:24.06307344Z"
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: c22be81e226482080eccf9a8f664da0c1a46fcd21bb034003460408da635e552
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-3.0.8/jupyter-3.0.8.tgz
+    version: 3.0.8
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-07-05T08:47:44.38879388Z"
     description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
     digest: d03414ca2ccd1df98fbc844b7534e47f7542ade5f0f7d691a2f0450f074fb6f2
