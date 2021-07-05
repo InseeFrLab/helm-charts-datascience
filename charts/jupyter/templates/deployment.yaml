@@ -68,10 +68,12 @@ spec:
               value: {{ .Values.service.user }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
-            - name: CONTAINER_USER
-              value: {{ .Values.env.user }}
-            - name: CONTAINER_GROUP
+            - name: PROJECT_USER
+              value: {{ .Values.service.user }}
+            - name: PROJECT_GROUP
               value: {{ .Values.env.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.service.user }}/work
             {{- if .Values.init.personnalInit }}
             - name: PERSONNAL_INIT_SCRIPT
               value: {{ .Values.init.personnalInit }}
