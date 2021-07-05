@@ -30,6 +30,8 @@ init:
 
 environment:
   root: true
+  user: jovyan
+  group: users
 
 s3:
   # Specifies whether a config map should be created

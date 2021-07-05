@@ -68,6 +68,10 @@ spec:
               value: {{ .Values.service.user }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
+            - name: CONTAINER_USER
+              value: {{ .Values.env.user }}
+            - name: CONTAINER_GROUP
+              value: {{ .Values.env.group }}
             {{- if .Values.init.personnalInit }}
             - name: PERSONNAL_INIT_SCRIPT
               value: {{ .Values.init.personnalInit }}
