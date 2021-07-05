@@ -66,7 +66,7 @@ git:
   email: ""
   cache: ""
   token: ""
-  project: ""
+  repository: ""
   
 #active ou non la recherche d'un hiveMetastore dans le namespace
 # see configmap-hive.yaml et helpers template

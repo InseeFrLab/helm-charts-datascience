@@ -295,7 +295,7 @@
                         "path": "git/enabled"
                     }
                 },
-                "project": {
+                "repository": {
                     "type": "string",
                     "description": "projet",
                     "default": "",

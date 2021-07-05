@@ -10,5 +10,5 @@ data:
   GIT_USER_MAIL: "{{ .Values.git.email }}"
   GIT_CREDENTIALS_CACHE_DURATION: "{{ .Values.git.cache }}"
   GIT_PERSONNAL_ACCESS_TOKEN: "{{ .Values.git.token }}"
-  GIT_PROJECT: "{{ .Values.git.project }}"
+  GIT_REPOSITORY: "{{ .Values.git.repository }}"
 {{- end }}
