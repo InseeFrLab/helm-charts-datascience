@@ -77,6 +77,10 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+environment:
+  user: coder
+  group: coder
+
 kubernetes:
   enable: true
   role: "view"

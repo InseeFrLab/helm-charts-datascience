@@ -60,7 +60,13 @@ spec:
               value: {{ .Values.init.personnalInit }}
             {{- end }}  
             - name: PASSWORD
-              value: {{ .Values.security.password }}         
+              value: {{ .Values.security.password }}  
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work       
           envFrom: 
             {{- if .Values.s3.enabled }}
             - configMapRef:

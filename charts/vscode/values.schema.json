@@ -264,10 +264,34 @@
                   "value": false,
                   "path": "git/enabled"
               }
+          },
+          "token": {
+              "type": "string",
+              "description": "personal access token",
+              "default": "",
+              "x-form": {
+                  "value": "{{git.token}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "git/enabled"
+              }
+          },
+          "repository": {
+              "type": "string",
+              "description": "projet",
+              "default": "",
+              "x-form": {
+                  "value": "{{git.project}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "git/enabled"
+              }
           }
       }
-  },
-  "vault": {
+    },
+    "vault": {
       "description": "Configuration of vault client",
       "type": "object",
       "properties": {
