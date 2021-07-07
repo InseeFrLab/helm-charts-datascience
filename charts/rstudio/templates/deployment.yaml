@@ -58,6 +58,12 @@ spec:
             {{- if .Values.environment.root }}
             - name: ROOT
               value: "TRUE"
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work  
             {{- end }}   
             {{- if .Values.init.personnalInit }}
             - name: PERSONNAL_INIT_SCRIPT

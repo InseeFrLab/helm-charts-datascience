@@ -32,6 +32,8 @@ init:
 
 environment:
   root: true
+  user: rstudio
+  group: rstudio
 
 s3:
   # Specifies whether a config map should be created
@@ -67,6 +69,8 @@ git:
   name: ""
   email: ""
   cache: ""
+  token: ""
+  repository: ""
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
