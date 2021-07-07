@@ -27,7 +27,7 @@ spec:
         - name: home
         {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "fastai.fullname" .) }}
+            claimName: {{ .Values.persistence.existingClaim | default (include "rapidsai.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
