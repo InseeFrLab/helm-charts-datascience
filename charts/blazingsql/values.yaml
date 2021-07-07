@@ -27,14 +27,11 @@ init:
   personalInit: "null"
 
 environment:
-  s3: true
-  vault: true
-  git: true
   root: true
 
 s3:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -47,7 +44,7 @@ s3:
 
 vault:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -59,7 +56,7 @@ vault:
 
 git:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -85,8 +82,22 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+persistence:
+  enabled: true
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  # existingClaim: ""
+
 kubernetes:
-  enable: false
+  enabled: false
   role: "view"
 
 podAnnotations: {}

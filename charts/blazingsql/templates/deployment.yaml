@@ -24,6 +24,13 @@ spec:
         {{- include "blazingsql.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "blazingsql.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -41,7 +48,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook-dir=/blazingsql/ --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook-dir=/blazingsql/work --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: SHELL
@@ -53,15 +60,15 @@ spec:
               value: "yes"
             {{- end }}          
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "blazingsql.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "blazingsql.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "blazingsql.configMapNameGit" . }}
             {{- end }}
@@ -82,6 +89,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /blazingsql/work
+              name: home
       initContainers:
         - name: standard-init
           image: "busybox"
