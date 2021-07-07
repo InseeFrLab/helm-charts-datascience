@@ -80,7 +80,7 @@ Create the name of the config map S3 to use
 Create the name of the config map Vault to use
 */}}
 {{- define "rapidsai.configMapNameVault" -}}
-{{- if .Values.vault.create }}
+{{- if .Values.vault.enabled }}
 {{- $name:= (printf "%s-configmapvault" (include "rapidsai.fullname" .) )  }}
 {{- default $name .Values.vault.configMapName }}
 {{- else }}
@@ -92,7 +92,7 @@ Create the name of the config map Vault to use
 Create the name of the config map Git to use
 */}}
 {{- define "rapidsai.configMapNameGit" -}}
-{{- if .Values.vault.create }}
+{{- if .Values.git.enabled }}
 {{- $name:= (printf "%s-configmapgit" (include "rapidsai.fullname" .) )  }}
 {{- default $name .Values.git.configMapName }}
 {{- else }}

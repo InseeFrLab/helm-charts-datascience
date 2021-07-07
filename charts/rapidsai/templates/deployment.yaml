@@ -24,6 +24,13 @@ spec:
         {{- include "rapidsai.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "fastai.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -41,25 +48,23 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} nohup /opt/conda/envs/rapids/bin/jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} nohup /opt/conda/envs/rapids/bin/jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --notebook-dir=/rapids/work --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
               value: {{ .Values.security.password }}
-            {{- if .Values.environment.root }}
-            - name: GRANT_SUDO
-              value: "yes"
-            {{- end }}          
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /rapids/work           
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "rapidsai.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "rapidsai.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "rapidsai.configMapNameGit" . }}
             {{- end }}
@@ -78,6 +83,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+            - mountPath: /rapids/work
+              name: home
             - mountPath: /data
               name: {{$volumeName}}
       initContainers:

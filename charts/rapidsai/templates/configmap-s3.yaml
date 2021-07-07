@@ -1,4 +1,4 @@
-{{- if .Values.environment.s3 -}}
+{{- if .Values.s3.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -11,5 +11,4 @@ data:
   AWS_DEFAULT_REGION: "{{ .Values.s3.defaultRegion }}"
   AWS_SECRET_ACCESS_KEY: "{{ .Values.s3.secretAccessKey }}"
   AWS_SESSION_TOKEN: "{{ .Values.s3.sessionToken }}"
-
 {{- end }}
