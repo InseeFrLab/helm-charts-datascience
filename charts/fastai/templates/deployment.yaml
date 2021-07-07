@@ -24,6 +24,13 @@ spec:
         {{- include "fastai.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "fastai.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -45,7 +52,7 @@ spec:
           image: "{{ .Values.service.image.version }}"
           {{- end }}
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --notebook-dir=/root/work --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
@@ -54,20 +61,18 @@ spec:
             - name: PERSONNAL_INIT_SCRIPT
               value: {{ .Values.init.personnalInit }}
             {{- end }}
-            {{- if .Values.environment.root }}
-            - name: GRANT_SUDO
-              value: "yes"
-            {{- end }}          
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /root/work       
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "fastai.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "fastai.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "fastai.configMapNameGit" . }}
             {{- end }}
@@ -86,6 +91,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+            - mountPath: /root/work
+              name: home
             - mountPath: /data
               name: {{$volumeName}}
       initContainers:
