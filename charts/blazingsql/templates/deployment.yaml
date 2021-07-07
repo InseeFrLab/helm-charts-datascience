@@ -55,6 +55,8 @@ spec:
               value: /bin/bash          
             - name: PASSWORD
               value: {{ .Values.security.password }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /blazingsql/work
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
               value: "yes"
