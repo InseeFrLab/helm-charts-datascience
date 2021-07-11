@@ -57,7 +57,11 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: VNC_PW
-              value: {{ .Values.security.password }}      
+              value: {{ .Values.security.password }}
+            {{- if .Values.init.personnalInit }}
+            - name: PERSONNAL_INIT_SCRIPT
+              values: {{ .Values.init.personalInit }}
+            {{- end }}      
           envFrom: 
             {{- if .Values.environment.s3 }}
             - configMapRef:
