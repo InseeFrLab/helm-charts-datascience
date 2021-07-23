@@ -1,5 +1,5 @@
 elasticsearch:
-  image: docker.elastic.co/elasticsearch/elasticsearch
+  image: elasticsearch
   esJavaOpts: -Xmx8g -Xms8g
   resources:
     limits:
