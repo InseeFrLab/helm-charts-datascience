@@ -9,8 +9,8 @@
         "image": {
           "description": "image docker",
           "type": "string",
-          "enum": ["docker.elastic.co/elasticsearch/elasticsearch", "docker.elastic.co/elasticsearch/elasticsearch-oss"],
-          "default": "docker.elastic.co/elasticsearch/elasticsearch"
+          "enum": ["elasticsearch"],
+          "default": "elasticsearch"
         }
       }
     },
