@@ -1,4 +1,4 @@
 {{- if .Values.ingress.enabled }}
 - You can connect to the kibana with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
 {{- end }}
-- You connect to elastic from inside the datalab at this url : http://{{ template "elasticsearch.elasticsearch.uname" . }}:{{ .Values.elasticsearch.httpPort }}
+- You connect to elastic from inside the datalab at this url : http://elasticsearch-master:{{ .Values.elasticsearch.httpPort }}
