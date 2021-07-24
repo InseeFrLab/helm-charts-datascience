@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "elasticsearch": {
-      "description": "postgres specific configuration",
+      "description": "elasticsearch specific configuration",
       "type": "object",
       "properties": {
         "image": {
@@ -11,6 +11,18 @@
           "type": "string",
           "enum": ["elasticsearch"],
           "default": "elasticsearch"
+        }
+      }
+    },
+    "kibana": {
+      "description": "kibana specific configuration",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image docker",
+          "type": "string",
+          "enum": ["kibana"],
+          "default": "kibana"
         }
       }
     },

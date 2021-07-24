@@ -9,6 +9,9 @@ elasticsearch:
   sysctlInitContainer:
     enabled: false
 
+kibana:
+  image: kibana
+
 ingress:
   enabled: true
   tls: true
