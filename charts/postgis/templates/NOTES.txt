@@ -1,5 +1,4 @@
-** Please be patient while the chart is being deployed **
-
-postgisQL can be accessed via port 5432 on the following DNS name from within your cluster:
-
-    {{ template "postgis.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local - Read/Write connection
+- You can connect to this postgis only within the cluster itself on this url : postgresql://{{ include "postgis.fullname" . }}:{{ .Values.service.port }}
+- The database name is **{{ .Values.postgresql.dbname }}**
+- The username is **{{ .Values.postgresql.username }}**
+- The password is **{{ .Values.postgresql.password }}**

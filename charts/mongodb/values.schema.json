@@ -27,7 +27,7 @@
               "type": "string",
               "default": "changeme",
               "x-form": {
-                "value": "{{user.password}}"
+                "value": "{{project.password}}"
               }
             },
             "database": {
@@ -40,7 +40,7 @@
               "type": "string",
               "default": "user",
               "x-form": {
-                "value": "{{user.idep}}"
+                "value": "{{project.id}}"
               }
             },
             "password": {
@@ -48,7 +48,7 @@
               "type": "string",
               "default": "changeme",
               "x-form": {
-                "value": "{{user.password}}"
+                "value": "{{project.password}}"
               }
             }
           }

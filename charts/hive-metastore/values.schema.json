@@ -11,7 +11,7 @@
               "type": "string",
               "default": "/user/hive/warehouse/",
               "x-form": {
-                "value": "s3a://{{user.idep}}/hive-warehouse"
+                "value": "s3a://{{s3.AWS_BUCKET_NAME}}/hive-warehouse"
               }
           },
           "image" : {
@@ -101,7 +101,7 @@
               "title": "Admin user",
               "default": "admin",
               "x-form": {
-                "value": "{{user.idep}}"
+                "value": "{{project.id}}"
               }
             },
             "postgresqlPassword": {
@@ -109,7 +109,7 @@
               "title": "Password",
               "default": "changeme",
               "x-form": {
-                "value": "{{user.password}}"
+                "value": "{{project.password}}"
               }
             },
             "postgresqlDatabase": {

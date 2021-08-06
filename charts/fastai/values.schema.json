@@ -135,7 +135,7 @@
                     "description": "Password",
                     "default": "changeme",
                     "x-form": {
-                        "value": "{{user.password}}"
+                        "value": "{{project.password}}"
                     }
                 },
                 "whitelist": {

@@ -11,7 +11,7 @@
                     "type": "string",
                     "default": "file://tmp/spark-logs/",
                     "x-form": {
-                      "value": "s3a://{{user.idep}}/spark-history"
+                      "value": "s3a://{{s3.AWS_BUCKET_NAME}}/spark-history"
                     }
                   }
             }
@@ -47,7 +47,7 @@
                     "description": "Password",
                     "default": "changeme",
                     "x-form": {
-                        "value": "{{user.password}}"
+                        "value": "{{project.password}}"
                     }
                 },
                 "whitelist": {
