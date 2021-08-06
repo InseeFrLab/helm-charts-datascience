@@ -194,6 +194,21 @@ entries:
   cloudshell:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-08-06T15:36:23.697041696Z"
+    description: Datalab  shell (ubuntu with webssh)
+    digest: f3068ed4c92bba7cb1172812f93f6a0521aa855e4b9c782d83f1a86b33e3140f
+    home: https://datalab.sspcloud.fr
+    icon: https://datalab.sspcloud.fr/favicon_package/favicon-32x32.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-2.0.2/cloudshell-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-04-30T12:37:46.51292727Z"
     description: Datalab  shell (ubuntu with webssh)
     digest: c8da00f82b77ecebc780071a13c5282997c3ce26fd5cd22fb7dba672ea99a819
