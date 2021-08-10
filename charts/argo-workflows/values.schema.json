@@ -2,13 +2,6 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "argo-workflows": {
-      "description": "dask specific configuration",
-      "type": "object",
-      "properties": {
-
-      }
-    },
     "ingress": {
       "type": "object",
       "form": true,
@@ -53,7 +46,7 @@
             },
             "x-generated": {
                 "type": "externalDNS",
-                "scope": "kibana",
+                "scope": "argo-workflows",
                 "name": "ihm"
             }
         }
