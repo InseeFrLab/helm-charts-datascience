@@ -30,7 +30,7 @@
                       },
                       "hidden": {
                         "value": false,
-                        "path": "argo-workflows/whitelist/enabled"
+                        "path": "ingress/security/whitelist/enabled"
                       }
                     }
                   }
