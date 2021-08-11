@@ -4280,6 +4280,21 @@ entries:
   ubuntu:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-08-11T22:05:53.702469098Z"
+    description: Ubuntu with a graphical user interface.
+    digest: 29d88c54c5275004c5a5f326f605c02a7546ab931ca375e7d3d36d1c5cb4a127
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-2.0.5/ubuntu-2.0.5.tgz
+    version: 2.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-11T21:49:38.137173664Z"
     description: Ubuntu with a graphical user interface.
     digest: 7c4020c20a3021f966757eb79c9ac9bc6c2e543e894633d0a743aa2263ccae4d
