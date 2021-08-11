@@ -11,7 +11,7 @@
           "type": "string",
           "default": "/tmp/mlflow/artifacts/",
           "x-form": {
-            "value": "s3://{{user.idep}}/mlflow-artifacts"
+            "value": "s3://{{s3.AWS_BUCKET_NAME}}/mlflow-artifacts"
           }
         }
       }
@@ -108,7 +108,7 @@
               "title": "Admin user",
               "default": "admin",
               "x-form": {
-                "value": "{{user.idep}}"
+                "value": "{{project.id}}"
               }
             },
             "postgresqlPassword": {
@@ -116,7 +116,7 @@
               "title": "Password",
               "default": "changeme",
               "x-form": {
-                "value": "{{user.password}}"
+                "value": "{{project.password}}"
               }
             },
             "postgresqlDatabase": {

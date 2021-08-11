@@ -18,6 +18,7 @@
                       },
                       "cpu": {
                         "description": "The maximum amount of cpu",
+                        "title": "CPU",
                         "type": "string",
                         "default": "30000m",
                         "render": "slider",
@@ -25,13 +26,13 @@
                         "sliderMax": 40000,
                         "sliderStep": 50,
                         "sliderUnit": "m",
-                        "sliderRef": {
-                            "sliderId": "cpu",
-                            "sliderPos": "top"
-                        }
+                        "sliderExtremity": "up",
+                        "sliderExtremitySemantic": "Maximum",
+                        "sliderRangeId": "cpu"
                       },
                       "memory": {
                         "description": "The maximum amount of memory",
+                        "title": "Memory", 
                         "type": "string",
                         "default": "50Gi",
                         "render": "slider",
@@ -52,6 +53,7 @@
                     "properties": {
                       "cpu": {
                         "description": "The amount of cpu guaranteed",
+                        "title": "CPU",
                         "type": "string",
                         "default": "100m",
                         "render": "slider",
@@ -59,13 +61,13 @@
                         "sliderMax": 40000,
                         "sliderStep": 50,
                         "sliderUnit": "m",
-                        "sliderRef": {
-                            "sliderId": "cpu",
-                            "sliderPos": "bottom"
-                        }
+                        "sliderExtremity": "down",
+                        "sliderExtremitySemantic": "guaranteed",
+                        "sliderRangeId": "cpu"
                       },
                       "memory": {
                         "description": "The amount of memory guaranteed",
+                        "title": "memory",
                         "type": "string",
                         "default": "2Gi",
                         "render": "slider",
@@ -73,10 +75,9 @@
                         "sliderMax": 200,
                         "sliderStep": 1,
                         "sliderUnit": "Gi",
-                        "sliderRef": {
-                            "sliderId": "memory",
-                            "sliderPos": "bottom"
-                        }
+                        "sliderExtremity": "down",
+                        "sliderExtremitySemantic": "guaranteed",
+                        "sliderRangeId": "memory"
                       }
                     }
                 }
@@ -91,7 +92,7 @@
                     "description": "Password",
                     "default": "changeme",
                     "x-form": {
-                        "value": "{{user.password}}"
+                        "value": "{{project.password}}"
                     }
                 },
                 "whitelist": {
@@ -139,6 +140,7 @@
                 },
                 "size": {
                     "type": "string",
+                    "title": "Persistent volume size",
                     "description": "Size of the persistent volume",
                     "default": "10Gi",
                     "form": true,

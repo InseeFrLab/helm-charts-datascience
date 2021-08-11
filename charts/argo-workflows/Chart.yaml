@@ -1,14 +1,16 @@
 apiVersion: v2
-name: postgis
-description: An object-relational database management system, a database server
-icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+name: argo-workflows
+description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo-workflow.png
 keyworks:
-  - SQL
-  - Database
-  - Geo
-home: https://www.postgresql.org/
+  - Worklow
+  - Job
+  - Task
+home: https://argoproj.github.io/argo-workflows/
 sources:
-  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgis
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-workflows
+  - https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows
+
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -22,10 +24,18 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.1
+version: 1.0.3
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: 12
+appVersion: 1
+dependencies:
+  - name: argo-workflows
+    version: 0.2.12
+    repository: https://argoproj.github.io/argo-helm
+    enabled: true
+
+
+
 

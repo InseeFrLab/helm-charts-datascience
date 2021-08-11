@@ -7,7 +7,7 @@
             "type": "object",
             "properties": {
                 "limits": {
-                    "description": "No limit for cpu and memory",
+                    "description": "max resources",
                     "type": "object",
                     "properties": {
                       "nvidia.com/gpu": {
@@ -15,6 +15,35 @@
                         "type": "number",
                         "default": 0,
                         "minimum": 0
+                      },
+                      "cpu": {
+                        "description": "The maximum amount of cpu",
+                        "title": "CPU",
+                        "type": "string",
+                        "default": "30000m",
+                        "render": "slider",
+                        "sliderMin": 50,
+                        "sliderMax": 40000,
+                        "sliderStep": 50,
+                        "sliderUnit": "m",
+                        "sliderExtremity": "up",
+                        "sliderExtremitySemantic": "Maximum",
+                        "sliderRangeId": "cpu"
+                      },
+                      "memory": {
+                        "description": "The maximum amount of memory",
+                        "title": "Memory", 
+                        "type": "string",
+                        "default": "50Gi",
+                        "render": "slider",
+                        "sliderMin": 1,
+                        "sliderMax": 200,
+                        "sliderStep": 1,
+                        "sliderUnit": "Gi",
+                        "sliderRef": {
+                            "sliderId": "memory",
+                            "sliderPos": "top"
+                        }
                       }
                     }
                 },
@@ -24,13 +53,31 @@
                     "properties": {
                       "cpu": {
                         "description": "The amount of cpu guaranteed",
+                        "title": "CPU",
                         "type": "string",
-                        "default": "0.1"
+                        "default": "100m",
+                        "render": "slider",
+                        "sliderMin": 50,
+                        "sliderMax": 40000,
+                        "sliderStep": 50,
+                        "sliderUnit": "m",
+                        "sliderExtremity": "down",
+                        "sliderExtremitySemantic": "guaranteed",
+                        "sliderRangeId": "cpu"
                       },
                       "memory": {
-                        "description": "The amount of cpu guaranteed",
+                        "description": "The amount of memory guaranteed",
+                        "title": "memory",
                         "type": "string",
-                        "default": "512Mi"
+                        "default": "2Gi",
+                        "render": "slider",
+                        "sliderMin": 1,
+                        "sliderMax": 200,
+                        "sliderStep": 1,
+                        "sliderUnit": "Gi",
+                        "sliderExtremity": "down",
+                        "sliderExtremitySemantic": "guaranteed",
+                        "sliderRangeId": "memory"
                       }
                     }
                 }
@@ -47,8 +94,19 @@
                 },
                 "size": {
                     "type": "string",
+                    "title": "Persistent volume size",
                     "description": "Size of the persistent volume",
-                    "default": "10Gi"
+                    "default": "10Gi",
+                    "form": true,
+                    "render": "slider",
+                    "sliderMin": 1,
+                    "sliderMax": 100,
+                    "sliderStep": 1,
+                    "sliderUnit": "Gi",
+                    "hidden": {
+                      "value": false,
+                      "path": "persistence/enabled"
+                    }                    
                 }
             }
         },
@@ -61,7 +119,7 @@
                     "description": "Password",
                     "default": "changeme",
                     "x-form": {
-                        "value": "{{user.password}}"
+                        "value": "{{project.password}}"
                     }
                 },
                 "whitelist": {

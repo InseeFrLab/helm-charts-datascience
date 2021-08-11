@@ -43,15 +43,15 @@ spec:
           args: ["/data/{{ .Values.init.filename}} && /usr/sbin/sshd ; /usr/bin/node /root/webssh2/app/index.js"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}      
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "cloudshell.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "cloudshell.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "cloudshell.configMapNameGit" . }}
             {{- end }}

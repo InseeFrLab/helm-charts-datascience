@@ -68,7 +68,7 @@ Create the name of the service account to use
 Create the name of the config map S3 to use
 */}}
 {{- define "cloudshell.configMapNameS3" -}}
-{{- if .Values.s3.create }}
+{{- if .Values.s3.enabled }}
 {{- $name:= (printf "%s-configmaps3" (include "cloudshell.fullname" .) )  }}
 {{- default $name .Values.s3.configMapName }}
 {{- else }}
@@ -80,7 +80,7 @@ Create the name of the config map S3 to use
 Create the name of the config map Vault to use
 */}}
 {{- define "cloudshell.configMapNameVault" -}}
-{{- if .Values.vault.create }}
+{{- if .Values.vault.enabled }}
 {{- $name:= (printf "%s-configmapvault" (include "cloudshell.fullname" .) )  }}
 {{- default $name .Values.vault.configMapName }}
 {{- else }}
@@ -92,7 +92,7 @@ Create the name of the config map Vault to use
 Create the name of the config map Git to use
 */}}
 {{- define "cloudshell.configMapNameGit" -}}
-{{- if .Values.vault.create }}
+{{- if .Values.git.enabled }}
 {{- $name:= (printf "%s-configmapgit" (include "cloudshell.fullname" .) )  }}
 {{- default $name .Values.git.configMapName }}
 {{- else }}
