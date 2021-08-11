@@ -23,6 +23,6 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ .Release.Name }}-kibana
+              serviceName: {{ .Release.Name }}-server
               servicePort: {{ index .Values "argo-workflows" "server" "servicePort" }}
 {{- end }}
