@@ -68,10 +68,9 @@
                             "sliderMax": 200,
                             "sliderStep": 1,
                             "sliderUnit": "Gi",
-                            "sliderRef": {
-                                "sliderId": "memory",
-                                "sliderPos": "top"
-                            }
+                            "sliderExtremity": "up",
+                            "sliderExtremitySemantic": "Maximum",
+                            "sliderRangeId": "memory"
                           }
                     }
                 }
