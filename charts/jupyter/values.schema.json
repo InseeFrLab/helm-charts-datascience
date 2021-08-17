@@ -25,6 +25,11 @@
                         "description": "jupyter supported version",
                         "type": "string",
                         "enum": ["inseefrlab/jupyter-datascience:master"],
+                        "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                        "hidden": {
+                            "value": true,
+                            "path": "service/image/custom/enabled"
+                        },
                         "default": "inseefrlab/jupyter-datascience:master"
                       },
                       "custom" : {
@@ -39,7 +44,8 @@
                           "version": {
                             "description": "jupyter unsupported version",
                             "type": "string",
-                            "default": "",
+                            "default": "inseefrlabjupyterdatascience",
+                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                             "hidden": {
                                 "value": false,
                                 "path": "service/image/custom/enabled"

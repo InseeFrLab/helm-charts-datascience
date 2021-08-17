@@ -8,7 +8,7 @@ service:
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: ""
+      version: "inseefrlab/jupyter-datascience:master"
   
 security:
   password: "changeme"
