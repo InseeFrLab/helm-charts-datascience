@@ -44,7 +44,7 @@
                           "version": {
                             "description": "jupyter unsupported version",
                             "type": "string",
-                            "default": "inseefrlabjupyterdatascience",
+                            "default": "inseefrlab/jupyter-datascience:master",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                             "hidden": {
                                 "value": false,
