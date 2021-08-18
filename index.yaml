@@ -84,6 +84,22 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-08-18T09:57:28.607652876Z"
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: 932fe2a61ce57700c524abdd783bd3e4482f79e031471d01eec3b4ab30c7dc9c
+    home: https://blazingsql.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/blazingsql.png
+    name: blazingsql
+    sources:
+    - https://github.com/InseeFrLab/blazingsql
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+    - https://github.com/BlazingDB/blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-3.0.6/blazingsql-3.0.6.tgz
+    version: 3.0.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-18T09:13:37.537369591Z"
     description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
     digest: a94254befd0fb63b56b6a2a18b0cd47ad9b8f9c426057eceeb0f9717917d0073
@@ -509,6 +525,27 @@ entries:
   dask:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-08-18T09:57:28.769821427Z"
+    dependencies:
+    - enabled: true
+      name: dask
+      repository: https://helm.dask.org/
+      version: 2021.4.1
+    description: Dask natively scales Python
+    digest: 8bb5308550e2327985ca5671ba1f4db03596cf8d88fd43a11df7d41a8142735b
+    home: https://dask.org/
+    icon: https://dask.org/_images/dask_icon_no_pad.svg
+    name: dask
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/dask
+    - https://github.com/dask/helm-chart
+    - https://github.com/dask/dask
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/dask-1.0.4/dask-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-08-18T09:13:37.703278265Z"
     dependencies:
     - enabled: true
@@ -913,6 +950,22 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-0.0.1/elastic-0.0.1.tgz
     version: 0.0.1
   fastai:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-08-18T09:57:28.928778753Z"
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: b3be1bccbf2657cb4eb9349315160d0b7784965c5ba6ad52c93d066a6cf62810
+    home: https://www.fast.ai/
+    icon: https://media-exp1.licdn.com/dms/image/C560BAQFeG3Xb3YVI_Q/company-logo_200_200/0/1534625417958?e=2159024400&v=beta&t=alg-IrBNdtkMnRxFEDraZr4Ao88uEN4WgQwjjze6LUg
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-3.0.6/fastai-3.0.6.tgz
+    version: 3.0.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-18T09:13:37.787861988Z"
@@ -3321,6 +3374,22 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-08-18T09:57:29.094529232Z"
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: ff489d775f3c5eba0ea06322eb07102dfbb41cd200c71bec52b7dea68ac87d45
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-3.0.5/rapidsai-3.0.5.tgz
+    version: 3.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-18T09:13:37.866399508Z"
     description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
     digest: a00b945274126103993ba669262c5950d356b492c20b6a38ea8760e7b9cfb110
@@ -4358,6 +4427,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.1/spark-thrift-server-0.0.1.tgz
     version: 0.0.1
   tensorflow:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-08-18T09:57:29.252110848Z"
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: f1d7ed51f0451f53d0f21dd8de3e031d2b1614cda15efd52f0d1e775d0708b0d
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-2.0.4/tensorflow-2.0.4.tgz
+    version: 2.0.4
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-18T09:13:37.965151407Z"
