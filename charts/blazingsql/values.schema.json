@@ -14,7 +14,12 @@
                         "description": "GPU to allocate to this instance. This is also requested",
                         "type": "number",
                         "default": 0,
-                        "minimum": 0
+                        "minimum": 0,
+                        "render": "slider",
+                        "sliderMin": 0,
+                        "sliderMax": 3,
+                        "sliderStep": 1,
+                        "sliderUnit": ""  
                       },
                       "cpu": {
                         "description": "The maximum amount of cpu",
