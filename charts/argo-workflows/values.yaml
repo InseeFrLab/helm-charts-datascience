@@ -13,6 +13,12 @@ ingress:
       enabled: true
       ip: "0.0.0.0/0"
 
+serviceAccount:
+  create: true
+  name: workflow
+  role: workflow
+  roleBinding: workflow
+
 argo-workflows:
   createAggregateRoles: false
   singleNamespace: true

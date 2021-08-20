@@ -51,6 +51,19 @@
             }
         }
       }
+    },
+    "serviceAccount": {
+      "type": "object",
+      "form": true,
+      "title": "Kubernetes service account",
+      "properties": {
+        "name": {
+          "description": "name of the service account created for your workflows",
+          "type": "string",
+          "default": "workflow",
+          "pattern": "^[a-z0-9-]+$"
+        }
+      }
     }
   }
 }
