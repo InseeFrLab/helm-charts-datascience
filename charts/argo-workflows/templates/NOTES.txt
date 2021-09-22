@@ -14,4 +14,4 @@
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:80
 {{- end }}
-- Your workflow should use this service account : **{{ .Values.serviceAccount.name }}**
+- Your workflow must use this service account : **{{ .Values.serviceAccount.name }}**
