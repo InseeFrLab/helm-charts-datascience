@@ -2824,6 +2824,21 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-09-22T14:14:35.694123265Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
+    digest: e90b0d8e959a9b61f0dfaa509b4c17159e5ec3089379a07d59c371cf01f06cd0
+    home: https://neo4j.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/neo4j.png
+    name: neo4j
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/neo4j
+    - https://github.com/neo4j/docker-neo4j-publish
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-2.0.3/neo4j-2.0.3.tgz
+    version: 2.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-16T18:26:47.464825902Z"
     description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 1d79446a982a72d9dcc95f09b0b9d9ecd4345542dbd1b39603a24945f5eba0ff
@@ -3010,6 +3025,21 @@ entries:
   openrefine:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-09-22T14:14:35.791885049Z"
+    description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
+    digest: 2e1f4a9929a3df826d02e71994f6217116acf8a2f351c5593505e12cade878cb
+    home: https://openrefine.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/openrefine.png
+    name: openrefine
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/openrefine
+    - https://github.com/vimagick/dockerfiles/blob/master/openrefine/Dockerfile
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-2.0.4/openrefine-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-16T18:26:47.564462999Z"
     description: OpenRefine (previously Google Refine) is a powerful tool for working with messy data, cleaning it; transforming it from one format into another; and extending it with web services and external data.
     digest: 82404c57d38e8a28ebe7ba3867784420aa05e32e136cb2b9a322b82114a24eb7
@@ -3135,6 +3165,20 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
     version: 0.1.0
   pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T14:14:35.914255606Z"
+    description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+    digest: 402b0a148087e9a348c0a3af217b21ce046ed37563605ea9ae93957185dbf57c
+    home: https://www.pgadmin.org/
+    icon: https://developer.asustor.com/uploadIcons/0020_96009_1552971827_pgadmin-icon.png
+    name: pgadmin
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-2.0.6/pgadmin-2.0.6.tgz
+    version: 2.0.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-26T14:46:06.75638165Z"
@@ -3649,6 +3693,22 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-09-22T14:14:36.018498436Z"
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: 64c20bba39b618b937c990dd45086aeb47ffe2687b3c1218113f3cc6061801f0
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-3.0.7/rapidsai-3.0.7.tgz
+    version: 3.0.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-18T09:57:29.094529232Z"
     description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
     digest: ff489d775f3c5eba0ea06322eb07102dfbb41cd200c71bec52b7dea68ac87d45
@@ -3817,6 +3877,31 @@ entries:
   redash:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-09-22T14:14:36.157308408Z"
+    dependencies:
+    - enabled: true
+      name: redash
+      repository: https://getredash.github.io/contrib-helm-chart/
+      version: 2.3.0
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: Redash is an open source tool built for teams to query, visualize and collaborate.
+    digest: ee81719f16aba7f1801a5ca54e89d50d044953bb41cc55f6168004ae146c0a04
+    home: https://redash.io/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/redash.png
+    name: redash
+    sources:
+    - https://github.com/InseeFrLab/redash
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/redash
+    - https://github.com/getredash/redash
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-1.0.4/redash-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-08-06T09:01:25.868709482Z"
     dependencies:
     - enabled: true
@@ -3979,6 +4064,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-0.0.1/redash-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2021-09-22T14:14:36.245156924Z"
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
+    digest: f7b4c9dbdb9a7dc8c33726e881ea3e238044c54599e1f9098508f5671d60bbdb
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-3.0.7/rstudio-3.0.7.tgz
+    version: 3.0.7
   - apiVersion: v2
     created: "2021-08-16T18:26:47.87103949Z"
     description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
@@ -4462,6 +4562,21 @@ entries:
   spark-history:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-09-22T14:14:36.352058672Z"
+    description: Spark history help you to review logs of your spark applications.
+    digest: ecf27096a81262a06fecaa4fa28b2f7e1a9d2e27b08c0da535ff0ff5936e311c
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-history
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-history
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-2.0.4/spark-history-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-16T18:26:47.964973488Z"
     description: Spark history help you to review logs of your spark applications.
     digest: 9be7238d61955f1baa18faf453d7e99345c074e65a47560f82920cecac31ccca
@@ -4565,6 +4680,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-0.0.1/spark-history-0.0.1.tgz
     version: 0.0.1
   spark-thrift-server:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-09-22T14:14:36.463944156Z"
+    description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive.
+    digest: acda90e1f77143f1ae7ce579554776ffaaae9e6868a4e754ffed9ef99449c6a3
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-thrift-server
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-thrift-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-1.0.2/spark-thrift-server-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: "1"
     created: "2021-04-30T08:58:48.294360922Z"
@@ -4702,6 +4832,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.1/spark-thrift-server-0.0.1.tgz
     version: 0.0.1
   tensorflow:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T14:14:36.57602484Z"
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: 463aaa6b793882588b4c59f5d7ac72d64c294c354f1643d0f3e3ac4044cf378d
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-2.0.6/tensorflow-2.0.6.tgz
+    version: 2.0.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-18T09:57:29.252110848Z"
@@ -4936,6 +5081,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T14:14:36.698053995Z"
+    description: Ubuntu with a graphical user interface.
+    digest: a184460f51243c01c27fb25796f8a897963dd89f29c366203009ee2607ceaa17
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-2.0.8/ubuntu-2.0.8.tgz
+    version: 2.0.8
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-16T18:26:48.152701983Z"
@@ -5222,6 +5382,22 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T14:14:36.81012818Z"
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: f2fae92f582d2e83141322b6112878fa47859e908462c6a60fa974c5e47518de
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-3.0.6/vscode-3.0.6.tgz
+    version: 3.0.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-08-16T18:26:48.24188908Z"
