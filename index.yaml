@@ -3,6 +3,26 @@ entries:
   argo-workflows:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-09-22T12:56:27.30757918Z"
+    dependencies:
+    - enabled: true
+      name: argo-workflows
+      repository: https://argoproj.github.io/argo-helm
+      version: 0.2.12
+    description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes.
+    digest: dfc7b00b312bde67d775e970bbe4c4ad032fb2addcd39211f2971aba8d046c56
+    home: https://argoproj.github.io/argo-workflows/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo-workflow.png
+    name: argo-workflows
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-workflows
+    - https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-workflows-1.0.9/argo-workflows-1.0.9.tgz
+    version: 1.0.9
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-09-22T09:24:13.375935137Z"
     dependencies:
     - enabled: true
@@ -162,6 +182,22 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-workflows-1.0.0/argo-workflows-1.0.0.tgz
     version: 1.0.0
   blazingsql:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T12:56:27.435068687Z"
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: 53a29257728603430de90083ded63e7db2e7d96b11774b45ba23eb2b8c00f8eb
+    home: https://blazingsql.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/blazingsql.png
+    name: blazingsql
+    sources:
+    - https://github.com/InseeFrLab/blazingsql
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+    - https://github.com/BlazingDB/blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-3.0.10/blazingsql-3.0.10.tgz
+    version: 3.0.10
   - apiVersion: v2
     appVersion: latest
     created: "2021-09-22T12:24:43.850755105Z"
@@ -449,6 +485,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.0/blazingsql-0.1.0.tgz
     version: 0.1.0
   cloudshell:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-09-22T12:56:27.549000134Z"
+    description: Datalab  shell (ubuntu with webssh)
+    digest: c101d55bda2efef780642a7aca8054438794757019b89490da87a508cfac9614
+    home: https://datalab.sspcloud.fr
+    icon: https://datalab.sspcloud.fr/favicon_package/favicon-32x32.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-2.0.6/cloudshell-2.0.6.tgz
+    version: 2.0.6
   - apiVersion: v2
     appVersion: latest
     created: "2021-09-22T09:28:27.82017138Z"
@@ -756,6 +807,30 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/dask-1.0.0/dask-1.0.0.tgz
     version: 1.0.0
   elastic:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-09-22T12:56:27.71805553Z"
+    dependencies:
+    - enabled: true
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.13.4
+    - enabled: true
+      name: kibana
+      repository: https://helm.elastic.co
+      version: 7.13.4
+    description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
+    digest: 47e5ef2567c168d13a88e1e14ea3adc9f07aa8022336b12d7081b7324057d3cf
+    home: https://www.elastic.co/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/elk.png
+    name: elastic
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/elastic
+    - https://github.com/elastic/helm-charts/tree/master/elasticsearch
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-1.0.12/elastic-1.0.12.tgz
+    version: 1.0.12
   - apiVersion: v2
     appVersion: "1"
     created: "2021-09-22T09:34:04.430130452Z"
