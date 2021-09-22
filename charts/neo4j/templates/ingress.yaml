@@ -2,11 +2,7 @@
 {{- $fullName := include "neo4j.fullname" . -}}
 {{- $svcPortUI := .Values.networking.neo4jUI.port -}}
 {{- $svcPortBolt := .Values.networking.neo4jBolt.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -28,14 +24,20 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPortUI }}
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPortUI }}
     - host: {{ .Values.ingress.hostnameBolt | quote }}
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPortBolt }}
+              service:
+                name: {{ $fullName }}
+                port: 
+                  number: {{ $svcPortBolt }}
 {{- end }}

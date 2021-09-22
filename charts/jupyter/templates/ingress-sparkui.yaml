@@ -2,11 +2,7 @@
 {{- if .Values.service.sparkui -}}
 {{- $fullName := include "jupyter.fullname" . -}}
 {{- $svcPort := .Values.networking.sparkui.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-sparkui
@@ -25,8 +21,11 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
+              service:
+                name: {{ $fullName }}
+                port: 
+                  number: {{ $svcPort }}
 {{- end }}
 {{- end }}
