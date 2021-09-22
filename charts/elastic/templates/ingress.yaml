@@ -24,5 +24,6 @@ spec:
             backend:
               service:
                 name: {{ .Release.Name }}-kibana
-                port: {{ $svcPort }}
+                port: 
+                  number: {{ $svcPort }}
 {{- end }}

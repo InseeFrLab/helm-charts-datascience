@@ -21,5 +21,6 @@ spec:
             backend:
               service:
                 name: {{ .Release.Name }}-server
-                port: {{ index .Values "argo-workflows" "server" "servicePort" }} 
+                port: 
+                  number: {{ index .Values "argo-workflows" "server" "servicePort" }} 
 {{- end }}
