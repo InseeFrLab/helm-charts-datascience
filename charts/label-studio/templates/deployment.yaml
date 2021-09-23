@@ -30,6 +30,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK
+              value: true
+            - name: LABEL_STUDIO_USERNAME
+              value: {{ .Values.security.username }}              
+            - name: LABEL_STUDIO_PASSWORD
+              value: {{ .Values.security.password }}
           ports:
             - name: http
               containerPort: 8080

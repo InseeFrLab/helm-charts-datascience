@@ -20,6 +20,8 @@ liveness:
   enabled : "true"
 
 security:
+  password: changeme
+  username: username
   networkPolicy: 
     enable: false
     from: 
