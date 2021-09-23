@@ -19,7 +19,7 @@
             "title": "username",
             "default": "username",
             "x-form": {
-              "value": "{{project.id}}"
+              "value": "{{user.email}}"
             }
           },
           "whitelist": {
