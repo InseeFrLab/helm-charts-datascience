@@ -32,9 +32,9 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK
-              value: true
+              value: "true"
             - name: LABEL_STUDIO_USERNAME
-              value: {{ .Values.security.username }}              
+              value: {{ .Values.security.username }}
             - name: LABEL_STUDIO_PASSWORD
               value: {{ .Values.security.password }}
           ports:
