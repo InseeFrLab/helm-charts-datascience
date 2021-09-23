@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "hostname": {
+          "type": "string",
+          "form": true,
+          "title": "Hostname",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "externalDNS",
+            "scope": "mlflow",
+            "name": "ihm"
+          }
+        }
+      }
+    },
+    "global": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "title": "Database",
+      "properties": {
+        "postgresql": {
+          "description": "postgres specific configuration",
+          "type": "object",
+          "title": "Database",
+          "properties": {
+            "postgresqlUsername": {
+              "type": "string",
+              "title": "Admin user",
+              "default": "admin",
+              "x-form": {
+                "value": "{{project.id}}"
+              }
+            },
+            "postgresqlPassword": {
+              "type": "string",
+              "title": "Password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{project.password}}"
+              }
+            },
+            "postgresqlDatabase": {
+              "description": "Name for the default database that is created when the image is first started.",
+              "type": "string",
+              "title": "Database",
+              "default": "mlflow"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "label-studio.fullname" . }}
+  labels:
+    {{- include "label-studio.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.networking.type }}
+  {{- if .Values.networking.clusterIP }}
+  clusterIP: {{ .Values.networking.clusterIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.networking.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "label-studio.selectorLabels" . | nindent 4 }}
