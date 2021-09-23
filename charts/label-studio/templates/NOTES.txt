@@ -1,1 +1,5 @@
-1. Get the application URL by running these commands:
+{{- if .Values.ingress.enabled }}
+- Start annotate with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- end }}
+- Your username is **{{ .Values.security.username }}**
+- Your password is **{{ .Values.security.password }}**
