@@ -1,0 +1,27 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "argo.labels" . | nindent 4 }}
+  annotations:
+    {{- include "argo.ingress.annotations" . | nindent 4 }}
+spec:
+{{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+        - {{ .Values.ingress.hostname | quote }}
+{{- end }}
+  rules:
+    - host: {{ .Values.ingress.hostname | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ template "argo.server.fullname" . }}
+                port: 
+                  number: {{ index .Values "argo-cd" "server" "service" "servicePortHttps"}} 
+{{- end }}

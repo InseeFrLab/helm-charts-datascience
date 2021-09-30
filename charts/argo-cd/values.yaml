@@ -1,0 +1,102 @@
+## ArgoCD configuration
+## Ref: https://github.com/argoproj/argo-cd
+##
+nameOverride: ""
+fullnameOverride: "argocd"
+
+ingress:
+  enabled: true
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  hostname: chart-example.local
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+  security:
+    whitelist:
+      enabled: true
+      ip: "0.0.0.0/0"
+
+global:
+  image:
+    repository: quay.io/argoproj/argocd
+    tag: v2.1.2
+    imagePullPolicy: IfNotPresent
+
+  networkPolicy:
+    create: false
+    defaultDenyIngress: false
+
+argo-cd:
+  createAggregateRoles: false
+  fullnameOverride: "argocd"
+  controller:
+    name: application-controller
+    image:
+      repository: # defaults to global.image.repository
+      tag: # defaults to global.image.tag
+      imagePullPolicy: # IfNotPresent
+    replicas: 1
+    enableStatefulSet: true
+    args:
+      statusProcessors: "20"
+      operationProcessors: "10"
+      appResyncPeriod: "180"
+      selfHealTimeout: "5"
+      repoServerTimeoutSeconds: "60"
+    logFormat: text
+    logLevel: info
+    containerPort: 8082
+    service:
+      port: 443
+      portName: https-controller
+    resources: {}
+    serviceAccount:
+      create: true
+      name: argocd-application-controller
+      automountServiceAccountToken: true
+    clusterAdminAccess:
+      enabled: false
+    clusterRoleRules:
+      enabled: false
+      rules: []
+
+  redis:
+    enabled: true
+
+  redis-ha:
+    enabled: false
+
+  server:
+    name: server
+    replicas: 1
+    logFormat: text
+    logLevel: info
+    containerPort: 8080
+    serviceAccount:
+      create: true
+      name: argocd-server
+      automountServiceAccountToken: true
+    ingress:
+      enabled: false
+    clusterAdminAccess:
+      enabled: false      
+
+  repoServer:
+    name: repo-server
+    clusterAdminAccess:
+      enabled: false
+    clusterRoleRules:
+      enabled: false
+
+  configs:
+    secret:
+      createSecret: true
+      argocdServerAdminPassword: $2a$10$2sOBao8V5gvAuCjClGpX2egC73TkSGTrJOHwr7oCU4O4nuR8Ry/4u
+      # Password modification time defaults to current time if not set
+      # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
+
+  openshift:
+    enabled: false
