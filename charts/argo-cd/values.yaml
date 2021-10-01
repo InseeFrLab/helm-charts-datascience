@@ -46,6 +46,12 @@ argo-cd:
       appResyncPeriod: "180"
       selfHealTimeout: "5"
       repoServerTimeoutSeconds: "60"
+    extraArgs:
+    - --namespace
+    - $KUBERNETES_NAMESPACE
+    envFrom:
+    - configMapRef:
+        name: argo-cd-namespace
     logFormat: text
     logLevel: info
     containerPort: 8082
@@ -72,6 +78,12 @@ argo-cd:
   server:
     name: server
     replicas: 1
+    extraArgs:
+    - --namespace
+    - $KUBERNETES_NAMESPACE
+    envFrom:
+    - configMapRef:
+        name: argo-cd-namespace
     logFormat: text
     logLevel: info
     containerPort: 8080
