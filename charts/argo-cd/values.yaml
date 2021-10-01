@@ -3,6 +3,7 @@
 ##
 nameOverride: ""
 fullnameOverride: "argocd"
+apiserver: "https://kubernetes.default.svc"
 
 ingress:
   enabled: true
