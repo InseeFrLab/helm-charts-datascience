@@ -80,10 +80,13 @@ argo-cd:
     replicas: 1
     extraArgs:
     - --namespace
-    - $KUBERNETES_NAMESPACE
-    envFrom:
-    - configMapRef:
-        name: argo-cd-namespace
+    - $(KUBERNETES_NAMESPACE)
+    env:
+    - name: KUBERNETES_NAMESPACE
+      valueFrom:
+       fieldRef:
+         apiVersion: v1
+         fieldPath: metadata.namespace
     logFormat: text
     logLevel: info
     containerPort: 8080
