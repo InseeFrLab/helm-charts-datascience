@@ -16,7 +16,7 @@ Create the name of the config map S3 to use
 Template to generate a ConfigMap for S3
 */}}
 {{- define "library-chart.configMapS3" -}}
-{{- if .Values.environment.s3 -}}
+{{- if .Values.s3.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
