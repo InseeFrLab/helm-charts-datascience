@@ -345,6 +345,26 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-02T23:07:47.246067375Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.0.0
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: 5912b969298a9f6c4be48f2939daa61e835a34aeee90955590b3d59f4cae3cfb
+    home: https://blazingsql.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/blazingsql.png
+    name: blazingsql
+    sources:
+    - https://github.com/InseeFrLab/blazingsql
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+    - https://github.com/BlazingDB/blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-3.0.12/blazingsql-3.0.12.tgz
+    version: 3.0.12
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-09-22T12:56:27.435068687Z"
     description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
     digest: 53a29257728603430de90083ded63e7db2e7d96b11774b45ba23eb2b8c00f8eb
