@@ -51,6 +51,18 @@
             }
         }
       }
+    },
+    "secret": {
+      "type": "object",
+      "form": true,
+      "title": "Gestion des secrets",
+      "properties": {
+        "password": {
+          "description": "password of the admin account",
+          "type": "string",
+          "default": "changeme"
+        }
+      }
     }
   }
 }
