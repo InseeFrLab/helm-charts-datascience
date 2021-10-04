@@ -113,7 +113,7 @@ argo-cd:
   configs:
     secret:
       createSecret: false
-      argocdServerAdminPassword: $2a$10$2sOBao8V5gvAuCjClGpX2egC73TkSGTrJOHwr7oCU4O4nuR8Ry/4u
+      #argocdServerAdminPassword: $2a$10$2sOBao8V5gvAuCjClGpX2egC73TkSGTrJOHwr7oCU4O4nuR8Ry/4u
       # Password modification time defaults to current time if not set
       # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
 
