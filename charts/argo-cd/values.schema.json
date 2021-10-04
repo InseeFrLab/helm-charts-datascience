@@ -60,7 +60,10 @@
         "password": {
           "description": "password of the admin account",
           "type": "string",
-          "default": "changeme"
+          "default": "changeme",
+          "x-form": {
+            "value": "{{project.password}}"
+          }
         }
       }
     }
