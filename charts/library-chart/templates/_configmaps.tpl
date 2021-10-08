@@ -105,6 +105,7 @@ ConfigMap for Hive Metastore
 {{ printf "<configuration>"}}
 {{- $virgule := 0 }}      
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if $virgule }}
@@ -114,6 +115,7 @@ ConfigMap for Hive Metastore
 {{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
 {{ printf "</property>"}}
 {{- $virgule = 1}}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
