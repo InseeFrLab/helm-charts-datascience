@@ -1,14 +1,14 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "jupyter.fullname" . -}}
+{{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPort := .Values.networking.jupyter.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-ui
   labels:
-    {{- include "jupyter.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
-    {{- include "jupyter.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
