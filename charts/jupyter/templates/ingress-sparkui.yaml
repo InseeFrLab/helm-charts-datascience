@@ -1,15 +1,15 @@
 {{- if .Values.ingress.enabled -}}
 {{- if .Values.service.sparkui -}}
-{{- $fullName := include "jupyter.fullname" . -}}
+{{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPort := .Values.networking.sparkui.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-sparkui
   labels:
-    {{- include "jupyter.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
-    {{- include "jupyter.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "jupyter.fullname" . }}
+  name: {{ include "library-chart.fullname" . }}
   labels:
-    {{- include "jupyter.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.networking.type }}
   {{- if .Values.networking.clusterIP }}
@@ -21,4 +21,4 @@ spec:
       name: sparkui
     {{- end }}
   selector:
-    {{- include "jupyter.selectorLabels" . | nindent 4 }}
+    {{- include "library-chart.selectorLabels" . | nindent 4 }}
