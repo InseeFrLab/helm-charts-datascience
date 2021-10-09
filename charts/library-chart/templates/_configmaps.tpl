@@ -142,7 +142,7 @@ Template to generate a ConfigMap for Hive
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "library-chart.fullname" . }}
+  name: {{ include "library-chart.configMapNameHive" . }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
