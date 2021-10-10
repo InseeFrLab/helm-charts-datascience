@@ -1,1 +1,5 @@
-1. Get the application URL by running these commands:
+- This service is only available from inside the datalab.
+- The url is : **thrift://{{ include "hive-metastore.fullname" . }}:9083**
+- Some other services discover this url automatically and a config file is written.
+
+![hive](https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/hive-discovery.png)
