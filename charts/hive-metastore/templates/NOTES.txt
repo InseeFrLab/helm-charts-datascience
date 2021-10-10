@@ -1,3 +1,4 @@
+- The default path for the internal tables is : **{{ .Values.service.warehouseDir }}**
 - This service is only available from inside the datalab.
 - The url is : **thrift://{{ include "hive-metastore.fullname" . }}:9083**
 - Some other services discover this url automatically and a config file is written.
