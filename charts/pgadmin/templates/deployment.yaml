@@ -44,10 +44,14 @@ spec:
               containerPort: 80
               protocol: TCP
           livenessProbe:
+            failureThreshold: 30
+            timeoutSeconds: 5
             httpGet:
               path: /
               port: http
           readinessProbe:
+            failureThreshold: 30
+            timeoutSeconds: 5
             httpGet:
               path: /
               port: http
