@@ -1,0 +1,8 @@
+{{- if .Values.dask.webUI.ingress.enabled }}
+- You can connect to the dask dashboard with your browser on this [link](https://{{ .Values.dask.webUI.ingress.hostname }})
+{{- end }}
+- You can connect to the scheduler :
+```
+from dask.distributed import Client
+client = Client('{{ template "dask.fullname" . }}-scheduler:8786')
+```
