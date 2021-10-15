@@ -198,5 +198,4 @@ data:
   MLFLOW_TRACKING_URI:  {{ default "" (include "library-chart.mlflow.url" .) }}
 {{- end }}
 {{- end }}
-{{- end }}
 
