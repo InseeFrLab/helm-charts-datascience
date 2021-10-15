@@ -162,9 +162,10 @@ ConfigMap for Hive Metastore
 {{- if hasPrefix "mlflow" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if $virgule }}
 {{- end }}
-{{ printf "http://%s" $service.metadata.name | indent 4}}
+{{ printf "http://%s" $service.metadata.name }}
 {{- $virgule = 1}}
 {{- end }}
+{{ printf "" }}
 {{- end }}
 {{- end }}
 {{- end }}
