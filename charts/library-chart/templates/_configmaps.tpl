@@ -188,7 +188,6 @@ Template to generate a ConfigMap for MLFlow
 */}}
 {{- define "library-chart.configMapMLflow" -}}
 {{- if .Values.discovery.mlflow -}}
-{{- if (include "library-chart.mlflow.url" .) -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -196,7 +195,7 @@ metadata:
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
-  MLFLOW_TRACKING_URI: {{ include "library-chart.mlflow.url" . }}
+  MLFLOW_TRACKING_URI:  {{ default "" (include "library-chart.mlflow.url" .) }}
 {{- end }}
 {{- end }}
 {{- end }}
