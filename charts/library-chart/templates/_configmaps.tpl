@@ -150,3 +150,53 @@ data:
     {{- include "hiveMetastore.configmap" . | nindent 4 }}
 {{- end }}
 {{- end }}
+
+{{/*
+ConfigMap for Hive Metastore
+*/}}
+{{- define "library-chart.mlflow.url" -}}
+{{- $virgule := 0 }}      
+{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels") }}
+{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if hasPrefix "mlflow" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if $virgule }}
+{{- end }}
+{{ printf "http://%s" $service.metadata.name | indent 4}}
+{{- $virgule = 1}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the config map MLFlow to use
+*/}}
+{{- define "library-chart.configMapNameMLFlow" -}}
+{{- if .Values.discovery.mlflow }}
+{{- $name:= (printf "%s-configmapmlflow" (include "library-chart.fullname" .) )  }}
+{{- default $name .Values.mlflow.configMapName }}
+{{- else }}
+{{- default "default" .Values.mlflow.configMapName }}
+{{- end }}
+{{- end }}
+
+{{/*
+Template to generate a ConfigMap for MLFlow
+*/}}
+{{- define "library-chart.configMapMLflow" -}}
+{{- if .Values.discovery.mlflow -}}
+{{- if (include "library-chart.mlflow.url" .) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.configMapNameMLFlow" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  MLFLOW_TRACKING_URI: {{ include "library-chart.mlflow.url" . }}
+{{- end }}
+{{- end }}
+{{- end }}
+
