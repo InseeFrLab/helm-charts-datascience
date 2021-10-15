@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-- You can connect to the dask dashboard with your browser on this [link](https://{{ .Values.dask.webUI.ingress.hostname }})
+- You can connect to the dask dashboard with your browser on this [link](https://{{ .Values.ingress.hostname }})
 {{- end }}
 - You can connect to the scheduler :
 ```
