@@ -102,19 +102,15 @@ ConfigMap for Hive Metastore
 {{- define "hiveMetastore.configmap" -}}
 {{ printf "<?xml version=\"1.0\"?>" }}
 {{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" }} 
-{{ printf "<configuration>"}}
-{{- $virgule := 0 }}      
+{{ printf "<configuration>"}}     
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
-{{- if $virgule }}
-{{- end }}
 {{ printf "<property>"}}
 {{ printf "<name>hive.metastore.uris</name>"  | indent 4}}
 {{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
 {{ printf "</property>"}}
-{{- $virgule = 1}}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -154,16 +150,20 @@ data:
 {{/*
 ConfigMap for Hive Metastore
 */}}
-{{- define "library-chart.mlflow.url" -}}
-{{- $virgule := 0 }}      
+{{- define "library-chart.configMapMLFlow" -}}
+{{- if .Values.discovery.mlflow -}}    
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "mlflow" (index $service "metadata" "labels" "helm.sh/chart") }}
-{{- if $virgule }}
-{{- end }}
-{{ print "http://" $service.metadata.name }}
-{{- $virgule = 1}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.configMapNameMLFlow" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  MLFLOW_TRACKING_URI: {{ print "http://" $service.metadata.name }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -182,19 +182,4 @@ Create the name of the config map MLFlow to use
 {{- end }}
 {{- end }}
 
-{{/*
-Template to generate a ConfigMap for MLFlow
-*/}}
-{{- define "library-chart.configMapMLflow" -}}
-{{- if .Values.discovery.mlflow -}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "library-chart.configMapNameMLFlow" . }}
-  labels:
-    {{- include "library-chart.labels" . | nindent 4 }}
-data:
-  MLFLOW_TRACKING_URI:  {{ default "" (include "library-chart.mlflow.url" .) }}
-{{- end }}
-{{- end }}
 
