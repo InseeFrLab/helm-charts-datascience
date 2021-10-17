@@ -174,12 +174,11 @@ data:
 Create the name of the config map MLFlow to use
 */}}
 {{- define "library-chart.configMapNameMLFlow" -}}
-{{- if .Values.discovery.mlflow }}
 {{- $name:= (printf "%s-configmapmlflow" (include "library-chart.fullname" .) )  }}
 {{- default $name .Values.mlflow.configMapName }}
 {{- else }}
 {{- default "default" .Values.mlflow.configMapName }}
 {{- end }}
-{{- end }}
+
 
 
