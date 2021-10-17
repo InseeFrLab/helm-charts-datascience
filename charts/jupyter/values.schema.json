@@ -66,6 +66,12 @@
                 "title": "Enable hive metastore discovery",
                 "description": "discover your hive metastore service",
                 "default": true
+              },
+              "mlflow": {
+                "type": "boolean",
+                "title": "Enable mlflow discovery",
+                "description": "discover your mlflow service",
+                "default": false
               }
             }
           },

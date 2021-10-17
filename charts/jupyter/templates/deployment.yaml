@@ -95,6 +95,10 @@ spec:
             - configMapRef:
                 name: {{ include "library-chart.configMapNameGit" . }}
             {{- end }}
+            {{- if .Values.discovery.mlflow }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameMLFlow" . }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8888

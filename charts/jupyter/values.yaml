@@ -74,11 +74,15 @@ git:
 # see configmap-hive.yaml et helpers template
 discovery:
   hive: true
+  mlflow: true
 
 hive:
   configMapName: ""
-  
-# This is a YAML-formatted file.
+
+mlflow:
+  configMapName: ""
+
+  # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
 
