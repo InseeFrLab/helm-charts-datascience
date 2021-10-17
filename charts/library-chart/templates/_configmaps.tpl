@@ -169,7 +169,7 @@ data:
 {{- end }}
 {{- end }}
 {{- end }}
-
+{{- end }}
 {{/*
 Create the name of the config map MLFlow to use
 */}}
