@@ -148,6 +148,14 @@ data:
 {{- end }}
 
 {{/*
+Create the name of the config map MLFlow to use
+*/}}
+{{- define "library-chart.configMapNameMLFlow" -}}
+{{- $name:= (printf "%s-configmapmlflow" (include "library-chart.fullname" .) )  }}
+{{- default $name .Values.mlflow.configMapName }}
+{{- end }}
+
+{{/*
 ConfigMap for Hive Metastore
 */}}
 {{- define "library-chart.configMapMLFlow" -}}
@@ -170,12 +178,6 @@ data:
 {{- end }}
 {{- end }}
 {{- end }}
-{{/*
-Create the name of the config map MLFlow to use
-*/}}
-{{- define "library-chart.configMapNameMLFlow" -}}
-{{- $name:= (printf "%s-configmapmlflow" (include "library-chart.fullname" .) )  }}
-{{- default $name .Values.mlflow.configMapName }}
-{{- end }}
+
 
 
