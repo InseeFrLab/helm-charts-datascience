@@ -160,6 +160,7 @@ ConfigMap for Hive Metastore
 */}}
 {{- define "library-chart.configMapMLFlow" -}}
 {{- if .Values.discovery.mlflow -}}    
+{{- $context := . }}
 {{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
@@ -167,9 +168,9 @@ ConfigMap for Hive Metastore
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "library-chart.configMapNameMLFlow" . }}
+  name: {{ include "library-chart.configMapNameMLFlow" $context }}
   labels:
-    {{- include "library-chart.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" $context | nindent 4 }}
 data:
   MLFLOW_TRACKING_URI: {{ print "http://" $service.metadata.name }}
 {{- end }}
