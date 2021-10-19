@@ -65,9 +65,9 @@ spec:
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}
             {{- end }}   
-            {{- if .Values.init.personnalInit }}
+            {{- if .Values.init.personalInit }}
             - name: PERSONNAL_INIT_SCRIPT
-              value: {{ .Values.init.personnalInit }}
+              value: {{ .Values.init.personalInit }}
             {{- end }}          
           envFrom: 
             {{- if .Values.s3.enabled }}

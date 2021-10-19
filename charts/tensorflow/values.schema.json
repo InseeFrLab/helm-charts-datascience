@@ -355,7 +355,7 @@
                         "scope": "tensorflow"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""

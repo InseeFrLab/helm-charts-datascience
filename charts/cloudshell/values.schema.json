@@ -403,7 +403,7 @@
                         "scope": "cloudshell"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""

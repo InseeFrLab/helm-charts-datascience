@@ -421,7 +421,7 @@
                         "scope": "rapidsai"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""

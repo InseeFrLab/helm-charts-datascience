@@ -458,7 +458,7 @@
             "scope": "vscode"
           }
         },
-        "personnalInit": {
+        "personalInit": {
           "type": "string",
           "description": "initialization script",
           "default": ""
