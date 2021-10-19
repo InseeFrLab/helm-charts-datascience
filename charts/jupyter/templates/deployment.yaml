@@ -74,9 +74,9 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.service.user }}/work
-            {{- if .Values.init.personnalInit }}
+            {{- if .Values.init.personalInit }}
             - name: PERSONNAL_INIT_SCRIPT
-              value: {{ .Values.init.personnalInit }}
+              value: {{ .Values.init.personalInit }}
             {{- end }}   
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO

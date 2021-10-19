@@ -465,7 +465,7 @@
                         "scope": "rstudio"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""

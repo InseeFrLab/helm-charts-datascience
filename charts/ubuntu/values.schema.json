@@ -401,7 +401,7 @@
                         "scope": "ubuntu"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""

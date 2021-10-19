@@ -229,7 +229,7 @@
                         "scope": "spark-history"
                     }
                 },
-                "personnalInit": {
+                "personalInit": {
                     "type": "string",
                     "description": "initialization script",
                     "default": ""
