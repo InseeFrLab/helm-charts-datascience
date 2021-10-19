@@ -405,6 +405,26 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-19T12:53:11.614283739Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.0.1
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: 518080c80723b0242e7d432e502469353d0b6dd8b6bc9bdc0269ca313e27d0be
+    home: https://blazingsql.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/blazingsql.png
+    name: blazingsql
+    sources:
+    - https://github.com/InseeFrLab/blazingsql
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+    - https://github.com/BlazingDB/blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-3.0.14/blazingsql-3.0.14.tgz
+    version: 3.0.14
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-10-02T23:21:13.628615922Z"
     dependencies:
     - name: library-chart
@@ -746,6 +766,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.0/blazingsql-0.1.0.tgz
     version: 0.1.0
   cloudshell:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-10-19T12:53:11.784125041Z"
+    description: Datalab  shell (ubuntu with webssh)
+    digest: cfeee620c3aed2b7031e3609a9f46771174a4fe78a9c87625091d2438e82edb4
+    home: https://datalab.sspcloud.fr
+    icon: https://datalab.sspcloud.fr/favicon_package/favicon-32x32.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-2.0.9/cloudshell-2.0.9.tgz
+    version: 2.0.9
   - apiVersion: v2
     appVersion: latest
     created: "2021-09-23T09:51:29.722320116Z"
@@ -1583,6 +1618,22 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-19T12:53:11.950187038Z"
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: 9fed9c688d46693012c5505a1b754fdf3b19b105590a22278f70db66da82fbfc
+    home: https://www.fast.ai/
+    icon: https://media-exp1.licdn.com/dms/image/C560BAQFeG3Xb3YVI_Q/company-logo_200_200/0/1534625417958?e=2159024400&v=beta&t=alg-IrBNdtkMnRxFEDraZr4Ao88uEN4WgQwjjze6LUg
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-3.0.8/fastai-3.0.8.tgz
+    version: 3.0.8
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-08-18T09:57:28.928778753Z"
     description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
     digest: b3be1bccbf2657cb4eb9349315160d0b7784965c5ba6ad52c93d066a6cf62810
@@ -2257,6 +2308,26 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-1.0.0/jena-1.0.0.tgz
     version: 1.0.0
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-10-19T12:53:12.124754371Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.3
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: d7e163f9dd205087b8f39d23fe5b24e5a046b975357ecc496459d23ae535b178
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-3.2.2/jupyter-3.2.2.tgz
+    version: 3.2.2
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-18T12:38:37.297085769Z"
@@ -4611,6 +4682,22 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-19T12:53:12.296825435Z"
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: 296b5be7cd58a50acbcf2c1e8ae5bc56eb1ca702cc682a7fe2379e500546e4b8
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-3.0.8/rapidsai-3.0.8.tgz
+    version: 3.0.8
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-09-22T14:14:36.018498436Z"
     description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
     digest: 64c20bba39b618b937c990dd45086aeb47ffe2687b3c1218113f3cc6061801f0
@@ -4982,6 +5069,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-0.0.1/redash-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2021-10-19T12:53:12.471082259Z"
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
+    digest: 5c07bfd75de01c010c4859f83f564850cdc792f1181e7cac2e681fafd0ce3651
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-3.0.8/rstudio-3.0.8.tgz
+    version: 3.0.8
   - apiVersion: v2
     created: "2021-09-22T14:14:36.245156924Z"
     description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
@@ -5480,6 +5582,21 @@ entries:
   spark-history:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-19T12:53:12.675773626Z"
+    description: Spark history help you to review logs of your spark applications.
+    digest: f99928145c6875a84b982e50c37ef5128ab0d64dff0b25e77b1aa4f0d1a2269e
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-history
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-history
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-2.0.5/spark-history-2.0.5.tgz
+    version: 2.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-09-22T14:14:36.352058672Z"
     description: Spark history help you to review logs of your spark applications.
     digest: ecf27096a81262a06fecaa4fa28b2f7e1a9d2e27b08c0da535ff0ff5936e311c
@@ -5752,6 +5869,21 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-19T12:53:12.873541801Z"
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: 674d54731faac8369c35914cc6378237f725bd2592d6dca6479a46fb5d2a343c
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-2.0.7/tensorflow-2.0.7.tgz
+    version: 2.0.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-09-22T14:14:36.57602484Z"
     description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
     digest: 463aaa6b793882588b4c59f5d7ac72d64c294c354f1643d0f3e3ac4044cf378d
@@ -5999,6 +6131,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-10-19T12:53:13.048425842Z"
+    description: Ubuntu with a graphical user interface.
+    digest: c93175a86b1b3c245f9bc2662b6825663d0022cbda3b122330e5852858e58775
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-2.0.11/ubuntu-2.0.11.tgz
+    version: 2.0.11
   - apiVersion: v2
     appVersion: latest
     created: "2021-09-23T09:53:07.243278247Z"
@@ -6315,6 +6462,22 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-10-19T12:53:13.236319444Z"
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: 762c1a7c63b387e4ee0f6c3778533a2b036efee5c28e750682583888d171354c
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-3.12.1/vscode-3.12.1.tgz
+    version: 3.12.1
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-06T13:14:07.728613392Z"
