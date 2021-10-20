@@ -1,10 +1,11 @@
 {{- if .Values.ingress.enabled -}}
+{{- if .Values.service.tensorboard -}}
 {{- $fullName := include "library-chart.fullname" . -}}
-{{- $svcPort := .Values.networking.tensorflow.port -}}
+{{- $svcPort := .Values.networking.tensorboard.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-ui
+  name: {{ $fullName }}-tensorboard
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
@@ -13,10 +14,10 @@ spec:
 {{- if .Values.ingress.tls }}
   tls:
     - hosts:
-        - {{ .Values.ingress.hostname | quote }}
+        - {{ .Values.ingress.tensorboardHostname | quote }}
 {{- end }}
   rules:
-    - host: {{ .Values.ingress.hostname | quote }}
+    - host: {{ .Values.ingress.tensorboardHostname | quote }}
       http:
         paths:
           - path: /
@@ -26,4 +27,5 @@ spec:
                 name: {{ $fullName }}
                 port: 
                   number: {{ $svcPort }}
+{{- end }}
 {{- end }}

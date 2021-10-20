@@ -1,6 +1,7 @@
 # Default values for tensorflow.
 
 service:
+  tensorboard: true
   image:
     repository: "inseefrlab/tensorflow"
     pullPolicy: IfNotPresent
@@ -16,8 +17,8 @@ security:
         cidr: 10.233.103.0/32
     - ipBlock:
         cidr: 10.233.111.0/32
-  whitelist:
-    enable: true
+  allowlist:
+    enabled: true
     ip: "0.0.0.0/0"
 
 init:
@@ -26,14 +27,11 @@ init:
   personalInit: "null"
 
 environment:
-  s3: true
-  vault: true
-  git: true
   root: true
 
 s3:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -46,7 +44,7 @@ s3:
 
 vault:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -58,7 +56,7 @@ vault:
 
 git:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
@@ -106,6 +104,8 @@ networking:
   clusterIP: None
   tensorflow:
     port: 80
+  tensorboard:
+    port: 6006
 
 ingress:
   enabled: true
@@ -114,6 +114,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hostname: chart-example.local
+  tensorboardHostname: chart-example-tensorboard.local
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

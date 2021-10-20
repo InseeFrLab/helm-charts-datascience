@@ -2,6 +2,17 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "service": {
+            "description": "spark-history specific configuration",
+            "type": "object",
+            "properties": {
+                "tensorboard": {
+                    "description": "enable",
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
@@ -335,6 +346,19 @@
                         "type": "externalDNS",
                         "scope": "tensorflow",
                         "name": "ihm"
+                    }
+                },
+                "tensorboardHostname": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname tensorboard",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "tensorflow",
+                        "name": "tensorboard"
                     }
                 }
             }
