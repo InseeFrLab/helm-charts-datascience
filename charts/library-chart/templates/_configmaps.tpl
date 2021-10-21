@@ -26,6 +26,7 @@ metadata:
 data:
   AWS_ACCESS_KEY_ID: "{{ .Values.s3.accessKeyId }}"
   AWS_S3_ENDPOINT: "{{ .Values.s3.endpoint }}"
+  S3_ENDPOINT: "https://{{ .Values.s3.endpoint }}/"
   AWS_DEFAULT_REGION: "{{ .Values.s3.defaultRegion }}"
   AWS_SECRET_ACCESS_KEY: "{{ .Values.s3.secretAccessKey }}"
   AWS_SESSION_TOKEN: "{{ .Values.s3.sessionToken }}"
