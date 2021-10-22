@@ -1,0 +1,18 @@
+{{- $replicaCount := int .Values.mongodb.replicaCount }}
+{{- $portNumber := int .Values.mongodb.service.port }}
+{{- $fullname := include "mongodb.fullname" . }}
+{{- $user := .Values.mongodb.auth.username }}
+{{- $password := .Values.mongodb.auth.password }}
+{{- $db := .Values.mongodb.auth.database }}
+{{- $mongoList := list }}
+{{- range $e, $i := until $replicaCount }}
+{{- $mongoList = append $mongoList (printf "%s-%d.%s-headless:%d" $fullname $i $fullname $portNumber) }}
+{{- end }}
+- the connection string is : **mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}**
+- example for python :
+
+```
+from pymongo import MongoClient
+client = MongoClient('mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}')
+db=client.{{ $db }}
+```
