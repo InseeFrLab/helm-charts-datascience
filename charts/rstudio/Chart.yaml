@@ -25,3 +25,7 @@ type: application
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
 version: 3.0.8
 
+dependencies:
+  - name: library-chart
+    version: 1.1.4
+    repository: https://inseefrlab.github.io/helm-charts-datascience
