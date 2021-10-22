@@ -162,11 +162,11 @@
             "value": "{{project.password}}"
           }
         },
-        "whitelist": {
+        "allowlist": {
           "type": "object",
           "description": "IP protection",
           "properties": {
-            "enable": {
+            "enabled": {
               "type": "boolean",
               "title": "Enable IP protection",
               "description": "Only the configured set of IPs will be able to reach the service",
