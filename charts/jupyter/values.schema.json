@@ -33,7 +33,7 @@
                             "value": true,
                             "path": "service/image/custom/enabled"
                         },
-                        "default": "inseefrlab/jupyter-datascience:master"
+                        "default": "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2"
                       },
                       "custom" : {
                         "description": "use a custom jupyter docker image",
