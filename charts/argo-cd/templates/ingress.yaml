@@ -4,9 +4,9 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}
   labels:
-    {{- include "argo.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
-    {{- include "argo.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:

@@ -4,7 +4,7 @@ kind: Role
 metadata:
   name: {{ .Values.serviceAccount.role}}
   labels:
-    {{- include "argo.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 rules:
 # pod get/watch is used to identify the container IDs of the current pod
 # pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
