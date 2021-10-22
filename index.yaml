@@ -3762,6 +3762,27 @@ entries:
   mongodb:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-10-22T14:31:45.872021674Z"
+    dependencies:
+    - enabled: true
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.28.2
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: 77c0cd01fbd575cafcf9985666b2bacf4538145b8d8963a66543f87d6e3fc3fa
+    home: https://www.mongodb.com/
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.0.6/mongodb-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-10-22T12:05:35.843110383Z"
     dependencies:
     - enabled: true
