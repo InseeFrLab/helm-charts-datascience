@@ -13,8 +13,8 @@
             "tag": {
               "description": "mongodb major version",
               "type": "string",
-              "enum": ["4.0", "4.2"],
-              "default": "4.2"
+              "enum": ["4.0", "4.2","4.4"],
+              "default": "4.4"
             }
           }
         },
