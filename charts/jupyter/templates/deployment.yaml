@@ -95,7 +95,7 @@ spec:
             - configMapRef:
                 name: {{ include "library-chart.configMapNameGit" . }}
             {{- end }}
-            {{- if .Values.discovery.mlflow }}
+            {{- if not (empty (trim (include "library-chart.configMapMLFlow" .)))}}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameMLFlow" . }}
             {{- end }}
