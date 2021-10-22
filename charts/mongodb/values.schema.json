@@ -75,7 +75,7 @@
                 "sliderUnit": "Gi",
                 "hidden": {
                   "value": false,
-                  "path": "persistence/enabled"
+                  "path": "mongodb/persistence/enabled"
                 }                    
             }
           }
