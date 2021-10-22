@@ -24,7 +24,10 @@
                       "version": {
                         "description": "jupyter supported version",
                         "type": "string",
-                        "enum": ["inseefrlab/jupyter-datascience:master"],
+                        "enum": [
+                            "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2",
+                            "inseefrlab/jupyter-datascience:py3.7.6-spark3.1.1"
+                                ],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                         "hidden": {
                             "value": true,
