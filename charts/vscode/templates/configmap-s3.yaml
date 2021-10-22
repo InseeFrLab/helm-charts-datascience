@@ -1,15 +1,1 @@
-{{- if .Values.s3.enabled -}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "library-chart.configMapNameS3" . }}
-  labels:
-    {{- include "library-chart.labels" . | nindent 4 }}
-data:
-  AWS_ACCESS_KEY_ID: "{{ .Values.s3.accessKeyId }}"
-  AWS_S3_ENDPOINT: "{{ .Values.s3.endpoint }}"
-  AWS_DEFAULT_REGION: "{{ .Values.s3.defaultRegion }}"
-  AWS_SECRET_ACCESS_KEY: "{{ .Values.s3.secretAccessKey }}"
-  AWS_SESSION_TOKEN: "{{ .Values.s3.sessionToken }}"
-
-{{- end }}
+{{ include "library-chart.configMapS3" . }}
