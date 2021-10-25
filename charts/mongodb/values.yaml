@@ -1,4 +1,5 @@
-mongodb: 
+mongodb:
+  resources: {}
   fullnameOverride: mongodb
   architecture: replicaset
   image:
@@ -8,5 +9,5 @@ mongodb:
     username: username
     password: changeme
     database: defaultdb
-
+  replicaCount: 2
 fullnameOverride: mongodb
