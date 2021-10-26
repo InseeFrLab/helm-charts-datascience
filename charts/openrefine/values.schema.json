@@ -88,7 +88,10 @@
                         "type": "boolean",
                         "title": "Enable IP protection",
                         "description": "Only the configured set of IPs will be able to reach the service",
-                        "default": true
+                        "default": true,
+                        "x-form": {
+                          "value": "{{region.defaultIpProtection}}"
+                        }
                       },
                       "ip": {
                         "type": "string",
@@ -108,7 +111,10 @@
                         "type": "boolean",
                         "title": "Enable network policy",
                         "description": "Only pod from the same namespace will be allowed",
-                        "default": true
+                        "default": true,
+                        "x-form": {
+                          "value": "{{region.defaultNetworkPolicy}}"
+                        }
                       }
                     }
                 }
