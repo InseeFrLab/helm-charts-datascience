@@ -1,13 +1,1 @@
-{{- if .Values.git.enabled -}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "cloudshell.configMapNameGit" . }}
-  labels:
-    {{- include "cloudshell.labels" . | nindent 4 }}
-data:
-  GIT_USER_NAME: "{{ .Values.git.name }}"
-  GIT_USER_MAIL: "{{ .Values.git.email }}"
-  GIT_CREDENTIALS_CACHE_DURATION: "{{ .Values.git.cache }}"
-
-{{- end }}
+{{ include "library-chart.configMapGit" . }}
