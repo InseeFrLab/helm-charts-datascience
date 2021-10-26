@@ -27,8 +27,11 @@
               "version": {
                 "description": "r supported version",
                 "type": "string",
-                "enum": ["inseefrlab/rstudio:3.6.3", "inseefrlab/rstudio:4.0.4", "inseefrlab/utilitr:0.7.0"],
-                "default": "inseefrlab/rstudio:4.0.4"
+                "enum": [
+                    "inseefrlab/rstudio:4.1.1", "inseefrlab/rstudio:4.0.4", 
+                    "inseefrlab/rstudio:3.6.3", "inseefrlab/utilitr:0.7.0"
+                ],
+                "default": "inseefrlab/rstudio:4.1.1"
               },
               "custom" : {
                 "description": "use a custom R docker image",
