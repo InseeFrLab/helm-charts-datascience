@@ -4097,6 +4097,21 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-26T12:46:28.49816942Z"
+    description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
+    digest: 68dd47800dcd309be2ce6e505066d2ee630e3e76a0f43365eab5f439bb0fe8c6
+    home: https://neo4j.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/neo4j.png
+    name: neo4j
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/neo4j
+    - https://github.com/neo4j/docker-neo4j-publish
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-2.0.5/neo4j-2.0.5.tgz
+    version: 2.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-10-22T20:48:02.287096167Z"
     description: Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing.
     digest: 70706d14352932427b811db42eac707db125f46322726611d158269032aea9f6
