@@ -63,15 +63,15 @@ spec:
               values: {{ .Values.init.personalInit }}
             {{- end }}      
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameS3" . }}
             {{- end }}
-            {{- if .Values.environment.vault }}
+            {{- if .Values.vault.enabled }}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameVault" . }}
             {{- end }}
-            {{- if .Values.environment.git }}
+            {{- if .Values.git.enabled }}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameGit" . }}
             {{- end }}
