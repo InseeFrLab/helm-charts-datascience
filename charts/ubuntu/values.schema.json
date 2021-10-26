@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "service": {
-            "description": "spark-history specific configuration",
+            "description": "ubuntu specific configuration",
             "type": "object",
             "properties": {
                 "image" : {
@@ -20,6 +20,11 @@
                         "description": "ubuntu supported version",
                         "type": "string",
                         "enum": ["inseefrlab/ubuntu-vnc:latest"],
+                        "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                        "hidden": {
+                            "value": true,
+                            "path": "service/image/custom/enabled"
+                        },
                         "default": "inseefrlab/ubuntu-vnc:latest"
                       },
                       "custom" : {
@@ -34,7 +39,7 @@
                           "version": {
                             "description": "ubuntu unsupported version",
                             "type": "string",
-                            "default": "",
+                            "default": "inseefrlab/ubuntu-vnc:latest",
                             "hidden": {
                                 "value": false,
                                 "path": "service/image/custom/enabled"
