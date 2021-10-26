@@ -2,13 +2,15 @@
 
 service:
   user: jovyan
-  sparkui: false
   image:
     version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
       version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2"
+
+spark:
+  sparkui: false
 
 security:
   password: "changeme"
