@@ -4,7 +4,7 @@ kind: RoleBinding
 metadata:
   name: {{ .Values.serviceAccount.roleBinding}}
   labels:
-    {{- include "argo.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

@@ -8,8 +8,9 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-  security:
-    whitelist:
+
+security:
+    allowlist:
       enabled: true
       ip: "0.0.0.0/0"
 
