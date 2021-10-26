@@ -3499,6 +3499,25 @@ entries:
   label-studio:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-10-26T12:45:08.047748709Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: Data Science starts with data. Label Studio removes the pain of labeling it.
+    digest: 022872fac1a10d750e53cc209a768f27e193938749d2c2116264e0b15cb017de
+    home: https://labelstud.io/
+    icon: https://labelstud.io/images/opossum/heartex_icon_opossum_green@2x.png
+    name: label-studio
+    sources:
+    - https://github.com/heartexlabs/label-studio
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/label-studio-1.0.3/label-studio-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-09-23T14:59:06.101764564Z"
     dependencies:
     - enabled: true
