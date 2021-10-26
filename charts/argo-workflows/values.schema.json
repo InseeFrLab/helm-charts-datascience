@@ -45,7 +45,7 @@
                   },
                   "hidden": {
                     "value": false,
-                    "path": "ingress/security/allowlist/enabled"
+                    "path": "security/allowlist/enabled"
                   }
                 }
               }
