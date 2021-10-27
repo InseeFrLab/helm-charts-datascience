@@ -1879,6 +1879,22 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-10-27T12:35:21.728582314Z"
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: 0d3907e9a9088c207e5fc23c8261ccafa5828039f692d87db4cad5f2f082fc38
+    home: https://www.fast.ai/
+    icon: https://media-exp1.licdn.com/dms/image/C560BAQFeG3Xb3YVI_Q/company-logo_200_200/0/1534625417958?e=2159024400&v=beta&t=alg-IrBNdtkMnRxFEDraZr4Ao88uEN4WgQwjjze6LUg
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-4.0.0/fastai-4.0.0.tgz
+    version: 4.0.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-10-26T09:27:42.014849691Z"
     description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
     digest: 82114746b5e68b123ff637f2d59452002541ba473b866034cc5d11dff9ec1ccf
