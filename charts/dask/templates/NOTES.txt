@@ -4,5 +4,5 @@
 - You can connect to the scheduler :
 ```
 from dask.distributed import Client
-client = Client('{{ template "dask.fullname" . }}-scheduler:8786')
+client = Client('{{ template "library-chart.fullname" . }}-scheduler:8786')
 ```

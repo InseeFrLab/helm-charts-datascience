@@ -10,7 +10,7 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    {{- include "dask.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
