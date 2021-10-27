@@ -2,11 +2,11 @@
 
 service:
   image:
-    version: "inseefrlab/vscode-python:3.12.0"
+    version: "inseefrlab/vscode-python:3.12.0-vault"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: ""
+      version: "inseefrlab/vscode-python:3.12.0-vault"
 
 security:
   password: "changeme"

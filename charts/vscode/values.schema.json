@@ -93,9 +93,9 @@
               "version": {
                 "description": "vscode supported version",
                 "type": "string",
-                "default": "inseefrlab/vscode-python:3.12.0",
+                "default": "inseefrlab/vscode-python:3.12.0-vault",
                 "enum": [
-                  "inseefrlab/vscode-python:3.12.0",
+                  "inseefrlab/vscode-python:3.12.0-vault",
                   "codercom/code-server:3.12.0"
                 ]
               },
