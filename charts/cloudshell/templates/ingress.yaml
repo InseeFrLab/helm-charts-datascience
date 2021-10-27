@@ -1,14 +1,14 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "cloudshell.fullname" . -}}
+{{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPort := .Values.networking.cloudshell.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "cloudshell.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
-    {{- include "cloudshell.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
