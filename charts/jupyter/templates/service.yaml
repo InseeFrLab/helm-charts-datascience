@@ -14,7 +14,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    {{- if .Values.service.sparkui }}
+    {{- if .Values.spark.sparkui }}
     - port: {{ .Values.networking.sparkui.port }}
       targetPort: 4040
       protocol: TCP
