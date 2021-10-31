@@ -16,7 +16,7 @@ data:
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
-{{ printf "hive%d:" $index | indent 4}}
+{{- printf "hive%d.properties: |" $index | indent 4}}
       connector.name=hive
       hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service.metadata.name | indent 6}}
