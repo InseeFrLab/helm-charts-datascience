@@ -1,0 +1,122 @@
+# Default values for trino.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+service:
+  image:
+    repository: git-registry.lab.sspcloud.fr/alexisdondon/trino
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart version.
+    tag: latest
+
+security:
+  password: "changeme"
+  networkPolicy: 
+    enable: false
+    from: 
+    - ipBlock:
+        cidr: 10.233.103.0/32
+    - ipBlock:
+        cidr: 10.233.111.0/32
+  allowlist:
+    enabled: true
+    ip: "0.0.0.0/0"
+
+server:
+  workers: 2
+  node:
+    environment: production
+    dataDir: /data/trino
+    pluginDir: /usr/lib/trino/plugin
+  log:
+    trino:
+      level: INFO
+  config:
+    path: /etc/trino
+    http:
+      port: 8080
+    query:
+      maxMemory: "4GB"
+      maxMemoryPerNode: "1GB"
+      maxTotalMemoryPerNode: "2GB"
+    memory:
+      heapHeadroomPerNode: "1GB"
+  jvm:
+    maxHeapSize: "8G"
+    gcMethod:
+      type: "UseG1GC"
+      g1:
+        heapRegionSize: "32M"
+
+additionalNodeProperties: {}
+
+additionalJVMConfig: {}
+
+additionalConfigProperties: {}
+
+additionalLogProperties: {}
+
+environment:
+  s3: true
+
+s3:
+  # Specifies whether a config map should be created
+  enabled: true
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: ""
+  defaultRegion: ""
+  secretAccessKey: ""
+  sessionToken: ""
+
+additionalCatalogs: []
+#  custompg:
+#    connector.name=postgresql
+#    connection-url=jdbc:postgresql://postgresql-457086:5432/defaultdb
+#    connection-user=admin
+#    connection-password=admin
+#  customelastic:
+#    connector.name=elasticsearch
+#    elasticsearch.host=elasticsearch-master
+
+
+# Array of EnvVar (https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#envvar-v1-core)
+env: []
+
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
+networking:
+  type: ClusterIP
+  port: 8080
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+ingress:
+  enabled: true
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: chart-example.local
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local

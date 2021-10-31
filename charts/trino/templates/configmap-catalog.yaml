@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.fullname" . }}-catalog
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  tpch.properties: |
+    connector.name=tpch
+    tpch.splits-per-node=4
+  tpcds.properties: |
+    connector.name=tpcds
+    tpcds.splits-per-node=4
+{{ $endpoint:= .Values.s3.endpoint }}    
+{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{- if (index $service "metadata" "labels") }}
+{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{ printf "hive%d:" $index | indent 4}}
+      connector.name=hive
+      hive.config.resources=/etc/trino/hdfs/core-site.xml
+{{ printf "hive.metastore.uri=thrift://%s:9083" $service.metadata.name | indent 6}}
+{{ printf "hive.s3.endpoint=%s" $endpoint | indent 6 }}
+      hive.non-managed-table-writes-enabled=true
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}  
+{{- range $catalogName, $catalogProperties := .Values.additionalCatalogs }}
+  {{ $catalogName | lower }}.properties: |
+    {{- $relname :=  $catalogProperties | trim | split " " }}
+    {{- range $prop := $relname }}
+    {{-  $prop | nindent 4}}
+    {{- end }}
+{{- end }}
