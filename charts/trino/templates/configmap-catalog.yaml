@@ -17,11 +17,11 @@ data:
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
 {{- printf "hive%d.properties: |" $index | indent 2}}
-      connector.name=hive
-      hive.config.resources=/etc/trino/hdfs/core-site.xml
+    connector.name=hive
+    hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service.metadata.name | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
-      hive.non-managed-table-writes-enabled=true
+    hive.non-managed-table-writes-enabled=true
 {{- end }}
 {{- end }}
 {{- end }}
