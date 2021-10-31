@@ -58,7 +58,7 @@ data:
     file.password-file={{ .Values.server.config.path }}/password.db
 
   password.db: |
-    admin:$2y$10$I0pIb/husQ6vtNy7d/nbVOGaaA1tteF0Kx./YeJH3Ez/Ngxga6QT2
+    {{ htpasswd .Values.security.username .Values.security.password | replace "$2a$" "$2y$"}}
 
   log.properties: |
     io.trino={{ .Values.server.log.trino.level }}
