@@ -6955,6 +6955,26 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
+  trino:
+  - apiVersion: v2
+    appVersion: "355"
+    created: "2021-10-31T12:57:20.078890868Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Fast distributed SQL query engine for big data analytics
+    digest: ed5fb53b1f8fb4c5cbeaa8122eaa6247f8d3600d2731efffcbf4134f036836fb
+    home: https://trino.io/
+    icon: https://trino.io/assets/trino.png
+    name: trino
+    sources:
+    - https://github.com/trinodb/charts
+    - https://github.com/trinodb/trino/tree/master/core/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-0.0.1/trino-0.0.1.tgz
+    version: 0.0.1
   ubuntu:
   - apiVersion: v2
     appVersion: latest
