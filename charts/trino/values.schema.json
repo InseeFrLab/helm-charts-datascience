@@ -102,6 +102,22 @@
             "description": "security specific configuration",
             "type": "object",
             "properties": {
+                "username": {
+                    "type": "string",
+                    "title": "Admin user",
+                    "default": "admin",
+                    "x-form": {
+                      "value": "{{project.id}}"
+                    }
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "default": "changeme",
+                    "x-form": {
+                        "value": "{{project.password}}"
+                    }
+                },
                 "allowlist": {
                     "type": "object",
                     "description": "IP protection",
