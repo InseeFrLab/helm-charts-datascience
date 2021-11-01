@@ -11,21 +11,40 @@ data:
   tpcds.properties: |
     connector.name=tpcds
     tpcds.splits-per-node=4
-{{ $endpoint:= .Values.s3.endpoint }}    
-{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
+{{ $endpoint:= .Values.s3.endpoint }} 
+{{ $namespace:= .Release.Namespace }}
+{{ $hive:= .Values.discovery.hive }}
+{{ $mongodb:= .Values.discovery.mongodb }}    
+{{ range $index, $service := (lookup "v1" "Service" $namespace "").items }}
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
-{{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{- if and $hive (hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart")) }}
 {{- printf "hive%d.properties: |" $index | indent 2}}
     connector.name=hive
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service.metadata.name | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
+{{- else if and $mongodb (hasPrefix "mongodb" (index $service "metadata" "labels" "helm.sh/chart")) }}
+{{- $mongoList := list }}
+{{- if (index $service "metadata" "labels" "app.kubernetes.io/component") }}
+{{- if eq "mongodb" (index $service "metadata" "labels" "app.kubernetes.io/component") }}
+{{ range $indexPod, $pod := (lookup "v1" "Pod" $namespace "").items }}
+{{- if (index $pod "metadata" "labels" "app.kubernetes.io/component") }}
+{{- if eq "mongodb" (index $pod "metadata" "labels" "app.kubernetes.io/component") }}
+{{- $mongoList = append $mongoList (printf "%s.%s" $pod.metadata.name $service.metadata.name) }}
 {{- end }}
 {{- end }}
 {{- end }}
-{{- end }}  
+{{- printf "mongodb%d.properties: |" $index | indent 2}}
+    connector.name=mongodb
+{{ printf "mongodb.seeds=%s"  (join "," $mongoList) | indent 4}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
 {{- range $catalogName, $catalogProperties := .Values.additionalCatalogs }}
   {{ $catalogName | lower }}.properties: |
     {{- $relname :=  $catalogProperties | trim | split " " }}

@@ -95,6 +95,12 @@
                 "title": "Enable hive metastore discovery",
                 "description": "discover your hive metastore service",
                 "default": true
+              },
+              "mongodb": {
+                "type": "boolean",
+                "title": "Enable mongodb metastore discovery",
+                "description": "discover your mongodb service",
+                "default": true
               }
             }
         },

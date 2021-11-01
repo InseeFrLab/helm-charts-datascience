@@ -22,6 +22,10 @@ security:
     enabled: true
     ip: "0.0.0.0/0"
 
+discovery:
+  hive: true
+  mongodb: true
+
 server:
   workers: 2
   node:
