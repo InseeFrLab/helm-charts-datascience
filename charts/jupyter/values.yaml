@@ -3,11 +3,11 @@
 service:
   user: jovyan
   image:
-    version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2"
+    version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2"
+      version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0"
 
 spark:
   sparkui: false
