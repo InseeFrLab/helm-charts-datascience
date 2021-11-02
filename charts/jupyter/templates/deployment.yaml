@@ -55,7 +55,7 @@ spec:
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
           image: "{{ .Values.service.image.version }}"
-          {{- end }}          
+          {{- end }}
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} start.sh jupyter-lab --notebook-dir=/home/$(NB_USER)/work --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
@@ -64,6 +64,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+            - name: IMAGE_NAME
+              {{- if .Values.service.image.custom.enabled }}
+              value: "{{ .Values.service.image.custom.version }}"
+              {{- else }}
+              value: "{{ .Values.service.image.version }}"
+              {{- end }}
             - name: NB_USER
               value: {{ .Values.service.user }}
             - name: PASSWORD
