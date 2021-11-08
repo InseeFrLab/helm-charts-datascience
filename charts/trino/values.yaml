@@ -25,6 +25,7 @@ security:
 discovery:
   hive: true
   mongodb: true
+  postgres: true
 
 server:
   workers: 2
