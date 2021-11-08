@@ -60,3 +60,17 @@
 {{- end }}
 {{- end }}
 {{- end -}}
+
+
+{{- define "connector.elastic" -}}
+{{ $elastic:= .elastic }}
+{{ $service:= .service }}
+{{ $index:= .index }}
+{{- if and $elastic (and (not (contains "headless" $service.metadata.name )) (hasPrefix "elasticsearch" $service.metadata.name)) }}
+{{- printf "elastic%d.properties: |" $index | indent 2}}
+    connector.name=elasticsearch
+{{ printf "elasticsearch.host=%s"  $service.metadata.name | indent 4}}
+{{ printf "elasticsearch.port=%s"  "9200" | indent 4}}
+{{ printf "elasticsearch.default-schema-name=%s" "default"| indent 4}}
+{{- end }}
+{{- end -}}

@@ -14,6 +14,7 @@ data:
 {{ $endpoint:= .Values.s3.endpoint }} 
 {{ $namespace:= .Release.Namespace }}
 {{ $hive:= .Values.discovery.hive }}
+{{ $elastic:= .Values.discovery.elastic }}
 {{ $mongodb:= .Values.discovery.mongodb }}
 {{ $postgres:= .Values.discovery.postgres }}
 {{ $username:= .Values.security.username }} 
@@ -27,6 +28,10 @@ data:
 {{- template "connector.hive" $data -}}
 {{ $data := dict "postgres" $postgres "service" $service "namespace" $namespace "index" $index "username" $username "password" $password}}
 {{- template "connector.postgres" $data -}}
+{{- end }}
+{{- if (index $service "metadata" "labels" "release") }}
+{{ $data := dict "elastic" $elastic "service" $service "namespace" $namespace "index" $index }}
+{{- template "connector.elastic" $data -}}
 {{- end }}
 {{- end }}
 {{- end }}

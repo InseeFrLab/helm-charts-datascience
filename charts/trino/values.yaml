@@ -26,6 +26,7 @@ discovery:
   hive: true
   mongodb: true
   postgres: true
+  elastic: true
 
 server:
   workers: 2
