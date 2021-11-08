@@ -6,12 +6,15 @@
 {{ $postgres:= .postgres }}
 {{ $service:= .service }}
 {{ $index:= .index }}
-{{- if and $postgres (hasPrefix "postgresql" (index $service "metadata" "labels" "helm.sh/chart")) }}
+{{ $username:= .username }}
+{{ $password:= .password }}
+{{ $labels:= index $service "metadata" "labels" "helm.sh/chart" }}
+{{- if and $postgres (and (not (contains "headless" $service.metadata.name )) (hasPrefix "postgresql" $labels)) }}
 {{- printf "postgresql%d.properties: |" $index | indent 2}}
     connector.name=postgresql
-{{ printf "connection-url=jdbc:postgresql://%s:5432/%s"  $service.metadata.name | indent 4}}
-{{ printf "connection-user=%s"  $service.metadata.name | indent 4}}
-{{ printf "connection-password=%s" $service.metadata.name | indent 4}}
+{{ printf "connection-url=jdbc:postgresql://%s:5432/%s"  $service.metadata.name "defaultdb"| indent 4}}
+{{ printf "connection-user=%s"  $username | indent 4}}
+{{ printf "connection-password=%s" $password| indent 4}}
 {{- end }}
 {{- end -}}
 
