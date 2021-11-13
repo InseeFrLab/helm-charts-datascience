@@ -1,14 +1,14 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "spark-history.fullname" . -}}
-{{- $svcPort := .Values.networking.history.port -}}
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $svcPort := .Values.networking.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "spark-history.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
-    {{- include "spark-history.ingress.annotations" . | nindent 4 }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
@@ -24,6 +24,6 @@ spec:
             backend:
               service:
                 name: {{ $fullName }}
-                port:
+                port: 
                   number: {{ $svcPort }}
 {{- end }}
