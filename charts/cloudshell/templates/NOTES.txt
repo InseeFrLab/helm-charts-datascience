@@ -10,7 +10,7 @@
 
 - **You can safely delete this chart and recreate one later**
 {{- if .Values.persistence.enabled }}
-- The volume associated with the following path **{{ .Values.persistence.path }}** will be not be deleted
+- The volume associated with the following path **{{ .Values.persistence.mountPath }}** will be not be deleted
 - If you start a cloudshell, it will reuse this volume silently.
-- If you want to delete this volume definitily : `kubeclt delete pvc data-{{ include "library-chart.fullname" . }}-0`
+- If you want to delete this volume definitily : `kubectl delete pvc data-{{ include "library-chart.fullname" . }}-0`
 {{- end }}
