@@ -16,3 +16,8 @@
 {{- end }}
 - Your username is : **admin**
 - Your password is : **{{ .Values.secret.password }}**
+
+__Note about deletion :__
+
+- **You can safely delete this chart and recreate one later**
+- Your stored applications managed by argo-cd will persist inside the kubernetes store (etcd). 
