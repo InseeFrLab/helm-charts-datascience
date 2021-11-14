@@ -1,6 +1,7 @@
 elasticsearch:
   image: elasticsearch
   esJavaOpts: -Xmx8g -Xms8g
+  replicas: 3
   resources:
     limits:
       memory: 10Gi
@@ -8,6 +9,11 @@ elasticsearch:
       memory: 10Gi
   sysctlInitContainer:
     enabled: false
+  volumeClaimTemplate:
+    accessModes: ["ReadWriteOnce"]
+    resources:
+      requests:
+        storage: 30Gi
 
 kibana:
   image: kibana
