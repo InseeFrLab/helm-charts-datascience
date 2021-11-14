@@ -94,6 +94,7 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
+  path: /blazingsql/work
   # existingClaim: ""
 
 kubernetes:

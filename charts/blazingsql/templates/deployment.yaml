@@ -48,7 +48,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook-dir=/blazingsql/work --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} /run_jupyter.sh jupyter-lab --notebook-dir={{ .Values.persistence.path }} --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: SHELL
@@ -56,7 +56,7 @@ spec:
             - name: PASSWORD
               value: {{ .Values.security.password }}
             - name: ROOT_PROJECT_DIRECTORY
-              value: /blazingsql/work
+              value: {{ .Values.persistence.path }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
               value: "yes"
@@ -91,7 +91,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
-            - mountPath: /blazingsql/work
+            - mountPath: {{ .Values.persistence.path }}
               name: home
       initContainers:
         - name: standard-init
