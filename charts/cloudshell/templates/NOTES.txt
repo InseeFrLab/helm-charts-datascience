@@ -4,7 +4,7 @@
 {{- if .Values.persistence.enabled }}
 - The following path **{{ .Values.persistence.mountPath }}** is a persistant volume with a size of **{{ .Values.persistence.size }}** 
 {{- end }}
-- Only one instance of cloudshell can be started in a project.
+- Only one instance of {{ .Chart.Name }} can be started in a project.
 
 *NOTES about deletion :*
 
