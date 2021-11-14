@@ -13,4 +13,4 @@
 {{- end }}
 - So, you should save your code to an external git repository
 - So, You should save your data to an external data repository like S3
-- You can easily create a new {{ .Chart.name }} service, clone your code and install again some librairies you need
+- You can easily create a new {{ .Chart.Name }} service, clone your code and install again some librairies you need
