@@ -2,5 +2,12 @@
 - This service is only available from inside the datalab.
 - The url is : **thrift://{{ include "library-chart.fullname" . }}:9083**
 - Some other services discover this url automatically and a config file is written.
-
 ![hive](https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/hive-discovery.png)
+- Only one instance of {{ .Chart.Name }} can be started in a project
+
+*NOTES about deletion :*
+
+- **You can safely delete this chart and recreate one later**
+- Data volumes in the associated postgresql will not be deleted
+- If you start a new {{ .Chart.Name }}, it will reuse this volume silently.
+- If you want to delete this volume definitily : `kubectl delete pvc data-{{ .Values.postgresql.fullnameOverride }}-0`
