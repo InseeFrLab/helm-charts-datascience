@@ -1,7 +1,7 @@
 apiVersion: v2
 name: label-studio
 description: Data Science starts with data. Label Studio removes the pain of labeling it.
-icon: https://labelstud.io/images/opossum/heartex_icon_opossum_green@2x.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/labelStudio.png
 keyworks:
   - ML
 home: https://labelstud.io/
