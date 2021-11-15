@@ -1,7 +1,7 @@
 apiVersion: v2
 name: argo-cd
 description: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo-cd.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
 keyworks:
   - gitops
   - deployment
