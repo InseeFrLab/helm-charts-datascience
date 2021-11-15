@@ -1,7 +1,7 @@
 apiVersion: v2
 name: postgresql
 description: An object-relational database management system, a database server
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/postgresql.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
 keyworks:
   - SQL
   - Database
