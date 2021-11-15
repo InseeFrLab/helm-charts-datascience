@@ -1,7 +1,7 @@
 apiVersion: v2
 name: dask
 description: Dask natively scales Python
-icon: https://dask.org/_images/dask_icon_no_pad.svg
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/dask.png
 keyworks:
   - Python
   - Pandas
