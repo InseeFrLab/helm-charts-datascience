@@ -1,7 +1,7 @@
 apiVersion: v2
 name: cloudshell
 description: Datalab  shell (ubuntu with webssh)
-icon: https://datalab.sspcloud.fr/favicon_package/favicon-32x32.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/Onyxia.png
 keyworks:
   - Shell
 home: https://datalab.sspcloud.fr
