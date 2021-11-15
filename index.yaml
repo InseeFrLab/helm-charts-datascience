@@ -2820,6 +2820,21 @@ entries:
   jena:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-15T13:33:30.604732775Z"
+    description: Apache Jena Fuseki is a SPARQL server.
+    digest: a2aa4be041954b7a60c54926ef5e5c884946bf53ded95d96b5135db2cae1d713
+    home: https://jena.apache.org/jena
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jena.png
+    name: jena
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jena
+    - https://github.com/stain/jena-docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-2.1.0/jena-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-10-26T12:38:46.382854Z"
     description: Apache Jena Fuseki is a SPARQL server.
     digest: 12fa0bcc170e6951b059fc854fe30964e72b7800028beca301adeebc6e61080c
@@ -4098,25 +4113,6 @@ entries:
   label-studio:
   - apiVersion: v2
     appVersion: "1"
-    created: "2021-11-15T13:34:04.171465526Z"
-    dependencies:
-    - enabled: true
-      name: postgresql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.3.14
-    description: Data Science starts with data. Label Studio removes the pain of labeling it.
-    digest: 72d48b3e1e058a1fe2fc83ea074aec146ca27eed19f4317885524f907a9b3fe7
-    home: https://labelstud.io/
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/labelStudio.png
-    name: label-studio
-    sources:
-    - https://github.com/heartexlabs/label-studio
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/label-studio-1.1.0/label-studio-1.1.0.tgz
-    version: 1.1.0
-  - apiVersion: v2
-    appVersion: "1"
     created: "2021-10-26T12:45:08.047748709Z"
     dependencies:
     - enabled: true
@@ -5116,6 +5112,20 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/openrefine-0.1.0/openrefine-0.1.0.tgz
     version: 0.1.0
   pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-15T13:34:25.460746187Z"
+    description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+    digest: 04c75694bbb61974c6ac715c3a35f56932051dcfcdfa67df8c6d09b3f967327d
+    home: https://www.pgadmin.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: pgadmin
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-2.1.0/pgadmin-2.1.0.tgz
+    version: 2.1.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-26T12:49:15.458423625Z"
