@@ -24,7 +24,7 @@ version: 0.0.10
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: "355"
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/trino.png
 home: https://trino.io/
 sources:
   - https://github.com/trinodb/charts
