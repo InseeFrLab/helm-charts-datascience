@@ -2091,26 +2091,6 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
-    created: "2021-11-15T13:33:08.604621746Z"
-    dependencies:
-    - name: library-chart
-      repository: https://inseefrlab.github.io/helm-charts-datascience
-      version: 1.1.4
-    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
-    digest: 2a9dc558bc86ac6268e9958f0f61fb9b7617572d47696e00d4d33787afe08d0f
-    home: https://www.fast.ai/
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/fastai.png
-    name: fastai
-    sources:
-    - https://github.com/InseeFrLab/fastai
-    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
-    - https://github.com/fastai/docker-containers
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-4.2.0/fastai-4.2.0.tgz
-    version: 4.2.0
-  - apiVersion: v2
-    appVersion: latest
     created: "2021-11-14T23:04:25.535334041Z"
     dependencies:
     - name: library-chart
@@ -2838,6 +2818,21 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-0.0.2/hive-metastore-0.0.2.tgz
     version: 0.0.2
   jena:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-15T13:33:30.604732775Z"
+    description: Apache Jena Fuseki is a SPARQL server.
+    digest: a2aa4be041954b7a60c54926ef5e5c884946bf53ded95d96b5135db2cae1d713
+    home: https://jena.apache.org/jena
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jena.png
+    name: jena
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jena
+    - https://github.com/stain/jena-docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-2.1.0/jena-2.1.0.tgz
+    version: 2.1.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-26T12:38:46.382854Z"
