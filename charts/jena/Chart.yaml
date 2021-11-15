@@ -1,7 +1,7 @@
 apiVersion: v2
 name: jena
 description: Apache Jena Fuseki is a SPARQL server.
-icon: https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jena.png
 keyworks:
   - RDF
   - Triplestore
