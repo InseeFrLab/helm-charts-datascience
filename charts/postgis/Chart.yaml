@@ -1,7 +1,7 @@
 apiVersion: v2
 name: postgis
 description: An object-relational database management system, a database server
-icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
 keyworks:
   - SQL
   - Database
