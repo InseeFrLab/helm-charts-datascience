@@ -316,6 +316,29 @@ entries:
   argo-workflows:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-11-15T13:32:44.106423497Z"
+    dependencies:
+    - enabled: true
+      name: argo-workflows
+      repository: https://argoproj.github.io/argo-helm
+      version: 0.8.1
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes.
+    digest: d8145170e8f8274c3151ce92bd768922d6d3d4263218557aefd30dacc604a6ef
+    home: https://argoproj.github.io/argo-workflows/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
+    name: argo-workflows
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-workflows
+    - https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-workflows-1.2.0/argo-workflows-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-11-14T14:05:05.900523462Z"
     dependencies:
     - enabled: true
@@ -1007,6 +1030,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.0/blazingsql-0.1.0.tgz
     version: 0.1.0
   cloudshell:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-15T13:32:44.216826477Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Datalab  shell (ubuntu with webssh)
+    digest: ee9bc0d7a7a73f47bb5c83e81f5c670888d6826446d569fc474011c1e06b9461
+    home: https://datalab.sspcloud.fr
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/Onyxia.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-3.2.0/cloudshell-3.2.0.tgz
+    version: 3.2.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-11-14T21:32:46.465591906Z"
