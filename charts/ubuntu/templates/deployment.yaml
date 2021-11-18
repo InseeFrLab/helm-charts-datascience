@@ -59,7 +59,7 @@ spec:
             - name: VNC_PW
               value: {{ .Values.security.password }}
             {{- if .Values.init.personalInit }}
-            - name: PERSONNAL_INIT_SCRIPT
+            - name: PERSONAL_INIT_SCRIPT
               values: {{ .Values.init.personalInit }}
             {{- end }}      
           envFrom: 
