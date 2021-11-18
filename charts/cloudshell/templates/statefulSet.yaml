@@ -40,7 +40,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} && /usr/sbin/sshd ; /usr/bin/node /root/webssh2/app/index.js"]
+          args: ["/data/{{ .Values.init.filename}} && /usr/sbin/sshd ; node /root/webssh2/app/index.js"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}      
           envFrom: 
             {{- if .Values.s3.enabled }}
