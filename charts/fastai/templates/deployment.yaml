@@ -61,6 +61,10 @@ spec:
             - name: PERSONAL_INIT_SCRIPT
               value: {{ .Values.init.personalInit }}
             {{- end }}
+            {{- if .Values.init.personalInitArgs }}
+            - name: PERSONAL_INIT_ARGS
+              value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
             - name: ROOT_PROJECT_DIRECTORY
               value: {{ .Values.persistence.mountPath }}       
           envFrom: 
