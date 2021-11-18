@@ -2138,6 +2138,26 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-18T14:46:24.755952955Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: a7acf5c5cc8798ed37a1cdebb6973e7881aede3e33281c94d837ae9b3270fc32
+    home: https://www.fast.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/fastai.png
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-5.0.0/fastai-5.0.0.tgz
+    version: 5.0.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-14T23:04:25.535334041Z"
     dependencies:
     - name: library-chart
@@ -3031,6 +3051,26 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-1.0.0/jena-1.0.0.tgz
     version: 1.0.0
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-18T14:46:24.951864457Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: 78f2d2399ba97cecf4f4e3ecc4214b69910b817e2c43f13c932a686e167f35bf
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-5.0.0/jupyter-5.0.0.tgz
+    version: 5.0.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-11-02T17:19:38.841554206Z"
@@ -4307,6 +4347,14 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/label-studio-0.0.1/label-studio-0.0.1.tgz
     version: 0.0.1
   library-chart:
+  - apiVersion: v2
+    created: "2021-11-18T14:46:25.121032181Z"
+    digest: 19e72026eeb0e2e9a1c99485dc1be43f0e1393ffe05dccc42ce4635c0c857905
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/library-chart-2.0.0/library-chart-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     created: "2021-10-21T13:43:50.475049315Z"
     digest: 5ca7b7594a5f4a214590c2967b7f65531270ebb76f08df8589f9e48201a3528f
@@ -5840,6 +5888,22 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-18T14:46:25.275827609Z"
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: 4099cdbbb5e403c10dc3ce4f12a975a33188fd8d438d86a8b5c8d62189625e62
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-4.0.0/rapidsai-4.0.0.tgz
+    version: 4.0.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-10-26T12:58:46.222959984Z"
     description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
     digest: c62f893387c484e85cc29134b76b93fef21d8e5fe9a9cb47c0001154157d014b
@@ -6268,6 +6332,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-0.0.1/redash-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2021-11-18T14:46:25.451051673Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
+    digest: 0c477462370513568d37123756235bfde2614a2d937044e361b81770be6e3713
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-5.0.0/rstudio-5.0.0.tgz
+    version: 5.0.0
   - apiVersion: v2
     created: "2021-10-26T13:31:14.442875483Z"
     dependencies:
@@ -7707,6 +7790,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-0.0.1/trino-0.0.1.tgz
     version: 0.0.1
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-18T14:46:25.682707912Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Ubuntu with a graphical user interface.
+    digest: b35e13d022f985352064b3f011800456ca5bdec1730002083842c4e911b21cac
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-4.0.0/ubuntu-4.0.0.tgz
+    version: 4.0.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-27T14:46:08.305760975Z"
