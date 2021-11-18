@@ -468,6 +468,11 @@
           "type": "string",
           "description": "initialization script",
           "default": ""
+        },
+        "personalInitArgs": {
+          "type": "string",
+          "description": "args for initialization script",
+          "default": ""
         }
       }
     }
