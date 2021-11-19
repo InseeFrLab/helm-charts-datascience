@@ -28,7 +28,6 @@ security:
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
   filename: "onyxia-init.sh"
-  personalInit: "null"
 
 s3:
   # Specifies whether a config map should be created

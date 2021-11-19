@@ -53,6 +53,14 @@ spec:
           env:
             - name: SHELL
               value: /bin/bash
+            {{- if .Values.init.personalInit }}
+            - name: PERSONAL_INIT_SCRIPT
+              value: {{ .Values.init.personalInit }}
+            {{- end }}
+            {{- if .Values.init.personalInitArgs }}
+            - name: PERSONAL_INIT_ARGS
+              value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
