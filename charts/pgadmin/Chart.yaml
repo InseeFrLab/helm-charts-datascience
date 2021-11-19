@@ -1,7 +1,7 @@
 apiVersion: v2
 name: pgadmin
 description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
-icon: https://developer.asustor.com/uploadIcons/0020_96009_1552971827_pgadmin-icon.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
 keyworks:
   - SQL
 home: https://www.pgadmin.org/
@@ -20,7 +20,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.8
+version: 2.1.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

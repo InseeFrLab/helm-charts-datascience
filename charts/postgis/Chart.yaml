@@ -1,7 +1,7 @@
 apiVersion: v2
 name: postgis
 description: An object-relational database management system, a database server
-icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
 keyworks:
   - SQL
   - Database
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.1
+version: 2.1.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

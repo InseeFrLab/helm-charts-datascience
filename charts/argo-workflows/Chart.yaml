@@ -1,7 +1,7 @@
 apiVersion: v2
 name: argo-workflows
 description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo-workflow.png
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
 keyworks:
   - Worklow
   - Job
@@ -24,7 +24,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.1.1
+version: 1.2.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -32,7 +32,7 @@ version: 1.1.1
 appVersion: 1
 dependencies:
   - name: argo-workflows
-    version: 0.7.1
+    version: 0.8.1
     repository: https://argoproj.github.io/argo-helm
     enabled: true
   - name: library-chart

@@ -1,4 +1,19 @@
+{{- $pvcList := list }}
+{{- $replicas := int .Values.elasticsearch.replicas }}
+{{- range $e, $i := until $replicas }}
+{{- $pvcList = append $pvcList (printf "%s-%s-%d" "elasticsearch-master" "elasticsearch-master" $i) }}
+{{- end }}
 {{- if .Values.ingress.enabled }}
 - You can connect to the kibana with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
 {{- end }}
 - You connect to elastic from inside the datalab at this url : **http://elasticsearch-master:{{ .Values.elasticsearch.httpPort }}**
+- Each of the {{ .Values.elasticsearch.replicas }} nodes has a persistent volume with a size of **{{ .Values.elasticsearch.volumeClaimTemplate.resources.requests.storage }}** 
+- Only one cluster of {{ .Chart.Name }} can be started in a project
+
+*NOTES about deletion :*
+
+- **You can safely delete this chart and recreate one later**
+- Data volumes will not be deleted
+- If you start a new {{ .Chart.Name }}, it will reuse those volumes silently.
+- If you want to delete those volume definitily : `kubectl delete pvc {{ join " " $pvcList }}`
+

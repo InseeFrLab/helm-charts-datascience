@@ -93,9 +93,9 @@
               "version": {
                 "description": "vscode supported version",
                 "type": "string",
-                "default": "inseefrlab/vscode-python:3.12.0-vault",
+                "default": "inseefrlab/vscode-python:3.12.0",
                 "enum": [
-                  "inseefrlab/vscode-python:3.12.0-vault",
+                  "inseefrlab/vscode-python:3.12.0",
                   "codercom/code-server:3.12.0"
                 ]
               },
@@ -467,6 +467,11 @@
         "personalInit": {
           "type": "string",
           "description": "initialization script",
+          "default": ""
+        },
+        "personalInitArgs": {
+          "type": "string",
+          "description": "args for initialization script",
           "default": ""
         }
       }

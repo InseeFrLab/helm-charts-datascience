@@ -25,7 +25,8 @@ security:
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
   filename: "onyxia-init.sh"
-  personalInit: "null"
+  personalInit: ""
+  personalInitArgs: ""
 
 environment:
   s3: true

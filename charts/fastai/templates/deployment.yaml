@@ -52,17 +52,21 @@ spec:
           image: "{{ .Values.service.image.version }}"
           {{- end }}
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --notebook-dir=/root/work --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
+          args: ["/data/{{ .Values.init.filename}} jupyter-lab --allow-root --ip=0.0.0.0 --notebook-dir={{ .Values.persistence.mountPath }} --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.init.personalInit }}
-            - name: PERSONNAL_INIT_SCRIPT
+            - name: PERSONAL_INIT_SCRIPT
               value: {{ .Values.init.personalInit }}
             {{- end }}
+            {{- if .Values.init.personalInitArgs }}
+            - name: PERSONAL_INIT_ARGS
+              value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
             - name: ROOT_PROJECT_DIRECTORY
-              value: /root/work       
+              value: {{ .Values.persistence.mountPath }}       
           envFrom: 
             {{- if .Values.s3.enabled }}
             - configMapRef:
@@ -91,7 +95,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /root/work
+            - mountPath: {{ .Values.persistence.mountPath }}
               name: home
             - mountPath: /data
               name: {{$volumeName}}

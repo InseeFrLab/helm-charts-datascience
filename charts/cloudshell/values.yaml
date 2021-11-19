@@ -3,18 +3,18 @@
 service:
   image:
     repository: "inseefrlab/shelly"
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
     tag: "cloudshell"
-  
+
 security:
-  networkPolicy: 
+  networkPolicy:
     enable: false
-    from: 
-    - ipBlock:
-        cidr: 10.233.103.0/32
-    - ipBlock:
-        cidr: 10.233.111.0/32
+    from:
+      - ipBlock:
+          cidr: 10.233.103.0/32
+      - ipBlock:
+          cidr: 10.233.111.0/32
   allowlist:
     enabled: true
     ip: "0.0.0.0/0"
@@ -22,7 +22,8 @@ security:
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
   filename: "onyxia-init.sh"
-  personalInit: "null"
+  personalInit: ""
+  personalInitArgs: ""
 
 s3:
   # Specifies whether a config map should be created
@@ -36,7 +37,6 @@ s3:
   secretAccessKey: ""
   sessionToken: ""
 
-
 vault:
   # Specifies whether a config map should be created
   enabled: true
@@ -47,7 +47,7 @@ vault:
   url: ""
   mount: ""
   secret: ""
-  directory: ""  
+  directory: ""
 
 git:
   # Specifies whether a config map should be created
@@ -62,7 +62,6 @@ git:
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
-
 
 imagePullSecrets: []
 nameOverride: ""
@@ -83,10 +82,12 @@ kubernetes:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -110,7 +111,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following

@@ -24,7 +24,8 @@ security:
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
   filename: "onyxia-init.sh"
-  personalInit: "null"
+  personalInit: ""
+  personalInitArgs: ""
 
 s3:
   # Specifies whether a config map should be created
@@ -91,6 +92,7 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
+  mountPath: /root/work
   # existingClaim: ""
 
 kubernetes:
