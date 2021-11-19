@@ -22,8 +22,8 @@ ingress:
 
 redash:
   image:
-    repository: inseefrlab/redash
-    tag: master
+    repository: redash/redash
+    tag: 10.0.0.b50363
   externalPostgreSQLSecret:
     name: redash-postgres
     key: connectionString
