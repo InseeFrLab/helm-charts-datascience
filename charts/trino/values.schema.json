@@ -101,6 +101,29 @@
                 "title": "Enable mongodb metastore discovery",
                 "description": "discover your mongodb service",
                 "default": true
+              },
+              "postgres": {
+                "type": "boolean",
+                "title": "Enable postgres metastore discovery",
+                "description": "discover your postgres service",
+                "default": true
+              },
+              "elastic": {
+                "type": "boolean",
+                "title": "Enable elastic metastore discovery",
+                "description": "discover your elastic service",
+                "default": true
+              }
+            }
+        },
+        "worker": {
+            "description": "configure your trino worker",
+            "type": "object",
+            "properties": {
+              "replicas": {
+                "description": "number of trino workers",
+                "type": "integer",
+                "default": 2   
               }
             }
         },
@@ -248,21 +271,8 @@
                     },
                     "x-generated": {
                         "type": "externalDNS",
-                        "scope": "jupyter",
+                        "scope": "trino",
                         "name": "ihm"
-                    }
-                },
-                "sparkHostname": {
-                    "type": "string",
-                    "form": true,
-                    "title": "Hostname",
-                    "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "jupyter",
-                        "name": "sparkui"
                     }
                 }
             }

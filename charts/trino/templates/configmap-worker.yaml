@@ -1,4 +1,4 @@
-{{- if gt (int .Values.server.workers) 0 }}
+{{- if gt (int .Values.worker.replicas) 0 }}
 apiVersion: v1
 kind: ConfigMap
 metadata:

@@ -28,6 +28,9 @@ discovery:
   postgres: true
   elastic: true
 
+worker:
+  replicas: 2
+  
 server:
   workers: 2
   node:
