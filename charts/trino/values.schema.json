@@ -122,9 +122,14 @@
             "properties": {
               "replicas": {
                 "description": "number of trino workers",
-                "type": "integer",
-                "default": 2   
-              }
+                "type": "string",
+                "default": "2",
+                "render": "slider",
+                "sliderMin": 1,
+                "sliderMax": 10,
+                "sliderStep": 1,
+                "sliderUnit": "" 
+              }  
             }
         },
         "security": {
