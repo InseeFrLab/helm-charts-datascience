@@ -652,6 +652,26 @@ entries:
   blazingsql:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-19T09:53:43.349714475Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: BlazingSQL provides a high-performance distributed SQL engine in Python. Built on the RAPIDS GPU data science ecosystem, ETL massive datasets on GPUs.
+    digest: ddd63e0bfae285f193935056fe2bf295f947ff91133a38e7f4e0dfcc0df1b071
+    home: https://blazingsql.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/blazingsql.png
+    name: blazingsql
+    sources:
+    - https://github.com/InseeFrLab/blazingsql
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/blazingsql
+    - https://github.com/BlazingDB/blazingsql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-3.1.0/blazingsql-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-14T14:43:25.915127651Z"
     dependencies:
     - name: library-chart
@@ -1053,6 +1073,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/blazingsql-0.1.0/blazingsql-0.1.0.tgz
     version: 0.1.0
   cloudshell:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-19T09:53:43.533605596Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Datalab  shell (ubuntu with webssh)
+    digest: 0b3f29fe73f94e8b2dc47d8398f899e0a513bfd1375aa4291b1aa51e2063f5a6
+    home: https://datalab.sspcloud.fr
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/Onyxia.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-3.3.0/cloudshell-3.3.0.tgz
+    version: 3.3.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-11-18T16:25:55.425595313Z"
@@ -2157,6 +2196,26 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-19T09:53:43.69437325Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: 95ebbd0a13f2d206cacc029f4e4c1ddf9e93a7940c3331e79b779501b2ab1364
+    home: https://www.fast.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/fastai.png
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-5.2.0/fastai-5.2.0.tgz
+    version: 5.2.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-18T14:46:24.755952955Z"
     dependencies:
     - name: library-chart
@@ -3070,6 +3129,26 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jena-1.0.0/jena-1.0.0.tgz
     version: 1.0.0
   jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-19T09:53:43.855905483Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: 6aa8100d1a455b29f7a6d85b25141374b35f7c051ecbb675b9a35399c8b21a18
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-5.2.0/jupyter-5.2.0.tgz
+    version: 5.2.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-11-18T14:46:24.951864457Z"
@@ -5907,6 +5986,22 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-19T09:53:44.032547962Z"
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: b788801dbdf37d1e5d9c48a05bd1d729a7772e5a65331dd5badfea783c3e4e8f
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-4.1.0/rapidsai-4.1.0.tgz
+    version: 4.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-18T14:46:25.275827609Z"
     description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs.
     digest: 4099cdbbb5e403c10dc3ce4f12a975a33188fd8d438d86a8b5c8d62189625e62
@@ -6978,6 +7073,25 @@ entries:
   spark-history:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-19T09:53:44.191158595Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Spark history help you to review logs of your spark applications.
+    digest: c86e3189403436f7ae4f228ab9fad7c02b639904924e92d9d8e9b3848b888a6c
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-history
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-history
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-3.1.0/spark-history-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-13T23:41:14.240694157Z"
     dependencies:
     - name: library-chart
@@ -7147,6 +7261,21 @@ entries:
   spark-thrift-server:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-11-19T09:53:44.360966575Z"
+    description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive.
+    digest: 0d9f75f9b3dba093eef7d98f5d10e2c893211a579d0a069faa7aa8c0901caef1
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-thrift-server
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-thrift-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-1.1.0/spark-thrift-server-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-09-22T14:14:36.463944156Z"
     description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive.
     digest: acda90e1f77143f1ae7ce579554776ffaaae9e6868a4e754ffed9ef99449c6a3
@@ -7297,6 +7426,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.1/spark-thrift-server-0.0.1.tgz
     version: 0.0.1
   tensorflow:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-19T09:53:44.537298222Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: 1e7b14d0d02ec189558ea41613918b1de2ea52574c8332f9a87393704ba2d792
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-3.1.0/tensorflow-3.1.0.tgz
+    version: 3.1.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-10-27T14:44:01.823231732Z"
@@ -7828,6 +7976,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-0.0.1/trino-0.0.1.tgz
     version: 0.0.1
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-19T09:53:44.703219704Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Ubuntu with a graphical user interface.
+    digest: 5d95618dc4e8f1bf399f8f01d6bfbf769dda72f71ba82bd0bc83854e7ff10b53
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-4.2.0/ubuntu-4.2.0.tgz
+    version: 4.2.0
   - apiVersion: v2
     appVersion: latest
     created: "2021-11-18T14:46:25.682707912Z"
