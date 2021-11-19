@@ -72,7 +72,7 @@ spec:
             {{- if .Values.init.personalInitArgs }}
             - name: PERSONAL_INIT_ARGS
               value: {{ .Values.init.personalInitArgs }}
-            {{- end }}   
+            {{- end }}
           envFrom: 
             {{- if .Values.s3.enabled }}
             - configMapRef:
