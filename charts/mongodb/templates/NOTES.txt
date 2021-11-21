@@ -10,7 +10,10 @@
 {{- $pvcList = append $pvcList (printf "datadir-%s-%d" $fullname $i) }}
 {{- $mongoList = append $mongoList (printf "%s-%d.%s-headless:%d" $fullname $i $fullname $portNumber) }}
 {{- end }}
-- the connection string is : **mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}**
+- the connection string is : 
+```
+**mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}**
+```
 - example for python :
 
 ```
