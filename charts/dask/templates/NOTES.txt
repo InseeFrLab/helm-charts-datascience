@@ -6,3 +6,7 @@
 from dask.distributed import Client
 client = Client('{{ template "library-chart.fullname" . }}-scheduler:8786')
 ```
+
+*NOTES about deletion :*
+
+- **You can safely delete this chart and recreate one later**
