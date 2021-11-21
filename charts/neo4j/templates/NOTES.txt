@@ -2,3 +2,14 @@
 - You can connect to this neo4j with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostnameUI }})
 {{- end }}
 
+*NOTES about deletion :*
+
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+- The volume associated with the following path **{{ .Values.persistence.mountPath }}** will be deleted
+- So, you will lose your data
+{{- end }}
+{{- if .Values.persistence.existingClaim }}
+- **You can safely delete this chart and recreate one later**
+- The volume associated with the following path **{{ .Values.persistence.mountPath }}** will not be deleted
+{{- end }}
+
