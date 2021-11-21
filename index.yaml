@@ -5922,6 +5922,20 @@ entries:
   postgis:
   - apiVersion: v2
     appVersion: "12"
+    created: "2021-11-21T23:01:04.121099753Z"
+    description: An object-relational database management system, a database server
+    digest: 70704aadcc15318727bc910945bcb06fe003b0a1ee2685a618896649b5cf6c8c
+    home: https://www.postgresql.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: postgis
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgis
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgis-2.1.1/postgis-2.1.1.tgz
+    version: 2.1.1
+  - apiVersion: v2
+    appVersion: "12"
     created: "2021-11-15T13:34:54.402658181Z"
     description: An object-relational database management system, a database server
     digest: 30d61a6ebd9c93b71f9a42e0203b477460593389d2fd3817d8eff04b85b15c6a
