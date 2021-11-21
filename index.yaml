@@ -5549,6 +5549,20 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-11-21T22:58:18.57489601Z"
+    description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+    digest: 143eb8d6be9e7a74f35525633440500e8d8d11d724969c17bd69b9d98f42df9d
+    home: https://www.pgadmin.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: pgadmin
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-2.2.1/pgadmin-2.2.1.tgz
+    version: 2.2.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-11-21T22:47:32.354882572Z"
     description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
     digest: c2435285d05369680bb3514e086b48a7689ba2fd6d9faa78e6d708fb07ce108d
