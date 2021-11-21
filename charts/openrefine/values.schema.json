@@ -75,70 +75,97 @@
                 }
             }
         }
-    },
-        "security": {
-            "description": "security specific configuration",
-            "type": "object",
-            "properties": {
-                "whitelist": {
-                    "type": "object",
-                    "description": "IP protection",
-                    "properties": {
-                      "enable": {
-                        "type": "boolean",
-                        "title": "Enable IP protection",
-                        "description": "Only the configured set of IPs will be able to reach the service",
-                        "default": true,
-                        "x-form": {
-                          "value": "{{region.defaultIpProtection}}"
-                        }
-                      },
-                      "ip": {
-                        "type": "string",
-                        "description": "the white list of IP is whitespace",
-                        "title": "Whitelist of IP",
-                        "x-form": {
-                          "value": "{{user.ip}}"
-                        }
-                      }
-                    }
-                },
-                "networkPolicy": {
-                    "type": "object",
-                    "description": "Define access policy to the service",
-                    "properties": {
-                      "enable": {
-                        "type": "boolean",
-                        "title": "Enable network policy",
-                        "description": "Only pod from the same namespace will be allowed",
-                        "default": true,
-                        "x-form": {
-                          "value": "{{region.defaultNetworkPolicy}}"
-                        }
-                      }
-                    }
-                }
-            }
-        },
-        "ingress": {
-            "type": "object",
-            "form": true,
-            "title": "Ingress Details",
-            "properties": {
-                "hostname": {
-                    "type": "string",
-                    "form": true,
-                    "title": "Hostname",
-                    "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "openrefine",
-                        "name": "ihm"
-                    }
-                }
-            }
+      },
+      "persistence": {
+        "description": "Configuration for persistence",
+        "type": "object",
+        "properties": {
+            "enabled": {
+                "type": "boolean",
+                "description": "Create a persistent volume",
+                "default": true
+            },
+            "size": {
+              "type": "string",
+              "title": "Persistent volume size",
+              "description": "Size of the persistent volume",
+              "default": "10Gi",
+              "form": true,
+              "render": "slider",
+              "sliderMin": 1,
+              "sliderMax": 100,
+              "sliderStep": 1,
+              "sliderUnit": "Gi",
+              "hidden": {
+                "value": false,
+                "path": "persistence/enabled"
+              }                    
+          }
         }
+      },
+      "security": {
+          "description": "security specific configuration",
+          "type": "object",
+          "properties": {
+              "whitelist": {
+                  "type": "object",
+                  "description": "IP protection",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean",
+                      "title": "Enable IP protection",
+                      "description": "Only the configured set of IPs will be able to reach the service",
+                      "default": true,
+                      "x-form": {
+                        "value": "{{region.defaultIpProtection}}"
+                      }
+                    },
+                    "ip": {
+                      "type": "string",
+                      "description": "the white list of IP is whitespace",
+                      "title": "Whitelist of IP",
+                      "x-form": {
+                        "value": "{{user.ip}}"
+                      }
+                    }
+                  }
+              },
+              "networkPolicy": {
+                  "type": "object",
+                  "description": "Define access policy to the service",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean",
+                      "title": "Enable network policy",
+                      "description": "Only pod from the same namespace will be allowed",
+                      "default": true,
+                      "x-form": {
+                        "value": "{{region.defaultNetworkPolicy}}"
+                      }
+                    }
+                  }
+              }
+          }
+      },
+      "ingress": {
+          "type": "object",
+          "form": true,
+          "title": "Ingress Details",
+          "properties": {
+              "hostname": {
+                  "type": "string",
+                  "form": true,
+                  "title": "Hostname",
+                  "x-form": {
+                      "hidden": true
+                  },
+                  "x-generated": {
+                      "type": "externalDNS",
+                      "scope": "openrefine",
+                      "name": "ihm"
+                  }
+              }
+          }
+      }
     }
 }
