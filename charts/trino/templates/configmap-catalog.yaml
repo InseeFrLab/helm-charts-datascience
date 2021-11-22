@@ -18,12 +18,21 @@ data:
 {{ $mongodb:= .Values.discovery.mongodb }}
 {{ $postgres:= .Values.discovery.postgres }}
 {{ $username:= .Values.security.username }} 
-{{ $password:= .Values.security.password }}     
+{{ $password:= .Values.security.password }}
+{{ range $index, $secret := (lookup "v1" "Secret" $namespace "").items }}
+{{- if (index $secret "metadata" "annotations") }}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "mongodb" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{ $service:= ( index $secret.data "mongodb-service" | default "") | b64dec  }}
+{{ $username:= ( index $secret.data "mongodb-username") | b64dec  }}
+{{ $password:= ( index $secret.data "mongodb-password") | b64dec  }}
+{{ $data := dict "mongodb" $mongodb "service" $service  "index" $index "username" $username "password" $password}}
+{{- template "connector.mongodb2" $data -}}
+{{- end }}
+{{- end }}
+{{- end }}   
 {{ range $index, $service := (lookup "v1" "Service" $namespace "").items }}
 {{- if (index $service "metadata" "labels") }}
 {{- if (index $service "metadata" "labels" "helm.sh/chart") }}
-{{ $data := dict "mongodb" $mongodb "service" $service "namespace" $namespace "index" $index "username" $username "password" $password}}
-{{- template "connector.mongodb" $data -}}
 {{ $data := dict "hive" $hive "service" $service "namespace" $namespace "index" $index "endpoint" $endpoint }}
 {{- template "connector.hive" $data -}}
 {{ $data := dict "postgres" $postgres "service" $service "namespace" $namespace "index" $index "username" $username "password" $password}}

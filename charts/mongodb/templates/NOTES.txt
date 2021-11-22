@@ -12,13 +12,13 @@
 {{- end }}
 - the connection string is : 
 ```
-**mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}**
+**mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .)}}/{{ $db }}**
 ```
 - example for python :
 
 ```
 from pymongo import MongoClient
-client = MongoClient('mongodb://{{ $user }}:{{ $password }}@{{ join "," $mongoList }}/{{ $db }}')
+client = MongoClient('mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .) }}/{{ $db }}')
 db=client.{{ $db }}
 ```
 
