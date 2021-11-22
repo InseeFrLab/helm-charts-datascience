@@ -29,7 +29,7 @@ discovery:
   elastic: true
 
 worker:
-  replicas: 2
+  replicas: "2"
   
 server:
   workers: 2
@@ -126,7 +126,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: chart-example.local
+  hostname: chart-example.local.sspcloud.fr
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

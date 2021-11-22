@@ -2,6 +2,12 @@
 {{- . | mustToPrettyJson | printf "\nThe JSON output of the dumped var is: \n%s" | fail }}
 {{- end -}}
 
+{{- define "has_annotation" -}}
+{{ $secret:= .secret }}
+{{ and (index $secret "metadata" "annotations") (index $secret "metadata" "annotations" "onyxia/discovery") (eq "mongodb" (index $secret "metadata" "annotations" "onyxia/discovery" | toString))}}
+{{- end -}}
+
+
 {{- define "connector.postgres" -}}
 {{ $postgres:= .postgres }}
 {{ $service:= .service }}
@@ -34,6 +40,18 @@
 {{- end }}
 {{- end -}}
 
+{{- define "connector.mongodb2" -}}
+{{ $mongodb:= .mongodb }}
+{{ $service:= .service }}
+{{ $index:= .index }}
+{{ $username:= .username }}
+{{ $password:= .password }}
+{{- printf "mongodb%d.properties: |" $index | indent 2}}
+    connector.name=mongodb
+{{ printf "mongodb.seeds=%s"  (join "," $service) | indent 4}}
+{{ printf "mongodb.credentials=%s:%s@%s" $username $password "defaultdb"  | indent 4}}
+{{- end -}}
+
 {{- define "connector.mongodb" -}}
 {{ $mongodb:= .mongodb }}
 {{ $service:= .service }}
@@ -60,6 +78,7 @@
 {{- end }}
 {{- end }}
 {{- end -}}
+
 
 
 {{- define "connector.elastic" -}}

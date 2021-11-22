@@ -10,4 +10,6 @@ mongodb:
     password: changeme
     database: defaultdb
   replicaCount: 2
+  discoverable:
+    allow: true
 fullnameOverride: mongodb
