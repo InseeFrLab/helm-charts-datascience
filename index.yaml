@@ -4848,6 +4848,27 @@ entries:
   mongodb:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-11-22T15:42:49.776907112Z"
+    dependencies:
+    - enabled: true
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.28.2
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: 2a205d986ee7b0efa2e3859d3501c3ac65a4c2e96c435a8e2e0b10b32fb81180
+    home: https://www.mongodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mongodb.png
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.2.3/mongodb-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-11-21T18:26:17.994296663Z"
     dependencies:
     - enabled: true
@@ -8018,6 +8039,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
   trino:
+  - apiVersion: v2
+    appVersion: "355"
+    created: "2021-11-22T15:42:49.95122466Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Fast distributed SQL query engine for big data analytics
+    digest: 8e9238b2a96a3cd405b15751c78885225914c1e03a97137fc6cdf3c33af82011
+    home: https://trino.io/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/trino.png
+    name: trino
+    sources:
+    - https://github.com/trinodb/charts
+    - https://github.com/trinodb/trino/tree/master/core/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-1.0.3/trino-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: "355"
     created: "2021-11-19T12:59:24.493433522Z"
