@@ -25,25 +25,33 @@ data:
 {{ $service:= ( index $secret.data "mongodb-service" | default "") | b64dec  }}
 {{ $username:= ( index $secret.data "mongodb-username") | b64dec  }}
 {{ $password:= ( index $secret.data "mongodb-password") | b64dec  }}
-{{ $data := dict "mongodb" $mongodb "service" $service  "index" $index "username" $username "password" $password}}
+{{ $database:= ( index $secret.data "mongodb-database") | b64dec  }}
+{{ $data := dict "mongodb" $mongodb "service" $service  "index" $index "username" $username "password" $password "database" $database }}
 {{- template "connector.mongodb2" $data -}}
-{{- end }}
-{{- end }}
-{{- end }}   
-{{ range $index, $service := (lookup "v1" "Service" $namespace "").items }}
-{{- if (index $service "metadata" "labels") }}
-{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
-{{ $data := dict "hive" $hive "service" $service "namespace" $namespace "index" $index "endpoint" $endpoint }}
-{{- template "connector.hive" $data -}}
-{{ $data := dict "postgres" $postgres "service" $service "namespace" $namespace "index" $index "username" $username "password" $password}}
+{{- end -}}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "postgres" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{ $service:= ( index $secret.data "postgres-service" | default "") | b64dec  }}
+{{ $username:= ( index $secret.data "postgres-username") | b64dec  }}
+{{ $password:= ( index $secret.data "postgres-password") | b64dec  }}
+{{ $database:= ( index $secret.data "postgres-database") | b64dec  }}
+{{ $port:= ( index $secret.data "postgres-port") | b64dec  }}
+{{ $data := dict "postgres" $postgres "service" $service  "index" $index "username" $username "password" $password "database" $database "port" $port}}
 {{- template "connector.postgres" $data -}}
-{{- end }}
-{{- if (index $service "metadata" "labels" "release") }}
-{{ $data := dict "elastic" $elastic "service" $service "namespace" $namespace "index" $index }}
+{{- end -}}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "hive" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{ $service:= ( index $secret.data "hive-service" | default "") | b64dec  }}
+{{ $endpoint:= ( index $secret.data "hive-endpoint" | default "") | b64dec  }}
+{{ $data := dict "hive" $hive "service" $service  "index" $index "endpoint" $endpoint }}
+{{- template "connector.hive" $data -}}
+{{- end -}}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "elastic" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{ $service:= ( index $secret.data "elastic-service" | default "") | b64dec  }}
+{{ $port:= ( index $secret.data "elastic-port" | default "") | b64dec  }}
+{{ $data := dict "elastic" $elastic "service" $service  "index" $index "port" $port }}
 {{- template "connector.elastic" $data -}}
-{{- end }}
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}
+{{- end -}}   
 {{- range $catalogName, $catalogProperties := .Values.additionalCatalogs }}
   {{ $catalogName | lower }}.properties: |
     {{- $relname :=  $catalogProperties | trim | split " " }}

@@ -126,7 +126,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: chart-example.local.sspcloud.fr
+  hostname: chart-example.local
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

@@ -32,7 +32,8 @@ s3:
   defaultRegion: ""
   secretAccessKey: ""
   sessionToken: ""
-
+discoverable:
+  allow: true
 liveness:
   enabled : "true"
 

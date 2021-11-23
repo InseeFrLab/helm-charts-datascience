@@ -14,6 +14,8 @@ elasticsearch:
     resources:
       requests:
         storage: 30Gi
+  discoverable:
+    allow: true
 
 kibana:
   image: kibana

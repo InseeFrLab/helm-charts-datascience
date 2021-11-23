@@ -5,3 +5,6 @@ postgresql:
 global:
   postgresql:
     servicePort: 5432
+    
+    discoverable:
+      allow: true
