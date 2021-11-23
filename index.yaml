@@ -1803,6 +1803,30 @@ entries:
   elastic:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-11-23T15:40:56.217434058Z"
+    dependencies:
+    - enabled: true
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.13.4
+    - enabled: true
+      name: kibana
+      repository: https://helm.elastic.co
+      version: 7.13.4
+    description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
+    digest: 1e27b41fdcbe5d9b8de0b1c05875ae0184920048fb557e47711502789c5338ca
+    home: https://www.elastic.co/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/elk.png
+    name: elastic
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/elastic
+    - https://github.com/elastic/helm-charts/tree/master/elasticsearch
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/elastic-1.0.16/elastic-1.0.16.tgz
+    version: 1.0.16
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-11-14T22:28:14.362427656Z"
     dependencies:
     - enabled: true
@@ -2612,6 +2636,29 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-0.0.1/fastai-0.0.1.tgz
     version: 0.0.1
   hive-metastore:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-11-23T15:40:56.569544166Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: f86a660a841f0ef1867b54b1ffb13f79f15bc06af4bff91ddd9a02d87cf14177
+    home: https://hive.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/hive.png
+    name: hive-metastore
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-1.1.3/hive-metastore-1.1.3.tgz
+    version: 1.1.3
   - apiVersion: v2
     appVersion: "1"
     created: "2021-11-14T23:16:16.354908812Z"
@@ -4868,6 +4915,27 @@ entries:
   mongodb:
   - apiVersion: v2
     appVersion: "1"
+    created: "2021-11-23T15:40:56.755185998Z"
+    dependencies:
+    - enabled: true
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.28.2
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: 53a8ccc1f106b6e1d0a4a91f7f44a580b964b65179b00dc6c05d9e6a4a54a87b
+    home: https://www.mongodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mongodb.png
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.2.5/mongodb-1.2.5.tgz
+    version: 1.2.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-11-22T15:42:49.776907112Z"
     dependencies:
     - enabled: true
@@ -6032,6 +6100,27 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgis-1.0.0/postgis-1.0.0.tgz
     version: 1.0.0
   postgresql:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-11-23T15:40:56.934353075Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    description: An object-relational database management system, a database server
+    digest: 9b8a61c28616a2d189b1f0582b5b678f572d608f2d1948ec0b81b72f56feffd3
+    home: https://www.postgresql.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: postgresql
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgresql
+    - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    - https://github.com/bitnami/bitnami-docker-postgresql
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgresql-2.1.3/postgresql-2.1.3.tgz
+    version: 2.1.3
   - apiVersion: v2
     appVersion: "1"
     created: "2021-11-15T14:37:33.3490134Z"
@@ -8059,6 +8148,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-0.1.0/tensorflow-0.1.0.tgz
     version: 0.1.0
   trino:
+  - apiVersion: v2
+    appVersion: "355"
+    created: "2021-11-23T15:40:57.111930489Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 1.1.4
+    description: Fast distributed SQL query engine for big data analytics
+    digest: 1c3b917fb9aa580c7e13748111672538cbb246c3db3382e3afa4b8787107bdee
+    home: https://trino.io/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/trino.png
+    name: trino
+    sources:
+    - https://github.com/trinodb/charts
+    - https://github.com/trinodb/trino/tree/master/core/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-1.0.5/trino-1.0.5.tgz
+    version: 1.0.5
   - apiVersion: v2
     appVersion: "355"
     created: "2021-11-22T15:42:49.95122466Z"
