@@ -14,6 +14,8 @@ elasticsearch:
     resources:
       requests:
         storage: 30Gi
+  discoverable:
+    allow: true
 
 kibana:
   image: kibana
@@ -24,7 +26,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: chart-example.local
+  hostname: chart-example.local.toto
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

@@ -6,5 +6,5 @@
 {{- range $e, $i := until $replicaCount }}
 {{- $mongoList = append $mongoList (printf "%s-%d.%s-headless:%d" $fullname $i $fullname $portNumber) }}
 {{- end }}
-{{ printf "%s"  (join "," $mongoList)}}
+{{- printf "%s"  (join "," $mongoList) -}}
 {{- end }}
