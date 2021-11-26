@@ -1,12 +1,12 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "redash.fullname" . -}}
+{{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPort := .Values.redash.service.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "redash.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

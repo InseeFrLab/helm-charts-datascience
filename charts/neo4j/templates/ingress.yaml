@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "neo4j.fullname" . -}}
+{{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPortUI := .Values.networking.neo4jUI.port -}}
 {{- $svcPortBolt := .Values.networking.neo4jBolt.port -}}
 apiVersion: networking.k8s.io/v1
@@ -7,7 +7,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "neo4j.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

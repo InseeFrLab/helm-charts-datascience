@@ -16,8 +16,8 @@ security:
         cidr: 10.233.103.0/32
     - ipBlock:
         cidr: 10.233.111.0/32
-  whitelist:
-    enable: true
+  allowlist:
+    enabled: true
     ip: "0.0.0.0/0"
 
 init:

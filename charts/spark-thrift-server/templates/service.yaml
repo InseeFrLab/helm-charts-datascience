@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "spark-thrift-server.fullname" . }}
+  name: {{ include "library-chart.fullname" . }}
   labels:
-    {{- include "spark-thrift-server.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.networking.type }}
   {{- if .Values.networking.clusterIP }}
@@ -19,4 +19,4 @@ spec:
       protocol: TCP
       name: sparkui
   selector:
-    {{- include "spark-thrift-server.selectorLabels" . | nindent 4 }}
+    {{- include "library-chart.selectorLabels" . | nindent 4 }}
