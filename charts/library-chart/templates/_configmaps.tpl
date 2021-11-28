@@ -149,6 +149,73 @@ data:
 {{- end }}
 
 {{/*
+ConfigMap for Hive Metastore
+*/}}
+{{- define "library-chart.coreSite" -}}
+{{ printf "<?xml version=\"1.0\"?>" }}
+{{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" }} 
+{{ printf "<configuration>"}}     
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.connection.ssl.enabled</name>" | indent 4}}
+{{ printf "<value>true</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.endpoint</name>" | indent 4}}
+{{ printf "<value>{{ .Values.s3.endpoint }}</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.path.style.access</name>" | indent 4}}
+{{ printf "<value>true</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.aws.credentials.provider</name>" | indent 4}}
+{{ printf "<value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.access.key</name>" | indent 4}}
+{{ printf "<value>{{ .Values.s3.accessKeyId }}</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.secret.key</name>" | indent 4}}
+{{ printf "<value>{{ .Values.s3.secretAccessKey }}</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.session.token</name>" | indent 4}}
+{{ printf "<value>{{ .Values.s3.sessionToken }}</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "</configuration>"}}
+{{- end }}
+
+{{/*
+Create the name of the config map Hive to use
+*/}}
+{{- define "library-chart.configMapNameCoreSite" -}}
+{{{- if .Values.s3.enabled -}}
+{{- $name:= (printf "%s-configmapcoresite" (include "library-chart.fullname" .) )  }}
+{{- default $name .Values.coresite.configMapName }}
+{{- else }}
+{{- default "default" .Values.coresite.configMapName }}
+{{- end }}
+{{- end }}
+
+{{/*
+Template to generate a ConfigMap for Hive
+*/}}
+{{- define "library-chart.configMapCoreSite" -}}
+{{- if .Values.s3.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.configMapNameCoreSite" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  core-site.xml: |
+    {{- include "library-chart.coreSite" . | nindent 4 }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create the name of the config map MLFlow to use
 */}}
 {{- define "library-chart.configMapNameMLFlow" -}}
