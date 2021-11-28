@@ -161,7 +161,7 @@ ConfigMap for Hive Metastore
 {{ printf "</property>"}}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.endpoint</name>" | indent 4}}
-{{ printf "<value>{{ .Values.s3.endpoint }}</value>" | indent 4}}
+{{ printf "<value>%s</value>" .Values.s3.endpoint | indent 4}}
 {{ printf "</property>"}}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.path.style.access</name>" | indent 4}}
@@ -173,15 +173,15 @@ ConfigMap for Hive Metastore
 {{ printf "</property>"}}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.access.key</name>" | indent 4}}
-{{ printf "<value>{{ .Values.s3.accessKeyId }}</value>" | indent 4}}
+{{ printf "<value>%s</value>" .Values.s3.accessKeyId | indent 4}}
 {{ printf "</property>"}}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.secret.key</name>" | indent 4}}
-{{ printf "<value>{{ .Values.s3.secretAccessKey }}</value>" | indent 4}}
+{{ printf "<value>%s</value>" .Values.s3.secretAccessKey | indent 4}}
 {{ printf "</property>"}}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.session.token</name>" | indent 4}}
-{{ printf "<value>{{ .Values.s3.sessionToken }}</value>" | indent 4}}
+{{ printf "<value>%s</value>" .Values.s3.sessionToken | indent 4}}
 {{ printf "</property>"}}
 {{ printf "</configuration>"}}
 {{- end }}
