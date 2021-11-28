@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "neo4j.fullname" . }}
+  name: {{ include "library-chart.fullname" . }}
   labels:
-    {{- include "neo4j.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.networking.type }}
   ports:
@@ -16,4 +16,4 @@ spec:
       protocol: TCP
       name: bolt
   selector:
-    {{- include "neo4j.selectorLabels" . | nindent 4 }}
+    {{- include "library-chart.selectorLabels" . | nindent 4 }}

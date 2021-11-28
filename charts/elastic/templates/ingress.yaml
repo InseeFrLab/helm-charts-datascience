@@ -5,7 +5,7 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}-kibana
   labels:
-    {{- include "kibana.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 {{- with .Values.kibana.ingress.annotations }}
   annotations:
 {{ toYaml . | indent 4 }}

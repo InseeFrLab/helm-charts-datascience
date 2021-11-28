@@ -3,11 +3,11 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: {{ include "jena.fullname" . }}-2
+  name: {{ include "library-chart.fullname" . }}-2
 spec:
   podSelector:
     matchLabels:
-      {{- include "jena.selectorLabels" . | nindent 6 }}
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
   ingress:
   - from:
     {{- toYaml .Values.security.networkPolicy.from | nindent 4 }}

@@ -1,4 +1,4 @@
-- You can connect to this postgis only within the cluster itself on this url : postgresql://{{ include "postgis.fullname" . }}:{{ .Values.service.port }}
+- You can connect to this postgis only within the cluster itself on this url : postgresql://{{ include "library-chart.fullname" . }}:{{ .Values.service.port }}
 - The database name is **{{ .Values.postgresql.dbname }}**
 - The username is **{{ .Values.postgresql.username }}**
 - The password is **{{ .Values.postgresql.password }}**
