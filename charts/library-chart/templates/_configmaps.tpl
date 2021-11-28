@@ -190,7 +190,7 @@ ConfigMap for Hive Metastore
 Create the name of the config map Hive to use
 */}}
 {{- define "library-chart.configMapNameCoreSite" -}}
-{{{- if .Values.s3.enabled -}}
+{{- if .Values.s3.enabled -}}
 {{- $name:= (printf "%s-configmapcoresite" (include "library-chart.fullname" .) )  }}
 {{- default $name .Values.coresite.configMapName }}
 {{- else }}
