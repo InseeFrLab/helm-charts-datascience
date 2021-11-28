@@ -1,0 +1,3 @@
+{{- if .Values.ingress.enabled }}
+- Start annotate with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- end }}

@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  delta-sharing-server-config.yaml: |
+    # The format version of this config file
+    version: 1
+    # Config shares/schemas/tables to share
+    shares:
+    - name: "share"
+      schemas:
+      - name: "schema"
+        tables:
+        - name: {{ .Values.share.name | quote }}
+          location: {{ .Values.share.location | quote }}
+    
+    # Set the host name that the server will use
+    host: {{ .Values.ingress.hostname | quote }}
+    # Set the port that the server will listen on. Note: using ports below 1024 
+    # may require a privileged user in some operating systems.
+    port: 8080
+    # Set the url prefix for the REST APIs
+    endpoint: "/delta-sharing"
+    # Set the timeout of S3 presigned url in seconds
+    preSignedUrlTimeoutSeconds: 3600
+    # How many tables to cache in the server
+    deltaTableCacheSize: 10
+    # Whether we can accept working with a stale version of the table. This is useful when sharing
+    # static tables that will never be changed.
+    stalenessAcceptable: false
+    # Whether to evaluate user provided `predicateHints`
+    evaluatePredicateHints: false
