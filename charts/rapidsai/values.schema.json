@@ -86,6 +86,36 @@
                 }
             }
         },
+        "spark": {
+            "description": "spark specific configuration",
+            "type": "object",
+            "properties": {
+              "sparkui": {
+                "type": "boolean",
+                "title": "SparkUI",
+                "description": "Enable Spark monitoring interface",
+                "default": false
+              }
+            }
+        },
+        "discovery": {
+            "description": "configure your service to autodetect some ressources.",
+            "type": "object",
+            "properties": {
+              "hive": {
+                "type": "boolean",
+                "title": "Enable hive metastore discovery",
+                "description": "discover your hive metastore service",
+                "default": true
+              },
+              "mlflow": {
+                "type": "boolean",
+                "title": "Enable mlflow discovery",
+                "description": "discover your mlflow service",
+                "default": true
+              }
+            }
+        },
         "security": {
             "description": "security specific configuration",
             "type": "object",
@@ -391,7 +421,7 @@
                   }
               }
           },
-        "ingress": {
+          "ingress": {
             "type": "object",
             "form": true,
             "title": "Ingress Details",
@@ -407,6 +437,19 @@
                         "type": "externalDNS",
                         "scope": "rapidsai",
                         "name": "ihm"
+                    }
+                },
+                "sparkHostname": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "rapidsai",
+                        "name": "sparkui"
                     }
                 }
             }

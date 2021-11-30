@@ -33,6 +33,14 @@ spec:
         {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
+        {{- if .Values.discovery.hive }}
+        - name: hive-config
+          configMap:
+            name: {{ include "library-chart.configMapNameHive" . }}
+        {{- end }}
+        - name: config-coresite
+          configMap:
+            name: {{ include "library-chart.configMapNameCoreSite" . }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -51,6 +59,12 @@ spec:
           args: ["/data/{{ .Values.init.filename}} nohup /opt/conda/envs/rapids/bin/jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --notebook-dir=/rapids/work --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: IMAGE_NAME
+              value: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}"
             - name: PASSWORD
               value: {{ .Values.security.password }}
             - name: ROOT_PROJECT_DIRECTORY
@@ -95,6 +109,14 @@ spec:
               name: home
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
+              subPath: core-site.xml
+              name: config-coresite
+            {{- if .Values.discovery.hive }}
+            - name: hive-config
+              mountPath: /opt/hive/conf/hive-site.xml
+              subPath: hive-site.xml
+            {{- end }}
       initContainers:
         - name: standard-init
           image: "busybox"

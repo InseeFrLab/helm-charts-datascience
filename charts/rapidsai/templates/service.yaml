@@ -14,5 +14,11 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.spark.sparkui }}
+    - port: {{ .Values.networking.sparkui.port }}
+      targetPort: 4040
+      protocol: TCP
+      name: sparkui
+    {{- end }}
   selector:
     {{- include "library-chart.selectorLabels" . | nindent 4 }}

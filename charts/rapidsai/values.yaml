@@ -3,9 +3,9 @@
 service:
   image:
     repository: "inseefrlab/rapidsai"
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: "main"
   
 security:
   password: "changeme"
@@ -26,6 +26,25 @@ init:
   personalInit: ""
   personalInitArgs: ""
 
+
+spark:
+  sparkui: false
+
+#active ou non la recherche d'un hiveMetastore dans le namespace
+# see configmap-hive.yaml et helpers template
+discovery:
+  hive: true
+  mlflow: true
+
+hive:
+  configMapName: ""
+
+mlflow:
+  configMapName: ""
+
+coresite:
+  configMapName: ""
+  
 s3:
   # Specifies whether a config map should be created
   enabled: true
@@ -115,6 +134,8 @@ networking:
   clusterIP: None
   rapidsai:
     port: 80
+  sparkui:
+    port: 4040
 
 ingress:
   enabled: true
