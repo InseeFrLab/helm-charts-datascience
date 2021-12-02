@@ -31,6 +31,9 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
+        - name: dshm
+          emptyDir:
+            medium: Memory
         - name: {{$volumeName}}
           emptyDir: {}
       {{- with .Values.imagePullSecrets }}
@@ -99,6 +102,8 @@ spec:
               name: {{$volumeName}}
             - mountPath: /tf/work
               name: home
+            - mountPath: /dev/shm
+              name: dshm
       initContainers:
         - name: standard-init
           image: "busybox"
