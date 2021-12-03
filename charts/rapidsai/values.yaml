@@ -110,6 +110,7 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
+  mountPath: /rapids/work
   # existingClaim: ""
 
 kubernetes:
