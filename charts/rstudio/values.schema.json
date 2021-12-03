@@ -21,7 +21,7 @@
                         "type": "string",
                         "enum": [
                             "inseefrlab/rstudio:4.1.1", "inseefrlab/rstudio:4.0.4", 
-                            "inseefrlab/rstudio:3.6.3", "inseefrlab/utilitr:0.7.0"
+                            "inseefrlab/rstudio:3.6.3", "inseefrlab/utilitr:0.8.0"
                         ],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                         "hidden": {
