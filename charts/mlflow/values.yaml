@@ -17,13 +17,9 @@ service:
     tag: "main"
   directory: /tmp/mlflow/artifacts/
 
-environment:
-  s3: true
-
-
 s3:
   # Specifies whether a config map should be created
-  create: true
+  enabled: true
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""

@@ -37,7 +37,7 @@ spec:
             - --workers=2
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           envFrom: 
-            {{- if .Values.environment.s3 }}
+            {{- if .Values.s3.enabled }}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameS3" . }}
             {{- end }}
