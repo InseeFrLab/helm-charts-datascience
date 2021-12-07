@@ -4,7 +4,7 @@ description: MLflow is an open source platform to manage the ML lifecycle, inclu
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mlflow.png
 keyworks:
   - ML
-home: https://jupyter.org/
+home: https://mlflow.org
 sources:
   - https://github.com/InseeFrLab/mlflow
   - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mlflow
@@ -21,7 +21,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.5
+version: 2.0.6
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
