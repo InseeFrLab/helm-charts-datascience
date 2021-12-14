@@ -106,6 +106,7 @@ securityContext: {}
 
 networking:
   type: ClusterIP
+  clusterIP: None
   rstudio:
     port: 80
 

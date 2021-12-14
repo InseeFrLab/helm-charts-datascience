@@ -6,6 +6,9 @@ metadata:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.networking.type }}
+  {{- if .Values.networking.clusterIP }}
+  clusterIP: {{ .Values.networking.clusterIP }}
+  {{- end }}
   ports:
     - port: {{ .Values.networking.rstudio.port }}
       targetPort: http
