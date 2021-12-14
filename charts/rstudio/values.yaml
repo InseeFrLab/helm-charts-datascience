@@ -8,6 +8,9 @@ service:
       enabled: false
       version: "inseefrlab/rstudio:4.1.1"
 
+spark:
+  sparkui: false
+
 security:
   password: "changeme"
   networkPolicy: 
@@ -31,6 +34,12 @@ environment:
   root: true
   user: rstudio
   group: rstudio
+
+discovery:
+  hive: true
+
+hive:
+  configMapName: ""
 
 s3:
   # Specifies whether a config map should be created
@@ -108,6 +117,8 @@ networking:
   type: ClusterIP
   clusterIP: None
   rstudio:
+    port: 80
+  sparkui:
     port: 80
 
 ingress:

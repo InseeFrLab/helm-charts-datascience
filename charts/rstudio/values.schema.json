@@ -56,6 +56,30 @@
                 }
             }
         },
+        "spark": {
+            "description": "spark specific configuration",
+            "type": "object",
+            "properties": {
+              "sparkui": {
+                "type": "boolean",
+                "title": "SparkUI",
+                "description": "Enable Spark monitoring interface",
+                "default": false
+              }
+            }
+        },
+        "discovery": {
+            "description": "configure your service to autodetect some ressources.",
+            "type": "object",
+            "properties": {
+              "hive": {
+                "type": "boolean",
+                "title": "Enable hive metastore discovery",
+                "description": "discover your hive metastore service",
+                "default": true
+              }
+            }
+        },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
@@ -455,6 +479,19 @@
                         "type": "externalDNS",
                         "scope": "rstudio",
                         "name": "ihm"
+                    }
+                },
+                "sparkHostname": {
+                    "type": "string",
+                    "form": true,
+                    "title": "Hostname",
+                    "x-form": {
+                        "hidden": true
+                    },
+                    "x-generated": {
+                        "type": "externalDNS",
+                        "scope": "rstudio",
+                        "name": "sparkui"
                     }
                 }
             }
