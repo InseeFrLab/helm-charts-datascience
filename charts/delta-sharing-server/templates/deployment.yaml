@@ -29,6 +29,11 @@ spec:
         - name: config-server
           configMap:
             name: {{ include "library-chart.fullname" . }}
+        {{- if .Values.sidecar.proxy.enabled }}
+        - name: config-nginx
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-nginx
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -46,6 +51,7 @@ spec:
             - mountPath: /opt/docker/conf/delta-sharing-server-config.yaml
               subPath: delta-sharing-server-config.yaml
               name: config-server
+        {{- if not .Values.sidecar.proxy.enabled }}
           ports:
             - name: http
               containerPort: 8080
@@ -62,6 +68,30 @@ spec:
             periodSeconds: 20
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- end -}}
+      {{- if .Values.sidecar.proxy.enabled }}
+        - name: nginx
+          image: nginx
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          volumeMounts:
+              - name: config-nginx
+                mountPath: /etc/nginx/nginx.conf
+                subPath: nginx.conf
+                readOnly: true
+      {{- end -}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -11,6 +11,11 @@ service:
     # Overrides the image tag whose default is the chart appVersion.
     tag: "0.2.0"
 
+sidecar:
+  proxy:
+    enabled: false
+    authService : http://my-service
+
 liveness:
   enabled : "true"
 
