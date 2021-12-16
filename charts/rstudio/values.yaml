@@ -2,11 +2,11 @@
 
 service:
   image:
-    version: "inseefrlab/rstudio:4.1.1"
+    version: "inseefrlab/rstudio:r4.1.1-spark3.2.0"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "inseefrlab/rstudio:4.1.1"
+      version: "inseefrlab/rstudio:r4.1.1-spark3.2.0"
 
 spark:
   sparkui: false

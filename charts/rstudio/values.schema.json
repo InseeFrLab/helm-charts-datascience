@@ -20,7 +20,7 @@
                         "description": "supported versions",
                         "type": "string",
                         "enum": [
-                            "inseefrlab/rstudio:4.1.1", "inseefrlab/rstudio:4.0.4", 
+                            "inseefrlab/rstudio:r4.1.1-spark3.2.0", "inseefrlab/rstudio:4.0.4", 
                             "inseefrlab/rstudio:3.6.3", "inseefrlab/utilitr:0.8.0"
                         ],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
@@ -28,7 +28,7 @@
                             "value": true,
                             "path": "service/image/custom/enabled"
                         },
-                        "default": "inseefrlab/rstudio:4.1.1"
+                        "default": "inseefrlab/rstudio:r4.1.1-spark3.2.0"
                       },
                       "custom" : {
                         "description": "use a custom RStudio docker image",
