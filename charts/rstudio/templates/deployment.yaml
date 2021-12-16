@@ -60,6 +60,16 @@ spec:
           args: ["/data/{{ .Values.init.filename}} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: IMAGE_NAME
+              {{- if .Values.service.image.custom.enabled }}
+              value: "{{ .Values.service.image.custom.version }}"
+              {{- else }}
+              value: "{{ .Values.service.image.version }}"
+              {{- end }}
             - name: PASSWORD
               value: {{ .Values.security.password }}
             {{- if .Values.environment.root }}
