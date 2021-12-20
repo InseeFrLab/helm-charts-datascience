@@ -1,4 +1,4 @@
-{{- if .Values.sidecar.proxy.enabled -}}
+{{- if .Values.sidecar.proxy.subrequest.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -25,7 +25,7 @@ data:
 
             location = /auth {
                 internal;
-                proxy_pass              {{ .Values.sidecar.proxy.authService }};
+                proxy_pass              {{ .Values.sidecar.proxy.subrequest.authService }};
                 proxy_pass_request_body off;
                 proxy_set_header        Content-Length "";
                 proxy_set_header        X-Original-URI $request_uri;

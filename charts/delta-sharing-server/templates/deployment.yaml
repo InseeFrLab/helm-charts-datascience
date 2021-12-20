@@ -29,7 +29,7 @@ spec:
         - name: config-server
           configMap:
             name: {{ include "library-chart.fullname" . }}
-        {{- if .Values.sidecar.proxy.enabled }}
+        {{- if .Values.sidecar.proxy.subrequest.enabled }}
         - name: config-nginx
           configMap:
             name: {{ include "library-chart.fullname" . }}-nginx
@@ -51,7 +51,7 @@ spec:
             - mountPath: /opt/docker/conf/delta-sharing-server-config.yaml
               subPath: delta-sharing-server-config.yaml
               name: config-server
-        {{- if not .Values.sidecar.proxy.enabled }}
+        {{- if and (not .Values.sidecar.proxy.subrequest.enabled) (not .Values.sidecar.proxy.jwt.enabled) }}
           ports:
             - name: http
               containerPort: 8080
@@ -69,7 +69,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- end -}}
-      {{- if .Values.sidecar.proxy.enabled }}
+      {{- if .Values.sidecar.proxy.subrequest.enabled }}
         - name: nginx
           image: nginx
           ports:
@@ -91,6 +91,31 @@ spec:
                 mountPath: /etc/nginx/nginx.conf
                 subPath: nginx.conf
                 readOnly: true
+      {{- end -}}
+      {{- if .Values.sidecar.proxy.jwt.enabled }}
+        - name: sidecar-jwt-proxy
+          image: git-registry.lab.sspcloud.fr/alexisdondon/delta-jwt-sidecar:0.0.1
+          env:
+            - name: SERVER_PORT
+              value: "8081"
+            - name: APP_DELTAURL
+              value: "http://localhost:8080"
+            - name: APP_JWT_SECRET
+              value: "{{ .Values.sidecar.proxy.jwt.secret}}"
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 8081
+            initialDelaySeconds: 15
+            periodSeconds: 20
       {{- end -}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
