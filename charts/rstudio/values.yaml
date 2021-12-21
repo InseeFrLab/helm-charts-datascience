@@ -41,6 +41,9 @@ discovery:
 hive:
   configMapName: ""
 
+coresite:
+  configMapName: ""
+
 s3:
   # Specifies whether a config map should be created
   enabled: true
