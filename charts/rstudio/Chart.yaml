@@ -1,6 +1,6 @@
 apiVersion: v2
 name: rstudio
-description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis.
+description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis. You can use it for spark.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
 keyworks:
   - R
@@ -23,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 5.3.7
+version: 5.3.8
 
 dependencies:
   - name: library-chart
