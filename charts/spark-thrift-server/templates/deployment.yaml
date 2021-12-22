@@ -90,7 +90,7 @@ spec:
             name: {{ include "library-chart.configMapNameCoreSite" . }}
         - name: hive-config
           configMap:
-            name: {{ include "library-chart.fullname" . }}
+            name: {{ include "library-chart.configMapNameHive" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
