@@ -149,7 +149,7 @@ data:
 {{- end }}
 
 {{/*
-ConfigMap for Hive Metastore
+ConfigMap for CoreSite.xml Metastore
 */}}
 {{- define "library-chart.coreSite" -}}
 {{ printf "<?xml version=\"1.0\"?>" }}
@@ -187,7 +187,7 @@ ConfigMap for Hive Metastore
 {{- end }}
 
 {{/*
-Create the name of the config map Hive to use
+Create the name of the config map Coresite to use
 */}}
 {{- define "library-chart.configMapNameCoreSite" -}}
 {{- if .Values.s3.enabled -}}
@@ -199,7 +199,7 @@ Create the name of the config map Hive to use
 {{- end }}
 
 {{/*
-Template to generate a ConfigMap for Hive
+Template to generate a ConfigMap for CoreSite
 */}}
 {{- define "library-chart.configMapCoreSite" -}}
 {{- if .Values.s3.enabled -}}
@@ -245,6 +245,44 @@ data:
 {{- end }}
 {{- end }}
 {{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
+ConfigMap for SparkConf Metastore
+*/}}
+{{- define "library-chart.sparkConf" -}}
+{{- range $key, $value := default dict .Values.spark.config }}
+{{ printf "%s %s" $key $value}}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the config map Spark Conf to use
+*/}}
+{{- define "library-chart.configMapNameSparkConf" -}}
+{{- if .Values.spark.default -}}
+{{- $name:= (printf "%s-configmapsparkconf" (include "library-chart.fullname" .) )  }}
+{{- default $name .Values.spark.configMapName }}
+{{- else }}
+{{- default "default" .Values.spark.configMapName }}
+{{- end }}
+{{- end }}
+
+{{/*
+Template to generate a ConfigMap for CoreSite
+*/}}
+{{- define "library-chart.configMapSparkConf" -}}
+{{- if .Values.spark.default -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.configMapNameSparkConf" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  spark-defaults.conf: |
+    {{- include "library-chart.sparkConf" . | nindent 4 }}
 {{- end }}
 {{- end }}
 
