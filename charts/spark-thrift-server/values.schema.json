@@ -3,25 +3,60 @@
   "type": "object",
   "properties": {
     "service": {
-      "description": "spark-history specific configuration",
+      "description": "Service specific configuration",
       "type": "object",
       "properties": {
           "image" : {
-            "description": "image docker",
-            "type": "object",  
-            "properties": {
-              "tag": {
-                  "description": "tag",
+              "description": "image docker",
+              "type": "object",  
+              "properties": {
+                "pullPolicy": {
                   "type": "string",
-                  "default": "master",
-                  "enum": ["master", "custom-spark"]
-                  
-              }
-            }        
+                  "description": "option when pulling the docker image",
+                  "default": "IfNotPresent",
+                  "enum": ["IfNotPresent","Always","Never"]
+                },
+                "version": {
+                  "description": "supported versions",
+                  "type": "string",
+                  "enum": [
+                      "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0",
+                      "inseefrlab/jupyter-datascience:py3.7.6-spark3.1.1"
+                          ],
+                  "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                  "hidden": {
+                      "value": true,
+                      "path": "service/image/custom/enabled"
+                  },
+                  "default": "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0"
+                },
+                "custom" : {
+                  "description": "use a custom jupyter docker image",
+                  "type": "object",  
+                  "properties": {
+                    "enabled": {
+                      "title": "custom image",
+                      "type": "boolean",
+                      "description": "use a custom jupyter docker image",
+                      "default": false
+                    },
+                    "version": {
+                      "description": "jupyter unsupported version",
+                      "type": "string",
+                      "default": "inseefrlab/jupyter-datascience:py3.9.7-spark3.1.2",
+                      "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                      "hidden": {
+                          "value": false,
+                          "path": "service/image/custom/enabled"
+                      }
+                    }
+                  }        
+                }
+              }        
           }
       }
-    },
-    "environment": {
+  },
+  "environment": {
       "description": "configuration of your environment variables",
       "type": "object",
       "properties": {

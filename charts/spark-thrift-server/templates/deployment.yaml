@@ -32,7 +32,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          {{- if .Values.service.image.custom.enabled }}
+          image: "{{ .Values.service.image.custom.version }}"
+          {{- else }}
+          image: "{{ .Values.service.image.version }}"
+          {{- end }}
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh --master {{ .Values.spark.master}} --conf spark.executor.instances={{ .Values.spark.instances}} --conf spark.kubernetes.container.image={{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }} --conf spark.kubernetes.namespace={{ .Release.Namespace}} --conf spark.kubernetes.authenticate.driver.serviceAccountName={{ include "library-chart.serviceAccountName" . }}"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
@@ -64,10 +68,14 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}         
           volumeMounts:
-          - mountPath: /data
-            name: {{$volumeName}}
-          - name: hive-config
-            mountPath: /opt/hive/conf
+            - mountPath: /data
+              name: {{$volumeName}}
+            - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
+              subPath: core-site.xml
+              name: config-coresite
+            - name: hive-config
+              mountPath: /opt/hive/conf/hive-site.xml
+              subPath: hive-site.xml
       initContainers:
         - name: standard-init
           image: "busybox"
@@ -77,11 +85,14 @@ spec:
           - mountPath: /data
             name: {{$volumeName}}   
       volumes:
-      - name: {{$volumeName}}
-        emptyDir: {}
-      - name: hive-config
-        configMap:
-          name: {{ include "library-chart.fullname" . }}
+        - name: {{$volumeName}}
+          emptyDir: {}
+        - name: config-coresite
+          configMap:
+            name: {{ include "library-chart.configMapNameCoreSite" . }}
+        - name: hive-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

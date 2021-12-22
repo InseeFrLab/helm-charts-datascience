@@ -6,10 +6,11 @@ replicaCount: 1
 
 service:
   image:
-    repository: "inseefrlab/jupyter-datascience"
+    version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "master"
+    custom:
+      enabled: false
+      version: "inseefrlab/jupyter-datascience:py3.9.7-spark3.2.0"
 
 init:
   standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
@@ -21,6 +22,11 @@ discovery:
 environment:
   s3: true
 
+hive:
+  configMapName: ""
+
+coresite:
+  configMapName: ""
 
 s3:
   # Specifies whether a config map should be created

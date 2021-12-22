@@ -1,1 +1,10 @@
-1. Get the application URL by running these commands:
+{{- if .Values.ingress.enabled }}
+- You can connect to the spark UI with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- end }}
+- The spark thrift service is only available from inside the datalab.
+- The url is : **thrift://{{ include "library-chart.fullname" . }}:10000**
+
+*NOTES about deletion :*
+
+- **You can safely delete this chart and recreate one later**
+- There is no data volume
