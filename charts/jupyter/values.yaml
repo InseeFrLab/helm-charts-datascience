@@ -11,6 +11,21 @@ service:
 
 spark:
   sparkui: false
+  configMapName: ""
+  default: true
+  config:
+    spark.master: k8s://https://kubernetes.default.svc:443
+    spark.kubernetes.authenticate.driver.serviceAccountName: '{{ include "library-chart.fullname" . }}'                
+    spark.kubernetes.driver.pod.name: '{{ include "library-chart.fullname" . }}-0'
+    spark.kubernetes.namespace: '{{ .Release.Namespace }}'
+    spark.dynamicAllocation.enabled: "true"
+    spark.dynamicAllocation.initialExecutors: "1"
+    spark.dynamicAllocation.minExecutors: "1"
+    spark.dynamicAllocation.maxExecutors: "10"
+    spark.dynamicAllocation.executorAllocationRatio: "1"
+    spark.dynamicAllocation.shuffleTracking.enabled: "true"
+    spark.kubernetes.container.image: '{{ ternary .Values.service.image.custom.version .Values.service.image.version .Values.service.image.custom.enabled }}'
+
 
 security:
   password: "changeme"

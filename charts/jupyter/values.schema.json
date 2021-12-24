@@ -65,6 +65,12 @@
                 "title": "SparkUI",
                 "description": "Enable Spark monitoring interface",
                 "default": false
+              },
+              "default": {
+                "type": "boolean",
+                "title": "Create a spark config",
+                "description": "Create a default spark config in spark-default.conf",
+                "default": true
               }
             }
         },
