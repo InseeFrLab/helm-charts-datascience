@@ -252,8 +252,9 @@ data:
 ConfigMap for SparkConf Metastore
 */}}
 {{- define "library-chart.sparkConf" -}}
+{{- $contexte:= .}}
 {{- range $key, $value := default dict .Values.spark.config }}
-{{- printf "%s %s\n" $key (tpl $value .)}}
+{{- printf "%s %s\n" $key  (tpl $value  $contexte)}}
 {{- end }}
 {{- end }}
 
