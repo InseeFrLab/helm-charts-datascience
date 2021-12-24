@@ -4,7 +4,7 @@
 {{- $image := ternary .Values.service.image.custom.version .Values.service.image.version .Values.service.image.custom.enabled -}}
 
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
   labels:
@@ -13,6 +13,7 @@ spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
   selector:
     matchLabels:
       {{- include "library-chart.selectorLabels" . | nindent 6 }}
@@ -36,7 +37,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{$image}}
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh --master {{ .Values.spark.master}} --conf spark.executor.instances={{ .Values.spark.instances}} --conf spark.kubernetes.container.image={{$image}} --conf spark.kubernetes.namespace={{ .Release.Namespace}} --conf spark.kubernetes.authenticate.driver.serviceAccountName={{ include "library-chart.serviceAccountName" . }}"]
+          args: ["/data/{{ .Values.init.filename}} $SPARK_HOME/sbin/start-thriftserver.sh"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: SPARK_NO_DAEMONIZE
@@ -68,6 +69,11 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{$volumeName}}
+            {{- if .Values.spark.default }}
+            - name: config-sparkconf
+              mountPath: /opt/spark/conf/spark-defaults.conf
+              subPath: spark-defaults.conf
+            {{- end }}
             - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
               subPath: core-site.xml
               name: config-coresite
@@ -88,6 +94,11 @@ spec:
         - name: config-coresite
           configMap:
             name: {{ include "library-chart.configMapNameCoreSite" . }}
+        {{- if .Values.spark.default }}
+        - name: config-sparkconf
+          configMap:
+            name: {{ include "library-chart.configMapNameSparkConf" . }}
+        {{- end }}
         - name: hive-config
           configMap:
             name: {{ include "library-chart.configMapNameHive" . }}
