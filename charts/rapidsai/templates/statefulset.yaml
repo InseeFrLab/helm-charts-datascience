@@ -60,7 +60,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          image: "{{ ternary .Values.service.image.custom.version .Values.service.image.version .Values.service.image.custom.enabled}}"
           command: ["/bin/sh","-c"]
           args: ["/data/{{ .Values.init.filename}} nohup /opt/conda/envs/rapids/bin/jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --notebook-dir={{ .Values.persistence.mountPath }} --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
@@ -70,7 +70,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}"
+              value: "{{ ternary .Values.service.image.custom.version .Values.service.image.version .Values.service.image.custom.enabled }}"
             - name: PASSWORD
               value: {{ .Values.security.password }}
             - name: ROOT_PROJECT_DIRECTORY
