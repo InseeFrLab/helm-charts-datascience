@@ -26,9 +26,30 @@ init:
   personalInit: ""
   personalInitArgs: ""
 
-
 spark:
   sparkui: false
+  configMapName: ""
+  default: true
+  config:
+    spark.master: k8s://https://kubernetes.default.svc:443
+    spark.kubernetes.authenticate.driver.serviceAccountName: '{{ include "library-chart.fullname" . }}'                
+    spark.kubernetes.driver.pod.name: '{{ include "library-chart.fullname" . }}-0'
+    spark.kubernetes.namespace: '{{ .Release.Namespace }}'
+    spark.dynamicAllocation.enabled: "true"
+    spark.dynamicAllocation.initialExecutors: "1"
+    spark.dynamicAllocation.minExecutors: "1"
+    spark.dynamicAllocation.maxExecutors: "10"
+    spark.dynamicAllocation.executorAllocationRatio: "1"
+    spark.dynamicAllocation.shuffleTracking.enabled: "true"
+    spark.kubernetes.container.image: '{{ ternary .Values.service.image.custom.version .Values.service.image.version .Values.service.image.custom.enabled }}'
+    spark.executor.resource.gpu.amount: "1"
+    spark.task.resource.gpu.amount: "1"
+    spark.executor.resource.gpu.discoveryScript: "/opt/spark/examples/src/main/scripts/getGpusResources.sh"
+    spark.executor.resource.gpu.vendor: "nvidia.com"
+    spark.rapids.sql.enabled: "true"
+    spark.rapids.sql.incompatibleOps.enabled: "true"
+    spark.plugins: "com.nvidia.spark.SQLPlugin"
+    spark.rapids.force.caller.classloader: "false"
 
 #active ou non la recherche d'un hiveMetastore dans le namespace
 # see configmap-hive.yaml et helpers template
