@@ -4949,6 +4949,14 @@ entries:
     version: 0.0.1
   library-chart:
   - apiVersion: v2
+    created: "2021-12-24T08:48:51.987371226Z"
+    digest: 5af765ce0eacf22057480886037b02aff2074ce55d67c22e5dbbe763e2868d0b
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/library-chart-2.0.7/library-chart-2.0.7.tgz
+    version: 2.0.7
+  - apiVersion: v2
     created: "2021-12-22T22:46:57.846099544Z"
     digest: b1296e03c0e539582d4f66e7a108d41b85c4049fa55efb63f27f7e0552fa6ca7
     name: library-chart
