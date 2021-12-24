@@ -2,7 +2,7 @@
 {{- $volumeName := printf "%s-%s" $fullName "data" | trunc 63 | trimSuffix "-" -}}
 {{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
   labels:
@@ -11,6 +11,7 @@ spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
   selector:
     matchLabels:
       {{- include "library-chart.selectorLabels" . | nindent 6 }}
@@ -36,6 +37,9 @@ spec:
         - name: config-coresite
           configMap:
             name: {{ include "library-chart.configMapNameCoreSite" . }}
+        - name: config-sparkconf
+          configMap:
+            name: {{ include "library-chart.configMapNameSparkConf" . }}
         {{- if .Values.discovery.hive }}
         - name: hive-config
           configMap:
@@ -133,6 +137,11 @@ spec:
             - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
               subPath: core-site.xml
               name: config-coresite
+            {{- if .Values.spark.default }}
+            - name: config-sparkconf
+              mountPath: /opt/spark/conf/spark-defaults.conf
+              subPath: spark-defaults.conf
+            {{- end }}
             {{- if .Values.discovery.hive }}
             - name: hive-config
               mountPath: /opt/hive/conf/hive-site.xml
