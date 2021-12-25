@@ -3512,6 +3512,26 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-12-25T22:43:56.360368556Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: aa23b6f6920259e428b2ad805e714b9b66acb2a47c5cf828992035dbc5820e43
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-5.3.10/jupyter-5.3.10.tgz
+    version: 5.3.10
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-12-25T22:26:38.32101999Z"
     dependencies:
     - name: library-chart
@@ -7164,6 +7184,26 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-12-25T22:43:56.517073225Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs. You can use it for spark.
+    digest: 47ba6a4cbe7625f48380af7559eea3b342ee4635d47ae0ccfedda3e20efd58ce
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-5.0.6/rapidsai-5.0.6.tgz
+    version: 5.0.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-12-25T22:26:38.474532318Z"
     dependencies:
     - name: library-chart
@@ -7817,6 +7857,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/redash-0.0.1/redash-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2021-12-25T22:43:56.682447148Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis. You can use it for spark.
+    digest: 0ef4a79ee1a421d002ca4943fde02095b34496eb67bf7d896ff4069622fe0432
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-5.3.12/rstudio-5.3.12.tgz
+    version: 5.3.12
   - apiVersion: v2
     created: "2021-12-25T22:26:38.638626678Z"
     dependencies:
@@ -8934,6 +8993,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-history-0.0.1/spark-history-0.0.1.tgz
     version: 0.0.1
   spark-thrift-server:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2021-12-25T22:43:56.842981041Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: Spark SQL can also act as a distributed query engine using its JDBC/ODBC or command-line interface. In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code. The Thrift JDBC/ODBC server implemented here corresponds to the HiveServer2 in built-in Hive.
+    digest: 6527a70162f44afe216bc34d4d1e882ecad6bacb4fbd0e86e24a8973137abbc8
+    home: https://spark.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/spark.png
+    name: spark-thrift-server
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/spark-thrift-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-2.0.6/spark-thrift-server-2.0.6.tgz
+    version: 2.0.6
   - apiVersion: v2
     appVersion: "1"
     created: "2021-12-25T22:26:38.790576116Z"
