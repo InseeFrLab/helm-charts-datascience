@@ -105,7 +105,7 @@ ConfigMap for Hive Metastore
 {{ printf "<?xml version=\"1.0\"?>" }}
 {{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" }} 
 {{ printf "<configuration>"}}     
-{{ range $index, $secret := (lookup "v1" "Secret" $namespace "").items }}
+{{ range $index, $secret := (lookup "v1" "Secret" .Release.Namespace "").items }}
 {{- if (index $secret "metadata" "annotations") }}
 {{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "hive" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
 {{ $service:= ( index $secret.data "hive-service" | default "") | b64dec  }}
