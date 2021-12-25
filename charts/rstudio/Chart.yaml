@@ -23,9 +23,9 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 5.3.11
+version: 5.3.12
 
 dependencies:
   - name: library-chart
-    version: 2.0.12
+    version: 2.0.13
     repository: https://inseefrlab.github.io/helm-charts-datascience
