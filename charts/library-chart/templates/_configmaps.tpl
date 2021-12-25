@@ -97,6 +97,7 @@ data:
 {{- end }}
 {{- end }}
 
+
 {{/*
 ConfigMap for Hive Metastore
 */}}
@@ -104,18 +105,17 @@ ConfigMap for Hive Metastore
 {{ printf "<?xml version=\"1.0\"?>" }}
 {{ printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" }} 
 {{ printf "<configuration>"}}     
-{{ range $index, $service := (lookup "v1" "Service" .Release.Namespace "").items }}
-{{- if (index $service "metadata" "labels") }}
-{{- if (index $service "metadata" "labels" "helm.sh/chart") }}
-{{- if hasPrefix "hive-metastore" (index $service "metadata" "labels" "helm.sh/chart") }}
+{{ range $index, $secret := (lookup "v1" "Secret" $namespace "").items }}
+{{- if (index $secret "metadata" "annotations") }}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "hive" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{ $service:= ( index $secret.data "hive-service" | default "") | b64dec  }}
 {{ printf "<property>"}}
 {{ printf "<name>hive.metastore.uris</name>"  | indent 4}}
-{{ printf "<value>thrift://%s:9083</value>" $service.metadata.name | indent 4}}
+{{ printf "<value>thrift://%s:9083</value>" $service | indent 4}}
 {{ printf "</property>"}}
-{{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
 {{ printf "</configuration>"}}
 {{- end }}
 
