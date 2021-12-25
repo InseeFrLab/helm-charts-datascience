@@ -105,10 +105,10 @@ ConfigMap for Hive Metastore
 {{- printf "<?xml version=\"1.0\"?>\n" }}
 {{- printf "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n" }} 
 {{- printf "<configuration>\n"}}     
-{{ range $index, $secret := (lookup "v1" "Secret" .Release.Namespace "").items }}
+{{- range $index, $secret := (lookup "v1" "Secret" .Release.Namespace "").items }}
 {{- if (index $secret "metadata" "annotations") }}
 {{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "hive" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
-{{ $service:= ( index $secret.data "hive-service" | default "") | b64dec  }}
+{{- $service:= ( index $secret.data "hive-service" | default "") | b64dec  }}
 {{- printf "<property>\n"}}
 {{- printf "<name>hive.metastore.uris</name>\n"  | indent 4}}
 {{- printf "<value>thrift://%s:9083</value>\n" $service | indent 4}}
