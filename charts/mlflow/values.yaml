@@ -29,6 +29,9 @@ s3:
   secretAccessKey: ""
   sessionToken: ""
 
+discoverable:
+  allow: true
+
 liveness:
   enabled : "true"
 
