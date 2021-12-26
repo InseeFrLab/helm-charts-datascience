@@ -240,7 +240,7 @@ metadata:
   labels:
     {{- include "library-chart.labels" $context | nindent 4 }}
 data:
-  MLFLOW_TRACKING_URI: {{ print "%s" $uri }}
+  MLFLOW_TRACKING_URI: {{ printf "%s" $uri }}
 {{- end }}
 {{- end }}
 {{- end }}
