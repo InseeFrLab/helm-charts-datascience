@@ -227,12 +227,12 @@ Create the name of the config map MLFlow to use
 ConfigMap for Hive Metastore
 */}}
 {{- define "library-chart.configMapMLFlow" -}}
-{{- $context:= .}}
+{{- $context:= . -}}
 {{- if .Values.discovery.mlflow -}}
-{{- range $index, $secret := (lookup "v1" "Secret" .Release.Namespace "").items }}
-{{- if (index $secret "metadata" "annotations") }}
-{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "mlflow" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
-{{- $uri:= ( index $secret.data "uri" | default "") | b64dec  }}
+{{- range $index, $secret := (lookup "v1" "Secret" .Release.Namespace "").items -}}
+{{- if (index $secret "metadata" "annotations") -}}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "mlflow" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) -}}
+{{- $uri:= ( index $secret.data "uri" | default "") | b64dec  -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
