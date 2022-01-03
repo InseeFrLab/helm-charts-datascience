@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "kafka": {
+      "description": "postgres specific configuration",
+      "type": "object",
+      "properties": {
+        "replicaCount": {
+          "description": "number of worker",
+          "type": "integer",
+          "default": 3   
+        },
+        "persistence": {
+          "description": "Configuration for persistence",
+          "type": "object",
+          "properties": {
+              "enabled": {
+                  "type": "boolean",
+                  "description": "Create a persistent volume",
+                  "default": true
+              },
+              "size": {
+                "type": "string",
+                "title": "Persistent volume size",
+                "description": "Size of the persistent volume",
+                "default": "10Gi",
+                "form": true,
+                "render": "slider",
+                "sliderMin": 1,
+                "sliderMax": 100,
+                "sliderStep": 1,
+                "sliderUnit": "Gi",
+                "hidden": {
+                  "value": false,
+                  "path": "postgresql/persistence/enabled"
+                }                    
+            }
+          }
+        }
+      }
+    }
+  }
+}

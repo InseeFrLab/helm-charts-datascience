@@ -1,0 +1,2 @@
+
+- You can connect to this kafka only within the cluster itself on this url
