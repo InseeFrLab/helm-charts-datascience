@@ -33,7 +33,7 @@
                 "sliderUnit": "Gi",
                 "hidden": {
                   "value": false,
-                  "path": "postgresql/persistence/enabled"
+                  "path": "kafka/persistence/enabled"
                 }                    
             }
           }
