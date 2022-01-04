@@ -1,6 +1,8 @@
 kafka:
-  replicatCount: 3
+  fullnameOverride: kafka
+  replicaCount: 3
   discoverable:
     allow: true
 
+fullnameOverride: kafka
 
