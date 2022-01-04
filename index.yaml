@@ -4977,6 +4977,27 @@ entries:
   kafka:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-01-04T09:36:36.568028832Z"
+    dependencies:
+    - enabled: true
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.8.1
+    description: Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+    digest: f12117e125929da4926f497fb99144dea5d1c7941b76133f4225f376f584b43c
+    home: https://kafka.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/kafka.png
+    name: kafka
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/kafka
+    - https://github.com/bitnami/charts/tree/master/bitnami/kafka
+    - https://github.com/bitnami/bitnami-docker-kafka
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/kafka-1.0.2/kafka-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-01-04T09:16:55.295381292Z"
     dependencies:
     - enabled: true
