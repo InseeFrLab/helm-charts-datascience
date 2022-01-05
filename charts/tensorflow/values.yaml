@@ -57,13 +57,15 @@ vault:
 
 git:
   # Specifies whether a config map should be created
-  enabled: true
+  enabled: false
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
   name: ""
   email: ""
   cache: ""
+  token: ""
+  repository: ""
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
