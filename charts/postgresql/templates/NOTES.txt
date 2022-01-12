@@ -1,5 +1,5 @@
 
-- You can connect to this postgres only within the cluster itself on this url : postgresql://{{ template "common.names.fullname" . }}:{{ template "postgresql.port" . }}
+- You can connect to this postgres only within the cluster itself on this url : postgresql://{{ template "common.names.fullname" . }}:{{ template "postgresql.servicePort" . }}
 - The database name is **{{ .Values.global.postgresql.postgresqlDatabase }}**
 - The username is **{{ .Values.global.postgresql.postgresqlUsername }}**
 - The password is **{{ .Values.global.postgresql.postgresqlPassword }}**
