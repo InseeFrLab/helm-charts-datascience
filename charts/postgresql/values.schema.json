@@ -6,6 +6,15 @@
       "description": "postgres specific configuration",
       "type": "object",
       "properties": {
+        "postgresqlPostgresPassword": {
+          "description": "admin password",
+          "type": "string",
+          "title": "Admin Password",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{project.password}}"
+          }
+        },
         "image": {
           "description": "image specific configuration",
           "type": "object",

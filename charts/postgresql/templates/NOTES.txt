@@ -3,3 +3,4 @@
 - The database name is **{{ .Values.global.postgresql.postgresqlDatabase }}**
 - The username is **{{ .Values.global.postgresql.postgresqlUsername }}**
 - The password is **{{ .Values.global.postgresql.postgresqlPassword }}**
+- The admin username is postgres and password is **{{ .Values.postgresql.postgresqlPostgresPassword }}**
