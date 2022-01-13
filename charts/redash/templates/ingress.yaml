@@ -15,10 +15,10 @@ spec:
 {{- if .Values.ingress.tls }}
   tls:
     - hosts:
-        - {{ .Values.ingress.hostname | quote }}
+        - {{ include "library-chart.ingress.hostname" | quote }}
 {{- end }}
   rules:
-    - host: {{ .Values.ingress.hostname | quote }}
+    - host: {{ include "library-chart.ingress.hostname" | quote }}
       http:
         paths:
           - path: /
