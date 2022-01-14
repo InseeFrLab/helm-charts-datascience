@@ -98,6 +98,9 @@
           "hidden": {
             "value": false,
             "path": "ingress/generate"
+          },
+          "x-form": {
+            "value": "{{project.id}}-{{random}}.{{k8.domain}}"
           }
         }      
       }
