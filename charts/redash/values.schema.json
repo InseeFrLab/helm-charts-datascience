@@ -100,7 +100,7 @@
             "path": "ingress/generate"
           },
           "x-form": {
-            "value": "{{project.id}}-{{random}}.{{k8.domain}}"
+            "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8.domain}}"
           }
         }      
       }
