@@ -445,12 +445,8 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "fastai",
-                        "name": "ihm"
+                        "hidden": true,
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
                     }
                 }
             }
