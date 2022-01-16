@@ -272,13 +272,8 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "trino",
-                        "name": "ihm"
-                    }
+                      "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+                  }
                 }
             }
         }
