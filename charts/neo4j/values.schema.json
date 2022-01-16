@@ -165,26 +165,18 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "neo4j",
-                        "name": "ihm"
-                    }
+                      "hidden": true,
+                      "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+                  }
                 },
                 "hostnameBolt": {
                     "type": "string",
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "neo4j",
-                        "name": "bolt"
-                    }
+                      "hidden": true,
+                      "value": "{{project.id}}-{{k8s.randomSubdomain}}-bolt.{{k8s.domain}}"
+                  }
                 }
             }
         }
