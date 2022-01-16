@@ -10,12 +10,12 @@ postgresql:
   fullnameOverride: "redash-db"
 
 ingress:
-  enabled: true
+  enabled: false
   tls: true
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: redashe.lab.sspcloud.fr
+  hostname: chart-example.local
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

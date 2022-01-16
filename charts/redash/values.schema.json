@@ -73,36 +73,14 @@
       "form": true,
       "title": "Ingress Details",
       "properties": {
-        "generate": {
-          "type": "boolean",
-          "description": "Choose a dns name",
-          "default": false
-        },
         "hostname": {
             "type": "string",
             "form": true,
             "title": "Hostname",
             "x-form": {
-                "hidden": true
-            },
-            "x-generated": {
-                "type": "externalDNS",
-                "scope": "redash",
-                "name": "ihm"
+              "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
             }
-        },
-        "userHostname": {
-          "type": "string",
-          "form": true,
-          "title": "Hostname",
-          "hidden": {
-            "value": false,
-            "path": "ingress/generate"
-          },
-          "x-form": {
-            "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
-          }
-        }      
+        }    
       }
     }
   }  
