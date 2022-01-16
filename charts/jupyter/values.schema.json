@@ -485,12 +485,8 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "jupyter",
-                        "name": "ihm"
+                        "hidden": true,
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
                     }
                 },
                 "sparkHostname": {
@@ -498,12 +494,8 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "jupyter",
-                        "name": "sparkui"
+                        "hidden": true,
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}-spark.{{k8s.domain}}"
                     }
                 }
             }
