@@ -384,12 +384,8 @@
                     "form": true,
                     "title": "Hostname",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "tensorflow",
-                        "name": "ihm"
+                        "hidden": true,
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
                     }
                 },
                 "tensorboardHostname": {
@@ -397,12 +393,8 @@
                     "form": true,
                     "title": "Hostname tensorboard",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "externalDNS",
-                        "scope": "tensorflow",
-                        "name": "tensorboard"
+                        "hidden": true,
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}-board.{{k8s.domain}}"
                     }
                 }
             }
