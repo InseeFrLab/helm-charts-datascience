@@ -408,6 +408,29 @@ entries:
   argo-workflows:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-01-16T17:08:33.564066637Z"
+    dependencies:
+    - enabled: true
+      name: argo-workflows
+      repository: https://argoproj.github.io/argo-helm
+      version: 0.8.1
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.0
+    description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes.
+    digest: f8b50b3134b49cf97e4a6608e165fa92d58e7b347fc688bdae5f5646eb9301f4
+    home: https://argoproj.github.io/argo-workflows/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
+    name: argo-workflows
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-workflows
+    - https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-workflows-2.0.1/argo-workflows-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: "1"
     created: "2021-11-26T11:13:15.604102772Z"
     dependencies:
     - enabled: true
