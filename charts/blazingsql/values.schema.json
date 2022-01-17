@@ -417,7 +417,7 @@
           "default": "",
           "x-form": {
             "hidden": true,
-            "value": "{{initScriptUrl}}"
+            "value": "{{k8s.initScriptUrl}}"
           }
         },
         "personalInit": {
