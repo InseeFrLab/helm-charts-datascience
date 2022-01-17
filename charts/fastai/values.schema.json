@@ -460,12 +460,9 @@
                     "description": "initialization script",
                     "default": "",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "initScript",
-                        "scope": "fastai"
-                    }
+                        "hidden": true,
+                        "value": "{{k8s.initScriptUrl}}"
+                      }
                 },
                 "personalInit": {
                     "type": "string",
