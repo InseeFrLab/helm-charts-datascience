@@ -7880,6 +7880,26 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-01-17T13:18:27.628716097Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs. You can use it for spark.
+    digest: 917fb4710217a229982804dae75450b6f9e8aa64a8623e38fa4463a95c017b18
+    home: https://rapids.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
+    name: rapidsai
+    sources:
+    - https://github.com/InseeFrLab/rapidsai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
+    - https://github.com/rapidsai/docker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-6.0.3/rapidsai-6.0.3.tgz
+    version: 6.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-01-16T17:55:45.324647835Z"
     dependencies:
     - name: library-chart
