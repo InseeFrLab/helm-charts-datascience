@@ -10322,25 +10322,6 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-01-17T13:47:09.398518506Z"
-    dependencies:
-    - name: library-chart
-      repository: https://inseefrlab.github.io/helm-charts-datascience
-      version: 2.0.17
-    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
-    digest: 4127ba7164c5237ce161f8c81ad523bd25a9013911d86d52f17ad68c7a853f87
-    home: https://www.tensorflow.org/
-    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
-    name: tensorflow
-    sources:
-    - https://github.com/InseeFrLab/tensorflow
-    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-4.0.3/tensorflow-4.0.3.tgz
-    version: 4.0.3
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-01-16T17:55:45.84987267Z"
     dependencies:
     - name: library-chart
@@ -11155,6 +11136,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-0.0.1/trino-0.0.1.tgz
     version: 0.0.1
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-01-17T13:47:50.634991494Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.17
+    description: Ubuntu with a graphical user interface.
+    digest: 43e5d97b119f6b1f338b9f341fe0d2256c266cb8b02a5afff8bc2d80fd4c0dde
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-5.0.3/ubuntu-5.0.3.tgz
+    version: 5.0.3
   - apiVersion: v2
     appVersion: latest
     created: "2022-01-16T17:55:46.106200686Z"
