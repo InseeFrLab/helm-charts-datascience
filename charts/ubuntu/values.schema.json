@@ -459,11 +459,8 @@
                     "description": "initialization script",
                     "default": "",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "initScript",
-                        "scope": "ubuntu"
+                        "hidden": true,
+                        "value": "{{k8s.initScriptUrl}}"
                     }
                 },
                 "personalInit": {
