@@ -403,7 +403,7 @@
           "x-form": {
             "hidden": true,
             "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
-        }
+          }
         }
       }
     },
@@ -416,11 +416,8 @@
           "description": "initialization script",
           "default": "",
           "x-form": {
-            "hidden": true
-          },
-          "x-generated": {
-            "type": "initScript",
-            "scope": "blazingsql"
+            "hidden": true,
+            "value": "{{initScriptUrl}}"
           }
         },
         "personalInit": {
