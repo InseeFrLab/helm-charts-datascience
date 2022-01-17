@@ -503,11 +503,8 @@
                     "description": "initialization script",
                     "default": "",
                     "x-form": {
-                        "hidden": true
-                    },
-                    "x-generated": {
-                        "type": "initScript",
-                        "scope": "rstudio"
+                        "hidden": true,
+                        "value": "{{k8s.initScriptUrl}}"
                     }
                 },
                 "personalInit": {
