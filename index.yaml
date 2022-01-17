@@ -10322,6 +10322,25 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-01-17T13:47:09.398518506Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.17
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: 4127ba7164c5237ce161f8c81ad523bd25a9013911d86d52f17ad68c7a853f87
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-4.0.3/tensorflow-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-01-16T17:55:45.84987267Z"
     dependencies:
     - name: library-chart
