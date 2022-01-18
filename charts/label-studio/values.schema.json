@@ -72,13 +72,8 @@
           "form": true,
           "title": "Hostname",
           "x-form": {
-            "hidden": true
-          },
-          "x-generated": {
-            "type": "externalDNS",
-            "scope": "mlflow",
-            "name": "ihm"
-          }
+            "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+        }
         }
       }
     },

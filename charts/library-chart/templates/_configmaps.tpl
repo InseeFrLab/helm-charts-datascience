@@ -167,10 +167,16 @@ ConfigMap for CoreSite.xml Metastore
 {{ printf "<name>fs.s3a.path.style.access</name>" | indent 4}}
 {{ printf "<value>true</value>" | indent 4}}
 {{ printf "</property>"}}
+{{- if .Values.s3.sessionToken }}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.aws.credentials.provider</name>" | indent 4}}
 {{ printf "<value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>" | indent 4}}
 {{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.session.token</name>" | indent 4}}
+{{ printf "<value>%s</value>" .Values.s3.sessionToken | indent 4}}
+{{ printf "</property>"}}
+{{- end }}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.access.key</name>" | indent 4}}
 {{ printf "<value>%s</value>" .Values.s3.accessKeyId | indent 4}}
@@ -178,10 +184,6 @@ ConfigMap for CoreSite.xml Metastore
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.secret.key</name>" | indent 4}}
 {{ printf "<value>%s</value>" .Values.s3.secretAccessKey | indent 4}}
-{{ printf "</property>"}}
-{{ printf "<property>"}}
-{{ printf "<name>fs.s3a.session.token</name>" | indent 4}}
-{{ printf "<value>%s</value>" .Values.s3.sessionToken | indent 4}}
 {{ printf "</property>"}}
 {{ printf "</configuration>"}}
 {{- end }}

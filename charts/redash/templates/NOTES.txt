@@ -1,0 +1,10 @@
+{{- if .Values.ingress.enabled }}
+- You can connect to redash with your browser on this [link](https://{{ .Values.ingress.hostname }})
+{{- end }}
+
+*NOTES about deletion :*
+
+- **You can safely delete this chart and recreate one later**
+- Data volumes in the associated postgresql will not be deleted
+- If you start a new {{ .Chart.Name }}, it will reuse this volume silently.
+- If you want to delete this volume definitely : `kubectl delete pvc data-{{ .Values.postgresql.fullnameOverride }}-0`
