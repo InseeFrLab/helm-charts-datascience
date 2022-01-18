@@ -33,5 +33,5 @@ dependencies:
     repository:  https://charts.bitnami.com/bitnami
     enabled: true
   - name: library-chart
-    version: 2.0.0
-    repository: https://inseefrlab.github.io/helm-charts-datascience
+    version: 2.0.17
+    repository: https://dmoreira97DLTT.github.io/helm-charts-datascience

@@ -33,3 +33,9 @@ redash:
   postgresql:
     enabled: false
     existingSecret: toto
+
+tags:
+  enabled: true
+  filtertag1: ""
+  filtertag2: ""
+  filtertag3: ""

@@ -6,3 +6,8 @@ kafka:
 
 fullnameOverride: kafka
 
+tags:
+  enabled: true
+  filtertag1: ""
+  filtertag2: ""
+  filtertag3: ""
