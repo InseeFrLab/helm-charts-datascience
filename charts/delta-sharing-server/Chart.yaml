@@ -30,7 +30,7 @@ appVersion: 1
 dependencies:
   - name: library-chart
     version: 2.0.17
-    repository: https://inseefrlab.github.io/helm-charts-datascience
+    repository: https://dmoreira97DLTT.github.io/helm-charts-datascience
 
 
 

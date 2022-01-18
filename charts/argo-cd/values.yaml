@@ -126,3 +126,9 @@ secret:
   password: changeme
       # Password modification time defaults to current time if not set
       # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
+      
+tags:
+  enabled: true
+  filtertag1: ""
+  filtertag2: ""
+  filtertag3: ""

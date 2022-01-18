@@ -163,6 +163,37 @@
         }
         }
       }
+    },
+    "tags": {
+      "description": "Configuration of resource tags (labels)",
+      "type": "object",
+      "properties": {
+        "filtertag1": {      
+            "description": "resource tag number 1",
+            "type": "string",
+            "default": "",
+            "x-form": {
+                "value": "{{tags.filtertag1}}"
+            }
+        },
+        "filtertag2": {
+            "description": "resource tag number 2",
+            "type": "string",
+            "default": "",
+            "x-form": {
+                "value": "{{tags.filtertag2}}"
+            }
+        },
+        "filtertag3": {
+
+            "description": "resource tag number 3",
+            "type": "string",
+            "default": "",
+            "x-form": {
+                "value": "{{tags.filtertag3}}"
+            }
+        }
+      }
     }
   }
 }

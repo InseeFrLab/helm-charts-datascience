@@ -11,4 +11,4 @@ helm repo add inseefrlab-datascience https://inseefrlab.github.io/helm-charts-da
 
 The repo is also browsable directly https://inseefrlab.github.io/helm-charts-datascience/index.yaml
 
-Contributions are welcome, feel free to open issues or submit pull requests :)
+Contributions are welcome, feel free to open issues or submit pull requests :) 

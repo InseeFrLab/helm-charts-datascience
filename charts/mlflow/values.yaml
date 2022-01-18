@@ -119,3 +119,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+tags:
+  enabled: true
+  filtertag1: ""
+  filtertag2: ""
+  filtertag3: ""
