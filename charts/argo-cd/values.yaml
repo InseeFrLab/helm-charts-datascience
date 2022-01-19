@@ -22,11 +22,6 @@ security:
       ip: "0.0.0.0/0"
 
 global:
-  image:
-    repository: quay.io/argoproj/argocd
-    tag: v2.1.2
-    imagePullPolicy: IfNotPresent
-
   networkPolicy:
     create: false
     defaultDenyIngress: false
