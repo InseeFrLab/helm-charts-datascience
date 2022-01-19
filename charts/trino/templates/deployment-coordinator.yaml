@@ -30,7 +30,7 @@ spec:
             name: {{ include "library-chart.fullname" . }}-catalog
         - name: hdfs-config
           configMap: 
-            name: {{ include "library-chart.fullname" . }}-s3
+            name: {{ include "library-chart.configMapNameCoreSite" . }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
