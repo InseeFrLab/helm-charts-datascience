@@ -80,9 +80,6 @@ s3:
   secretAccessKey: ""
   sessionToken: ""
 
-coresite:
-  configMapName: ""
-
 additionalCatalogs: []
 #  custompg:
 #    connector.name=postgresql

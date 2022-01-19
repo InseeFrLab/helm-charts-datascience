@@ -1,1 +1,54 @@
-{{ include "library-chart.configMapCoreSite" . }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.fullname" . }}-s3
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  core-site.xml: |
+    <?xml version="1.0"?>
+    <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+    <configuration>
+        {{- if .Values.s3.enabled }}       
+        <property>
+          <name>fs.s3a.connection.ssl.enabled</name>
+          <value>true</value>
+          <description>Enables or disables SSL connections to S3.</description>
+        </property>
+        <property>
+          <name>fs.s3a.endpoint</name>
+          <description>AWS S3 endpoint to connect to. An up-to-date list is
+            provided in the AWS Documentation: regions and endpoints. Without this
+            property, the standard region (s3.amazonaws.com) is assumed.
+          </description>
+          <value>{{ .Values.s3.endpoint }}</value>
+        </property>
+        <property>
+          <name>fs.s3a.path.style.access</name>
+          <value>true</value>
+          <description>Enable S3 path style access ie disabling the default virtual hosting behaviour.
+            Useful for S3A-compliant storage providers as it removes the need to set up DNS for virtual hosting.
+          </description>
+        </property>
+        <property>
+          <name>fs.s3a.aws.credentials.provider</name>
+          <value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>
+        </property>
+        <property>
+          <name>fs.s3a.access.key</name>
+          <value>{{ .Values.s3.accessKeyId }}</value>
+        </property>
+        <property>
+          <name>fs.s3a.secret.key</name>
+          <value>{{ .Values.s3.secretAccessKey }}</value>
+        </property>
+        <property>
+          <name>fs.s3a.session.token</name>
+          <value>{{ .Values.s3.sessionToken }}</value>
+        </property>
+        <property>
+          <name>trino.s3.credentials-provider</name>
+          <value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>
+        </property>
+        {{- end }} 
+    </configuration>
