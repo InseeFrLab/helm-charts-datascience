@@ -63,10 +63,8 @@ spec:
           {{- else }}
           image: "{{ .Values.service.image.version }}"
           {{- end }}
-          command: 
-            {{- toYaml .Values.service.image.command | nindent 12 }}
-          args:
-            {{- toYaml .Values.service.image.args | nindent 12 }}
+          command: ["/bin/sh","-c"]
+          args: ["/data/{{ .Values.init.filename}} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: KUBERNETES_POD_NAME
