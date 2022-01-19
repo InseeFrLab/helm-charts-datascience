@@ -7,6 +7,8 @@ service:
     custom:
       enabled: false
       version: "inseefrlab/rstudio:r4.1.1-spark3.2.0"
+    command: ["/bin/sh","-c"]
+    args: ["/data/{{ .Values.init.filename}} /init"]
 
 spark:
   sparkui: false
