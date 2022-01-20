@@ -180,6 +180,15 @@ ConfigMap for CoreSite.xml Metastore
 {{ printf "<name>fs.s3a.session.token</name>" | indent 4}}
 {{ printf "<value>%s</value>" .Values.s3.sessionToken | indent 4}}
 {{ printf "</property>"}}
+{{- else }}
+{{ printf "<property>"}}
+{{ printf "<name>fs.s3a.aws.credentials.provider</name>" | indent 4}}
+{{ printf "<value>org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider</value>" | indent 4}}
+{{ printf "</property>"}}
+{{ printf "<property>"}}
+{{ printf "<name>trino.s3.credentials-provider</name>" | indent 4}}
+{{ printf "<value>org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider</value>" | indent 4}}
+{{ printf "</property>"}}
 {{- end }}
 {{ printf "<property>"}}
 {{ printf "<name>fs.s3a.access.key</name>" | indent 4}}
