@@ -95,8 +95,8 @@
                 "type": "string",
                 "default": "inseefrlab/vscode-python:4.0.1",
                 "enum": [
-                  "inseefrlab/vscode-python:4.0.1"
-                  "inseefrlab/vscode-python:3.12.0",
+                  "inseefrlab/vscode-python:4.0.1",
+                  "inseefrlab/vscode-python:3.12.0"
                 ]
               },
               "custom" : {
