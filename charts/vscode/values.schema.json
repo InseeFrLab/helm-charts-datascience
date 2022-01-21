@@ -93,10 +93,10 @@
               "version": {
                 "description": "vscode supported version",
                 "type": "string",
-                "default": "inseefrlab/vscode-python:3.12.0",
+                "default": "inseefrlab/vscode-python:4.0.1",
                 "enum": [
-                  "inseefrlab/vscode-python:3.12.0",
-                  "codercom/code-server:3.12.0"
+                  "inseefrlab/vscode-python:4.0.1",
+                  "inseefrlab/vscode-python:3.12.0"
                 ]
               },
               "custom" : {
@@ -104,6 +104,7 @@
                 "type": "object",  
                 "properties": {
                   "enabled": {
+                    "title": "custom image", 
                     "type": "boolean",
                     "description": "use a custom vscode docker images",
                     "default": false
@@ -111,7 +112,7 @@
                   "version": {
                     "description": "vscode unsupported version",
                     "type": "string",
-                    "default": "",
+                    "default": "inseefrlab/vscode-python:4.0.1",
                     "hidden": {
                         "value": false,
                         "path": "service/image/custom/enabled"
