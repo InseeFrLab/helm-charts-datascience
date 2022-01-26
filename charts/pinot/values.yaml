@@ -4,7 +4,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: pinot-alexis.kub.sspcloud.fr
+  hostname: pinot-to-change.kub.sspcloud.fr
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
