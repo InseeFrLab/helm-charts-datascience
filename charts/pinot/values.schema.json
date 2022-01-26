@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "pinot": {
+      "description": "apache pinot",
+      "type": "object",
+      "properties": {
+        "description": "Configuration for controller",
+        "type": "object",
+        "controller": {
+          "description": "number of controller",
+          "type": "integer",
+          "replicaCount": {
+            "description": "number of replicas",
+            "type": "integer",
+            "default": 1
+          }
+        }
+      }
+    }
+  }
+}
