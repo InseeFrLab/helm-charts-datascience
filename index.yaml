@@ -7637,6 +7637,22 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
+  pinot:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-01-27T16:20:25.218492885Z"
+    dependencies:
+    - enabled: true
+      name: pinot
+      repository: https://raw.githubusercontent.com/apache/pinot/master/kubernetes/helm
+      version: 0.2.4
+    description: A Helm chart for Kubernetes
+    digest: eb33ebe55c9dca51b9ceb4dcf4442b8cd305ba8a0ca90fa31c4aa5321e2e13a5
+    name: pinot
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pinot-0.1.0/pinot-0.1.0.tgz
+    version: 0.1.0
   postgis:
   - apiVersion: v2
     appVersion: "12"
