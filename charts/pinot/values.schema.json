@@ -18,6 +18,21 @@
           }
         }
       }
+    },
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "hostname": {
+            "type": "string",
+            "form": true,
+            "title": "Hostname",
+            "x-form": {
+              "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+            }
+        }    
+      }
     }
   }
 }
