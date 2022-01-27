@@ -1,0 +1,57 @@
+ingress:
+  enabled: true
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: chart-example.local
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+pinot:
+  controller:
+    name: controller
+    replicaCount: 1
+    persistence:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1G
+      mountPath: /var/pinot/controller/data
+      storageClass: ""
+    external:
+      #override
+      enabled: false
+  broker:
+    name: broker
+    replicaCount: 1
+    external:
+      #override
+      enabled: false
+  server:
+    name : server
+    replicaCount: 1
+    persistence:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 4G
+      mountPath: /var/pinot/server/data
+      storageClass: ""
+      #storageClass: "ssd"
+  minion:
+    name: minion
+    replicaCount: 1
+    persistence:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 4G
+      mountPath: /var/pinot/minion/data
+      storageClass: ""
+      #storageClass: "ssd
+  zookeeper:
+    enabled: true
+    urlOverride: "my-zookeeper:2181/my-pinot"
+    port: 2181
+    replicaCount: 1
+    persistence:
+      enabled: true
