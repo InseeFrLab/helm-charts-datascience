@@ -18,12 +18,14 @@
               "extra": {
                 "type":"object",
                 "description": "extra config",
-                "configs": {
-                  "description": "extra config",
-                  "type": "string",
-                  "x-form": {
-                    "value": "pinot.set.instance.id.to.hostname=true\ncontroller.task.scheduler.enabled=true\ncontroller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory\ncontroller.admin.access.control.principals={{project.id}}\ncontroller.admin.access.control.principals.admin.password={{project.password}}"
-                  }                
+                "properties": {
+                  "configs": {
+                    "description": "extra config",
+                    "type": "string",
+                    "x-form": {
+                      "value": "pinot.set.instance.id.to.hostname=true\ncontroller.task.scheduler.enabled=true\ncontroller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory\ncontroller.admin.access.control.principals={{project.id}}\ncontroller.admin.access.control.principals.admin.password={{project.password}}"
+                    }                
+                  }
                 }
               }
             }
