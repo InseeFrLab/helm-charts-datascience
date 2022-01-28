@@ -3,18 +3,19 @@
   "type": "object",
   "properties": {
     "pinot": {
-      "description": "apache pinot",
       "type": "object",
+      "description": "apache pinot",
       "properties": {
-        "description": "Configuration for controller",
-        "type": "object",
-        "controller": {
-          "description": "number of controller",
-          "type": "integer",
-          "replicaCount": {
-            "description": "number of replicas",
-            "type": "integer",
-            "default": 1
+         "controller": {        
+            "type": "object",
+            "description": "Configuration for controller",
+            "properties": {
+              "replicaCount": {
+                "description": "number of replicas",
+                "type": "integer",
+                "default": 1
+              }
+            }
           }
         }
       }
@@ -34,5 +35,5 @@
         }    
       }
     }
-  }
 }
+
