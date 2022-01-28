@@ -7640,6 +7640,21 @@ entries:
   pinot:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-01-28T00:24:52.848060813Z"
+    dependencies:
+    - enabled: true
+      name: pinot
+      repository: https://raw.githubusercontent.com/apache/pinot/master/kubernetes/helm
+      version: 0.2.4
+    description: A Helm chart for Kubernetes
+    digest: c6ac6b1378874f8a6214c61d61e12a5f44af812b893dfd14209c0b36332f8f4b
+    name: pinot
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pinot-0.1.2/pinot-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-01-28T00:07:09.565385565Z"
     dependencies:
     - enabled: true
