@@ -37,12 +37,14 @@
               "extra": {
                 "type":"object",
                 "description": "extra config",
-                "configs": {
-                  "description": "extra config",
-                  "type": "string",
-                  "x-form": {
-                    "value": "pinot.set.instance.id.to.hostname=true\npinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory\npinot.broker.access.control.principals={{project.id}}\npinot.broker.access.control.principals.admin.password={{project.password}}"
-                  }                
+                "properties": {
+                  "configs": {
+                    "description": "extra config",
+                    "type": "string",
+                    "x-form": {
+                      "value": "pinot.set.instance.id.to.hostname=true\npinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory\npinot.broker.access.control.principals={{project.id}}\npinot.broker.access.control.principals.admin.password={{project.password}}"
+                    }                
+                  }
                 }
               }
             }
