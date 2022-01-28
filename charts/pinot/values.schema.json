@@ -22,6 +22,7 @@
                   "configs": {
                     "description": "extra config",
                     "type": "string",
+                    "render": "textArea",
                     "x-form": {
                       "value": "pinot.set.instance.id.to.hostname=true\ncontroller.task.scheduler.enabled=true\ncontroller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory\ncontroller.admin.access.control.principals={{project.id}}\ncontroller.admin.access.control.principals.admin.password={{project.password}}"
                     }                
@@ -41,6 +42,7 @@
                   "configs": {
                     "description": "extra config",
                     "type": "string",
+                    "render": "textArea",
                     "x-form": {
                       "value": "pinot.set.instance.id.to.hostname=true\npinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory\npinot.broker.access.control.principals={{project.id}}\npinot.broker.access.control.principals.admin.password={{project.password}}"
                     }                
