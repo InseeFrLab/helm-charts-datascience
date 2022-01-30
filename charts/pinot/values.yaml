@@ -24,12 +24,15 @@ pinot:
       enabled: false
       extra:
     extra:
-      configs: |-
-        pinot.set.instance.id.to.hostname=true
-        controller.task.scheduler.enabled=true
-        controller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory
-        controller.admin.access.control.principals=admin
-        controller.admin.access.control.principals.admin.password=verysecret
+      configs: "pinot.set.instance.id.to.hostname=true\ncontroller.task.scheduler.enabled=true\ncontroller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory\ncontroller.admin.access.control.principals=admin\ncontroller.admin.access.control.principals.admin.password=verysecret"
+
+#      configs: |-
+#        pinot.set.instance.id.to.hostname=true
+#        controller.task.scheduler.enabled=true
+#        controller.admin.access.control.factory.class=org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory
+#        controller.admin.access.control.principals=admin
+#        controller.admin.access.control.principals.admin.password=verysecret
+
   broker:
     name: broker
     replicaCount: 1
@@ -37,11 +40,12 @@ pinot:
       #override
       enabled: false
     extra:
-      configs: |-
-        pinot.set.instance.id.to.hostname=true
-        pinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory
-        pinot.broker.access.control.principals=admin
-        pinot.broker.access.control.principals.admin.password=verysecret
+      configs: "pinot.set.instance.id.to.hostname=true\npinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory\npinot.broker.access.control.principals=admin\npinot.broker.access.control.principals.admin.password=verysecure"
+#      configs: |-
+#        pinot.set.instance.id.to.hostname=true
+#        pinot.broker.access.control.class=org.apache.pinot.broker.broker.BasicAuthAccessControlFactory
+#        pinot.broker.access.control.principals=admin
+#        pinot.broker.access.control.principals.admin.password=verysecret
   server:
     name : server
     replicaCount: 1
