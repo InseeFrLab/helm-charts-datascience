@@ -7802,6 +7802,24 @@ entries:
   postgis:
   - apiVersion: v2
     appVersion: "12"
+    created: "2022-01-31T21:59:59.46256885Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.0
+    description: An object-relational database management system, a database server
+    digest: 0fd38ee270db1aba6003a6faffcda45bb8926f4fc1a69d6d22dc0681c41aa1df
+    home: https://www.postgresql.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: postgis
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/postgis
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/postgis-2.1.4/postgis-2.1.4.tgz
+    version: 2.1.4
+  - apiVersion: v2
+    appVersion: "12"
     created: "2022-01-21T14:35:31.126887194Z"
     dependencies:
     - name: library-chart
