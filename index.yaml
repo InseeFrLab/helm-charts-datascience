@@ -6952,6 +6952,26 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/neo4j-0.1.0/neo4j-0.1.0.tgz
     version: 0.1.0
+  nocodb:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-01-31T10:09:00.400124835Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.0
+    description: NocoDB is an open source NoCode platform that turns any database into a smart spreadsheet
+    digest: 057598ab6b8a3c51dac35a00fdfcd6fdda8dbcbc54b6558932d4319b555b412c
+    home: https://www.nocodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/nocodb.png
+    name: nocodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/nocodb
+    - https://hub.docker.com/r/nocodb/nocodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/nocodb-0.0.1/nocodb-0.0.1.tgz
+    version: 0.0.1
   openrefine:
   - apiVersion: v2
     appVersion: latest
