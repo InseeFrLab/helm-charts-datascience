@@ -1,0 +1,14 @@
+{{- if .Values.ingress.enabled }}
+- You can connect to nocodb with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- end }}
+
+*NOTES about deletion :*
+
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+- The volume associated with the following path **{{ .Values.persistence.mountPath }}** will be deleted
+- So, you will lose your data
+{{- end }}
+{{- if .Values.persistence.existingClaim }}
+- **You can safely delete this chart and recreate one later**
+- The volume associated with the following path **{{ .Values.persistence.mountPath }}** will not be deleted
+{{- end }}
