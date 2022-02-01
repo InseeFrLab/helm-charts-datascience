@@ -41,6 +41,9 @@ spec:
             - configMapRef:
                 name: {{ include "library-chart.configMapNameS3" . }}
             {{- end }}
+          env:
+            - name: MLFLOW_S3_ENDPOINT_URL
+              value: "https://{{ .Values.s3.endpoint }}"
           ports:
             - name: http
               containerPort: 8000
