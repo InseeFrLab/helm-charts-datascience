@@ -9101,6 +9101,25 @@ entries:
     version: 0.0.1
   rstudio:
   - apiVersion: v2
+    created: "2022-02-01T12:52:18.569545323Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.13
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis. You can use it for spark.
+    digest: 24cf1bfb944a29fdf2eaa22f035d14e3c1aa9b8b4f415757d1369955d36639b2
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-6.1.2/rstudio-6.1.2.tgz
+    version: 6.1.2
+  - apiVersion: v2
     created: "2022-01-19T16:38:04.844027776Z"
     dependencies:
     - name: library-chart
