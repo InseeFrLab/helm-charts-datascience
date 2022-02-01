@@ -8,6 +8,8 @@ service:
       enabled: false
       version: "inseefrlab/rstudio:r4.1.1-spark3.2.0"
 
+arg: "/data/{{ .Values.init.filename}} /init"
+
 spark:
   sparkui: false
   configMapName: ""
