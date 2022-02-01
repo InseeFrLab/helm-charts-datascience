@@ -114,7 +114,9 @@ spec:
             - name: http
               containerPort: 8787
               protocol: TCP
-          {{- toYaml .Values.probe | nindent 10 }}         
+          {{- if .Values.probe.enabled }}
+          {{- toYaml .Values.probe.probeValue | nindent 10 }} 
+          {{- end }}        
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
