@@ -2755,6 +2755,26 @@ entries:
   fastai:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-02-03T17:41:43.506697635Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.17
+    description: fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches.
+    digest: e849915b01edab5403de6042f85d5dc9102b40b01c17bb315aa6f386b65d5d05
+    home: https://www.fast.ai/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/fastai.png
+    name: fastai
+    sources:
+    - https://github.com/InseeFrLab/fastai
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/fastai
+    - https://github.com/fastai/docker-containers
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/fastai-6.0.3/fastai-6.0.3.tgz
+    version: 6.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-01-16T17:55:44.342841371Z"
     dependencies:
     - name: library-chart
