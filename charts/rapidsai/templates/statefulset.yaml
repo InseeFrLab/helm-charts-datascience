@@ -34,6 +34,9 @@ spec:
         {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
+        - name: dshm
+          emptyDir:
+            medium: Memory
         {{- if .Values.spark.default }}
         - name: config-sparkconf
           configMap:
@@ -115,6 +118,8 @@ spec:
               name: home
             - mountPath: /data
               name: {{$volumeName}}
+            - mountPath: /dev/shm
+              name: dshm
             - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
               subPath: core-site.xml
               name: config-coresite
