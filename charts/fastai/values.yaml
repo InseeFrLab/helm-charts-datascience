@@ -2,11 +2,11 @@
 
 service:
   image:
-    version: "inseefrlab/fastai:main"
+    version: "inseefrlab/fastai:2.2.5"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: ""
+      version: "inseefrlab/fastai:2.2.5"
   
 security:
   password: "changeme"

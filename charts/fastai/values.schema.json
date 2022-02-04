@@ -17,24 +17,33 @@
                         "enum": ["IfNotPresent","Always","Never"]
                       },
                       "version": {
-                        "description": "fastai supported version",
+                        "description": "supported versions",
                         "type": "string",
-                        "enum": ["inseefrlab/fastai:main"],
-                        "default": "inseefrlab/fastai:main"
+                        "enum": [
+                            "inseefrlab/fastai:2.2.5"
+                                ],
+                        "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                        "hidden": {
+                            "value": true,
+                            "path": "service/image/custom/enabled"
+                        },
+                        "default": "inseefrlab/fastai:2.2.5"
                       },
                       "custom" : {
-                        "description": "use a custom fastai docker image",
+                        "description": "use a custom jupyter docker image",
                         "type": "object",  
                         "properties": {
                           "enabled": {
+                            "title": "custom image",
                             "type": "boolean",
-                            "description": "use a custom fastai docker images",
+                            "description": "use a custom jupyter docker image",
                             "default": false
                           },
                           "version": {
-                            "description": "fastai unsupported version",
+                            "description": "jupyter unsupported version",
                             "type": "string",
-                            "default": "",
+                            "default": "inseefrlab/fastai:2.2.5",
+                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                             "hidden": {
                                 "value": false,
                                 "path": "service/image/custom/enabled"
