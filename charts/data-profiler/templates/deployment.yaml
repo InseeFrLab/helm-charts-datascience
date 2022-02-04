@@ -72,13 +72,13 @@ spec:
             {{- end }}
           env:
             - name: INPUT_FILE
-              value: "{{ .Values.global.filePath }}"
+              value: "{{ .Values.datasource.filePath }}"
             - name: FILE_FORMAT
-              value: "{{ .Values.global.fileFormat }}"
+              value: "{{ .Values.datasource.fileFormat }}"
             - name: SEPARATOR
-              value: "{{ .Values.global.separator }}"
+              value: "{{ .Values.datasource.separator }}"
             - name: NA_VAL
-              value: "{{ .Values.global.naVal }}"
+              value: "{{ .Values.datasource.naVal }}"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

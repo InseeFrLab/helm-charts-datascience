@@ -75,15 +75,10 @@
         }
       }
     },
-    "global": {
-      "description": "input data source specific configuration",
-      "type": "object",
-      "title": "Data source",
-      "properties": {
-        "datasource": {
+    "datasource": {
           "description": "datasource specific configuration",
           "type": "object",
-          "title": "Database",
+          "title": "data source",
           "properties": {
             "filePath": {
               "type": "string",
@@ -108,8 +103,6 @@
               "default": ""
             }
           }
-        }
-      }
     }
   }
 }
