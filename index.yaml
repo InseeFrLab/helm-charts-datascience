@@ -2279,6 +2279,26 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/dask-1.0.0/dask-1.0.0.tgz
     version: 1.0.0
+  data-profiler:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2022-02-04T15:02:55.579293997Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: data-profiler uses pandas data profiling package to generate a report of your dataset.
+    digest: 8a3f64e2dadd01de99f22be4d1604b712c34dfc47be0ca2ab546430312e3f976
+    home: https://datalab.sspcloud.fr/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/data-profiler.png
+    name: data-profiler
+    sources:
+    - https://github.com/InseeFrLab/data-profiler
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/data-profiler
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/data-profiler-0.0.1/data-profiler-0.0.1.tgz
+    version: 0.0.1
   delta-sharing-server:
   - apiVersion: v2
     appVersion: "1"
