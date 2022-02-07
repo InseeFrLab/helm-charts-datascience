@@ -2282,6 +2282,25 @@ entries:
   data-profiler:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-02-07T15:41:21.730170737Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: data-profiler uses pandas data profiling package to generate a report of your dataset.
+    digest: 8a7861bc9b492f61babbc81cca66574cf6a89571f3a69b52f2afc1f65a57aa34
+    home: https://datalab.sspcloud.fr/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/data-profiler.png
+    name: data-profiler
+    sources:
+    - https://github.com/InseeFrLab/data-profiler
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/data-profiler
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/data-profiler-0.0.5/data-profiler-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-02-07T14:29:57.62460817Z"
     dependencies:
     - name: library-chart
