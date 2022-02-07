@@ -63,8 +63,8 @@ spec:
           volumeMounts:
           - name: html
             mountPath: /html
-          command: [ sh, -c ]
-          args: [ "python dataprofiler/main.py --action render --storage_type s3 --input_file $INPUT_FILE --file_format $FILE_FORMAT --separator $SEPARATOR --na_val $NA_VAL --report_render_path /html --report_format html --report_name index" ]
+          command: [ sh]
+          args: [ "main.sh" ]
           envFrom:
             {{- if .Values.s3.enabled }}
             - configMapRef:
