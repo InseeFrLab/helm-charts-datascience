@@ -8,6 +8,10 @@ datasource:
   separator: ","
   naVal: "?"
 
+reportDetail:
+  minimal: true
+  explorative: false
+
 replicaCount: 1
 
 service:

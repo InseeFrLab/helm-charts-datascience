@@ -103,6 +103,23 @@
               "default": ""
             }
           }
+    },
+    "reportDetail": {
+      "description": "report content specific configuration",
+      "type": "object",
+      "title": "report details",
+      "properties": {
+        "minimal": {
+          "type": "boolean",
+          "title": "If true, remove correlation and duplication row detection from report",
+          "default": true
+        },
+        "explorative": {
+          "type": "boolean",
+          "title": "If false, remove some stats and charts from column detail page for better speed",
+          "default": false
+        }
+      }
     }
   }
-}
+}  

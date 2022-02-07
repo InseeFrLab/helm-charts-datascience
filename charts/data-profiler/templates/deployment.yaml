@@ -79,6 +79,10 @@ spec:
               value: "{{ .Values.datasource.separator }}"
             - name: NA_VAL
               value: "{{ .Values.datasource.naVal }}"
+            - name: MINIMAL
+              value: "{{ .Values.reportDetail.minimal }}"
+            - name: EXPLORATIVE
+              value: "{{ .Values.reportDetail.explorative }}"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
