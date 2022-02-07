@@ -111,12 +111,14 @@
       "properties": {
         "minimal": {
           "type": "boolean",
-          "title": "If true, remove correlation and duplication row detection from report",
+          "title": "Enable minimum report",
+          "description": "If true, remove correlation and duplication check",
           "default": true
         },
         "explorative": {
           "type": "boolean",
-          "title": "If false, remove some stats and charts from column detail page for better speed",
+          "title": "Enable explorative report",
+          "description": "If false, remove some stats and charts from column detail page for better speed",
           "default": false
         }
       }
