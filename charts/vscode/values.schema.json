@@ -93,8 +93,9 @@
               "version": {
                 "description": "vscode supported version",
                 "type": "string",
-                "default": "inseefrlab/vscode-python:4.0.1",
+                "default": "inseefrlab/vscode-python:4.0.2",
                 "enum": [
+                  "inseefrlab/vscode-python:4.0.2",
                   "inseefrlab/vscode-python:4.0.1",
                   "inseefrlab/vscode-python:3.12.0"
                 ]
