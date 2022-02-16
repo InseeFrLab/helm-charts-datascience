@@ -1,6 +1,8 @@
 {{- if .Values.ingress.enabled }}
 - You can connect to this neo4j with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostnameUI }})
 {{- end }}
+- The username is **neo4j**
+- The password is **{{ .Values.security.password }}**
 
 *NOTES about deletion :*
 
