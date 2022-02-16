@@ -3,10 +3,11 @@
 service:
   tensorboard: true
   image:
-    repository: "inseefrlab/tensorflow"
+    version: "inseefrlab/tensorflow:2.7.1-gpu-jupyter"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "2.4.0-gpu-jupyter"
+    custom:
+      enabled: false
+      version: "inseefrlab/tensorflow:2.7.1-gpu-jupyter"
   
 security:
   password: "changeme"
