@@ -1,16 +1,13 @@
 apiVersion: v2
-name: tensorflow
-description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
-icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+name: data-profiler
+description: data-profiler uses pandas data profiling package to generate a report of your dataset.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/data-profiler.png
 keyworks:
-  - Python
-  - Jupyter
-  - GPU
-home: https://www.tensorflow.org/
+  - BI
+home: https://datalab.sspcloud.fr/
 sources:
-  - https://github.com/InseeFrLab/tensorflow
-  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
-
+  - https://github.com/InseeFrLab/data-profiler
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/data-profiler
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -24,12 +21,12 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 4.5.0
+version: 0.0.6
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: latest
+appVersion: 1
 dependencies:
   - name: library-chart
     version: 2.0.20

@@ -1,0 +1,97 @@
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $initContainerName := printf "%s-%s" $fullName "init-data" | trunc 63 | trimSuffix "-" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+      - name: html
+        emptyDir: { }
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: nginx:latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+          - name: html
+            mountPath: /usr/share/nginx/html
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}         
+      initContainers:
+        - name: generate-report
+          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          volumeMounts:
+          - name: html
+            mountPath: /html
+          command: [ sh]
+          args: [ "main.sh" ]
+          envFrom:
+            {{- if .Values.s3.enabled }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameS3" . }}
+            {{- end }}
+          env:
+            - name: INPUT_FILE
+              value: "{{ .Values.datasource.filePath }}"
+            - name: FILE_FORMAT
+              value: "{{ .Values.datasource.fileFormat }}"
+            - name: SEPARATOR
+              value: "{{ .Values.datasource.separator }}"
+            - name: NA_VAL
+              value: "{{ .Values.datasource.naVal }}"
+            - name: MINIMAL
+              value: "{{ .Values.reportDetail.minimal }}"
+            - name: EXPLORATIVE
+              value: "{{ .Values.reportDetail.explorative }}"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

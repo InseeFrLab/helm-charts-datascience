@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-- You can connect to this ubuntu with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }}/vnc.html)
+- You can connect to this ubuntu within your browser at this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }}/vnc.html)
 {{- else if contains "NodePort" .Values.service.type }}
   export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "library-chart.fullname" . }})
   export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
@@ -14,4 +14,5 @@
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:80
 {{- end }}
-- Your access token is **{{ .Values.security.password }}**
+- You will need this service password to access the service: **{{ .Values.security.password }}**
+  *It usually never changes except if you or a member of your project requested it to*.

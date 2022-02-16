@@ -6,6 +6,54 @@
             "description": "spark-history specific configuration",
             "type": "object",
             "properties": {
+                "image" : {
+                    "description": "image docker",
+                    "type": "object",  
+                    "properties": {
+                      "pullPolicy": {
+                        "type": "string",
+                        "description": "option when pulling the docker image",
+                        "default": "IfNotPresent",
+                        "enum": ["IfNotPresent","Always","Never"]
+                      },
+                      "version": {
+                        "description": "supported versions",
+                        "type": "string",
+                        "enum": [
+                            "inseefrlab/tensorflow:2.7.1-gpu-jupyter",
+                            "inseefrlab/tensorflow:2.4.0-gpu-jupyter"
+                                ],
+                        "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                        "hidden": {
+                            "value": true,
+                            "path": "service/image/custom/enabled"
+                        },
+                        "default": "inseefrlab/tensorflow:2.7.1-gpu-jupyter"
+                      },
+                      "custom" : {
+                        "description": "use a custom docker image",
+                        "type": "object",  
+                        "properties": {
+                          "enabled": {
+                            "title": "custom image",
+                            "type": "boolean",
+                            "description": "use a custom docker image",
+                            "default": false
+                          },
+                          "version": {
+                            "description": "unsupported version",
+                            "type": "string",
+                            "default": "inseefrlab/tensorflow:2.7.1-gpu-jupyter",
+                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                            "hidden": {
+                                "value": false,
+                                "path": "service/image/custom/enabled"
+                            }
+                          }
+                        }        
+                      }
+                    }        
+                },
                 "tensorboard": {
                     "description": "enable",
                     "type": "boolean",
