@@ -98,7 +98,12 @@
                   "inseefrlab/vscode-python:4.0.2",
                   "inseefrlab/vscode-python:4.0.1",
                   "inseefrlab/vscode-python:3.12.0"
-                ]
+                ],
+                "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                  "hidden": {
+                      "value": true,
+                      "path": "service/image/custom/enabled"
+                  },
               },
               "custom" : {
                 "description": "use a custom vscode docker image",
@@ -113,7 +118,7 @@
                   "version": {
                     "description": "vscode unsupported version",
                     "type": "string",
-                    "default": "inseefrlab/vscode-python:4.0.1",
+                    "default": "inseefrlab/vscode-python:4.0.2",
                     "hidden": {
                         "value": false,
                         "path": "service/image/custom/enabled"
