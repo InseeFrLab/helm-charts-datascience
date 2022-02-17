@@ -47,7 +47,13 @@ spec:
             - name: NEO4J_AUTH
               value: neo4j/{{ .Values.security.password }}
             - name: NEO4J_dbms_connector_bolt_advertised__address
-              value: {{ .Values.ingress.hostnameBolt }}:443  
+              value: {{ .Values.ingress.hostnameBolt }}:443
+            {{- if .Values.service.apoc }}
+            - name: NEO4J_dbms_directories_plugins
+              value: "/var/lib/neo4j/labs"
+            - name: NEO4J_dbms_security_procedures_unrestricted
+              value: "apoc.*"
+            {{- end }}
           ports:
             - name: ui
               containerPort: 7474
