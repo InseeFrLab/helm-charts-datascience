@@ -188,7 +188,7 @@
             "type": "boolean",
             "title": "Enable apoc plugin",
             "description": "Enable apoc plugin",
-            "default": false,
+            "default": false
           }
         }
       }
