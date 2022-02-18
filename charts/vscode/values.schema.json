@@ -103,7 +103,7 @@
                   "hidden": {
                       "value": true,
                       "path": "service/image/custom/enabled"
-                  },
+                  }
               },
               "custom" : {
                 "description": "use a custom vscode docker image",
