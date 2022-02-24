@@ -6,15 +6,6 @@
       "description": "postgres specific configuration",
       "type": "object",
       "properties": {
-        "postgresqlPostgresPassword": {
-          "description": "admin password",
-          "type": "string",
-          "title": "Admin Password",
-          "default": "changeme",
-          "x-form": {
-            "value": "{{project.password}}"
-          }
-        },
         "image": {
           "description": "image specific configuration",
           "type": "object",
@@ -54,6 +45,43 @@
             }
           }
         },
+        "auth": {
+          "description": "postgres authentification configuration",
+          "type": "object",
+          "title": "Database",
+          "properties": {
+            "postgresPassword": {
+              "type": "string",
+              "title": "Admin password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{project.password}}"
+              }
+            },
+            "username": {
+              "type": "string",
+              "title": "User",
+              "default": "admin",
+              "x-form": {
+                "value": "{{project.id}}"
+              }
+            },
+            "password": {
+              "type": "string",
+              "title": "User password",
+              "default": "changeme",
+              "x-form": {
+                "value": "{{project.password}}"
+              }
+            },
+            "database": {
+              "description": "Name for the default database to create.",
+              "type": "string",
+              "title": "Database",
+              "default": "defaultdb"
+            }
+          }
+        },
         "extensions": {
           "description": "Postgres extensions to enable",
           "type": "object",
@@ -65,42 +93,6 @@
               }
             }
           }
-      }
-    },
-    "global": {
-      "description": "postgres specific configuration",
-      "type": "object",
-      "title": "Database",
-      "properties": {
-        "postgresql": {
-          "description": "postgres specific configuration",
-          "type": "object",
-          "title": "Database",
-          "properties": {
-            "postgresqlUsername": {
-              "type": "string",
-              "title": "Admin user",
-              "default": "admin",
-              "x-form": {
-                "value": "{{project.id}}"
-              }
-            },
-            "postgresqlPassword": {
-              "type": "string",
-              "title": "Password",
-              "default": "changeme",
-              "x-form": {
-                "value": "{{project.password}}"
-              }
-            },
-            "postgresqlDatabase": {
-              "description": "Name for the default database that is created when the image is first started.",
-              "type": "string",
-              "title": "Database",
-              "default": "defaultdb"
-            }
-          }
-        }
       }
     }
   }
