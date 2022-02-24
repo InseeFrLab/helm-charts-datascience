@@ -189,13 +189,23 @@
 			"description": "configure your trino coordinator config files",
 			"type": "object",
 			"properties": {
-				"extraConfig": {
+				"enabled": {
+					"type": "boolean",
+					"title": "Enable extra configuration of coordinator",
+					"description": "add some extra config keys",
+					"default": false
+				},
+				"extraConfigs": {
 					"description": "extra config",
                     "type": "string",
                     "render": "textArea",
                     "x-form": {
-                      "value": "#addsomeconfigkey"
-                    } 
+                      "value": "#http-server.authentication.type=oauth2\n#http-server.https.enabled=false\n#http-server.authentication.oauth2.issuer=https://accounts.google.com\n#http-server.authentication.oauth2.auth-url=https://accounts.google.com/o/oauth2/v2/auth"
+                    },
+					"hidden": {
+						"value": false,
+						"path": "coordinator/enabled"
+					}
 				}
 			}
 		},
