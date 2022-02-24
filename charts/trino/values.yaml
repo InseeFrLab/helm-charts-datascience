@@ -30,7 +30,10 @@ discovery:
 
 worker:
   replicas: "2"
-  
+
+coordinator:
+  extraConfigs: ""
+
 server:
   workers: 2
   node:
@@ -56,6 +59,7 @@ server:
       type: "UseG1GC"
       g1:
         heapRegionSize: "32M"
+
 
 additionalNodeProperties: {}
 
@@ -129,7 +133,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hostname: chart-example.local
+  hostname: alexis-trino.kub.sspcloud.fr
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

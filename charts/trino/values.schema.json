@@ -185,6 +185,20 @@
 				}
 			}
 		},
+		"coordinator": {
+			"description": "configure your trino coordinator config files",
+			"type": "object",
+			"properties": {
+				"extraConfig": {
+					"description": "extra config",
+                    "type": "string",
+                    "render": "textArea",
+                    "x-form": {
+                      "value": "#addsomeconfigkey"
+                    } 
+				}
+			}
+		},
 		"security": {
 			"description": "security specific configuration",
 			"type": "object",

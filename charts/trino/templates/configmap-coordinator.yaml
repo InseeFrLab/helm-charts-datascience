@@ -52,7 +52,7 @@ data:
   {{- range $configValue := .Values.additionalConfigProperties }}
     {{ $configValue }}
   {{- end }}
-
+  {{ .Values.coordinator.extraConfigs | indent 4 }}
   password-authenticator.properties: |
     password-authenticator.name=file
     file.password-file={{ .Values.server.config.path }}/password.db
