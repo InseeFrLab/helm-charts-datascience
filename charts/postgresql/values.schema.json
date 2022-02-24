@@ -53,6 +53,18 @@
                 }                    
             }
           }
+        },
+        "extensions": {
+          "description": "Postgres extensions to enable",
+          "type": "object",
+          "properties": {
+              "postgis": {
+                  "type": "boolean",
+                  "title": "PostGIS",
+                  "default": false
+              }
+            }
+          }
         }
       }
     },

@@ -1,10 +1,16 @@
 postgresql:
   image:
     tag: "12"
+  extensions:
+    postgis:
+      enabled: false
 
 global:
   postgresql:
     servicePort: 5432
-    
     discoverable:
       allow: true
+
+primary:
+  initdb:
+    scriptsConfigMap: '{{ include "library-chart.fullname" . }}'
