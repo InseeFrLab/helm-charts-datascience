@@ -1,9 +1,8 @@
 postgresql:
   image:
-    tag: "12"
+    tag: "14"
   extensions:
-    postgis:
-      enabled: false
+    postgis: false
 
 global:
   postgresql:

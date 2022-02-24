@@ -22,8 +22,8 @@
             "tag": {
               "description": "postgresql major version",
               "type": "string",
-              "enum": ["9", "10", "11", "12","13"],
-              "default": "12"
+              "enum": ["10", "11", "12", "13", "14"],
+              "default": "14"
             }
           }
         },
