@@ -49,7 +49,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- if .Values.service.image.custom.enabled }}
+          image: "{{ .Values.service.image.custom.version }}"
+          {{- else }}
           image: "{{ .Values.service.image.version }}"
+          {{- end }}
           command: ["/bin/bash","-c"]
           args: ["ln -sf -t /tf/work/  /tf/tensorflow-tutorials && /data/{{ .Values.init.filename}} jupyter-lab --notebook-dir=/tf/work --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='$(PASSWORD)'"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
