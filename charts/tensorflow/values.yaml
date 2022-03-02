@@ -3,11 +3,11 @@
 service:
   tensorboard: true
   image:
-    version: "inseefrlab/tensorflow:2.7.1-gpu-jupyter"
+    version: "inseefrlab/tensorflow:2.0.0"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "inseefrlab/tensorflow:2.7.1-gpu-jupyter"
+      version: "inseefrlab/tensorflow:2.0.0"
   
 security:
   password: "changeme"
