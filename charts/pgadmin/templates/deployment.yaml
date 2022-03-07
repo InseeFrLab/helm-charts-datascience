@@ -68,6 +68,8 @@ spec:
             {{- if .Values.discovery.postgres }}
             - name: PGADMIN_SERVER_JSON_FILE
               value: "/data/servers.json"
+            - name: MAX_LOGIN_ATTEMPTS
+              value: {{ .Values.security.maxLoginAttempts }}
             {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

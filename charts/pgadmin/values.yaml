@@ -10,6 +10,7 @@ discovery:
 security:
   mail: example@example.com
   password: password
+  maxLoginAttempts: 999
   networkPolicy: 
     enable: false
     from: 
@@ -23,7 +24,7 @@ security:
     
 image:
   repository: dpage/pgadmin4
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
