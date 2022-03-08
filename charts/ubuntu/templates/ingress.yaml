@@ -8,6 +8,8 @@ metadata:
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
