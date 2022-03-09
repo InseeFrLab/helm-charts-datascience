@@ -93,9 +93,9 @@
               "version": {
                 "description": "vscode supported version",
                 "type": "string",
-                "default": "inseefrlab/vscode-python:2.1.0",
+                "default": "inseefrlab/vscode-python:2.2.0",
                 "enum": [
-                  "inseefrlab/vscode-python:2.1.0",
+                  "inseefrlab/vscode-python:2.2.0",
                   "inseefrlab/vscode-python:1.0.0"
                 ],
                 "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
@@ -117,7 +117,7 @@
                   "version": {
                     "description": "vscode unsupported version",
                     "type": "string",
-                    "default": "inseefrlab/vscode-python:2.0.2",
+                    "default": "inseefrlab/vscode-python:2.2.0",
                     "hidden": {
                         "value": false,
                         "path": "service/image/custom/enabled"
