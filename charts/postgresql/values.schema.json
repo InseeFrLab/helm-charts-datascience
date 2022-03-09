@@ -45,7 +45,7 @@
                     "sliderUnit": "Gi",
                     "hidden": {
                       "value": false,
-                      "path": "postgresql/persistence/enabled"
+                      "path": "postgresql/primary/persistence/enabled"
                     }                    
                   }
               }
