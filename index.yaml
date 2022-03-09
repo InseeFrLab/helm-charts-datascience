@@ -13873,6 +13873,26 @@ entries:
   vscode:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-03-09T10:25:35.622772173Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: 15e438f72b11aee02b3980c9f9dddcb74a5406ecc9c3f75cfa9c898c671032e6
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-6.2.0/vscode-6.2.0.tgz
+    version: 6.2.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-03-08T09:36:57.901871688Z"
     dependencies:
     - name: library-chart
