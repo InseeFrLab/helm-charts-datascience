@@ -8203,6 +8203,24 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-03-10T13:35:00.353151549Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+    digest: 174532e7b15dc4cd9898952256c2b9e2d890e2f5e99b78cb8cc8c7b9ef1df9a1
+    home: https://www.pgadmin.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    name: pgadmin
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/pgadmin
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pgadmin-3.0.6/pgadmin-3.0.6.tgz
+    version: 3.0.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-03-07T10:59:53.313796756Z"
     dependencies:
     - name: library-chart
