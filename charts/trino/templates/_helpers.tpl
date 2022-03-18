@@ -37,6 +37,12 @@
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
+{{ printf "delta-lake%d.properties: |" $index | indent 2}}
+    connector.name=delta-lake
+    hive.config.resources=/etc/trino/hdfs/core-site.xml
+{{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
+{{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
+    hive.non-managed-table-writes-enabled=true
 {{- end }}
 {{- end -}}
 
