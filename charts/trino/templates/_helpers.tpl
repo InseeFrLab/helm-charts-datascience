@@ -13,9 +13,9 @@
 {{- if $postgres }}
 {{- printf "postgresql%d.properties: |" $index | indent 2}}
     connector.name=postgresql
-{{ printf "connection-url=jdbc:postgresql://%s:%s/%s"  $service $port $database| indent 4}}
+{{ printf "connection-url=jdbc:postgresql://%s:%s/%s"  $service $port $database | indent 4}}
 {{ printf "connection-user=%s"  $username | indent 4}}
-{{ printf "connection-password=%s" $password| indent 4}}
+{{ printf "connection-password=%s" $password | indent 4}}
 {{- end }}
 {{- end -}}
 
