@@ -12200,6 +12200,33 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/spark-thrift-server-0.0.1/spark-thrift-server-0.0.1.tgz
     version: 0.0.1
+  superset:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2022-03-23T22:55:14.017065705Z"
+    dependencies:
+    - enabled: true
+      name: superset
+      repository: https://apache.github.io/superset
+      version: 0.5.10
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Apache Superset is a modern data exploration and visualization platform.
+    digest: a781dcc3396e971f0e2ab1169dcc0c6190802c9374d456ff93fd1631a2e6a6bd
+    home: https://superset.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/superset.png
+    keywords:
+    - Tool
+    - Data
+    name: superset
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/superset
+    - https://github.com/apache/superset
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/superset-0.0.1/superset-0.0.1.tgz
+    version: 0.0.1
   tensorflow:
   - apiVersion: v2
     appVersion: latest
