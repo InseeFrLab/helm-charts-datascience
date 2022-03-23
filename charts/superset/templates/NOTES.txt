@@ -1,0 +1,6 @@
+{{- if .Values.ingress.enabled }}
+- You can connect to superset with your browser on this [link](https://{{ .Values.ingress.hostname }})
+{{- end }}
+
+
+**This chart is an alpha release, use it with caution**

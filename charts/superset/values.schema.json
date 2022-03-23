@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "superset": {
+      "description": "superset specific configuration",
+      "type": "object",
+      "title": "superset",
+      "properties": {
+        "init": {
+          "description": "init",
+          "type": "object",
+          "title": "superset",
+          "properties": {
+            "adminUser": {
+              "type": "object",
+              "title": "Admin user",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "title": "Admin user",
+                  "default": "admin",
+                  "x-form": {
+                    "value": "{{project.id}}"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Password",
+                  "default": "changeme",
+                  "x-form": {
+                    "value": "{{project.password}}"
+                  }
+                }            
+              }
+            }
+          }
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "properties": {
+        "hostname": {
+            "type": "string",
+            "form": true,
+            "title": "Hostname",
+            "x-form": {
+              "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+            }
+        }    
+      }
+    }
+  }  
+
+}
