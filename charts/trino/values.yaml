@@ -3,11 +3,11 @@
 # Declare variables to be passed into your templates.
 service:
   image:
-    version: "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
+    version: "inseefrlab/trino:374"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
+      version: "inseefrlab/trino:374"
 
 security:
   username: "admin"

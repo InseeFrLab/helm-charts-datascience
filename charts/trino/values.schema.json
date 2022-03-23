@@ -20,14 +20,14 @@
 							"description": "supported versions",
 							"type": "string",
 							"enum": [
-								"git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
+								"inseefrlab/trino:374"
 							],
 							"pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
 							"hidden": {
 								"value": true,
 								"path": "service/image/custom/enabled"
 							},
-							"default": "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
+							"default": "inseefrlab/trino:374"
 						},
 						"custom": {
 							"description": "use a custom trino image",
@@ -42,7 +42,7 @@
 								"version": {
 									"description": "trino unsupported version",
 									"type": "string",
-									"default": "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest",
+									"default": "inseefrlab/trino:374",
 									"pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
 									"hidden": {
 										"value": false,
