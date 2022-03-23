@@ -3,10 +3,11 @@
 # Declare variables to be passed into your templates.
 service:
   image:
-    repository: git-registry.lab.sspcloud.fr/alexisdondon/trino
+    version: "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart version.
-    tag: latest
+    custom:
+      enabled: false
+      version: "git-registry.lab.sspcloud.fr/alexisdondon/trino:latest"
 
 security:
   username: "admin"

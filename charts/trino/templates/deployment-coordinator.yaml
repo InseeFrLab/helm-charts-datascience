@@ -39,7 +39,11 @@ spec:
         - name: {{ .Chart.Name }}-coordinator
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
+          {{- if .Values.service.image.custom.enabled }}
+          image: "{{ .Values.service.image.custom.version }}"
+          {{- else }}
+          image: "{{ .Values.service.image.version }}"
+          {{- end }}
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             {{- toYaml .Values.env | nindent 12 }}
