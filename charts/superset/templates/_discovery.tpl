@@ -71,7 +71,7 @@ Create the name of the config map S3 to use
 {{ printf "allow_ctas: true"| indent 4}}
 {{ printf "allow_cvas: true"| indent 4}}
 {{ printf "database_name: %s-%s" $database $service | indent 4}}
-{{ printf "sqlalchemy_uri: trino://%s:%s@%s:%s/%s" $username $password $service $port $database | indent 4}}
+{{ printf "sqlalchemy_uri: trino://%s:%s/%s?username=%s&password=%s" $service $port $database $username $password | indent 4}}
 {{ printf "tables: []" | indent 4}}
 {{- end }}
 {{- end -}} 
