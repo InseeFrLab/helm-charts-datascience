@@ -25,19 +25,19 @@
 {{ $index:= .index }}
 {{ $endpoint:= .endpoint}}
 {{- if $hive  }}
-{{- printf "hive%d.properties: |" $index | indent 2}}
+{{- printf "%s-hive.properties: |" $service | indent 2}}
     connector.name=hive
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
-{{ printf "iceberg%d.properties: |" $index | indent 2}}
+{{ printf "%s-iceberg.properties: |" $service | indent 2}}
     connector.name=iceberg
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
-{{ printf "deltalake%d.properties: |" $index | indent 2}}
+{{ printf "%s-deltalake.properties: |" $service | indent 2}}
     connector.name=delta-lake
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
@@ -54,7 +54,7 @@
 {{ $password:= .password }}
 {{ $database:= .database }}
 {{ if $mongodb }}
-{{- printf "mongodb%d.properties: |" $index | indent 2}}
+{{- printf "%s.properties: |" $service | indent 2}}
     connector.name=mongodb
 {{ printf "mongodb.seeds=%s"  (join "," $service) | trim | indent 4}}
 {{ printf "mongodb.credentials=%s:%s@%s" $username $password $database  | indent 4}}
@@ -68,7 +68,7 @@
 {{ $index:= .index }}
 {{ $port:= .port }}
 {{- if $elastic }}
-{{- printf "elastic%d.properties: |" $index | indent 2}}
+{{- printf "%s.properties: |" $service | indent 2}}
     connector.name=elasticsearch
 {{ printf "elasticsearch.host=%s"  $service | indent 4}}
 {{ printf "elasticsearch.port=%s"  $port | indent 4}}
