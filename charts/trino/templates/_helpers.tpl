@@ -25,19 +25,19 @@
 {{ $index:= .index }}
 {{ $endpoint:= .endpoint}}
 {{- if $hive  }}
-{{- printf "%s-hive.properties: |" $service | indent 2}}
+{{- printf "hive.properties: |" | indent 2}}
     connector.name=hive
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
-{{ printf "%s-iceberg.properties: |" $service | indent 2}}
+{{ printf "iceberg.properties: |" | indent 2}}
     connector.name=iceberg
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
 {{ printf "hive.s3.endpoint=%s" $endpoint | indent 4 }}
     hive.non-managed-table-writes-enabled=true
-{{ printf "%s-deltalake.properties: |" $service | indent 2}}
+{{ printf "deltalake.properties: |" | indent 2}}
     connector.name=delta-lake
     hive.config.resources=/etc/trino/hdfs/core-site.xml
 {{ printf "hive.metastore.uri=thrift://%s:9083" $service | indent 4}}
