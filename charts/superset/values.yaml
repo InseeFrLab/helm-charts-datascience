@@ -27,6 +27,7 @@ superset:
     mongodb: true
     postgres: true
     elastic: true
+    trino: true
 
 
 
