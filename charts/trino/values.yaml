@@ -23,6 +23,9 @@ security:
     enabled: true
     ip: "0.0.0.0/0"
 
+discoverable:
+  allow: true
+
 discovery:
   hive: true
   mongodb: true
