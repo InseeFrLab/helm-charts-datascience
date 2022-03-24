@@ -18,6 +18,18 @@ superset:
       sqlalchemy-trino==0.4.1 \
       redis==3.5.3 && \
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
+  extraConfigs:
+    import_datasources.yaml: |
+      databases:
+      {{ include "superset.discovery" . }}
+  discovery:
+    hive: true
+    mongodb: true
+    postgres: true
+    elastic: true
+
+
+
 
 ingress:
   enabled: true
