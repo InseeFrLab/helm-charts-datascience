@@ -12,7 +12,7 @@
 {{- $username:= ( index $secret.data "postgres-username") | b64dec  }}
 {{- $password:= ( index $secret.data "postgres-password") | b64dec  }}
 {{- $database:= ( index $secret.data "postgres-database") | b64dec  }}
-{{- $port:= ( index $secret.data "postgres-port") | b64dec  }}
+{{- $port:= ( index $secret.data "postgres-port")  }}
 {{- if $virgule }}
 {{ printf "," }}
 {{- end }}
