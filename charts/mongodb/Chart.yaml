@@ -2,7 +2,7 @@ apiVersion: v2
 name: mongodb
 description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mongodb.png
-keyworks:
+keywords:
   - nosql
   - Database
   - json
@@ -24,17 +24,16 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.2.8
+version: 1.2.9
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: 1
+appVersion: "1"
 dependencies:
   - name: mongodb
     version: 10.28.2
     repository:  https://charts.bitnami.com/bitnami
-    enabled: true
   - name: library-chart
     version: 2.0.20
     repository: https://inseefrlab.github.io/helm-charts-datascience
