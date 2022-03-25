@@ -2,7 +2,7 @@ apiVersion: v2
 name: elastic
 description: Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/elk.png
-keyworks:
+keywords:
   - Search
   - Lucene
   - Visualization
@@ -28,16 +28,14 @@ version: 2.0.3
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: 1
+appVersion: "1"
 dependencies:
   - name: elasticsearch
     version: 7.13.4
     repository:  https://helm.elastic.co
-    enabled: true
   - name: kibana
     version: 7.13.4
     repository:  https://helm.elastic.co
-    enabled: true
   - name: library-chart
     version: 2.0.20
     repository: https://inseefrlab.github.io/helm-charts-datascience
