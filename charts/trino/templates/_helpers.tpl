@@ -53,8 +53,9 @@
 {{ $username:= .username }}
 {{ $password:= .password }}
 {{ $database:= .database }}
+{{ $name:= .name }}
 {{ if $mongodb }}
-{{- printf "%s.properties: |" $service | indent 2}}
+{{- printf "%s.properties: |" $name | indent 2}}
     connector.name=mongodb
 {{ printf "mongodb.seeds=%s"  (join "," $service) | trim | indent 4}}
 {{ printf "mongodb.credentials=%s:%s@%s" $username $password $database  | indent 4}}

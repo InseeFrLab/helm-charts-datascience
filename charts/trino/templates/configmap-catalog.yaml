@@ -26,7 +26,8 @@ data:
 {{ $username:= ( index $secret.data "mongodb-username") | b64dec  }}
 {{ $password:= ( index $secret.data "mongodb-password") | b64dec  }}
 {{ $database:= ( index $secret.data "mongodb-database") | b64dec  }}
-{{ $data := dict "mongodb" $mongodb "service" $service  "index" $index "username" $username "password" $password "database" $database }}
+{{ $name:= ( index $secret.data "mongodb-name") | b64dec  }}
+{{ $data := dict "mongodb" $mongodb "service" $service  "index" $index "username" $username "password" $password "database" $database "name" $name}}
 {{- template "connector.mongodb2" $data -}}
 {{- end -}}
 {{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "postgres" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
