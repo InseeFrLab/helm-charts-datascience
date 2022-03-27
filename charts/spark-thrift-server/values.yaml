@@ -36,6 +36,9 @@ init:
 discovery:
   hive: true
 
+discoverable:
+  allow: true
+
 environment:
   s3: true
 
