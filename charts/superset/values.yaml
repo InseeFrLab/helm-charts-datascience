@@ -44,6 +44,7 @@ superset:
       psycopg2-binary==2.9.1 \
       sqlalchemy-trino==0.4.1 \
       PyHive==0.6.5 \
+      elasticsearch-dbapi==0.2.9 \
       redis==3.5.3 && \
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
   extraConfigs:

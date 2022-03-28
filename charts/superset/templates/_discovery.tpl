@@ -14,6 +14,7 @@ Create the name of the config map S3 to use
 */}}
 {{- define "superset.discovery" -}}
 {{- $postgres:= .Values.discovery.postgres }}
+{{- $elastic:= .Values.discovery.elastic }}
 {{- $trino:= .Values.discovery.trino }}
 {{- $spark:= .Values.discovery.sparkThriftServer }}
 {{- $namespace:= .Release.Namespace }}
@@ -32,6 +33,17 @@ Create the name of the config map S3 to use
 {{- $test = 0}}
 {{- end }}
 {{- template "superset.postgres" $data -}}
+{{- end -}}
+{{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "elastic" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
+{{- $service:= ( index $secret.data "elastic-service" | default "") | b64dec  }}
+{{- $name:= ( index $secret.data "elastic-name" | default "") | b64dec  }}
+{{- $port:= ( index $secret.data "elastic-port") | b64dec }}
+{{- $data := dict "elastic" $elastic "service" $service "name" $name "port" $port}}
+{{- if $test }}
+{{- printf "databases:" | indent 2 }}
+{{- $test = 0}}
+{{- end }}
+{{- template "superset.elastic" $data -}}
 {{- end -}}
 {{- if and (index $secret "metadata" "annotations" "onyxia/discovery") (eq "trino" (index $secret "metadata" "annotations" "onyxia/discovery" | toString)) }}
 {{- $service:= ( index $secret.data "trino-service" | default "") | b64dec  }}
@@ -74,6 +86,21 @@ Create the name of the config map S3 to use
 {{ printf "allow_cvas: true"| indent 4}}
 {{ printf "database_name: %s" $service | indent 4}}
 {{ printf "sqlalchemy_uri: postgresql://%s:%s/%s?user=%s&password=%s" $service $port $database $username $password | indent 4}}
+{{ printf "tables: []" | indent 4}}
+{{- end }}
+{{- end -}} 
+
+{{- define "superset.elastic" -}}
+{{- $elastic:= .elastic }}
+{{- $service:= .service }}
+{{- $port:= .port }}
+{{- $name:= .name }}
+{{- if $elastic }}
+{{ printf "- allow_file_upload: true"| indent 2}}
+{{ printf "allow_ctas: true"| indent 4}}
+{{ printf "allow_cvas: true"| indent 4}}
+{{ printf "database_name: %s" $name | indent 4}}
+{{ printf "sqlalchemy_uri: elasticsearch+http://%s:%s/" $service $port | indent 4}}
 {{ printf "tables: []" | indent 4}}
 {{- end }}
 {{- end -}} 
