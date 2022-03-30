@@ -50,6 +50,26 @@
                 }
               }
             }
+          },
+          "server": {        
+            "type": "object",
+            "description": "Configuration for broker",
+            "properties": {
+              "extra": {
+                "type":"object",
+                "description": "extra config",
+                "properties": {
+                  "configs": {
+                    "description": "extra config",
+                    "type": "string",
+                    "render": "textArea",
+                    "x-form": {
+                      "value": "pinot.server.instance.enable.split.commit=true\npinot.server.instance.realtime.alloc.offheap=true\npinot.server.instance.currentDataTableVersion=2\npinot.server.segment.fetcher.auth.token=Basic {{project.basic}}\npinot.server.segment.uploader.auth.token=Basic {{project.basic}}\npinot.server.instance.auth.token=Basic {{project.basic}}"
+                    }                
+                  }
+                }
+              }
+            }
           }
         }
     },
