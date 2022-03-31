@@ -1,6 +1,6 @@
 mariadb:
   image:
-    tag: "10"
+    tag: "10.5.15"
     pullPolicy: IfNotPresent
   auth:
     rootPassword: ""
@@ -8,6 +8,8 @@ mariadb:
     username: ""
     password: ""
     existingSecret: ""
+  volumePermissions:
+    enabled: true
   primary:
     existingConfigmap: ""
     resources:
@@ -21,3 +23,4 @@ mariadb:
 
 discoverable:
   allow: true
+
