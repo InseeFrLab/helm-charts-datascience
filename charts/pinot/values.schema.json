@@ -55,6 +55,11 @@
             "type": "object",
             "description": "Configuration for broker",
             "properties": {
+              "replicaCount": {
+                "description": "number of replicas",
+                "type": "integer",
+                "default": 1
+              },
               "extra": {
                 "type":"object",
                 "description": "extra config",
