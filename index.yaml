@@ -8796,6 +8796,22 @@ entries:
   pinot:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-04-04T20:48:51.938148921Z"
+    dependencies:
+    - enabled: true
+      name: pinot
+      repository: https://raw.githubusercontent.com/apache/pinot/master/kubernetes/helm
+      version: 0.2.4
+    description: Realtime distributed OLAP datastore, designed to answer OLAP queries with low latency
+    digest: 258e59b78ebb0d04ed6ad5cc9e3670e0108181c4fbebe41d2280ba88c291629c
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/pinot.png
+    name: pinot
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/pinot-0.1.12/pinot-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-04-01T15:45:49.453974112Z"
     dependencies:
     - enabled: true
