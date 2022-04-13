@@ -39,7 +39,7 @@ https://www.keycloak.org/documentation
 _____
 - ### **Mariadb**: 
 
-PostgreSQL est un système de gestion de base de données relationnelle basé sur les valeurs de performance, stabilité et d'ouverture.
+MariaDB est un système de gestion de base de données relationnelle basé sur les valeurs de performance, stabilité et d'ouverture.
 
 https://mariadb.com/kb/fr/documentation/
 _____
