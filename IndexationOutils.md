@@ -37,6 +37,12 @@ Keycloak est un gestionnaire des identités et des authentification.
 https://www.keycloak.org/documentation
 
 _____
+- ### **Mariadb**: 
+
+MariaDB est un système de gestion de base de données relationnelle basé sur les valeurs de performance, stabilité et d'ouverture.
+
+https://mariadb.com/kb/fr/documentation/
+_____
 - ### **MinIo**: 
 
 MinIO est un système de stockage d'objets distribué hautes performances compatible avec Amazon S3. 

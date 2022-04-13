@@ -1,0 +1,6 @@
+
+- You can connect to this mariadb only within the cluster itself on this url : mysql://{{ template "common.names.fullname" . }}:{{ .Values.mariadb.primary.service.ports.mysql }}
+- The database name is **{{ .Values.mariadb.auth.database }}**
+- The username is **{{ .Values.mariadb.auth.username }}**
+- The password is **{{ .Values.mariadb.auth.password }}**
+- The admin username is mariadb and password is **{{ .Values.mariadb.auth.rootPassword }}**

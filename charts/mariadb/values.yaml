@@ -1,0 +1,26 @@
+mariadb:
+  image:
+    tag: "10.5.15"
+    pullPolicy: IfNotPresent
+  auth:
+    rootPassword: ""
+    database: my_database
+    username: ""
+    password: ""
+    existingSecret: ""
+  volumePermissions:
+    enabled: true
+  primary:
+    existingConfigmap: ""
+    resources:
+      limits: {}
+      requests:
+        memory: 512Mi
+        cpu: 1000m
+    service:
+      ports:
+        mysql: 3306
+
+discoverable:
+  allow: true
+
