@@ -38,6 +38,12 @@ Keycloak is an identity and authentication manager.
 https://www.keycloak.org/documentation
 
 _____
+- ### **Mariadb**: 
+
+Mariadb is a relational database management system (RDBMS) built upon the values of performance, stability, and openness.
+
+https://mariadb.com/kb/en/documentation/
+_____
 - ### **MinIo**: 
 
 MinIO is a high performance distributed object storage system compatible with Amazon S3.
