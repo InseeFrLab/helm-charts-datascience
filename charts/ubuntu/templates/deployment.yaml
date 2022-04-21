@@ -60,7 +60,7 @@ spec:
               value: {{ .Values.security.password }}
             {{- if .Values.init.personalInit }}
             - name: PERSONAL_INIT_SCRIPT
-              values: {{ .Values.init.personalInit }}
+              value: {{ .Values.init.personalInit }}
             {{- end }}
             {{- if .Values.init.personalInitArgs }}
             - name: PERSONAL_INIT_ARGS
