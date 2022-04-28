@@ -1,0 +1,14 @@
+{{- if .Values.metrics.jmx.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.fullname" . }}-jmx
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  jmx-trino-prometheus.yml: |
+    jmxUrl: service:jmx:rmi:///jndi/rmi://127.0.0.1:9080/jmxrmi
+    lowercaseOutputName: true
+    lowercaseOutputLabelNames: true
+    ssl: false
+{{- end -}}

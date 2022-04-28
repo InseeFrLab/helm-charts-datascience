@@ -29,6 +29,9 @@ data:
     -XX:PerMethodRecompilationCutoff=10000
     -XX:PerBytecodeRecompilationCutoff=10000
     -Djdk.nio.maxCachedBufferSize=2000000
+  {{- if .Values.metrics.jmx.enabled }}
+    -Dcom.sun.management.jmxremote.rmi.port=9081
+  {{- end }}
   {{- range $configValue := .Values.additionalJVMConfig }}
     {{ $configValue }}
   {{- end }}
@@ -44,7 +47,8 @@ data:
     query.max-memory={{ .Values.server.config.query.maxMemory }}
     query.max-memory-per-node={{ .Values.server.config.query.maxMemoryPerNode }}
     memory.heap-headroom-per-node={{ .Values.server.config.memory.heapHeadroomPerNode }}
-    discovery-server.enabled=true
+    #deprecated
+    #discovery-server.enabled=true
     discovery.uri=http://localhost:{{ .Values.networking.port }}
     http-server.authentication.type=PASSWORD
     http-server.process-forwarded=true
@@ -53,6 +57,10 @@ data:
   {{- end }}
   {{- if .Values.coordinator.enabled }}
   {{ .Values.coordinator.extraConfigs | indent 4 }}
+  {{- end }}
+  {{- if .Values.metrics.jmx.enabled }}
+    jmx.rmiregistry.port=9080
+    jmx.rmiserver.port=9081
   {{- end }}
   password-authenticator.properties: |
     password-authenticator.name=file

@@ -28,6 +28,11 @@ spec:
         - name: hdfs-config
           configMap:
             name: {{ include "library-chart.configMapNameCoreSite" . }}
+        {{- if .Values.metrics.jmx.enabled }}
+        - name: jmx-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-jmx
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -64,7 +69,34 @@ spec:
               path: /v1/info
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}         
+            {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.metrics.jmx.enabled }}
+        - name: {{ .Chart.Name }}-jmx-exporter
+          image: "{{ .Values.metrics.jmx.image.version }}"
+          imagePullPolicy: {{ .Values.metrics.jmx.image.pullPolicy | quote }}
+          {{- if .Values.metrics.jmx.containerSecurityContext.enabled }}
+          securityContext: {{- omit .Values.metrics.jmx.containerSecurityContext "enabled" | toYaml | nindent 12 }}
+          {{- end }}
+          command:
+            - java
+            - -XX:+UnlockExperimentalVMOptions
+            - -XX:+UseCGroupMemoryLimitForHeap
+            - -XX:MaxRAMFraction=1
+            - -XshowSettings:vm
+            - -jar
+            - jmx_prometheus_httpserver.jar
+            - {{ .Values.metrics.jmx.containerPorts.metrics | quote }}
+            - /etc/jmx/jmx-trino-prometheus.yml
+          ports:
+            - name: metrics
+              containerPort: {{ .Values.metrics.jmx.containerPorts.metrics }}
+          {{- if .Values.metrics.jmx.resources }}
+          resources: {{- toYaml .Values.metrics.jmx.resources | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: jmx-config
+              mountPath: /etc/jmx
+        {{- end }}       
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
