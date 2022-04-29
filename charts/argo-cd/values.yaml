@@ -17,9 +17,9 @@ ingress:
   #      - chart-example.local
 
 security:
-    allowlist:
-      enabled: true
-      ip: "0.0.0.0/0"
+  allowlist:
+    enabled: true
+    ip: "0.0.0.0/0"
 
 global:
   networkPolicy:
@@ -27,6 +27,10 @@ global:
     defaultDenyIngress: false
 
 argo-cd:
+  notifications:
+    enabled: false
+  applicationSet:
+    enabled: false
   createAggregateRoles: false
   fullnameOverride: "argocd"
   controller:
@@ -44,14 +48,14 @@ argo-cd:
       selfHealTimeout: "5"
       repoServerTimeoutSeconds: "60"
     extraArgs:
-    - --namespace
-    - $(KUBERNETES_NAMESPACE)
+      - --namespace
+      - $(KUBERNETES_NAMESPACE)
     env:
-    - name: KUBERNETES_NAMESPACE
-      valueFrom:
-       fieldRef:
-         apiVersion: v1
-         fieldPath: metadata.namespace
+      - name: KUBERNETES_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
     logFormat: text
     logLevel: info
     containerPort: 8082
@@ -79,14 +83,14 @@ argo-cd:
     name: server
     replicas: 1
     extraArgs:
-    - --namespace
-    - $(KUBERNETES_NAMESPACE)
+      - --namespace
+      - $(KUBERNETES_NAMESPACE)
     env:
-    - name: KUBERNETES_NAMESPACE
-      valueFrom:
-       fieldRef:
-         apiVersion: v1
-         fieldPath: metadata.namespace
+      - name: KUBERNETES_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
     logFormat: text
     logLevel: info
     containerPort: 8080
@@ -97,7 +101,7 @@ argo-cd:
     ingress:
       enabled: false
     clusterAdminAccess:
-      enabled: false      
+      enabled: false
 
   repoServer:
     name: repo-server
@@ -118,6 +122,7 @@ argo-cd:
 
 secret:
   createSecret: true
-  password: changeme
-      # Password modification time defaults to current time if not set
-      # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
+  password:
+    changeme
+    # Password modification time defaults to current time if not set
+    # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
