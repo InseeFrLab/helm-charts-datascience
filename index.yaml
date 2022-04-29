@@ -3,6 +3,28 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-04-29T11:51:09.159093572Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 4.5.7
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
+    digest: 0897e011d163749b355d61fd39dd3ddb71a0eddfe86305ab9d38e1f9cab703c2
+    home: https://argo-cd.readthedocs.io/en/stable/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
+    name: argo-cd
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-cd
+    - https://github.com/argoproj/argo-helm/tree/master/charts/argo-cd
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-cd-2.0.7/argo-cd-2.0.7.tgz
+    version: 2.0.7
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-02-16T16:10:55.199775831Z"
     dependencies:
     - enabled: true
