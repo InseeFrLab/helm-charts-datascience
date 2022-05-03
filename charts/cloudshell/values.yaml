@@ -152,3 +152,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+deleteJob:
+  enabled: false
+  schedule: "0 4 * * 0"

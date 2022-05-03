@@ -1,0 +1,22 @@
+{{ if .Values.deleteJob.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+spec:
+  schedule: {{ .Values.deleteJob.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "library-chart.serviceAccountName" . }}-delete
+          containers:
+          - name: delete
+            image: inseefrlab/ubuntu-vnc
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - helm delete {{ .Release.Name }}
+          restartPolicy: OnFailure
+{{- end }}
