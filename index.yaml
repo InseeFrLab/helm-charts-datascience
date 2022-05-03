@@ -1515,6 +1515,25 @@ entries:
   cloudshell:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-05-03T23:06:59.356459776Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Datalab  shell (ubuntu with webssh)
+    digest: 5f78c6561bb99df0be5c400f24fd8795272b91e38847d9bcbcdaa776feeba065
+    home: https://datalab.sspcloud.fr
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/Onyxia.png
+    name: cloudshell
+    sources:
+    - https://github.com/InseeFrLab/shelly
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/cloudshell
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/cloudshell-4.0.5/cloudshell-4.0.5.tgz
+    version: 4.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-02-16T16:10:55.618031542Z"
     dependencies:
     - name: library-chart
