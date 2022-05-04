@@ -102,6 +102,9 @@ securityContext:
 
 networking:
   type: ClusterIP
+  user: 
+    enabled: false
+    port: 5000
   vscode:
     port: 80
 
@@ -112,6 +115,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hostname: chart-example.local
+  userHostname: chart-example-user.local
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local

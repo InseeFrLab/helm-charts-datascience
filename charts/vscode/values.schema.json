@@ -445,7 +445,45 @@
           "title": "Hostname",
           "x-form": {
             "hidden": true,
-            "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+            "value": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
+          }
+        },
+        "userHostname": {
+          "type": "string",
+          "form": true,
+          "title": "Hostname",
+          "x-form": {
+            "hidden": true,
+            "value": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
+          }
+        }
+      }
+    },
+    "networking": {
+      "type": "object",
+      "form": true,
+      "title": "Networking detail",
+      "properties": {
+        "user": {
+          "type": "object",
+          "description": "user defined port",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable a custom service port",
+              "description": "Enable a custom service port",
+              "default": false
+            },
+            "port": {
+              "type": "integer",
+              "description": "port of the custom service",
+              "title": "Custom service port",
+              "hidden": {
+                "value": false,
+                "path": "networking/user/enabled"
+              },   
+              "default": 5000
+            }
           }
         }
       }
