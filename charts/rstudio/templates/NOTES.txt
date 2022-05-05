@@ -7,6 +7,13 @@
 - The login is **rstudio**
 - The password is **{{ .Values.security.password }}**
 
+{{- if .Values.ingress.enabled }}
+{{- if .Values.networking.user.enabled }}
+- You can connect to your custom port on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.userHostname }})
+If you don't run your custom service you will get a 502 bad gateway error.
+{{- end }}
+{{- end }}
+
 *NOTES about deletion :*
 
 {{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}

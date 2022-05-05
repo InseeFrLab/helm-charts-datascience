@@ -135,6 +135,9 @@ securityContext: {}
 networking:
   type: ClusterIP
   clusterIP: None
+  user: 
+    enabled: false
+    port: 5000
   rstudio:
     port: 80
   sparkui:
@@ -147,6 +150,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hostname: chart-example.local
+  userHostname: chart-example-user.local
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
