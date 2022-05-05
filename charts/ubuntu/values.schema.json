@@ -450,6 +450,35 @@
                 }
             }
         },
+        "networking": {
+            "type": "object",
+            "form": true,
+            "title": "Networking detail",
+            "properties": {
+              "user": {
+                "type": "object",
+                "description": "user defined port",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean",
+                    "title": "Enable a custom service port",
+                    "description": "Enable a custom service port",
+                    "default": false
+                  },
+                  "port": {
+                    "type": "integer",
+                    "description": "port of the custom service",
+                    "title": "Custom service port",
+                    "hidden": {
+                      "value": false,
+                      "path": "networking/user/enabled"
+                    },   
+                    "default": 5000
+                  }
+                }
+              }
+            }
+        },
         "init": {
             "description": "Init parameters",
             "type": "object",
