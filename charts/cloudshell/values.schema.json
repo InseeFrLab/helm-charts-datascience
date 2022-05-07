@@ -433,6 +433,10 @@
                     "default": "0 4 * * 0"
                 }
             }
+        },
+        "podAnnotations": {
+            "type": "object",
+            "description": "Annotations on the stateful set"
         }
     }
 }
