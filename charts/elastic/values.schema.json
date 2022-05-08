@@ -97,7 +97,7 @@
         },
         "extraEnvs": {
           "description": "Extra environment variables to append",
-          "type": "object"          
+          "type": "array"          
         }
       }
     },
