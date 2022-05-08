@@ -90,6 +90,14 @@
           "description": "java options",
           "type": "string",
           "default": "-Xmx8g -Xms8g"
+        },
+        "esConfig": {
+          "description": "Allows you to add any config files in /usr/share/elasticsearch/config/",
+          "type": "object"
+        },
+        "extraEnvs": {
+          "description": "Extra environment variables to append",
+          "type": "object"          
         }
       }
     },
