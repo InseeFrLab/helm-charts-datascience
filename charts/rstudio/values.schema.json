@@ -493,7 +493,15 @@
                         "hidden": true,
                         "value": "{{project.id}}-{{k8s.randomSubdomain}}-spark.{{k8s.domain}}"
                     }
-                }
+                },
+                "userHostname": {
+                  "type": "string",
+                  "form": true,
+                  "title": "Hostname",
+                  "x-form": {
+                    "hidden": true,
+                    "value": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
+                  }
             }
         },
         "networking": {

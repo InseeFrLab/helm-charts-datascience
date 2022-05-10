@@ -445,8 +445,16 @@
                     "title": "Hostname",
                     "x-form": {
                         "hidden": true,
-                        "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+                        "value": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
                     }
+                },
+                "userHostname": {
+                  "type": "string",
+                  "form": true,
+                  "title": "Hostname",
+                  "x-form": {
+                    "hidden": true,
+                    "value": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
                 }
             }
         },
