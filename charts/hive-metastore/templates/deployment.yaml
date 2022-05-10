@@ -37,6 +37,11 @@ spec:
             - name: thrift
               containerPort: 9083
               protocol: TCP
+          env:
+            - name: KAFKA_BROKER_URL
+              value: {{ .Values.listener.kafka-broker-url }}
+            - name: KAFKA_TOPIC_NAME
+              value: {{ .Values.listener.kafka-topic-name }} 
           readinessProbe:
             tcpSocket:
               port: 9083
