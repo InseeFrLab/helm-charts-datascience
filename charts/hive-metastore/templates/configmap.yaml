@@ -10,6 +10,10 @@ data:
     <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
     <configuration>
         <property>
+          <name>hive.metastore.event.listeners</name>
+          <value>{{ .Values.listener.className }}</value>
+        </property>
+        <property>
           <name>javax.jdo.option.ConnectionURL</name>
           <value>jdbc:postgresql://{{ .Values.postgresql.fullnameOverride }}:5432/{{ .Values.global.postgresql.postgresqlDatabase}}</value>
         </property>
