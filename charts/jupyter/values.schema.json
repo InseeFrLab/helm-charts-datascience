@@ -506,6 +506,7 @@
                     "hidden": true,
                     "value": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
                   }
+                }
             }
         },
         "networking": {
