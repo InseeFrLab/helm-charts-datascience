@@ -109,10 +109,12 @@
           "domain-namespace": {
               "description": "domain name where your hive metastore is located inside your organization",
               "type": "string",
+              "x-form": {
+                "value": "{{project.id}}"
+              },
               "default": "changeMe"
           }
-          }
-      }
+        }
     },
     "global": {
       "description": "postgres specific configuration",
