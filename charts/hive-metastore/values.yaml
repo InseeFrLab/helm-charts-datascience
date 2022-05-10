@@ -47,6 +47,11 @@ postgresql:
     tag: "12"
   fullnameOverride: "hive-metastore-db"
 
+listener:
+  class-name: org.pengfei.hive.listener.CustomHiveListener
+  kafka-broker-url: kafka-0.kafka-headless:9092
+  kafka-topic-name: hive-meta
+
 readiness:
   enabled: "true"
 
