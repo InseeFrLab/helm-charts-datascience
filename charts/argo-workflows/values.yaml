@@ -31,7 +31,7 @@ argo-workflows:
   controller:
     workflowNamespaces: []
     replicas: 1
-    containerRuntimeExecutor: k8sapi
+    #containerRuntimeExecutor: k8sapi
     clusterWorkflowTemplates:
       enabled: false
 
