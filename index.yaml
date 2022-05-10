@@ -4584,6 +4584,31 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-05-10T13:54:59.869291706Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: d4a32ce698be02cd53ba55089b95f6ea6e08cdb2c4af74b81f527c7800fc62d1
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Hadoop
+    - Spark
+    - Python
+    - Jupyter
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-6.1.3/jupyter-6.1.3.tgz
+    version: 6.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-05-05T08:50:05.689053647Z"
     dependencies:
     - name: library-chart
@@ -10786,6 +10811,28 @@ entries:
     version: 0.0.1
   rstudio:
   - apiVersion: v2
+    created: "2022-05-10T13:55:00.029163493Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis. You can use it for spark.
+    digest: e94dae135bf59119227406613ac59764f2f2d94f44fda3c73fc1de8418a4426b
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - R
+    - IDE
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-6.3.3/rstudio-6.3.3.tgz
+    version: 6.3.3
+  - apiVersion: v2
     created: "2022-05-05T08:11:24.588421876Z"
     dependencies:
     - name: library-chart
@@ -14392,6 +14439,25 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/trino-0.0.1/trino-0.0.1.tgz
     version: 0.0.1
   ubuntu:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-05-10T13:55:00.210783097Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Ubuntu with a graphical user interface.
+    digest: df3876c34284f86ececb93bf57116c178abd2ec8906db2a4622c4567b2d19b78
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-5.0.11/ubuntu-5.0.11.tgz
+    version: 5.0.11
   - apiVersion: v2
     appVersion: latest
     created: "2022-05-05T09:25:22.305212232Z"
