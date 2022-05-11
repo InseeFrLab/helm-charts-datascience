@@ -49,11 +49,11 @@ postgresql:
 
 listener:
   enabled: true
-  class-name: org.pengfei.hive.listener.CustomHiveListener
-  kafka-broker-url: kafka-0.kafka-headless:9092
-  kafka-topic-name: hive-meta
-  domain-namespace: user-pengfei
-  jar-path: "/opt/hive/lib/hive-listener.jar"
+  className: org.pengfei.hive.listener.CustomHiveListener
+  kafkaBrokerUrl: kafka-0.kafka-headless:9092
+  kafkaTopicName: hive-meta
+  domainNamespace: user-pengfei
+  jarPath: "/opt/hive/lib/hive-listener.jar"
 
 readiness:
   enabled: "true"

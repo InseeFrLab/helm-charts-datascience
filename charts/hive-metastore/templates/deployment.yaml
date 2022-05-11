@@ -40,13 +40,13 @@ spec:
           {{ if .Values.listener.enabled }}    
           env:
             - name: KAFKA_BROKER_URL
-              value: {{ .Values.listener.kafka-broker-url }}
+              value: {{ .Values.listener.kafkaBrokerUrl }}
             - name: KAFKA_TOPIC_NAME
-              value: {{ .Values.listener.kafka-topic-name }}
+              value: {{ .Values.listener.kafkaTopicName }}
             - name: DOMAIN_NAMESPACE
-              value: {{ .Values.listener.domain-namespace }}
+              value: {{ .Values.listener.domainNamespace }}
             - name: HIVE_AUX_JARS_PATH
-              value: {{ .Values.listener.jar-path }}
+              value: {{ .Values.listener.jarPath }}
           {{ end }} 
           readinessProbe:
             tcpSocket:
