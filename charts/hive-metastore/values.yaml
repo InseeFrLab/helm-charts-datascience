@@ -53,7 +53,7 @@ listener:
   kafkaBrokerUrl: kafka-0.kafka-headless:9092
   kafkaTopicName: hive-meta
   domainNamespace: user-pengfei
-  jarPath: "/opt/hive/lib/hive-listener.jar"
+  jarPath: /opt/hive/lib/hive-listener.jar
 
 readiness:
   enabled: "true"
