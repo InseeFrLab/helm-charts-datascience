@@ -45,6 +45,8 @@ spec:
               value: {{ .Values.listener.kafka-topic-name }}
             - name: DOMAIN_NAMESPACE
               value: {{ .Values.listener.domain-namespace }}
+            - name: HIVE_AUX_JARS_PATH
+              value: {{ .Values.listener.jar-path }}
           {{ end }} 
           readinessProbe:
             tcpSocket:
