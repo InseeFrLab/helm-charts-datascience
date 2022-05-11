@@ -33,6 +33,9 @@ spec:
         {{- end }}
         - name: {{$volumeName}}
           emptyDir: {}
+        - name: config-coresite
+          configMap:
+            name: {{ include "library-chart.configMapNameCoreSite" . }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -78,7 +81,10 @@ spec:
             - mountPath: /data
               name: {{$volumeName}}
             - mountPath: /home/{{ .Values.service.user}}/work
-              name: home       
+              name: home
+            - mountPath: /opt/hadoop/etc/hadoop/core-site.xml
+              subPath: core-site.xml
+              name: config-coresite
       initContainers:
         - name: standard-init
           image: "busybox"
