@@ -22,7 +22,7 @@
                   "description": "tag",
                   "type": "string",
                   "default": "master",
-                  "enum": ["master","main",]
+                  "enum": ["master","main"]
                   
               }
             }        
