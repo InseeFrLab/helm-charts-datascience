@@ -140,6 +140,7 @@ spec:
       initContainers:
         - name: standard-init
           image: "busybox"
+          imagePullPolicy: "IfNotPresent"
           command: ["/bin/sh","-c"]
           args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
           volumeMounts:
