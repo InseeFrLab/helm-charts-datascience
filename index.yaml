@@ -9947,26 +9947,6 @@ entries:
   rapidsai:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-05-17T08:33:03.90578022Z"
-    dependencies:
-    - name: library-chart
-      repository: https://inseefrlab.github.io/helm-charts-datascience
-      version: 2.0.20
-    description: RAPIDS is a software and API library giving you the ability to run end-to-end data science and analytics pipelines entirely on GPUs. You can use it for spark.
-    digest: 85ace986ff1f7f8d72aca0894f8db9b5c4bbaf2cbde59e8fc651e0215b66c907
-    home: https://rapids.ai/
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rapidsai.png
-    name: rapidsai
-    sources:
-    - https://github.com/InseeFrLab/rapidsai
-    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rapidsai
-    - https://github.com/rapidsai/docker
-    type: application
-    urls:
-    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rapidsai-6.0.8/rapidsai-6.0.8.tgz
-    version: 6.0.8
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-02-16T16:10:58.385366777Z"
     dependencies:
     - name: library-chart
@@ -15297,6 +15277,29 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-05-17T08:33:51.765488274Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: 07c1bc2b22777c66638a9573c0fae68f5ee178f2d1cbf0ae47e2a8ce2ca28ed9
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - IDE
+    - Python
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-6.4.3/vscode-6.4.3.tgz
+    version: 6.4.3
   - apiVersion: v2
     appVersion: latest
     created: "2022-05-04T14:30:11.387287301Z"
