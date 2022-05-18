@@ -3882,6 +3882,29 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-05-18T16:03:21.536490257Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.3.14
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: A hive metastore manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) in a relational database (for fast access).
+    digest: e69f70549cb675e9b09903486d17acdaab292aff0ed34e64556f851f90d2f70f
+    home: https://hive.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/hive.png
+    name: hive-metastore
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/hive-metastore
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/hive-metastore-1.1.13/hive-metastore-1.1.13.tgz
+    version: 1.1.13
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-05-11T16:02:52.277245958Z"
     dependencies:
     - enabled: true
