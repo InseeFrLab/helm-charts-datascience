@@ -71,6 +71,12 @@
                 "title": "Create a spark config",
                 "description": "Create a default spark config in spark-default.conf",
                 "default": true
+              },
+              "disabledCertChecking": {
+                "title": "Disable certificate checking ",
+                "type": "boolean",
+                "description": "Disable certificate checking for your S3 storage, do not use it in production",
+                "default": false
               }
             }
         },
