@@ -11,6 +11,7 @@ service:
 
 spark:
   directory: "file://tmp/spark-logs/"
+  disabledCertChecking: false
 
 security:
   password: "changeme"

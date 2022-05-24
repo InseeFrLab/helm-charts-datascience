@@ -67,7 +67,13 @@
                     "x-form": {
                       "value": "s3a://{{s3.AWS_BUCKET_NAME}}/spark-history"
                     }
-                  }
+                },
+                "disabledCertChecking": {
+                    "title": "Disable certificate checking ",
+                    "type": "boolean",
+                    "description": "Disable certificate checking for your S3 storage, do not use it in production",
+                    "default": false
+                }
             }
         },
         "resources": {

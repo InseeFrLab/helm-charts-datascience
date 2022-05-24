@@ -57,7 +57,7 @@ spec:
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}        
           env:
             - name: SPARK_HISTORY_OPTS
-              value: "-Dspark.history.fs.logDirectory={{ .Values.spark.directory }}"
+              value: "-Dspark.history.fs.logDirectory={{ .Values.spark.directory }} -Dcom.amazonaws.sdk.disableCertChecking={{ .Values.spark.disabledCertChecking }}"
           envFrom: 
             {{- if .Values.s3.enabled }}
             - configMapRef:
