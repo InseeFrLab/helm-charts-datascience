@@ -270,6 +270,9 @@ ConfigMap for SparkConf Metastore
 {{- range $key, $value := default dict .Values.spark.config }}
 {{- printf "%s %s\n" $key  (tpl $value  $contexte)}}
 {{- end }}
+{{- range $key, $value := default dict .Values.spark.userConfig }}
+{{- printf "%s %s\n" $key  (tpl $value  $contexte)}}
+{{- end }}
 {{- end }}
 
 {{/*
