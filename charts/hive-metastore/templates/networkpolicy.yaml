@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
   ingress:
   - from:
     - podSelector: {}
