@@ -6,10 +6,8 @@ metadata:
   name: {{ .Release.Name }}-kibana
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
-{{- with .Values.kibana.ingress.annotations }}
   annotations:
-{{ toYaml . | indent 4 }}
-{{- end }}
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
