@@ -154,13 +154,21 @@
           "kafkaBrokerUrl": {
               "description": "kafka broker url for pushing your hive metastore event",
               "type": "string",
-              "default": "change.me"
+              "default": "change.me",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              }
               
           },
           "kafkaTopicName": {
               "description": "kafka topic name for pushing your hive metastore event",
               "type": "string",
-              "default": "changeMe"
+              "default": "changeMe",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              }
           },
           "domainNamespace": {
               "description": "domain name where your hive metastore is located inside your organization",
@@ -168,7 +176,11 @@
               "x-form": {
                 "value": "{{project.id}}"
               },
-              "default": "changeMe"
+              "default": "changeMe",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              }
           }
         }
     },
