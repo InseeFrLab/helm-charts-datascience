@@ -39,9 +39,8 @@ liveness:
   enabled : "true"
 
 security:
-  password: "changeme"
   networkPolicy: 
-    enable: true
+    enabled: true
 
 postgresql:
   image:
@@ -63,9 +62,6 @@ readiness:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: "hive-metastore"
-
-networkPolicy:
-  enabled: false
 
 podAnnotations: {}
 
