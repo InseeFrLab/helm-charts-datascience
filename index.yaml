@@ -7946,6 +7946,33 @@ entries:
   mongodb:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-05-27T12:44:47.039590835Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.28.2
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: 4b0b32b8026fa9db3b9e309335bb18d2e4ae7c5729b486e1b4a6d0bd702b0eed
+    home: https://www.mongodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mongodb.png
+    keywords:
+    - nosql
+    - Database
+    - json
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.3.0/mongodb-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-03-25T10:29:31.444250538Z"
     dependencies:
     - name: mongodb
