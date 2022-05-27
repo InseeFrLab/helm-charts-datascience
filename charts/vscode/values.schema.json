@@ -195,7 +195,7 @@
           "type": "object",
           "description": "Define access policy to the service",
           "properties": {
-            "enable": {
+            "enabled": {
               "type": "boolean",
               "title": "Enable network policy",
               "description": "Only pod from the same namespace will be allowed",
