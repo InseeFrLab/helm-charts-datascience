@@ -13,3 +13,6 @@ mongodb:
   discoverable:
     allow: true
 fullnameOverride: mongodb
+security:
+  networkPolicy: 
+    enabled: true
