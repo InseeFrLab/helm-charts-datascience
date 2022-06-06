@@ -1,8 +1,8 @@
 superset:
   image:
     repository: apache/superset
-    tag: latest
-    pullPolicy: Always
+    tag: 9cdaa280429ec297db16d56c94fd77b5d2aff107
+    pullPolicy: IfNotPresent
   init:
     adminUser:
       username: admin
