@@ -158,6 +158,9 @@
               "hidden": {
                 "value": false,
                 "path": "listener/enabled"
+              },
+              "x-form": {
+                "value": "{{region.kafka.url}}"
               }
               
           },
@@ -168,6 +171,9 @@
               "hidden": {
                 "value": false,
                 "path": "listener/enabled"
+              },
+              "x-form": {
+                "value": "{{region.kafka.topicName}}"
               }
           },
           "domainNamespace": {
