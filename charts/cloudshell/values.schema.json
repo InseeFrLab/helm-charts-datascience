@@ -147,7 +147,7 @@
                         "type": "array",
                         "description": "Array of source allowed to have network access to your service",
                         "x-form": {
-                            "value": "{{region.defaultAllowedSource}}"
+                            "value": "{{region.from}}"
                         }
                       }
                     }
