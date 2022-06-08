@@ -20,7 +20,7 @@
                         "description": "supported versions",
                         "type": "string",
                         "enum": [
-                            "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1",
+                            "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.2",
                             "inseefrlab/jupyter-datascience:py3.7.6-spark3.1.1"
                                 ],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
@@ -28,7 +28,7 @@
                             "value": true,
                             "path": "service/image/custom/enabled"
                         },
-                        "default": "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1"
+                        "default": "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.2"
                       },
                       "custom" : {
                         "description": "use a custom jupyter docker image",
