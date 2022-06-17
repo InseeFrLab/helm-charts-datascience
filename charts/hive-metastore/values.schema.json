@@ -18,15 +18,50 @@
             "description": "image docker",
             "type": "object",  
             "properties": {
-              "tag": {
-                  "description": "tag",
-                  "type": "string",
-                  "default": "master",
-                  "enum": ["master","main"]
-                  
+              "pullPolicy": {
+                "type": "string",
+                "description": "option when pulling the docker image",
+                "default": "IfNotPresent",
+                "enum": ["IfNotPresent","Always","Never"]
+              },
+              "version": {
+                "description": "supported versions",
+                "type": "string",
+                "enum": [
+                    "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.2",
+                    "inseefrlab/jupyter-datascience:py3.7.6-spark3.1.1"
+                        ],
+                "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                "hidden": {
+                    "value": true,
+                    "path": "service/image/custom/enabled"
+                },
+                "default": "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.2"
+              },
+              "custom" : {
+                "description": "use a custom jupyter docker image",
+                "type": "object",  
+                "properties": {
+                  "enabled": {
+                    "title": "custom image",
+                    "type": "boolean",
+                    "description": "use a custom jupyter docker image",
+                    "default": false
+                  },
+                  "version": {
+                    "description": "jupyter unsupported version",
+                    "type": "string",
+                    "default": "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1",
+                    "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
+                    "hidden": {
+                        "value": false,
+                        "path": "service/image/custom/enabled"
+                    }
+                  }
+                }        
               }
             }        
-          }
+        }
       }
     },
     "environment": {
@@ -86,6 +121,27 @@
           }
       }
     },
+    "security": {
+      "description": "security specific configuration",
+      "type": "object",
+      "properties": {
+          "networkPolicy": {
+            "type": "object",
+            "description": "Define access policy to the service",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "title": "Enable network policy",
+                "description": "Only pod from the same namespace will be allowed",
+                "default": true,
+                "x-form": {
+                  "value": "{{region.defaultNetworkPolicy}}"
+                }
+              }
+            }
+          }
+      }
+    },
     "listener": {
       "description": "Configuration of hive meta store listener",
       "type": "object",
@@ -98,13 +154,27 @@
           "kafkaBrokerUrl": {
               "description": "kafka broker url for pushing your hive metastore event",
               "type": "string",
-              "default": "change.me"
+              "default": "change.me",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              },
+              "x-form": {
+                "value": "{{region.kafka.url}}"
+              }
               
           },
           "kafkaTopicName": {
               "description": "kafka topic name for pushing your hive metastore event",
               "type": "string",
-              "default": "changeMe"
+              "default": "changeMe",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              },
+              "x-form": {
+                "value": "{{region.kafka.topicName}}"
+              }
           },
           "domainNamespace": {
               "description": "domain name where your hive metastore is located inside your organization",
@@ -112,7 +182,11 @@
               "x-form": {
                 "value": "{{project.id}}"
               },
-              "default": "changeMe"
+              "default": "changeMe",
+              "hidden": {
+                "value": false,
+                "path": "listener/enabled"
+              }
           }
         }
     },

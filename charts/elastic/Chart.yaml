@@ -7,7 +7,7 @@ keywords:
   - Lucene
   - Visualization
 home: https://www.elastic.co/
-sources: 
+sources:
   - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/elastic
   - https://github.com/elastic/helm-charts/tree/master/elasticsearch
 # A chart can be either an 'application' or a 'library' chart.
@@ -23,7 +23,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.6
+version: 2.0.8
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -31,14 +31,11 @@ version: 2.0.6
 appVersion: "1"
 dependencies:
   - name: elasticsearch
-    version: 7.13.4
-    repository:  https://helm.elastic.co
+    version: 7.17.3
+    repository: https://helm.elastic.co
   - name: kibana
-    version: 7.13.4
-    repository:  https://helm.elastic.co
+    version: 7.17.3
+    repository: https://helm.elastic.co
   - name: library-chart
     version: 2.0.20
     repository: https://inseefrlab.github.io/helm-charts-datascience
-
-
-

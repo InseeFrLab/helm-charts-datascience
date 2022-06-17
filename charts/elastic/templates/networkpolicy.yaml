@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      release: {{ .Release.Name | quote }}
   ingress:
   - from:
     - podSelector: {}

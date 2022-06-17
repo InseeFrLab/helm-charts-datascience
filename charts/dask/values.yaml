@@ -32,7 +32,14 @@ dask:
 security:
   allowlist:
     enabled: true
-    ip: "0.0.0.0/0"  
+    ip: "0.0.0.0/0" 
+  networkPolicy: 
+    enabled: true
+    from: 
+    - ipBlock:
+        cidr: 10.233.103.0/32
+    - ipBlock:
+        cidr: 10.233.111.0/32 
 
 ingress:
   enabled: true

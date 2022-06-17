@@ -11,10 +11,11 @@ replicaCount: 1
 
 service:
   image:
-    repository: "inseefrlab/jupyter-datascience"
+    version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1"
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "master"
+    custom:
+      enabled: false
+      version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1"
   warehouseDir: s3a://bucket/hive-warehouse
 
 environment:
@@ -38,9 +39,8 @@ liveness:
   enabled : "true"
 
 security:
-  password: "changeme"
   networkPolicy: 
-    enable: true
+    enabled: true
 
 postgresql:
   image:
@@ -62,9 +62,6 @@ readiness:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: "hive-metastore"
-
-networkPolicy:
-  enabled: false
 
 podAnnotations: {}
 

@@ -10,7 +10,7 @@ service:
 security:
   password: password
   networkPolicy: 
-    enable: false
+    enabled: false
     from: 
     - ipBlock:
         cidr: 10.233.103.0/32

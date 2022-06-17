@@ -89,6 +89,62 @@
         }
       }
     },
+    "security": {
+      "description": "security specific configuration",
+      "type": "object",
+      "properties": {
+          "password": {
+              "type": "string",
+              "description": "Password",
+              "default": "changeme",
+              "x-form": {
+                  "value": "{{project.password}}"
+              }
+          },
+          "allowlist": {
+              "type": "object",
+              "description": "IP protection",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "title": "Enable IP protection",
+                  "description": "Only the configured set of IPs will be able to reach the service",
+                  "default": true,
+                  "x-form": {
+                    "value": "{{region.defaultIpProtection}}"
+                  }
+                },
+                "ip": {
+                  "type": "string",
+                  "description": "the white list of IP is whitespace",
+                  "title": "Whitelist of IP",
+                  "x-form": {
+                    "value": "{{user.ip}}"
+                  },
+                  "hidden": {
+                      "value": false,
+                      "path": "security/allowlist/enabled"
+                  } 
+                }
+              }
+          },
+          "networkPolicy": {
+              "type": "object",
+              "description": "Define access policy to the service",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "title": "Enable network policy",
+                  "description": "Only pod from the same namespace will be allowed",
+                  "default": true,
+                  "x-form": {
+                    "value": "{{region.defaultNetworkPolicy}}"
+                  }
+                }
+              }
+          }
+      }
+    },
     "global": {
       "description": "postgres specific configuration",
       "type": "object",
