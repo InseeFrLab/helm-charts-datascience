@@ -442,7 +442,10 @@
                 "enabled": {
                     "type": "boolean",
                     "description": "activate an automatic deletion job for this service",
-                    "default": false
+                    "default": false,
+                    "x-form": {
+                        "value": "{{region.deleteJob.enabled}}"
+                    }
                   },
                 "schedule": {
                     "type": "string",
@@ -452,7 +455,7 @@
                         "path": "deleteJob/enabled"
                     },
                     "x-form": {
-                        "value": "{{region.schedule}}"
+                        "value": "{{region.deleteJob.schedule}}"
                     },
                     "default": "0 4 * * 0"
                 }
