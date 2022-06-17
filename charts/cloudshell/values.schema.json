@@ -421,6 +421,20 @@
                 }
             }
         },
+        "tolerations": {
+            "type": "array",
+            "description": "Array of tolerations",
+            "x-form": {
+                "value": "{{region.tolerations}}"
+            }
+        },
+        "nodeSelector": {
+            "type": "object",
+            "description": "NodeSelector",
+            "x-form": {
+                "value": "{{region.nodeSelector}}"
+            }
+        },
         "deleteJob": {
             "description": "Init parameters",
             "type": "object",
