@@ -451,6 +451,9 @@
                         "value": false,
                         "path": "deleteJob/enabled"
                     },
+                    "x-form": {
+                        "value": "{{region.schedule}}"
+                    },
                     "default": "0 4 * * 0"
                 }
             }
