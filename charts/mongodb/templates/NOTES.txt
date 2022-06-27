@@ -3,6 +3,7 @@
 {{- $fullname := include "library-chart.fullname" . }}
 {{- $user := .Values.mongodb.auth.username }}
 {{- $password := .Values.mongodb.auth.password }}
+{{- $rootPassword := .Values.mongodb.auth.rootPassword }}
 {{- $db := .Values.mongodb.auth.database }}
 {{- $pvcList := list }}
 {{- $mongoList := list }}
@@ -11,16 +12,21 @@
 {{- $mongoList = append $mongoList (printf "%s-%d.%s-headless:%d" $fullname $i $fullname $portNumber) }}
 {{- end }}
 - the connection string is : 
-```
-**mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .)}}/{{ $db }}**
-```
+
+**`mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .)}}/{{ $db }}?authSource{{ $db }}`**
 - example for python :
 
 ```
 from pymongo import MongoClient
-client = MongoClient('mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .) }}/{{ $db }}')
+client = MongoClient('mongodb://{{ $user }}:{{ $password }}@{{ (include "mongoList" .) }}/{{ $db }}?authSource{{ $db }}')
 db=client.{{ $db }}
 ```
+- example for mongosh :
+
+  * as user in {{ $db }}
+    `mongo -u {{ $user }} -p {{ $password }} --authenticationDatabase {{ $db }}`
+  * as root 
+    `mongo -u root -p {{ $rootPassword }}`
 
 *NOTES about deletion :*
 
