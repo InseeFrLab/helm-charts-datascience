@@ -24,7 +24,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.0.8
+version: 2.1.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -32,7 +32,7 @@ version: 2.0.8
 appVersion: "1"
 dependencies:
   - name: argo-cd
-    version: 4.5.7
+    version: 4.9.11
     repository: https://argoproj.github.io/argo-helm
   - name: library-chart
     version: 2.0.21
