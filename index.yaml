@@ -3,6 +3,28 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-06-29T19:06:59.397039343Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 4.9.11
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.21
+    description: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
+    digest: 24211f2a39162ab3132b60eb9fab1f1867ad458d7ccb09e2fb4b9395b1a6e708
+    home: https://argo-cd.readthedocs.io/en/stable/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/argo.png
+    name: argo-cd
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/argo-cd
+    - https://github.com/argoproj/argo-helm/tree/master/charts/argo-cd
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/argo-cd-2.1.0/argo-cd-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-05-25T11:37:44.617466379Z"
     dependencies:
     - name: argo-cd
@@ -8072,6 +8094,33 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mlflow-0.0.2/mlflow-0.0.2.tgz
     version: 0.0.2
   mongodb:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2022-06-29T19:06:59.523533416Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.21
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+    digest: 7b61b47d1eb92c18cb7022a138f5d7d964268a20fae77daad7faa40153556c20
+    home: https://www.mongodb.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/mongodb.png
+    keywords:
+    - nosql
+    - Database
+    - json
+    name: mongodb
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/mongodb
+    - https://github.com/bitnami/charts/tree/master/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mongodb-1.4.0/mongodb-1.4.0.tgz
+    version: 1.4.0
   - apiVersion: v2
     appVersion: "1"
     created: "2022-05-27T12:44:47.039590835Z"
