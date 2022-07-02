@@ -5099,6 +5099,31 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-07-02T14:25:44.57317719Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: Jupyter is a notebook accessible through a web browser. You can use it for Python and Spark.
+    digest: c214f2873760c1b68106a3ff063dde3d490792b1e05e2ab65ffc483eb68bbaca
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Hadoop
+    - Spark
+    - Python
+    - Jupyter
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-6.3.0/jupyter-6.3.0.tgz
+    version: 6.3.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-06-08T15:54:30.550930619Z"
     dependencies:
     - name: library-chart
@@ -11662,6 +11687,28 @@ entries:
     version: 0.0.1
   rstudio:
   - apiVersion: v2
+    created: "2022-07-02T14:25:44.797808218Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: R Studio is the reference environment / IDE for programming with R, a programming language used for data processing and statistical analysis. You can use it for spark.
+    digest: 00e7dd4442da31bd9414c4ba33f108ed3d92e3d0fefa3fd3e4b5863141e1626f
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - R
+    - IDE
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/rstudio
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/rstudio
+    - https://github.com/rocker-org/rocker
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/rstudio-6.4.0/rstudio-6.4.0.tgz
+    version: 6.4.0
+  - apiVersion: v2
     created: "2022-06-20T13:01:56.573114973Z"
     dependencies:
     - name: library-chart
@@ -13969,6 +14016,25 @@ entries:
   tensorflow:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-07-02T14:25:45.020776534Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: TensorFlow is a software library dedicated to machine learning. Easily develop, train, and deploy models with Python.
+    digest: bb949f3324c7300bfe22dd1c2fcaa52707c2bc035d9d08e68fb3cdd6ea486b07
+    home: https://www.tensorflow.org/
+    icon: https://www.silicon.fr/wp-content/uploads/2019/10/TensorFlow_.png
+    name: tensorflow
+    sources:
+    - https://github.com/InseeFrLab/tensorflow
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/tensorflow
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/tensorflow-4.8.0/tensorflow-4.8.0.tgz
+    version: 4.8.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-05-27T13:04:27.059661778Z"
     dependencies:
     - name: library-chart
@@ -15441,6 +15507,25 @@ entries:
   ubuntu:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-07-02T14:25:45.239041419Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: Ubuntu with a graphical user interface.
+    digest: 82f6c633194bfffc86b5f1bf84b1685542544ec1cb27825f33c528ae0f27eb9e
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-5.1.0/ubuntu-5.1.0.tgz
+    version: 5.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-05-17T08:41:33.792536794Z"
     dependencies:
     - name: library-chart
@@ -16093,6 +16178,29 @@ entries:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-0.1.0/ubuntu-0.1.0.tgz
     version: 0.1.0
   vscode:
+  - apiVersion: v2
+    appVersion: 2.6.0
+    created: "2022-07-02T14:25:45.465043157Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: Visual Studio Code is a lightweight yet powerful source code editor with a rich ecosystem of extensions for many languages.
+    digest: bdad5f3e11bbceeedd6b81644e99900d4cb600f1d2e985d3d9c37010f4dd80cf
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - IDE
+    - Python
+    name: vscode
+    sources:
+    - https://github.com/InseeFrLab/vscode
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/vscode
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-6.8.0/vscode-6.8.0.tgz
+    version: 6.8.0
   - apiVersion: v2
     appVersion: 2.6.0
     created: "2022-06-17T15:24:31.922556484Z"
