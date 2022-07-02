@@ -339,7 +339,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "projet",
+                    "description": "Repository url",
                     "default": "",
                     "x-form": {
                         "value": "{{git.project}}"
@@ -347,6 +347,15 @@
                     "hidden": {
                         "value": false,
                         "path": "git/enabled"
+                    }
+                },
+                "branch": {
+                    "type": "string",
+                    "description": "Brach automatically checkout",
+                    "default": "",
+                    "hidden": {
+                        "value": "",
+                        "path": "git/repository"
                     }
                 }
             }
