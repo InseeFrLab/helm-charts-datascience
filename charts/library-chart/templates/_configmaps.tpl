@@ -94,6 +94,7 @@ data:
   GIT_CREDENTIALS_CACHE_DURATION: "{{ .Values.git.cache }}"
   GIT_PERSONAL_ACCESS_TOKEN: "{{ .Values.git.token }}"
   GIT_REPOSITORY: "{{ .Values.git.repository }}"
+  GIT_BRANCH: "{{ .Values.git.branch }}"
 {{- end }}
 {{- end }}
 
