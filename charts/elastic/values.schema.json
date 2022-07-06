@@ -9,8 +9,12 @@
         "image": {
           "description": "image docker",
           "type": "string",
-          "enum": ["elasticsearch"],
           "default": "elasticsearch"
+        },
+        "imageTag": {
+          "description": "image docker tag",
+          "type": "string",
+          "default": "7.17.3"
         },
         "resources": {
           "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
