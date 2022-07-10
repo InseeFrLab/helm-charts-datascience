@@ -12,9 +12,11 @@
             "form": true,
             "title": "Hostname",
             "x-form": {
-              "hidden": true,
               "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
-          }
+            },
+            "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+            }
         }
       }
     },
@@ -39,6 +41,9 @@
                   "x-form": {
                     "value": "{{user.ip}}"
                   },
+                  "x-onyxia": {
+                      "overwriteDefaultWith": "{{user.ip}}"
+                  },
                   "hidden": {
                     "value": false,
                     "path": "security/allowlist/enabled"
@@ -57,6 +62,9 @@
                 "default": true,
                 "x-form": {
                   "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
             }
