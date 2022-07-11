@@ -422,6 +422,16 @@
                 "overwriteDefaultWith": "region.nodeSelector"
             }
         },
+        "startupProbe": {
+            "type": "object",
+            "description": "Start up probe",
+            "x-form": {
+                "value": "{{region.startupProbe}}"
+            },
+            "x-onyxia": {
+                "overwriteDefaultWith": "region.startupProbe"
+            }
+        },
         "deleteJob": {
             "description": "Init parameters",
             "type": "object",
