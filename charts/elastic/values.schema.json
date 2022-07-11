@@ -97,11 +97,13 @@
         },
         "esConfig": {
           "description": "Allows you to add any config files in /usr/share/elasticsearch/config/",
-          "type": "object"
+          "type": "object",
+          "default": {}
         },
         "extraEnvs": {
           "description": "Extra environment variables to append",
-          "type": "array"          
+          "type": "array",
+          "default": []        
         }
       }
     },
