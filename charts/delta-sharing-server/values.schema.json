@@ -17,6 +17,9 @@
               "x-form": {
                   "value": "{{s3.AWS_ACCESS_KEY_ID}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -27,6 +30,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_S3_ENDPOINT}}"
               },
               "hidden": {
                   "value": false,
@@ -39,6 +45,9 @@
               "x-form": {
                   "value": "{{s3.AWS_DEFAULT_REGION}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_DEFAULT_REGION}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -50,6 +59,9 @@
               "x-form": {
                   "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -60,6 +72,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SESSION_TOKEN}}"
               },
               "hidden": {
                   "value": false,
@@ -78,6 +93,9 @@
           "default": "file://tmp/spark-logs/",
           "x-form": {
             "value": "s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/"
+          },
+          "x-onyxia": {
+            "overwriteDefaultWith": "s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/"
           }
         },
         "name": {
@@ -91,47 +109,57 @@
       "description": "security specific configuration",
       "type": "object",
       "properties": {
-          "allowlist": {
-              "type": "object",
-              "description": "IP protection",
-              "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "title": "Enable IP protection",
-                  "description": "Only the configured set of IPs will be able to reach the service",
-                  "default": true,
-                  "x-form": {
-                    "value": "{{region.defaultIpProtection}}"
-                  }
-                },
-                "ip": {
-                  "type": "string",
-                  "description": "the white list of IP is whitespace",
-                  "title": "Whitelist of IP",
-                  "x-form": {
-                    "value": "{{user.ip}}"
-                  },
-                  "hidden": {
-                      "value": false,
-                      "path": "security/allowlist/enabled"
-                  } 
-                }
+        "allowlist": {
+          "type": "object",
+          "description": "IP protection",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable IP protection",
+              "description": "Only the configured set of IPs will be able to reach the service",
+              "default": true,
+              "x-form": {
+                "value": "{{region.defaultIpProtection}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.defaultIpProtection"
               }
-          },
+            },
+            "ip": {
+              "type": "string",
+              "description": "the allow list of IP is whitespace",
+              "title": "Allowed IP",
+              "default": "0.0.0.0/0",
+              "x-form": {
+                "value": "{{user.ip}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{user.ip}}"
+              },
+              "hidden": {
+                "value": false,
+                "path": "security/allowlist/enabled"
+              }
+            }
+          }
+      },
           "networkPolicy": {
-              "type": "object",
-              "description": "Define access policy to the service",
-              "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "title": "Enable network policy",
-                  "description": "Only pod from the same namespace will be allowed",
-                  "default": true,
-                  "x-form": {
-                    "value": "{{region.defaultNetworkPolicy}}"
-                  }
+            "type": "object",
+            "description": "Define access policy to the service",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "title": "Enable network policy",
+                "description": "Only pod from the same namespace will be allowed",
+                "default": true,
+                "x-form": {
+                  "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
+            }
           }
       }
     },
@@ -146,7 +174,10 @@
           "title": "Hostname",
           "x-form": {
             "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
-        }
+          },
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+          }
         }
       }
     }
