@@ -12,6 +12,9 @@
               "default": "/user/hive/warehouse/",
               "x-form": {
                 "value": "s3a://{{s3.AWS_BUCKET_NAME}}/hive-warehouse"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "s3a://{{s3.AWS_BUCKET_NAME}}/hive-warehouse"
               }
           },
           "image" : {
@@ -64,63 +67,87 @@
         }
       }
     },
-    "environment": {
-      "description": "configuration of your environment variables",
-      "type": "object",
-      "properties": {
-          "s3": {
-              "type": "boolean",
-              "description": "Add S3 temporary identity inside your environment",
-              "default": true
-          }
-      }
-    },
     "s3": {
       "description": "Configuration of temporary identity",
       "type": "object",
       "properties": {
+          "enabled": {
+              "type": "boolean",
+              "description": "Add S3 temporary identity inside your environment",
+              "default": true
+          },
           "accessKeyId": {
               "description": "AWS Access Key",
               "type": "string",
               "x-form": {
-                  "value": "{{s3.AWS_ACCESS_KEY_ID}}",
-                  "hidden": true
+                  "value": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
               }
           },
           "endpoint": {
               "description": "AWS S3 Endpoint",
               "type": "string",
               "x-form": {
-                  "value": "{{s3.AWS_S3_ENDPOINT}}",
-                  "hidden": true
+                  "value": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
               }
           },
           "defaultRegion": {
               "description": "AWS S3 default region",
               "type": "string",
               "x-form": {
-                  "value": "{{s3.AWS_DEFAULT_REGION}}",
-                  "hidden": true
+                  "value": "{{s3.AWS_DEFAULT_REGION}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_DEFAULT_REGION}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
               }
           },
           "secretAccessKey": {
               "description": "AWS S3 secret access key",
               "type": "string",
               "x-form": {
-                  "value": "{{s3.AWS_SECRET_ACCESS_KEY}}",
-                  "hidden": true
+                  "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
               }
           },
           "sessionToken": {
               "description": "AWS S3 session Token",
               "type": "string",
               "x-form": {
-                  "value": "{{s3.AWS_SESSION_TOKEN}}",
-                  "hidden": true
+                  "value": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
               }
           }
       }
-    },
+  },
     "security": {
       "description": "security specific configuration",
       "type": "object",
@@ -136,6 +163,9 @@
                 "default": true,
                 "x-form": {
                   "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
             }
@@ -161,6 +191,9 @@
               },
               "x-form": {
                 "value": "{{region.kafka.url}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{region.kafka.url}}"
               }
               
           },
@@ -174,6 +207,9 @@
               },
               "x-form": {
                 "value": "{{region.kafka.topicName}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{region.kafka.topicName}}"
               }
           },
           "domainNamespace": {
@@ -181,6 +217,9 @@
               "type": "string",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               },
               "default": "changeMe",
               "hidden": {
@@ -206,6 +245,9 @@
               "default": "admin",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               }
             },
             "postgresqlPassword": {
@@ -214,6 +256,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "postgresqlDatabase": {

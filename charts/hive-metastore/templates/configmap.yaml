@@ -35,7 +35,7 @@ data:
           <name> hive.metastore.warehouse.dir</name>
           <value>{{ .Values.service.warehouseDir}}</value>
         </property>
-        {{- if .Values.environment.s3 }}       
+        {{- if .Values.s3.enabled }}       
         <property>
           <name>fs.s3a.connection.ssl.enabled</name>
           <value>true</value>
