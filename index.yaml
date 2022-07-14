@@ -8003,6 +8003,31 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/library-chart-1.0.0/library-chart-1.0.0.tgz
     version: 1.0.0
+  mariadb:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2022-07-14T22:57:38.562507882Z"
+    dependencies:
+    - enabled: true
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.4
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: MariaDB is an open source, community-developed SQL database server that is widely in use around the world due to its enterprise features, flexibility, and collaboration with leading tech firms.
+    digest: 4b0a4055c34a4fb270fc7d923528fba33802342b463745473ef6dc3a84008402
+    home: https://github.com/bitnami/charts/tree/master/bitnami/mariadb
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/prometheus/mysqld_exporter
+    - https://mariadb.org
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/mariadb-0.1.1/mariadb-0.1.1.tgz
+    version: 0.1.1
   mlflow:
   - apiVersion: v2
     appVersion: "1"
