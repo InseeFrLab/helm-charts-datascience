@@ -12,6 +12,9 @@
             "default": "changeme",
             "x-form": {
                 "value": "{{project.password}}"
+            },
+            "x-onyxia": {
+              "overwriteDefaultWith": "{{project.password}}"
             }
           },
           "username": {
@@ -20,45 +23,62 @@
             "default": "username",
             "x-form": {
               "value": "{{user.email}}"
+            },
+            "x-onyxia": {
+              "overwriteDefaultWith": "{{user.email}}"
             }
           },
           "allowlist": {
-              "type": "object",
-              "description": "IP protection",
-              "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "title": "Enable IP protection",
-                  "description": "Only the configured set of IPs will be able to reach the service",
-                  "default": true,
-                  "x-form": {
-                    "value": "{{region.defaultIpProtection}}"
-                  }
+            "type": "object",
+            "description": "IP protection",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "title": "Enable IP protection",
+                "description": "Only the configured set of IPs will be able to reach the service",
+                "default": true,
+                "x-form": {
+                  "value": "{{region.defaultIpProtection}}"
                 },
-                "ip": {
-                  "type": "string",
-                  "description": "the white list of IP is whitespace",
-                  "title": "Whitelist of IP",
-                  "x-form": {
-                    "value": "{{user.ip}}"
-                  }
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultIpProtection"
+                }
+              },
+              "ip": {
+                "type": "string",
+                "description": "the allow list of IP is whitespace",
+                "title": "Allowed IP",
+                "default": "0.0.0.0/0",
+                "x-form": {
+                  "value": "{{user.ip}}"
+                },
+                "x-onyxia": {
+                  "overwriteDefaultWith": "{{user.ip}}"
+                },
+                "hidden": {
+                  "value": false,
+                  "path": "security/allowlist/enabled"
                 }
               }
+            }
           },
           "networkPolicy": {
-              "type": "object",
-              "description": "Define access policy to the service",
-              "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "title": "Enable network policy",
-                  "description": "Only pod from the same namespace will be allowed",
-                  "default": true,
-                  "x-form": {
-                    "value": "{{region.defaultNetworkPolicy}}"
-                  }
+            "type": "object",
+            "description": "Define access policy to the service",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "title": "Enable network policy",
+                "description": "Only pod from the same namespace will be allowed",
+                "default": true,
+                "x-form": {
+                  "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
+            }
           }
       }
   },
@@ -73,7 +93,11 @@
           "title": "Hostname",
           "x-form": {
             "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
-        }
+          },
+          "x-onyxia": {
+              "hidden": true,
+              "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+          }
         }
       }
     },
@@ -93,6 +117,9 @@
               "default": "admin",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               }
             },
             "postgresqlPassword": {
@@ -101,6 +128,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "postgresqlDatabase": {
