@@ -640,10 +640,7 @@
                 "personalInit": {
                     "type": "string",
                     "description": "initialization script",
-                    "default": "",
-                    "x-security": {
-                        "pattern": "{{region.allowedURIPattern}}"
-                    }
+                    "default": ""
                 },
                 "personalInitArgs": {
                     "type": "string",
