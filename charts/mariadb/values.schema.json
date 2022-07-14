@@ -21,6 +21,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "database": {
@@ -36,6 +39,9 @@
               "default": "admin",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               }
             },
             "password": {
@@ -44,6 +50,9 @@
               "description": "Defaults to a random 10-character alphanumeric string if not set",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             }
           }
