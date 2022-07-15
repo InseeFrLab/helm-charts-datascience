@@ -28,6 +28,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "database": {
@@ -41,6 +44,9 @@
               "default": "user",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               }
             },
             "password": {
@@ -49,6 +55,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             }
           }
@@ -171,6 +180,9 @@
                 "default": true,
                 "x-form": {
                   "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
             }
