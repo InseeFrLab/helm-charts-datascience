@@ -158,58 +158,75 @@
       }
     },
     "security": {
-      "description": "security specific configuration",
+      "description": "RStudio specific configuration",
       "type": "object",
       "properties": {
-        "password": {
-          "type": "string",
-          "description": "Password",
-          "default": "changeme",
-          "x-form": {
-            "value": "{{project.password}}"
-          }
-        },
-        "allowlist": {
-          "type": "object",
-          "description": "IP protection",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Enable IP protection",
-              "description": "Only the configured set of IPs will be able to reach the service",
-              "default": true,
+          "password": {
+              "type": "string",
+              "description": "Password",
+              "default": "changeme",
               "x-form": {
-                "value": "{{region.defaultIpProtection}}"
+                  "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{project.password}}"
+              }
+          },
+          "allowlist": {
+              "type": "object",
+              "description": "IP protection",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "title": "Enable IP protection",
+                  "description": "Only the configured set of IPs will be able to reach the service",
+                  "default": true,
+                  "x-form": {
+                    "value": "{{region.defaultIpProtection}}"
+                  },
+                  "x-onyxia": {
+                      "overwriteDefaultWith": "region.defaultIpProtection"
+                  }
+                },
+                "ip": {
+                  "type": "string",
+                  "description": "the allow list of IP is whitespace",
+                  "title": "Allowed IP",
+                  "default": "0.0.0.0/0",
+                  "x-form": {
+                    "value": "{{user.ip}}"
+                  },
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{user.ip}}"
+                  },
+                  "hidden": {
+                    "value": false,
+                    "path": "security/allowlist/enabled"
+                  }
+                }
               }
             },
-            "ip": {
-              "type": "string",
-              "description": "the white list of IP is whitespace",
-              "title": "Whitelist of IP",
-              "x-form": {
-                "value": "{{user.ip}}"
+            "networkPolicy": {
+              "type": "object",
+              "description": "Define access policy to the service",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "title": "Enable network policy",
+                  "description": "Only pod from the same namespace will be allowed",
+                  "default": true,
+                  "x-form": {
+                    "value": "{{region.defaultNetworkPolicy}}"
+                  },
+                  "x-onyxia": {
+                      "overwriteDefaultWith": "region.defaultNetworkPolicy"
+                  }
+                }
               }
             }
-          }
-        },
-        "networkPolicy": {
-          "type": "object",
-          "description": "Define access policy to the service",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Enable network policy",
-              "description": "Only pod from the same namespace will be allowed",
-              "default": true,
-              "x-form": {
-                "value": "{{region.defaultNetworkPolicy}}"
-              }
-            }
-          }
-        }
       }
-    },
-    "kubernetes": {
+  },
+  "kubernetes": {
       "description": "configuration of your kubernetes access",
       "type": "object",
       "properties": {
@@ -233,8 +250,8 @@
           ]
         }
       }
-    },
-    "git": {
+  },
+  "git": {
       "description": "Git user configuration",
       "type": "object",
       "properties": {
@@ -250,6 +267,9 @@
               "x-form": {
                   "value": "{{git.name}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{git.name}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "git/enabled"
@@ -261,6 +281,9 @@
               "default": "",
               "x-form": {
                   "value": "{{git.email}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{git.email}}"
               },
               "hidden": {
                   "value": false,
@@ -274,6 +297,9 @@
               "x-form": {
                   "value": "{{git.credentials_cache_duration}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "git/enabled"
@@ -286,6 +312,9 @@
               "x-form": {
                   "value": "{{git.token}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{git.token}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "git/enabled"
@@ -293,10 +322,13 @@
           },
           "repository": {
               "type": "string",
-              "description": "projet",
+              "description": "Repository url",
               "default": "",
               "x-form": {
                   "value": "{{git.project}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{git.project}}"
               },
               "hidden": {
                   "value": false,
@@ -313,8 +345,8 @@
               }
           }
       }
-    },
-    "vault": {
+  },
+  "vault": {
       "description": "Configuration of vault client",
       "type": "object",
       "properties": {
@@ -329,6 +361,9 @@
               "x-form": {
                   "value": "{{vault.VAULT_TOKEN}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{vault.VAULT_TOKEN}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "vault/enabled"
@@ -339,6 +374,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{vault.VAULT_ADDR}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{vault.VAULT_ADDR}}"
               },
               "hidden": {
                   "value": false,
@@ -351,6 +389,9 @@
               "x-form": {
                   "value": "{{vault.VAULT_MOUNT}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{vault.VAULT_MOUNT}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "vault/enabled"
@@ -361,6 +402,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{vault.VAULT_TOP_DIR}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{vault.VAULT_TOP_DIR}}"
               },
               "hidden": {
                   "value": false,
@@ -393,6 +437,9 @@
               "x-form": {
                   "value": "{{s3.AWS_ACCESS_KEY_ID}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -403,6 +450,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_S3_ENDPOINT}}"
               },
               "hidden": {
                   "value": false,
@@ -415,6 +465,9 @@
               "x-form": {
                   "value": "{{s3.AWS_DEFAULT_REGION}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_DEFAULT_REGION}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -426,6 +479,9 @@
               "x-form": {
                   "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
               },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
               "hidden": {
                   "value": false,
                   "path": "s3/enabled"
@@ -436,6 +492,9 @@
               "type": "string",
               "x-form": {
                   "value": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SESSION_TOKEN}}"
               },
               "hidden": {
                   "value": false,
@@ -456,6 +515,10 @@
           "x-form": {
             "hidden": true,
             "value": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
+          },
+          "x-onyxia": {
+              "hidden": true,
+              "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
           }
         },
         "userHostname": {
@@ -465,6 +528,10 @@
           "x-form": {
             "hidden": true,
             "value": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
+          },
+          "x-onyxia": {
+              "hidden": true,
+              "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
           }
         }
       }
@@ -509,6 +576,10 @@
           "x-form": {
             "hidden": true,
             "value": "{{k8s.initScriptUrl}}"
+          },
+          "x-onyxia": {
+              "hidden": true,
+              "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
           }
         },
         "personalInit": {
