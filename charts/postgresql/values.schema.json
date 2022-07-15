@@ -63,6 +63,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "username": {
@@ -71,6 +74,9 @@
               "default": "admin",
               "x-form": {
                 "value": "{{project.id}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.id}}"
               }
             },
             "password": {
@@ -79,6 +85,9 @@
               "default": "changeme",
               "x-form": {
                 "value": "{{project.password}}"
+              },
+              "x-onyxia": {
+                "overwriteDefaultWith": "{{project.password}}"
               }
             },
             "database": {
@@ -117,6 +126,9 @@
                 "default": true,
                 "x-form": {
                   "value": "{{region.defaultNetworkPolicy}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
               }
             }
