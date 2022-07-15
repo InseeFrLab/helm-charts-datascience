@@ -22,6 +22,9 @@
                   "default": "admin",
                   "x-form": {
                     "value": "{{project.id}}"
+                  },
+                  "x-onyxia": {
+                      "overwriteDefaultWith": "{{project.id}}"
                   }
                 },
                 "password": {
@@ -30,6 +33,9 @@
                   "default": "changeme",
                   "x-form": {
                     "value": "{{project.password}}"
+                  },
+                  "x-onyxia": {
+                      "overwriteDefaultWith": "{{project.password}}"
                   }
                 }            
               }
@@ -49,6 +55,10 @@
             "title": "Hostname",
             "x-form": {
               "value": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+            },
+            "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
             }
         }    
       }
