@@ -2561,6 +2561,30 @@ entries:
   dask:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-07-23T20:24:57.627676188Z"
+    dependencies:
+    - enabled: true
+      name: dask
+      repository: https://helm.dask.org/
+      version: 2022.6.0
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Dask natively scales Python
+    digest: f2a87723beb8515033ad9cb3f21285e656c8b9166a7cd873ea384a3a345aaae8
+    home: https://dask.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/dask.png
+    name: dask
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/dask
+    - https://github.com/dask/helm-chart
+    - https://github.com/dask/dask
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/dask-2.3.0/dask-2.3.0.tgz
+    version: 2.3.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-07-11T11:48:54.94828755Z"
     dependencies:
     - enabled: true
@@ -19408,4 +19432,4 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.2/vscode-0.1.2.tgz
     version: 0.1.2
-generated: "2022-07-23T20:04:32.75518049Z"
+generated: "2022-07-23T20:24:57.636498189Z"
