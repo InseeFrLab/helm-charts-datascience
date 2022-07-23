@@ -109,7 +109,7 @@
         }
       }
     },
-    "argocd": {
+    "argo-cd": {
       "type": "object",
       "title": "argocd",
       "properties": {
