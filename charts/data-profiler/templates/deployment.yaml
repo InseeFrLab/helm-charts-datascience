@@ -54,6 +54,11 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 20
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            {{- toYaml .Values.startupProbe | nindent 12 }} 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}         
       initContainers:

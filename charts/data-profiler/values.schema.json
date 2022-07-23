@@ -156,6 +156,25 @@
                 "x-onyxia": {
                     "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
+              },
+              "from": {
+                "type": "array",
+                "description": "Array of source allowed to have network access to your service",
+                "default" : [
+                  {
+                    "namespaceSelector": {
+                      "matchLabels": {
+                        "kubernetes.io/metadata.name": "ingress"
+                      }
+                    }
+                  }
+                ], 
+                "x-form": {
+                    "value": "{{region.from}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.from"
+                }
               }
             }
           }
@@ -208,6 +227,39 @@
           "default": false
         }
       }
-    }
+    },
+    "startupProbe": {
+      "type": "object",
+      "description": "Start up probe",
+      "default": {},
+      "x-form": {
+          "value": "{{region.startupProbe}}"
+      },
+      "x-onyxia": {
+          "overwriteDefaultWith": "region.startupProbe"
+      }
+    },
+    "tolerations": {
+      "type": "array",
+      "description": "Array of tolerations",
+      "default": [],
+      "x-form": {
+          "value": "{{region.tolerations}}"
+      },
+      "x-onyxia": {
+          "overwriteDefaultWith": "region.tolerations"
+      }
+    },
+    "nodeSelector": {
+      "type": "object",
+      "description": "NodeSelector",
+      "default": {},
+      "x-form": {
+          "value": "{{region.nodeSelector}}"
+      },
+      "x-onyxia": {
+          "overwriteDefaultWith": "region.nodeSelector"
+      }
+    }   
   }
 }  
