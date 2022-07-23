@@ -199,33 +199,40 @@
           "type": "object",
           "title": "Database",
           "properties": {
-            "postgresqlUsername": {
-              "type": "string",
-              "title": "Admin user",
-              "default": "admin",
-              "x-form": {
-                "value": "{{project.id}}"
-              },
-              "x-onyxia": {
-                "overwriteDefaultWith": "{{project.id}}"
+            "auth": {
+              "description": "postgres specific configuration",
+              "type": "object",
+              "title": "Authentification",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "title": "Admin user",
+                  "default": "admin",
+                  "x-form": {
+                    "value": "{{project.id}}"
+                  },
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{project.id}}"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "title": "Password",
+                  "default": "changeme",
+                  "x-form": {
+                    "value": "{{project.password}}"
+                  },
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{project.password}}"
+                  }
+                },
+                "database": {
+                  "description": "Name for the default database that is created when the image is first started.",
+                  "type": "string",
+                  "title": "Database",
+                  "default": "mlflow"
+                }
               }
-            },
-            "postgresqlPassword": {
-              "type": "string",
-              "title": "Password",
-              "default": "changeme",
-              "x-form": {
-                "value": "{{project.password}}"
-              },
-              "x-onyxia": {
-                "overwriteDefaultWith": "{{project.password}}"
-              }
-            },
-            "postgresqlDatabase": {
-              "description": "Name for the default database that is created when the image is first started.",
-              "type": "string",
-              "title": "Database",
-              "default": "mlflow"
             }
           }
         }

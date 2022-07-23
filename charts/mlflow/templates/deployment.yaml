@@ -32,7 +32,7 @@ spec:
           args:
             - --host=0.0.0.0
             - --port=8000
-            - --backend-store-uri=postgresql://{{ .Values.global.postgresql.postgresqlUsername }}:{{ .Values.global.postgresql.postgresqlPassword }}@{{ .Values.postgresql.fullnameOverride }}:5432/{{ .Values.global.postgresql.postgresqlDatabase}}
+            - --backend-store-uri=postgresql://{{ .Values.global.postgresql.auth.username }}:{{ .Values.global.postgresql.auth.password }}@{{ .Values.postgresql.fullnameOverride }}:5432/{{ .Values.global.postgresql.auth.database}}
             - --default-artifact-root={{ .Values.service.directory }}
             - --workers=2
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
