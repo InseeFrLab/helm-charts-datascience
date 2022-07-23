@@ -67,6 +67,25 @@
                 "x-onyxia": {
                     "overwriteDefaultWith": "region.defaultNetworkPolicy"
                 }
+              },
+              "from": {
+                "type": "array",
+                "description": "Array of source allowed to have network access to your service",
+                "default" : [
+                  {
+                    "namespaceSelector": {
+                      "matchLabels": {
+                        "kubernetes.io/metadata.name": "ingress"
+                      }
+                    }
+                  }
+                ], 
+                "x-form": {
+                    "value": "{{region.from}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.from"
+                }
               }
             }
           }
@@ -88,6 +107,124 @@
               "overwriteDefaultWith": "{{project.password}}"
           }
         }
+      }
+    },
+    "argocd": {
+      "type": "object",
+      "title": "argocd",
+      "properties": {
+        "dex": {
+          "type": "object",
+          "title": "controller",
+          "properties": {
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+          },
+          "nodeSelector": {
+              "type": "object",
+              "description": "NodeSelector",
+              "default": {},
+              "x-form": {
+                  "value": "{{region.nodeSelector}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.nodeSelector"
+              }
+            }
+          }
+        },
+        "server": {
+          "type": "object",
+          "title": "controller",
+          "properties": {
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+          },
+          "nodeSelector": {
+              "type": "object",
+              "description": "NodeSelector",
+              "default": {},
+              "x-form": {
+                  "value": "{{region.nodeSelector}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.nodeSelector"
+              }
+            }
+          }
+        },
+        "controller": {
+          "type": "object",
+          "title": "controller",
+          "properties": {
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+          },
+          "nodeSelector": {
+              "type": "object",
+              "description": "NodeSelector",
+              "default": {},
+              "x-form": {
+                  "value": "{{region.nodeSelector}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.nodeSelector"
+              }
+            }
+          }
+        },
+        "repoServer": {
+          "type": "object",
+          "title": "controller",
+          "properties": {
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+          },
+          "nodeSelector": {
+              "type": "object",
+              "description": "NodeSelector",
+              "default": {},
+              "x-form": {
+                  "value": "{{region.nodeSelector}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.nodeSelector"
+              }
+            }
+          }
+        }                
       }
     }
   }
