@@ -21,6 +21,28 @@
                   "default": "inseefrlab/rapidsai"   
                 }
               }
+            },
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+            },
+            "nodeSelector": {
+                "type": "object",
+                "description": "NodeSelector",
+                "default": {},
+                "x-form": {
+                    "value": "{{region.nodeSelector}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.nodeSelector"
+                }
             }
           }
         },
@@ -45,6 +67,28 @@
                   "default": "dask-worker"   
                 }
               }
+            },
+            "tolerations": {
+              "type": "array",
+              "description": "Array of tolerations",
+              "default": [],
+              "x-form": {
+                  "value": "{{region.tolerations}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.tolerations"
+              }
+            },
+            "nodeSelector": {
+                "type": "object",
+                "description": "NodeSelector",
+                "default": {},
+                "x-form": {
+                    "value": "{{region.nodeSelector}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.nodeSelector"
+                }
             },
             "replicas": {
               "description": "number of worker",
@@ -129,6 +173,28 @@
                 },
                 "x-onyxia": {
                     "overwriteDefaultWith": "region.defaultNetworkPolicy"
+                }
+              },
+              "from": {
+                "type": "array",
+                "description": "Array of source allowed to have network access to your service",
+                "default" : [
+                    {
+                      "ipBlock": {
+                        "cidr": "10.233.103.0/32"
+                      }
+                    },
+                    {
+                      "ipBlock": {
+                        "cidr": "10.233.111.0/32"
+                      }
+                    }
+                  ], 
+                "x-form": {
+                    "value": "{{region.from}}"
+                },
+                "x-onyxia": {
+                    "overwriteDefaultWith": "region.from"
                 }
               }
             }

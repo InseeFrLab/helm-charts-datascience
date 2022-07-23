@@ -35,11 +35,7 @@ security:
     ip: "0.0.0.0/0" 
   networkPolicy: 
     enabled: true
-    from: 
-    - ipBlock:
-        cidr: 10.233.103.0/32
-    - ipBlock:
-        cidr: 10.233.111.0/32 
+    from: []
 
 ingress:
   enabled: true
