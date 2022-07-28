@@ -5906,6 +5906,32 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-07-28T08:46:27.339043556Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: Jupyter is a notebook accessible through a web browser. You can use
+      it for Python and Spark.
+    digest: c458153c7ed8a4fd7d0ecf0fa19fe1811f3c305f1b38c7f4f04a883d51dfd913
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Hadoop
+    - Spark
+    - Python
+    - Jupyter
+    name: jupyter
+    sources:
+    - https://github.com/InseeFrLab/jupyter-datascience
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/jupyter
+    - https://github.com/jupyter/docker-stacks
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/jupyter-6.4.2/jupyter-6.4.2.tgz
+    version: 6.4.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-07-14T21:58:42.620465755Z"
     dependencies:
     - name: library-chart
@@ -19452,4 +19478,4 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.2/vscode-0.1.2.tgz
     version: 0.1.2
-generated: "2022-07-23T21:29:37.074639326Z"
+generated: "2022-07-28T08:46:27.345657845Z"
