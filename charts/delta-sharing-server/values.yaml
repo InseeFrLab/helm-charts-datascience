@@ -38,9 +38,7 @@ s3:
 coresite:
   configMapName: ""
 
-share:
-  name: ""
-  location: ""  
+share: "" 
 
 security:
   networkPolicy: 

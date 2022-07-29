@@ -85,25 +85,15 @@
     },
     "share": {
       "description": "Share your data",
-      "type": "object",
-      "properties": {
-        "location": {
-          "description": "directory of a delta table",
-          "type": "string",
-          "default": "file://tmp/spark-logs/",
-          "x-form": {
-            "value": "s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/"
-          }
-        },
-        "name": {
-          "description": "name of the table",
-          "type": "string",
-          "default": "table"
-        }        
-      }
+      "type": "string",
+      "render": "textArea",
+      "default": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://bucket/delta-table/\"\n",
+      "x-form": {
+        "value": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/\"\n"
+      },
+      "x-onyxia": {
+        "overwriteDefaultWith": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/\"\n"
+      }   
     },
     "security": {
       "description": "security specific configuration",

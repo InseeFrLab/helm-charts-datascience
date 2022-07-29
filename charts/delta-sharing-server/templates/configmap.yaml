@@ -9,13 +9,7 @@ data:
     # The format version of this config file
     version: 1
     # Config shares/schemas/tables to share
-    shares:
-    - name: "share"
-      schemas:
-      - name: "schema"
-        tables:
-        - name: {{ .Values.share.name | quote }}
-          location: {{ .Values.share.location | quote }}
+    {{ .Values.share }}
     
     # Set the host name that the server will use
     host: {{ .Values.ingress.hostname | quote }}
