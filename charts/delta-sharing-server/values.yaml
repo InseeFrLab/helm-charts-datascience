@@ -38,7 +38,13 @@ s3:
 coresite:
   configMapName: ""
 
-share: "" 
+shares:
+- name: "share1"
+  schemas:
+  - name: "schema1"
+    tables:
+    - name: "table1"
+      location: "s3a://bucket/tablepath"
 
 security:
   networkPolicy: 

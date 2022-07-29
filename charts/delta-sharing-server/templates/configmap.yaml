@@ -9,7 +9,19 @@ data:
     # The format version of this config file
     version: 1
     # Config shares/schemas/tables to share
-    {{ .Values.share }}
+    {{ printf "%s:" "shares" }}
+    {{- range $.Values.shares }}
+    {{ printf "- %s: %s" "name" (.name | quote) }}
+    {{ printf "%s: " "schemas" | indent 2 }}
+    {{- range .schemas }}
+    {{ printf "- %s: %s" "name" (.name | quote) | indent 2 }}
+    {{ printf "%s: " "tables" | indent 4 }}
+    {{- range .tables }}
+    {{ printf "- %s: %s" "name" (.name | quote) | indent 4 }}
+    {{ printf "%s: %s" "location" .location | indent 6 }}
+    {{- end }} 
+    {{- end }} 
+    {{- end }} 
     
     # Set the host name that the server will use
     host: {{ .Values.ingress.hostname | quote }}

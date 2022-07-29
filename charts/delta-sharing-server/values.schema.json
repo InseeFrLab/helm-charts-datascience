@@ -83,17 +83,26 @@
           }
       }
     },
-    "share": {
+    "shares": {
       "description": "Share your data",
-      "type": "string",
-      "render": "textArea",
-      "default": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://bucket/delta-table/\"\n",
-      "x-form": {
-        "value": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/\"\n"
-      },
-      "x-onyxia": {
-        "overwriteDefaultWith": "shares:\n- name: \"share\"\n  schemas:\n  - name: \"schema\"\n  tables:\n  - name: \"name\"\n  location: \"s3a://{{s3.AWS_BUCKET_NAME}}/delta-table/\"\n"
-      }   
+      "type": "array",
+      "default": [
+        {
+          "name": "share1",
+          "schemas": [
+            {
+              "name": "schema1",
+              "tables": [
+                {
+                  "name": "table1",
+                  "location": "s3a://bucket/tablepath"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+ 
     },
     "security": {
       "description": "security specific configuration",
