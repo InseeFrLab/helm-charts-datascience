@@ -132,7 +132,11 @@
                   "description": "Name for the default database that is created when the image is first started.",
                   "type": "string",
                   "title": "Database",
-                  "default": "mlflow"
+                  "default": "lakefs",
+                  "x-onyxia": {
+                    "hidden": true,
+                    "overwriteDefaultWith": "lakefs"
+                  }
                 }
               }
             }
@@ -149,12 +153,10 @@
           "type": "string",
           "title": "LakeFS configuration",
           "x-form": {
-            "hidden": true,
             "value": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id:{{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key:{{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token:{{s3.AWS_SESSION_TOKEN}}\n"
           },
           "x-onyxia": {
-              "hidden": true,
-              "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
+              "overwriteDefaultWith": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id:{{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key:{{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token:{{s3.AWS_SESSION_TOKEN}}\n"
           }
         },
         "secrets": {
@@ -167,9 +169,11 @@
               "title": "Admin user",
               "default": "admin",
               "x-form": {
-                "value": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/defaultdb?sslmode=disable"
+                "hidden": true,
+                "value": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
               },
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/defaultdb?sslmode=disable"
               }
             },
@@ -178,9 +182,11 @@
               "title": "Password",
               "default": "changeme",
               "x-form": {
+                "hidden": true,
                 "value": "{{project.password}}"
               },
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "{{project.password}}"
               }
             }
