@@ -154,10 +154,10 @@
           "title": "LakeFS configuration",
           "render": "textArea",
           "x-form": {
-            "value": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id:{{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key:{{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token:{{s3.AWS_SESSION_TOKEN}}\n"
+            "value": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id: {{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key: {{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token: {{s3.AWS_SESSION_TOKEN}}\n"
           },
           "x-onyxia": {
-              "overwriteDefaultWith": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id:{{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key:{{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token:{{s3.AWS_SESSION_TOKEN}}\n"
+              "overwriteDefaultWith": "blockstore:\n  type: s3\n  s3:\n    region: {{s3.AWS_DEFAULT_REGION}}\n    discover_bucket_region: false\n    endpoint: https://{{s3.AWS_S3_ENDPOINT}}\n    force_path_style: true\n    credentials:\n      access_key_id: {{s3.AWS_ACCESS_KEY_ID}}\n      secret_access_key: {{s3.AWS_SECRET_ACCESS_KEY}}\n      session_token: {{s3.AWS_SESSION_TOKEN}}\n"
           }
         },
         "secrets": {
@@ -175,7 +175,7 @@
               },
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/defaultdb?sslmode=disable"
+                "overwriteDefaultWith": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
               }
             },
             "authEncryptSecretKey": {
