@@ -1,0 +1,42 @@
+apiVersion: v2
+name: lakefs
+description: The lakeFS open source project for data lakes allows data versioning, rollback, debugging, testing in isolation, and more – all in one.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/lakefs.jpg
+keyworks:
+  - s3
+  - git
+home: https://lakefs.io/
+sources:
+  - https://github.com/treeverse/charts/tree/master/charts/lakefs
+  - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/lakefs
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.0.1
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: 1
+dependencies:
+  - name: postgresql
+    version: 11.6.15
+    repository:  https://charts.bitnami.com/bitnami
+    enabled: true
+  - name: library-chart
+    version: 2.0.20
+    repository: https://inseefrlab.github.io/helm-charts-datascience
+  - name: lakefs
+    version: 0.5.65
+    repository: https://charts.lakefs.io
+    enabled: true
