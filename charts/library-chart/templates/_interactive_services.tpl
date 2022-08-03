@@ -1,5 +1,40 @@
 {{/* vim: set filetype=mustache: */}}
 
+{{/* Template to generate an Ingress for the Spark UI */}}
+{{- define "library-chart.ingressSpark" -}}
+{{- if .Values.ingress.enabled -}}
+{{- if .Values.spark.sparkui -}}
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $svcPort := .Values.networking.sparkui.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}-sparkui
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+  annotations:
+    {{- include "library-chart.ingress.annotations" . | nindent 4 }}
+spec:
+{{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+        - {{ .Values.ingress.sparkHostname | quote }}
+{{- end }}
+  rules:
+    - host: {{ .Values.ingress.sparkHostname | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $fullName }}
+                port: 
+                  number: {{ $svcPort }}
+{{- end }}
+{{- end }}
+{{- end }}
+
 {{/* Template to generate a custom Ingress */}}
 {{- define "library-chart.ingressUser" -}}
 {{- if .Values.ingress.enabled -}}
