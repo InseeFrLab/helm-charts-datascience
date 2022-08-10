@@ -8348,6 +8348,34 @@ entries:
   lakefs:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-08-10T12:00:00.268517425Z"
+    dependencies:
+    - enabled: true
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.15
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    - enabled: true
+      name: lakefs
+      repository: https://charts.lakefs.io
+      version: 0.5.65
+    description: The lakeFS open source project for data lakes allows data versioning,
+      rollback, debugging, testing in isolation, and more – all in one.
+    digest: c09833b3b738eb6b1e79ab05d57ee7fcb9bc07b0413081a58f8276b332d519e5
+    home: https://lakefs.io/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/lakefs.jpg
+    name: lakefs
+    sources:
+    - https://github.com/treeverse/charts/tree/master/charts/lakefs
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/lakefs
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/lakefs-0.0.6/lakefs-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-07-31T21:36:10.636565271Z"
     dependencies:
     - enabled: true
@@ -19675,4 +19703,4 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-0.1.2/vscode-0.1.2.tgz
     version: 0.1.2
-generated: "2022-08-03T15:31:04.740885904Z"
+generated: "2022-08-10T12:00:00.274986609Z"
