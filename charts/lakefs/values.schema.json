@@ -128,6 +128,17 @@
                     "overwriteDefaultWith": "{{project.password}}"
                   }
                 },
+                "postgresPassword": {
+                  "type": "string",
+                  "title": "Password",
+                  "default": "changeme",
+                  "x-form": {
+                    "value": "{{project.password}}"
+                  },
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{project.password}}"
+                  }
+                },
                 "database": {
                   "description": "Name for the default database that is created when the image is first started.",
                   "type": "string",
@@ -171,11 +182,11 @@
               "default": "admin",
               "x-form": {
                 "hidden": true,
-                "value": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
+                "value": "postgres://postgres:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
               },
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "postgres://{{project.id}}:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
+                "overwriteDefaultWith": "postgres://postgres:{{project.password}}@lakefs-db:5432/lakefs?sslmode=disable"
               }
             },
             "authEncryptSecretKey": {

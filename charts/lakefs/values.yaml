@@ -6,7 +6,7 @@ global:
     auth:
       username: "admin"
       password: "changeme"
-      database: "mlflow"
+      database: "lakefs"
 
 lakefs:
   lakefsConfig: |
@@ -21,8 +21,8 @@ lakefs:
         force_path_style: true
         discover_bucket_region: false
   secrets:
-    databaseConnectionString: postgres://user-tm8enk:ai6oi4lzpmcqpe7ckbt7@postgresql-54301:5432/defaultdb?sslmode=disable
-    authEncryptSecretKey: ai6oi4lzpmcqpe7ckbt7
+    databaseConnectionString: postgres://admin:changeme@:5432/lakefs?sslmode=disable
+    authEncryptSecretKey: changeme
 
 security:
   networkPolicy: 
