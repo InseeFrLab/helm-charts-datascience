@@ -3,11 +3,11 @@
 service:
   user: jovyan
   image:
-    version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1"
+    version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.3.0-v0.0.1"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.2.1-v0.0.1"
+      version: "inseefrlab/jupyter-datascience:py3.9.12-spark3.3.0-v0.0.1"
 
 spark:
   sparkui: false
@@ -31,6 +31,7 @@ spark:
     spark.driver.memory: "2g"
     spark.dynamicAllocation.executorAllocationRatio: "1"
     spark.dynamicAllocation.shuffleTracking.enabled: "true"
+    spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled: "true"
 
 security:
   password: "changeme"
