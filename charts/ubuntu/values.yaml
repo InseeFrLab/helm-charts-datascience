@@ -114,8 +114,8 @@ networking:
 ingress:
   enabled: true
   tls: true
+  ingressClassName: ""
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/app-root: /vnc.html
     # kubernetes.io/tls-acme: "true"
   hostname: chart-example.local
