@@ -12,6 +12,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
+  ingressClassName: {{ .Values.ingress.ingressClassName | quote }}
 {{- if .Values.ingress.tls }}
   tls:
     - hosts:
