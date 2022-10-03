@@ -1,8 +1,8 @@
 ingress:
   enabled: true
   tls: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
+  ingressClassName: ""
+  annotations: []
     # kubernetes.io/tls-acme: "true"
   hostname: chart-example.local
   #  - secretName: chart-example-tls
@@ -15,11 +15,7 @@ security:
     ip: "0.0.0.0/0"
   networkPolicy: 
     enabled: true
-    from: 
-    - ipBlock:
-        cidr: 10.233.103.0/32
-    - ipBlock:
-        cidr: 10.233.111.0/32
+    from: []
 
 serviceAccount:
   create: true
