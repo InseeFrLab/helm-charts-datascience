@@ -8,8 +8,8 @@ apiserver: "https://kubernetes.default.svc"
 ingress:
   enabled: true
   tls: true
+  ingressClassName: ""
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
   hostname: chart-example.local
   #  - secretName: chart-example-tls
@@ -22,11 +22,7 @@ security:
     ip: "0.0.0.0/0"
   networkPolicy: 
     enabled: true
-    from: 
-    - ipBlock:
-        cidr: 10.233.103.0/32
-    - ipBlock:
-        cidr: 10.233.111.0/32
+    from: []
 
 global:
   networkPolicy:
