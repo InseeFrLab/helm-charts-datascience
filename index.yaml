@@ -1792,6 +1792,25 @@ entries:
   ubuntu:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-10-03T07:50:58.12268095Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.1.0
+    description: Ubuntu with a graphical user interface.
+    digest: 8ee79d029a1873066c94206668e7c2975b5bc98c305c0c6603851e871562df49
+    home: https://www.ubuntu-fr.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/ubuntu.png
+    name: ubuntu
+    sources:
+    - https://github.com/InseeFrLab/ubuntu-vnc
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/ubuntu
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/ubuntu-5.3.0/ubuntu-5.3.0.tgz
+    version: 5.3.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-07-15T14:30:05.083661646Z"
     dependencies:
     - name: library-chart
@@ -1877,4 +1896,4 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-6.8.0/vscode-6.8.0.tgz
     version: 6.8.0
-generated: "2022-10-03T07:48:36.884688488Z"
+generated: "2022-10-03T07:50:58.123001846Z"
