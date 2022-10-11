@@ -1765,6 +1765,31 @@ entries:
   superset:
   - apiVersion: v2
     appVersion: "1"
+    created: "2022-10-11T19:29:02.0332169Z"
+    dependencies:
+    - name: superset
+      repository: https://apache.github.io/superset
+      version: 0.5.10
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-datascience
+      version: 2.0.20
+    description: Apache Superset is a modern data exploration and visualization platform.
+    digest: d2ac30ad90cc0ecf151aed30b1d7d3304c8d8e15a789ea9e1d4172d08fc4056e
+    home: https://superset.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/superset.png
+    keywords:
+    - Tool
+    - Data
+    name: superset
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-datascience/tree/master/charts/superset
+    - https://github.com/apache/superset
+    type: application
+    urls:
+    - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/superset-1.2.0/superset-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2022-07-15T14:19:28.116567596Z"
     dependencies:
     - name: superset
@@ -1979,4 +2004,4 @@ entries:
     urls:
     - https://github.com/InseeFrLab/helm-charts-datascience/releases/download/vscode-6.8.0/vscode-6.8.0.tgz
     version: 6.8.0
-generated: "2022-10-03T11:55:11.904312899Z"
+generated: "2022-10-11T19:29:02.0337224Z"
