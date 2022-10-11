@@ -63,6 +63,7 @@ superset:
 
 ingress:
   enabled: true
+  ingressClassName: ""
   tls: true
   annotations:
     kubernetes.io/ingress.class: nginx
