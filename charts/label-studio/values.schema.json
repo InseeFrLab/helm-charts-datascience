@@ -82,6 +82,87 @@
           }
       }
   },
+    "s3": {
+      "description": "Configuration of temporary identity",
+      "type": "object",
+      "properties": {
+          "enabled": {
+              "type": "boolean",
+              "description": "Add S3 temporary identity inside your environment",
+              "default": true
+          },
+          "accessKeyId": {
+              "description": "AWS Access Key",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_ACCESS_KEY_ID}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
+              }
+          },
+          "endpoint": {
+              "description": "AWS S3 Endpoint",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_S3_ENDPOINT}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
+              }
+          },
+          "defaultRegion": {
+              "description": "AWS S3 default region",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_DEFAULT_REGION}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_DEFAULT_REGION}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
+              }
+          },
+          "secretAccessKey": {
+              "description": "AWS S3 secret access key",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
+              }
+          },
+          "sessionToken": {
+              "description": "AWS S3 session Token",
+              "type": "string",
+              "x-form": {
+                  "value": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "x-onyxia": {
+                  "overwriteDefaultWith": "{{s3.AWS_SESSION_TOKEN}}"
+              },
+              "hidden": {
+                  "value": false,
+                  "path": "s3/enabled"
+              }
+          }
+      }
+  },
     "ingress": {
       "type": "object",
       "form": true,

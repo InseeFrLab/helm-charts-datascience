@@ -19,6 +19,18 @@ service:
 liveness:
   enabled : "true"
 
+s3:
+  # Specifies whether a config map should be created
+  enabled: false
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
+  accessKeyId: ""
+  endpoint: "minio.lab.sspcloud.fr"
+  defaultRegion: "us-east-1"
+  secretAccessKey: ""
+  sessionToken: ""
+
 security:
   password: changeme
   username: username

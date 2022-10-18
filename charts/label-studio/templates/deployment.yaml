@@ -30,6 +30,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+
+          envFrom: 
+            {{- if .Values.s3.enabled }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameS3" . }}
+            {{- end }}        
+          
           env:
             - name: LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK
               value: "true"
@@ -37,6 +44,10 @@ spec:
               value: {{ .Values.security.username }}
             - name: LABEL_STUDIO_PASSWORD
               value: {{ .Values.security.password }}
+            - name: S3_ENDPOINT
+              value: "https://{{ .Values.s3.endpoint }}"
+            - name: S3-region
+              value: {{ .Values.s3.defaultRegion }}
           ports:
             - name: http
               containerPort: 8080
