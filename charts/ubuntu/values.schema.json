@@ -19,7 +19,7 @@
                       "version": {
                         "description": "ubuntu supported version",
                         "type": "string",
-                        "enum": ["inseefrlab/ubuntu-vnc:v1.0.0"],
+                        "enum": ["inseefrlab/ubuntu-vnc:"],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                         "hidden": {
                             "value": true,
@@ -600,30 +600,30 @@
             "description": "Init parameters",
             "type": "object",
             "properties": {
-                "standardInit": {
-                    "type": "string",
-                    "description": "initialization script",
-                    "default": "",
-                    "x-form": {
-                        "hidden": true,
-                        "value": "{{k8s.initScriptUrl}}"
-                    },
-                    "x-onyxia": {
-                        "hidden": true,
-                        "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
-                    }
+              "regionInit": {
+                "type": "string",
+                "description": "region initialization script",
+                "default": "",
+                "x-form": {
+                  "hidden": true,
+                  "value": "{{k8s.initScriptUrl}}"
                 },
-                "personalInit": {
-                    "type": "string",
-                    "description": "initialization script",
-                    "default": ""
-                },
-                "personalInitArgs": {
-                    "type": "string",
-                    "description": "args for initialization script",
-                    "default": ""
+                "x-onyxia": {
+                  "hidden": true,
+                  "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
                 }
+              },
+              "personalInit": {
+                "type": "string",
+                "description": "user initialization script",
+                "default": ""
+              },
+              "personalInitArgs": {
+                "type": "string",
+                "description": "args for user initialization script",
+                "default": ""
+              }
             }
-        }
+          }
     }
 }

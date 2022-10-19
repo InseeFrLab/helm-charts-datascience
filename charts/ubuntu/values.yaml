@@ -19,8 +19,8 @@ security:
     ip: "0.0.0.0/0"
 
 init:
-  standardInit: "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh"
-  filename: "onyxia-init.sh"
+  standardInitPath: "/opt/onyxia-init.sh"
+  regionInit: ""
   personalInit: ""
   personalInitArgs: ""
 

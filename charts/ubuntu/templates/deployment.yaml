@@ -53,7 +53,7 @@ spec:
           image: "{{ .Values.service.image.version }}"
           {{- end }}
           command: ["/bin/sh","-c"]
-          args: ["/data/{{ .Values.init.filename}} /usr/bin/tini -- /dockerstartup/startup.sh"]
+          args: ["{{ .Values.init.standardInitPath }} /usr/bin/tini -- /dockerstartup/startup.sh"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: VNC_PW
@@ -99,16 +99,7 @@ spec:
             - mountPath: /dev/shm
               name: dshm
             - mountPath: /home/headless/work
-              name: home
-      initContainers:
-        - name: standard-init
-          image: "busybox"
-          imagePullPolicy: "IfNotPresent"
-          command: ["/bin/sh","-c"]
-          args: ["wget -O /data/{{ .Values.init.filename}} {{ .Values.init.standardInit}} && chmod +x /data/{{ .Values.init.filename}}"]
-          volumeMounts:
-          - mountPath: /data
-            name: {{$volumeName}}          
+              name: home 
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
