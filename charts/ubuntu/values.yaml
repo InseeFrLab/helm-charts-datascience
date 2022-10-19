@@ -2,7 +2,7 @@
 
 service:
   image:
-    version: "inseefrlab/ubuntu-vnc:latest"
+    version: "inseefrlab/ubuntu-vnc:v1.0.1"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
