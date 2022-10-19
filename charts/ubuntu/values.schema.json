@@ -19,13 +19,13 @@
                       "version": {
                         "description": "ubuntu supported version",
                         "type": "string",
-                        "enum": ["inseefrlab/ubuntu-vnc:"],
+                        "enum": ["inseefrlab/ubuntu-vnc:latest"],
                         "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                         "hidden": {
                             "value": true,
                             "path": "service/image/custom/enabled"
                         },
-                        "default": "inseefrlab/ubuntu-vnc:v1.0.0"
+                        "default": "inseefrlab/ubuntu-vnc:latest"
                       },
                       "custom" : {
                         "description": "use a custom ubuntu docker image",
@@ -39,7 +39,7 @@
                           "version": {
                             "description": "ubuntu unsupported version",
                             "type": "string",
-                            "default": "inseefrlab/ubuntu-vnc:v1.0.0",
+                            "default": "inseefrlab/ubuntu-vnc:latest",
                             "hidden": {
                                 "value": false,
                                 "path": "service/image/custom/enabled"
