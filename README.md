@@ -5,6 +5,13 @@ There are some news catalogs you must use with Onyxia :
 - [Databases](https://github.com/InseeFrLab/helm-charts-databases)
 - [Automation](https://github.com/InseeFrLab/helm-charts-automation)
 
+This repository will be archived
+
+
+
+
+
+
 This collection of Helm Charts is tailored for datascientists !
 It is primarly designed to work with [Onyxia](https://github.com/inseefrlab/onyxia) but also works as a standalone Helm repository.  
 See the other repository ([Helm charts](https://github.com/inseefrlab/helm-charts)) for infrastructure focused charts.  
