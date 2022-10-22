@@ -98,6 +98,20 @@
               "hidden": true,
               "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}.{{k8s.domain}}"
           }
+        },
+        "ingressClassName": {
+          "type": "string",
+          "form": true,
+          "title": "ingressClassName",
+          "default": "",
+          "x-form": {
+              "hidden": true,
+              "value": "{{k8s.ingressClassName}}"
+          },
+          "x-onyxia": {
+              "hidden": true,
+              "overwriteDefaultWith": "{{k8s.ingressClassName}}"
+          }
         }
       }
     },
@@ -137,7 +151,7 @@
               "description": "Name for the default database that is created when the image is first started.",
               "type": "string",
               "title": "Database",
-              "default": "mlflow"
+              "default": "labelstudio"
             }
           }
         }
