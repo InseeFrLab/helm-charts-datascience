@@ -20,7 +20,7 @@
               "sliderStep": 1,
               "sliderUnit": "",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.gpu"
+                  "overwriteDefaultWith": "region.ressources.gpu",
                   "overwriteSliderWith": "region.sliders.gpu"
               }
             },
@@ -38,7 +38,7 @@
               "sliderExtremitySemantic": "Maximum",
               "sliderRangeId": "cpu",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.cpuLimit"
+                  "overwriteDefaultWith": "region.ressources.cpuLimit",
                   "overwriteSliderWith": "region.sliders.cpu"
               }
             },
@@ -56,7 +56,7 @@
               "sliderExtremitySemantic": "Maximum",
               "sliderRangeId": "memory",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.memoryLimit"
+                  "overwriteDefaultWith": "region.ressources.memoryLimit",
                   "overwriteSliderWith": "region.sliders.memory"
               }
             }
@@ -80,7 +80,7 @@
               "sliderExtremitySemantic": "guaranteed",
               "sliderRangeId": "cpu",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.cpuRequest"
+                  "overwriteDefaultWith": "region.ressources.cpuRequest",
                   "overwriteSliderWith": "region.sliders.cpu"
               }
             },
@@ -98,7 +98,7 @@
               "sliderExtremitySemantic": "guaranteed",
               "sliderRangeId": "memory",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.memoryRequest"
+                  "overwriteDefaultWith": "region.ressources.memoryRequest",
                   "overwriteSliderWith": "region.sliders.memory"
               }
             }
@@ -213,9 +213,9 @@
           "sliderMin": 1,
           "sliderMax": 100,
           "sliderStep": 1,
-          "sliderUnit": "Gi",,
+          "sliderUnit": "Gi",
           "x-onyxia": {
-              "overwriteDefaultWith": "region.ressources.disk"
+              "overwriteDefaultWith": "region.ressources.disk",
               "overwriteSliderWith": "region.sliders.disk"
           }
           "hidden": {
