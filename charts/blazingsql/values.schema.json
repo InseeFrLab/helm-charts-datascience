@@ -18,7 +18,11 @@
               "sliderMin": 0,
               "sliderMax": 3,
               "sliderStep": 1,
-              "sliderUnit": ""
+              "sliderUnit": "",
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.ressources.gpu"
+                  "overwriteSliderWith": "region.sliders.gpu"
+              }
             },
             "cpu": {
               "description": "The maximum amount of cpu",
@@ -32,7 +36,11 @@
               "sliderUnit": "m",
               "sliderExtremity": "up",
               "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "cpu"
+              "sliderRangeId": "cpu",
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.ressources.cpuLimit"
+                  "overwriteSliderWith": "region.sliders.cpu"
+              }
             },
             "memory": {
               "description": "The maximum amount of memory",
@@ -46,7 +54,11 @@
               "sliderUnit": "Gi",
               "sliderExtremity": "up",
               "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "memory"
+              "sliderRangeId": "memory",
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.ressources.memoryLimit"
+                  "overwriteSliderWith": "region.sliders.memory"
+              }
             }
           }
         },
@@ -66,7 +78,11 @@
               "sliderUnit": "m",
               "sliderExtremity": "down",
               "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "cpu"
+              "sliderRangeId": "cpu",
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.ressources.cpuRequest"
+                  "overwriteSliderWith": "region.sliders.cpu"
+              }
             },
             "memory": {
               "description": "The amount of memory guaranteed",
@@ -80,7 +96,11 @@
               "sliderUnit": "Gi",
               "sliderExtremity": "down",
               "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "memory"
+              "sliderRangeId": "memory",
+              "x-onyxia": {
+                  "overwriteDefaultWith": "region.ressources.memoryRequest"
+                  "overwriteSliderWith": "region.sliders.memory"
+              }
             }
           }
         }
@@ -193,7 +213,11 @@
           "sliderMin": 1,
           "sliderMax": 100,
           "sliderStep": 1,
-          "sliderUnit": "Gi",
+          "sliderUnit": "Gi",,
+          "x-onyxia": {
+              "overwriteDefaultWith": "region.ressources.disk"
+              "overwriteSliderWith": "region.sliders.disk"
+          }
           "hidden": {
             "value": false,
             "path": "persistence/enabled"
