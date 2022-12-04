@@ -217,7 +217,7 @@
           "x-onyxia": {
               "overwriteDefaultWith": "region.ressources.disk",
               "overwriteSliderWith": "region.sliders.disk"
-          }
+          },
           "hidden": {
             "value": false,
             "path": "persistence/enabled"
