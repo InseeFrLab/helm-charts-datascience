@@ -20,7 +20,7 @@
               "sliderStep": 1,
               "sliderUnit": "",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.gpu",
+                  "overwriteDefaultWith": "region.resources.gpu",
                   "useRegionSliderConfig": "gpu"
               }
             },
@@ -38,7 +38,7 @@
               "sliderExtremitySemantic": "Maximum",
               "sliderRangeId": "cpu",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.cpuLimit",
+                  "overwriteDefaultWith": "region.resources.cpuLimit",
                   "useRegionSliderConfig": "cpu"
               }
             },
@@ -56,7 +56,7 @@
               "sliderExtremitySemantic": "Maximum",
               "sliderRangeId": "memory",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.memoryLimit",
+                  "overwriteDefaultWith": "region.resources.memoryLimit",
                   "useRegionSliderConfig": "memory"
               }
             }
@@ -80,7 +80,7 @@
               "sliderExtremitySemantic": "guaranteed",
               "sliderRangeId": "cpu",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.cpuRequest",
+                  "overwriteDefaultWith": "region.resources.cpuRequest",
                   "useRegionSliderConfig": "cpu"
               }
             },
@@ -98,7 +98,7 @@
               "sliderExtremitySemantic": "guaranteed",
               "sliderRangeId": "memory",
               "x-onyxia": {
-                  "overwriteDefaultWith": "region.ressources.memoryRequest",
+                  "overwriteDefaultWith": "region.resources.memoryRequest",
                   "useRegionSliderConfig": "memory"
               }
             }
@@ -215,7 +215,7 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
-              "overwriteDefaultWith": "region.ressources.disk",
+              "overwriteDefaultWith": "region.resources.disk",
               "useRegionSliderConfig": "disk"
           },
           "hidden": {
