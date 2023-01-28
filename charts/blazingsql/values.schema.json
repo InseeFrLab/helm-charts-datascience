@@ -21,7 +21,7 @@
               "sliderUnit": "",
               "x-onyxia": {
                   "overwriteDefaultWith": "region.ressources.gpu",
-                  "overwriteSliderWith": "region.sliders.gpu"
+                  "useRegionSliderConfig": "gpu"
               }
             },
             "cpu": {
@@ -39,7 +39,7 @@
               "sliderRangeId": "cpu",
               "x-onyxia": {
                   "overwriteDefaultWith": "region.ressources.cpuLimit",
-                  "overwriteSliderWith": "region.sliders.cpu"
+                  "useRegionSliderConfig": "cpu"
               }
             },
             "memory": {
@@ -57,7 +57,7 @@
               "sliderRangeId": "memory",
               "x-onyxia": {
                   "overwriteDefaultWith": "region.ressources.memoryLimit",
-                  "overwriteSliderWith": "region.sliders.memory"
+                  "useRegionSliderConfig": "memory"
               }
             }
           }
@@ -81,7 +81,7 @@
               "sliderRangeId": "cpu",
               "x-onyxia": {
                   "overwriteDefaultWith": "region.ressources.cpuRequest",
-                  "overwriteSliderWith": "region.sliders.cpu"
+                  "useRegionSliderConfig": "cpu"
               }
             },
             "memory": {
@@ -99,7 +99,7 @@
               "sliderRangeId": "memory",
               "x-onyxia": {
                   "overwriteDefaultWith": "region.ressources.memoryRequest",
-                  "overwriteSliderWith": "region.sliders.memory"
+                  "useRegionSliderConfig": "memory"
               }
             }
           }
@@ -216,7 +216,7 @@
           "sliderUnit": "Gi",
           "x-onyxia": {
               "overwriteDefaultWith": "region.ressources.disk",
-              "overwriteSliderWith": "region.sliders.disk"
+              "useRegionSliderConfig": "disk"
           },
           "hidden": {
             "value": false,
