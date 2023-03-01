@@ -169,6 +169,7 @@
                     "hidden": true,
                     "overwriteDefaultWith": "region.from"
                   }
+                }
               }
             }
           }
