@@ -43,6 +43,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.repository }}:{{ .Values.service.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: REFINE_INTERFACE
+              value: "0.0.0.0"
+            - name: REFINE_MEMORY
+              value: "{{ .Values.service.memory }}"
+            - name: REFINE_DATA_DIR
+              value: "/data"                        
           ports:
             - name: http
               containerPort: 3333

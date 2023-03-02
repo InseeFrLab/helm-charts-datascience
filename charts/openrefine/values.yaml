@@ -1,11 +1,12 @@
 # Default values for openrefine.
 
 service:
+  memory: "1024M"
   image:
-    repository: "vimagick/openrefine"
+    repository: "easypi/openrefine"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "3.7.0"
 
 security:
   networkPolicy: 

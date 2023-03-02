@@ -2,6 +2,22 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+      "service": {
+        "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+        "type": "object",
+        "properties": {
+            "memory": {
+                "description": "Java memory",
+                "type": "string",
+                "default": "1024M",
+                "render": "slider",
+                "sliderMin": 1024,
+                "sliderMax": 32768,
+                "sliderStep": 1024,
+                "sliderUnit": "M"
+            }
+        }
+      },      
       "resources": {
         "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
         "type": "object",
