@@ -68,16 +68,16 @@ spec:
             {{- end }}   
           envFrom: 
             {{- if .Values.s3.enabled }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameS3" . }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameS3" . }}
             {{- end }}
             {{- if .Values.vault.enabled }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameVault" . }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameVault" . }}
             {{- end }}
             {{- if .Values.git.enabled }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameGit" . }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameGit" . }}
             {{- end }}
           ports:
             - name: http

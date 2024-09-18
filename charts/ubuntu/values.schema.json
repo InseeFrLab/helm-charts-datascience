@@ -153,20 +153,17 @@
             }
         },
         "security": {
-            "description": "RStudio specific configuration",
+            "description": "security specific configuration",
             "type": "object",
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "Password",
                     "default": "changeme",
-                    "x-form": {
-                        "value": "{{project.password}}"
-                    },
                     "x-onyxia": {
-                        "overwriteDefaultWith": "{{project.password}}"
-                    }
-                },
+                        "overwriteDefaultWith": "{{service.oneTimePassword}}",
+                        "overwriteSchemaWith": "ide/password"
+                    }                },
                 "allowlist": {
                     "type": "object",
                     "description": "IP protection",
@@ -204,6 +201,9 @@
                   "networkPolicy": {
                     "type": "object",
                     "description": "Define access policy to the service",
+                    "x-onyxia": {
+                        "overwriteSchemaWith": "network-policy.json"
+                    },
                     "properties": {
                       "enabled": {
                         "type": "boolean",
