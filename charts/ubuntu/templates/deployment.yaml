@@ -84,10 +84,12 @@ spec:
               containerPort: 6901
               protocol: TCP
           livenessProbe:
+            failureThreshold: 30
             httpGet:
               path: /
               port: http
           readinessProbe:
+            failureThreshold: 30
             httpGet:
               path: /
               port: http
